@@ -1,2 +1,2 @@
-# Abhishek-Project-s
-Selenium_Java
+# JTAFi18n
+JTAF Framework with internationalization support

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="SuiteRegression" parallel="tests" thread-count="5">
+<parameter name="appURL" value="https://devapp.bluestrataemr.com" />
+<parameter name="browserName" value="Chrome" /> 
+ <parameter name="automationKit" value="selenium" />
+  <test name="Test">
+    <classes>     
+      <class name="aut.tests.functionaltests.CreateOrderDetails"/>      
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- SuiteRegression -->
