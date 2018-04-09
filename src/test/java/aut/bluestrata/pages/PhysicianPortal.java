@@ -43,7 +43,6 @@ public class PhysicianPortal extends PageTemplate {
 	public By drpdwnReceivedBy = By.id("receivedById");
 	public By drpdwnReceivedOrder = By.id("typeReceivedOrder");
 	public By chkbxIsAdmitting = By.id("isAdmitting");
-	
 	public By linkSearchMedications = By.xpath("(//label[text()='Medication']/..//button[@class='btn btn-link'])[1]");
 	public By txtMedicationName = By.xpath("//input[@id='query']");
 	
