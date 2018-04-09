@@ -130,7 +130,7 @@ public abstract class PageTemplate {
 
 	}
 
-	protected void click(By byLocator) {
+	protected void click(By byLocator , String ControlName) {
 		try {
 			this.waitUntilElementIsClickable(byLocator);
 			try
@@ -149,17 +149,17 @@ public abstract class PageTemplate {
 				this.clickWithJavascript(byLocator);
 			}
 
-			LOG.info(String.format("Click Successful - (By - %s)", byLocator));
+			LOG.info(String.format("Click Successful - (By - %s)", ControlName));
 			if (this.testReport != null) {
 				this.testReport.logSuccess("Click",
-						String.format("Click Performed On Locator - <mark>%s</mark>", byLocator));
+						String.format("Click Performed On Locator - <mark>%s</mark>", ControlName ));
 			}
 
 		} catch (Exception ex) {
 			LOG.error(String.format("Exception Encountered - %s", ex.getMessage()));
 			if (this.testReport != null) {
 				this.testReport.logFailure("Click",
-						String.format("Failed To Perform Click On Locator - <mark>%s</mark>", byLocator),
+						String.format("Failed To Perform Click On Locator - <mark>%s</mark>", ControlName ),
 						this.getScreenShotName());
 				this.testReport.logException(ex);
 			}
@@ -491,6 +491,48 @@ public abstract class PageTemplate {
 		}
 		
 	}
+	
+	 public void SendKeysToElementClearFirst( By locator, String text )
+	        {
 
+	            if ((this.wd instanceof InternetExplorerDriver))
+	            {
+	                wd.findElement(locator).clear();
+	                this.waitUntilElementIsClickable(locator);
+	                this.sendKeys(locator, text);
+	                this.testReport.logSuccess("Click",
+							String.format("Entered Text - <mark>%s</mark> To Locator - <mark>%s</mark>", text, locator));
+	            }
+	            else
+	            {
+	            	wd.findElement(locator).clear();
+	            	this.waitUntilElementIsClickable(locator);
+	                this.sendKeysAsAction(locator, text);
+	                this.testReport.logSuccess("Click",
+							String.format("Entered Text - <mark>%s</mark> To Locator - <mark>%s</mark>", text, locator));
+	            }
+
+}
+	 public  void VerifyWebElementPresent( By locator, String controlName)
+     {
+         try
+         {
+        	 if(this.isElementPresent(locator))
+             {
+                 testReport.logSuccess("Element Present", String.format("Element is present - <mark>%s</mark>", controlName));
+             }
+             else
+             {
+                 testReport.logFailure("Element Not Present", String.format("Element not present - <mark>%s</mark>", controlName));
+             }
+         }
+         catch (Exception e)
+         {
+             testReport.logFailure("Element Not Present", String.format("Element not present - <mark>%s</mark>", controlName));
+         }
+
+     }
+ 
+	 
 }
 

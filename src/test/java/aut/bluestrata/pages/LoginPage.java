@@ -26,21 +26,24 @@ public class LoginPage extends PageTemplate {
 	{
 		String strValFromConfigFile = null;
 		this.wd = this.wd.switchTo().defaultContent();		
-		this.sendKeysAsAction((By.xpath(String.format(this.getLocator("placeHolderTextBox"), "Key"))), key);
-		this.click(By.xpath(String.format(this.getLocator("button"), "Submit Key")));		
+		this.sendKeys((By.xpath(String.format(this.getLocator("placeHolderTextBox"), "Key"))), key);
+		this.click(By.xpath(String.format(this.getLocator("button"), "Submit Key")),"Submit Key Button");		
 		
 		strValFromConfigFile = String.format(ReusableLibs.getKeyValue(IConstants.AUT_CONFIG_FILE, "placeHolderTextBox"), "Username");
 		this.waitInSecs(3);	
-		this.sendKeysAsAction(By.xpath(strValFromConfigFile), userName);
+		this.sendKeys(By.xpath(strValFromConfigFile), userName);
 		
 		strValFromConfigFile = String.format(ReusableLibs.getKeyValue(IConstants.AUT_CONFIG_FILE, "placeHolderTextBox"), "Password");
-		this.sendKeysAsAction(By.xpath(strValFromConfigFile), password);
+		this.sendKeys(By.xpath(strValFromConfigFile), password);
 		
 		strValFromConfigFile = String.format(ReusableLibs.getKeyValue(IConstants.AUT_CONFIG_FILE, "button"), "Sign in");
 		
-		this.click(By.xpath(strValFromConfigFile));
+		this.click(By.xpath(strValFromConfigFile),"Sign In Button");
 		
 		this.waitInSecs(5);
 	}
+	
+	
+	
 
 }
