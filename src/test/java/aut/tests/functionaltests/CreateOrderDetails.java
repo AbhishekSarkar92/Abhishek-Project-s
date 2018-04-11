@@ -163,7 +163,7 @@ public class CreateOrderDetails extends TestTemplateMethodLevelInit {
 		physicianPortal.SaveOrderFrequency();
 }
 	
-	
+	@Test(priority=2)
 	public void CreateOrderDetailsForResidentWithMedication(ITestContext testContext)
 	{
 		PhysicianPortal physicianPortal=new PhysicianPortal(threadLocalWebDriver.get(), TestTemplate.testReport);

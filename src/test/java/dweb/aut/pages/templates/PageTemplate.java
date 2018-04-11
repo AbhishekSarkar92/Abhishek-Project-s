@@ -532,7 +532,27 @@ public abstract class PageTemplate {
          }
 
      }
+	 
+	/* public void ElementIsDisable(By locator, String controlName)
+	 {
+		 try
+         {
+			 this.waitUntilElementIsClickable(locator);
+			 {
+			 testReport.logFailure("Element is Enable", String.format("Element is Enable - <mark>%s</mark>", controlName));
+			 }
+			 else
+			 {
+			 testReport.logSuccess("Element is Disable", String.format("Element is  Disable- <mark>%s</mark>", controlName));
+			 }
+	 }
+	 
+	 catch (Exception e)
+     {
+         testReport.logFailure("Element is Enable", String.format("Element is Enable - <mark>%s</mark>", controlName));
+     }
  
 	 
+}*/
 }
 

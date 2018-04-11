@@ -1,6 +1,8 @@
 package aut.bluestrata.pages;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -23,11 +25,12 @@ public class PhysicianPortal extends PageTemplate {
 	
 	//Create An order 
 	public By btnCreateOrder = By.xpath("//button[text()='Create an Order']");
-	public By btnCreateSet = By.xpath("//button[text()='Create from Sets']");
+	public By btnCreateSet = By.xpath("//button[text()='Create From Set']");
 	public By txtOrderType= By.id("settingOrderTypeId");
 	public By linkCreateLibraryItem = By.xpath("//label[contains(.,'Pick From Library')]/../div/button");
 	public By txtPickLibrary = By.id("libraryCreate");
 	public By linkCreate = By.xpath("//label[contains(text(),'Pick From Library')]/..//button[1]");
+	public By linkCancel = By.xpath("//label[contains(text(),'Pick From Library')]/..//button[2]");
 	public By txtOrderDescription = By.id("description");
 	public By linkAddDiagonosis = By.xpath("//label[text()='Diagnosis']/..//button[@class='btn btn-link']/i");
 	public By txtSearchDiogonosis = By.id("query");
@@ -46,6 +49,7 @@ public class PhysicianPortal extends PageTemplate {
 	public By linkDuplicateDiogonosis = By.xpath("//div[text()='Duplicate Diagnosis']");
 	public By btnClose = By.xpath("//button[@class='close']/span");
 	public By srchDiogonosis = By.xpath("//label[text()='Diagnosis']/..//select[@id='diagnosisCode']");
+	public By labelDiagnosisRequired = By.xpath("//label[text()='Diagnosis']/..//div[@class='invalid-feedback']//i");
 	//public By srchDiogonosis = By.id("diagnosisCode");
 	public By drpdwnPhysician = By.id("physicianId");
 	public By drpdwnReceivedBy = By.id("receivedById");
@@ -63,6 +67,10 @@ public class PhysicianPortal extends PageTemplate {
 	public By txtWrittenDate = By.xpath("(//label[text()='Written Date']/..//input[@placeholder='mm/dd/yyyy'])[1]");
 	public By radioMedication = By.xpath("//div[@class='col ng-star-inserted']//input[@value='Med']");
 	public By txtDecline = By.xpath("//div[@class='ng-star-inserted']//textarea[@id='declinedInfectionControlReason']");
+	
+	public By labelPickFromLibrary = By.xpath("//div[@class='form-group row']/label[text()='Pick From Library']");
+	public By labelICD10Database = By.xpath("//div[@class='modal-header']/h5[text()='ICD-10 Database']");
+	public By txtPickFromLibrary = By.xpath("//label[text()='Pick From Library']/..//select[@id='libraryselect']");
 	
 	
 	//Create OrderFrequency
@@ -82,7 +90,8 @@ public class PhysicianPortal extends PageTemplate {
 	public By txtPhysicianInstructions = By.xpath("//label[text()='Physician Instructions']/..//textarea[@id='instructions']");
 	public By txtAdditionalInstruction = By.xpath("//label[text()='Additional Instruction']/..//textarea[@id='additionalNotes']");*/
 	public By btnAddFrequency = By.xpath("//button[text()='Add Frequency']");
-	public By btnSaveOrder = By.xpath("//button[text()='Save']");    
+	public By btnSaveOrder = By.xpath("//button[text()='Save']"); 
+	public By btnCancel = By.xpath("//button[text()='Cancel']");
 	
 	public By btnHeaderPhysicianPortal = By.xpath("//*[@class='col-auto nav primary-menu-links']//button[text()='Physician Portal']");
 	public By btnHeaderMessages = By.xpath("//*[@class='col-auto nav primary-menu-links']//button[contains(text(),'Messages')]");
@@ -100,7 +109,12 @@ public class PhysicianPortal extends PageTemplate {
 	public By spanResidentLastName = By.xpath("//div[@class='datatable-row-center ng-star-inserted']//span[text()='Last Name']");
 	public By spanResidentMr = By.xpath("//div[@class='datatable-row-center ng-star-inserted']//span[text()='Mr #']");
 	public By spanResidentMr2 = By.xpath("//div[@class='datatable-row-center ng-star-inserted']//span[text()='Mr2']");
-	public By spanResidentLocation = By.xpath("//div[@class='datatable-row-center ng-star-inserted']//span[text()=Location']");
+	public By spanResidentLocation = By.xpath("//div[@class='datatable-row-center ng-star-inserted']//span[text()='Location']");
+	
+	public By txtEnterNameOrMrNumber = By.xpath("//input[@placeholder='Enter name or mr number']");
+	public By drpdwnSelectStations = By.xpath("//button[contains(text(),'Select stations')]");
+	public By drpdwnSelectStatus = By.xpath("//button[contains(text(),'Select statuses')]");
+	public By btnApplyFilters = By.xpath("//button[contains(text(),'Apply filters')]");
 	
 	public void ClickOnPhysicianPortal()
 	{
@@ -149,6 +163,7 @@ public class PhysicianPortal extends PageTemplate {
 		this.waitInSecs(5);
 		if(type.equals("Medication") || type.equals("Treatment With Medication"))
 		{
+			
 			this.click(linkSearchMedications,"Search Medications");
 			this.waitInSecs(2);
 			this.sendKeys(txtSearchMedicineName,"Amox");
@@ -169,7 +184,10 @@ public class PhysicianPortal extends PageTemplate {
 		}
 		else
 		{
+		this.VerifyWebElementPresent(linkCreateLibraryItem,"Create Library Item Link");	
 		this.click(linkCreateLibraryItem,"Create Library Item Link");
+		this.VerifyWebElementPresent(linkCreate,"Create Link");	
+		this.VerifyWebElementPresent(linkCancel,"Cancel");	
 		this.waitInSecs(2);
 		this.sendKeys(txtPickLibrary, libraryText);
 		this.waitInSecs(2);
@@ -592,7 +610,7 @@ public class PhysicianPortal extends PageTemplate {
 		
 		public void PhysicianPortalHeaderVerfication()
 		{
-			this.testReport.logInfo("clicking on Physician Portal app, below menu display : Physician Portal, Messages, Mediprocity");
+			this.testReport.logSuccess("clicking on Physician Portal app, below menu display : Physician Portal, Messages, Mediprocity");
 			this.VerifyWebElementPresent(btnHeaderPhysicianPortal,"Physician Portal");
 			this.VerifyWebElementPresent(btnHeaderMessages,"Messages");
 			this.VerifyWebElementPresent(btnHeaderMediprocity,"Mediprocity");
@@ -601,7 +619,9 @@ public class PhysicianPortal extends PageTemplate {
 		
 		public void VerifyPhysicianPortalDrropdown()
 		{
-			this.testReport.logInfo("Clicking on Physician portal display below sub menus :Sign,Resident Orders,Recap,Verify,History & Physicial,Physician Progress Note Assessment,Physician Progress Note");
+			this.testReport.logSuccess("Clicking on Physician portal display below sub menus :Sign,Resident Orders,Recap,Verify,History & Physicial,Physician Progress Note Assessment,Physician Progress Note");
+			this.click(btnPhysicianPortal,"Physician Portal Button");
+			this.waitInSecs(2);
 			this.VerifyWebElementPresent(spandrpdwnSign,"Sign");
 			this.VerifyWebElementPresent(spandrpdwnResidentOrder,"Resident Order");
 			this.VerifyWebElementPresent(spandrpdwnRecap,"Recap");
@@ -609,11 +629,13 @@ public class PhysicianPortal extends PageTemplate {
 			this.VerifyWebElementPresent(spandrpdwnHistoryandPhysical,"History and Physical");
 			this.VerifyWebElementPresent(spandrpdwnPhysicianProgressNoteAssessment,"Physician Progress Note Assessment");
 			this.VerifyWebElementPresent(spandrpdwnPhysicianProgressNotes,"Physician Progress Notes");
+			this.click(aResidentOrders,"Resident Orders"); 
+			this.waitInSecs(2);
 		}
 		
 		public void VerifyResidentPageHeaderHeading()
 		{
-			this.testReport.logInfo(" Clicking on Resident Order submenu should display under below columns First Name,Last Name,Mr#,Mr2,Location");
+			this.testReport.logSuccess(" Clicking on Resident Order submenu should display under below columns First Name,Last Name,Mr#,Mr2,Location");
 					
 			this.VerifyWebElementPresent(spanResidentFirstName,"Resident FirstName");
 			this.VerifyWebElementPresent(spanResidentLastName,"Resident LastName");
@@ -625,25 +647,37 @@ public class PhysicianPortal extends PageTemplate {
 		
 		public void CounttheNoOfResidentInAPage()
 		{
-			List<WebElement> CountInAPage = wd.findElements(By.xpath("//datatable-scroller[@class='datatable-scroll']//*[@class='datatable-row-wrapper']"));
+			List<WebElement> CountInAPage = wd.findElements(By.xpath("//datatable-scroller[@class='datatable-scroll ng-star-inserted']/datatable-row-wrapper//datatable-body-cell[3]//span"));
 			List<String> ResidentCountNos = new ArrayList<>();
-			
-			
-			this.testReport.logSuccess("Clicked on Existing Resident Present in the Portal ");		
-			for(int i=3;i<=8;i++)
-			{
-			By linkPageBottom = By.xpath(String.format("(//*[@class='datatable-pager ng-star-inserted']//a)[%d]",i));
 			
 			for (WebElement match : CountInAPage) {
 				ResidentCountNos.add(match.getText());
 				String noOfResidents=match.getText();
 				System.out.println(noOfResidents);
+				int totalnoofResident = ResidentCountNos.size();
+				System.out.println(totalnoofResident);
+			}
+				
+			By nextSideClick = By.xpath("(//*[@class='datatable-pager ng-star-inserted']//a)[8]");
+			By nextArrowClick = By.xpath("(//*[@class='datatable-pager ng-star-inserted']//a)[9]");
+			this.VerifyWebElementPresent(nextSideClick, "Side Click");
+			this.VerifyWebElementPresent(nextArrowClick, "Arrow Click");
+			
+			this.testReport.logSuccess("Clicked on Existing Resident Present in the Portal ");		
+			for(int i=3;i<=7;i++)
+			{
+			By linkPageBottom = By.xpath(String.format("(//*[@class='datatable-pager ng-star-inserted']//a)[%d]",i));
+			
+			
 				
 			click(linkPageBottom,"Navigate Page");
 					
 			
-			}
+			
 		}
+			
+			By firstSideClick = By.xpath("(//*[@class='datatable-pager ng-star-inserted']//a)[1]");
+			this.click(firstSideClick,"First Side Click");
 		
 		}
 		
@@ -655,7 +689,297 @@ public class PhysicianPortal extends PageTemplate {
 		}
 		
 		
-}
+		public void VerifytheFieldsDisplayDownToMessage()
+		{
+			this.testReport.logSuccess("Verify below fields display down to message to find/search the resident Enter Name or MR Number ,Select Station ,Select Statuses ,Apply Filter button ");
+			this.VerifyWebElementPresent(txtEnterNameOrMrNumber, "Enter Name or MR Number");
+			this.VerifyWebElementPresent(drpdwnSelectStations, "Select Station");
+			this.VerifyWebElementPresent(drpdwnSelectStatus, "Select Statuses");
+			this.VerifyWebElementPresent(btnApplyFilters, "Apply Filter button");
+		}
+		
+		
+		public void VerifyPreviousOrders()
+		{
+			List<WebElement> totalNoOfOrders = wd.findElements(By.xpath("//datatable-scroller[@class='datatable-scroll ng-star-inserted']/datatable-row-wrapper//datatable-body-cell[1]//span"));
+		//	List<String> TotalNoOfResidentCount = new ArrayList<>();
+			if(totalNoOfOrders.size()>0)
+			{
+				this.testReport.logInfo("any previous orders display in the list for the resident");
+	
+			}
+			else
+			{
+				this.testReport.logInfo("No previous orders display in the list for the resident");
+			}
+			
+		}
+		
+		
+		public void FullOrderPageVerification()
+		{
+			this.testReport.logInfo("Clicking on Create an Orders button, open Full Order Page with below fields Save button,Cancel button,Type List box,Add frequency Button");
+			this.click(btnCreateOrder, "Create An Order");
+			this.VerifyWebElementPresent(btnSaveOrder, "Save button");
+			this.VerifyWebElementPresent(btnCancel, "Cancel button");
+			this.VerifyWebElementPresent(txtOrderType, "Type List box");
+			this.VerifyWebElementPresent(btnAddFrequency, "Add frequency Button");
+		}
+		
+		public void SearchResidentWithApplyFilterButton(String enterName)
+		{
+			List<WebElement> CountInAPage = wd.findElements(By.xpath("//datatable-scroller[@class='datatable-scroll']//*[@class='datatable-row-wrapper']//div[@class='datatable-row-center datatable-row-group']"));
+		    this.sendKeys(txtEnterNameOrMrNumber, enterName);
+		    this.waitInSecs(1);
+		    this.click(btnApplyFilters, "Apply Filter button");
+		    this.waitInSecs(2);
+		    List<WebElement> FilterCountInAPage = wd.findElements(By.xpath("//datatable-scroller[@class='datatable-scroll ng-star-inserted']/datatable-row-wrapper"));
+		    
+		    if(CountInAPage.size()>FilterCountInAPage.size() && FilterCountInAPage.size()==1)
+		    {
+		    	this.testReport.logSuccess("clicking on Apply Filter button, display the list of filtered residents in the Container");
+		    }
+		    
+		    else
+		    {
+		    	this.testReport.logFailure("clicking on Apply Filter button, not display the list of filtered residents in the Container");
+		    }
+		}
+		
+		 public static boolean CheckAscendingOrder(List<String> Names)
+	        {
+	            String previous = "";
+	            for (String match : Names) 
+	            {
+	                if (match.compareTo(previous) < 0)
+	                {
+	                    return false;
+	                }
+	                previous = match;
+	            }
+	            
+	            return true;
+	        }
+	        public static boolean CheckDescendingOrder(List<String> Names)
+	        {
+	            String previous = "";
+	            for (String match : Names)
+	            {
+	                if (match.compareTo(previous) > 0)
+	                {
+	                    return true;
+	                }
+	                previous = match;
+	            }
+	            return false;
+	        }
+		
+		public void AssendingOrderUsingFirstName()
+		{
+			
+				List<WebElement> CountInAPage = wd.findElements(By.xpath(("//datatable-scroller[@class='datatable-scroll ng-star-inserted']/datatable-row-wrapper//datatable-body-cell[1]//span")));
+				List<String> CountInAPageOrder = new ArrayList<>();
+			
+				for (WebElement match : CountInAPage) {
+					CountInAPageOrder.add(match.getText());
+					String noOfResidents=match.getText();
+					System.out.println(noOfResidents);
+				}
+			
+			By Name = By.xpath("//span[contains(text(),'First Name')]")	;
+			this.click(Name, "Name");
+			Collections.sort(CountInAPageOrder);
+			boolean sorted = CheckAscendingOrder(CountInAPageOrder);
+			 if (sorted == true)
+			 {
+				 this.testReport.logSuccess("Sorted the Name in Ascending Order");
+			 }
+			 else {
+				 this.testReport.logFailure(" Not Sorted the Name in Ascending Order"); 
+			 }
+	             
+			 this.click(Name, "Name");
+				
+		
+		}
+		
+		
+		public void AssendingOrderUsingLastName()
+		{
+			
+				List<WebElement> CountInAPage = wd.findElements(By.xpath(("//datatable-scroller[@class='datatable-scroll ng-star-inserted']/datatable-row-wrapper//datatable-body-cell[2]//span")));
+				List<String> CountInAPageOrder = new ArrayList<>();
+			
+				for (WebElement match : CountInAPage) {
+					CountInAPageOrder.add(match.getText());
+					String noOfResidents=match.getText();
+					System.out.println(noOfResidents);
+				}
+			
+			By Name = By.xpath("//span[contains(text(),'Last Name')]")	;
+			this.click(Name, "Name");
+			Collections.sort(CountInAPageOrder);
+			boolean sorted = CheckAscendingOrder(CountInAPageOrder);
+			 if (sorted == true)
+			 {
+				 this.testReport.logSuccess("Sorted the Last Name in Ascending Order");
+			 }
+			 else {
+				 this.testReport.logFailure(" Not Sorted the Last Name in Ascending Order"); 
+			 }
+	             
+			 this.click(Name, "Name");
+				
+		}
+		
+		
+		public void AssendingOrderUsingMr()
+		{
+			
+				List<WebElement> CountInAPage = wd.findElements(By.xpath(("//datatable-scroller[@class='datatable-scroll ng-star-inserted']/datatable-row-wrapper//datatable-body-cell[3]//span")));
+				List<String> CountInAPageOrder = new ArrayList<>();
+			
+				for (WebElement match : CountInAPage) {
+					CountInAPageOrder.add(match.getText());
+					String noOfResidents=match.getText();
+					System.out.println(noOfResidents);
+				}
+			
+			By Mr = By.xpath("//span[contains(text(),'Mr #')]")	;
+			this.click(Mr, "Mr#");
+			Collections.sort(CountInAPageOrder);
+			boolean sorted = CheckAscendingOrder(CountInAPageOrder);
+			 if (sorted == true)
+			 {
+				 this.testReport.logSuccess("Sorted the Mr# in Ascending Order");
+			 }
+			 else {
+				 this.testReport.logFailure(" Not Sorted the Mr# in Ascending Order"); 
+			 }
+	             
+			 this.click(Mr, "Mr#");
+				
+		}
+		
+		
+		public void ResidentFullOrderDetailsWithoutMedication(String type , String libraryText , String createdType)
+		{
+			if(this.isElementPresent(btnCreateOrder))
+			{
+			this.testReport.logSuccess("Order Created ");
+			this.click(btnCreateOrder,"Create Order Button");
+			this.waitInSecs(5);
+			}
+			this.waitUntilElementIsVisible(txtOrderType);
+			this.SelectDropDownByText(txtOrderType, type);
+			this.waitInSecs(5);
+			this.VerifyWebElementPresent(labelPickFromLibrary,"Label Pick From Library");	
+			this.VerifyWebElementPresent(linkCreateLibraryItem,"Create Library Item Link");	
+			if(createdType == "DropDown")
+			{
+				this.SelectDropDownByText(txtPickFromLibrary, libraryText);
+				this.waitInSecs(2);
+				this.AssettextEqual(txtOrderDescription, txtPickFromLibrary);
+				
+			}
+			else
+			{
+			this.click(linkCreateLibraryItem,"Create Library Item Link");
+			this.VerifyWebElementPresent(linkCreate,"Create Link");	
+			
+			this.VerifyWebElementPresent(linkCancel,"Cancel");	
+			this.waitInSecs(2);
+			this.sendKeys(txtPickLibrary, libraryText);
+			this.waitInSecs(2);
+			this.click(linkCreate,"Create Link");
+			this.waitInSecs(2);
+			this.AssettextEqual(txtOrderDescription, txtPickFromLibrary);
+			}
+			
+			
+		}
+		
+		public void ResidentFullOrderDetails(String type ,String nullDiagonisis ,String SearchDiogonosisTxt,String medicarePriority , String diogonosisName
+				,String physicianType,String ReceivedByType , String ReceivedOrderType,	String routes,String WrittenDate,String NoOfRefillis,String WhenToFill)
+		{
+			this.SelectDropDownByText(srchDiogonosis, nullDiagonisis);
+			this.waitInSecs(2);
+			this.VerifyWebElementPresent(labelDiagnosisRequired, "Diagonosis Required");
+			this.click(linkAddDiagonosis,"Add Diagonosis Link");
+			this.waitInSecs(2);
+			this.VerifyWebElementPresent(labelICD10Database, "ICD10 Database");
+			this.waitUntilElementIsVisible(txtSearchDiogonosis);
+			this.sendKeys(txtSearchDiogonosis, SearchDiogonosisTxt);
+			this.waitInSecs(2);
+			this.click(btnSearchDiogonosis,"Search Diogonosis Button");
+			this.waitInSecs(2);
+			
+			//By diogonosisOption = By.xpath((String.format("//div[@class='datatable-body-cell-label']/span[text()='%d']", diogonosisName)));
+			this.click(diogonosisOption,"Diogonosis Option");
+			this.waitInSecs(2);
+			this.VerifyWebElementPresent(radioMedication,"Medication radio Button");
+			this.VerifyWebElementPresent(radioTreatment,"Treatment radio Button");
+			if(type.equals("Medication") || type.equals("Treatment With Medication"))
+			{
+				this.click(radioMedication,"Medication radio Button");
+				this.waitInSecs(2);
+			}
+			else
+			{
+			this.click(radioTreatment,"Treatment radio Button");
+			this.waitInSecs(2);
+			}
+			this.VerifyWebElementPresent(txtMedicarePriority, "Medicare Priority");
+			this.sendKeys(txtMedicarePriority, medicarePriority);
+			this.waitInSecs(2);
+			this.VerifyWebElementPresent(chkbxAdmitting,"Admitting Check Box");
+			this.click(chkbxAdmitting,"Admitting Check Box");
+			this.waitInSecs(2);
+			this.VerifyWebElementPresent(chkbxSendToMDS,"Send To MDS Check Box");
+			this.click(chkbxSendToMDS,"Send To MDS Check Box");
+			this.waitInSecs(2);
+			this.VerifyWebElementPresent(chkbxBillingAdmitDiagnosis,"Billing Admit Diagnosis Check Box");
+			this.click(chkbxBillingAdmitDiagnosis,"Billing Admit Diagnosis Check Box");
+			this.waitInSecs(2);
+			this.VerifyWebElementPresent(btnDiogonosisCreate,"Create Diogonosis Button");
+			this.click(btnDiogonosisCreate,"Create Diogonosis Button");
+			if(this.isElementPresent(linkDuplicateDiogonosis))
+			{
+				this.click(btnClose,"Close Button");
+				this.waitInSecs(2);
+				this.SelectDropDownByText(srchDiogonosis, diogonosisName);
+				this.waitInSecs(2);
+			}	
+			
+			this.SelectDropDownByText(drpdwnPhysician, physicianType);
+			this.waitInSecs(2);
+			this.SelectDropDownByText(drpdwnReceivedBy, ReceivedByType);
+			this.waitInSecs(2);
+			this.SelectDropDownByText(drpdwnReceivedOrder, ReceivedOrderType);
+			this.waitInSecs(2);
+			this.click(chkbxIsAdmitting,"Is Admitting Check Box");
+			this.waitInSecs(2);
+			if(type.equals("Medication") || type.equals("Treatment With Medication"))
+			{
+				this.SelectDropDownByText(drpDwnroutes, routes);// Both Ears
+				this.waitInSecs(2);
+			//	this.sendKeys(txtWrittenDate, WrittenDate);
+			//	this.waitInSecs(2);
+				this.SendKeysToElementClearFirst(txtNoOfRefillis, NoOfRefillis);
+				this.waitInSecs(2);
+				this.SelectDropDownByText(DrpdwnWhenToFill, WhenToFill);
+				this.waitInSecs(2);
+			}
+		}
+		
+		
+		
+		
+		
+		}
+
+
+
 	
 	
 		

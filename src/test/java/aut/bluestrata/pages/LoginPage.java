@@ -22,6 +22,9 @@ public class LoginPage extends PageTemplate {
 		
 	}
 	
+	public By btnTester1 = By.xpath("//button[@id='userDropDown']");
+	public By logout = By.xpath("//button[@id='userDropDown']/..//div/a[text()='Logout']");
+	
 	public void login(String userName, String password, String key)
 	{
 		String strValFromConfigFile = null;
@@ -43,6 +46,11 @@ public class LoginPage extends PageTemplate {
 		this.waitInSecs(5);
 	}
 	
+	public void Logout()
+	{
+		this.click(btnTester1, "Tester1 Button");
+		this.click(logout, "Logout");
+	}
 	
 	
 

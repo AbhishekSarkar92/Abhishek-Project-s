@@ -26,6 +26,7 @@ import com.testreport.ReportFactory.ReportType;
 import com.utilities.ReusableLibs;
 
 import aut.bluestrata.pages.LoginPage;
+import dweb.test.templates.TestTemplate;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
