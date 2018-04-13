@@ -68,7 +68,7 @@ public class PhysicianPortal extends PageTemplate {
 	public By radioMedication = By.xpath("//div[@class='col ng-star-inserted']//input[@value='Med']");
 	public By txtDecline = By.xpath("//div[@class='ng-star-inserted']//textarea[@id='declinedInfectionControlReason']");
 	
-	public By labelPickFromLibrary = By.xpath("//div[@class='form-group row']/label[text()='Pick From Library']");
+	public By labelPickFromLibrary = By.xpath("//div[@class='ng-star-inserted']//label[text()='Pick From Library']");
 	public By labelICD10Database = By.xpath("//div[@class='modal-header']/h5[text()='ICD-10 Database']");
 	public By txtPickFromLibrary = By.xpath("//label[text()='Pick From Library']/..//select[@id='libraryselect']");
 	
@@ -115,6 +115,16 @@ public class PhysicianPortal extends PageTemplate {
 	public By drpdwnSelectStations = By.xpath("//button[contains(text(),'Select stations')]");
 	public By drpdwnSelectStatus = By.xpath("//button[contains(text(),'Select statuses')]");
 	public By btnApplyFilters = By.xpath("//button[contains(text(),'Apply filters')]");
+	
+	public By spanOrderSummaryDescription = By.xpath("//div[@class='datatable-header-inner']//span[text()='Description']");
+	public By spanOrderSummaryType = By.xpath("//div[@class='datatable-header-inner']//span[text()='Type']");
+	public By spanOrderSummaryPhysician = By.xpath("//div[@class='datatable-header-inner']//span[text()='Physician']");
+	public By spanOrderSummaryFrequencies = By.xpath("//div[@class='datatable-header-inner']//span[text()='Frequencies']");
+	public By spanOrderSummaryStatus = By.xpath("//div[@class='datatable-header-inner']//span[text()='Status']");
+	
+	public By defaultSection = By.xpath("//li[@class='pages active']/a");
+	
+	
 	
 	public void ClickOnPhysicianPortal()
 	{
@@ -372,8 +382,23 @@ public class PhysicianPortal extends PageTemplate {
 	{
 		By drpdwnFrequencyType = By.xpath(String.format("(//select[@id='routineTypeId'])[%d]", num));
 		this.SelectDropDownByText(drpdwnFrequencyType, frequencyType);
+		if(endDate=="No End") 
+		{
 		By drpdwnEndDate = By.xpath(String.format("(//label[text()='End']/..//select[@id='actions'])[%d]", num));
 		this.SelectDropDownByText(drpdwnEndDate, endDate);
+		}
+		else if(endDate=="By Date")
+		{
+			By drpdwnEndDate = By.xpath(String.format("(//label[text()='End']/..//select[@id='actions'])[%d]", num));
+			this.SelectDropDownByText(drpdwnEndDate, endDate);
+		//	By txtDate = By.xpath("(//label[text()='End']/..//input[@placeholder='mm/dd/yyyy' and @class='form-control'])[%d]",num);
+		}
+		else
+		{
+			By drpdwnEndDate = By.xpath(String.format("(//label[text()='End']/..//select[@id='actions'])[%d]", num));
+			this.SelectDropDownByText(drpdwnEndDate, endDate);
+		}
+		
 		if(frequencyType.equals("PRN")  ||  frequencyType.equals("PRN Every (x) Hour(s)"))
 		{
 			By txtDose = By.xpath(String.format("(//label[text()='Dose']/..//input[@id='dose'])[%d]", num));
@@ -478,7 +503,7 @@ public class PhysicianPortal extends PageTemplate {
 
 	public void HowOftenMonthlytype(String typeOfMode ,int FrequencyNum,int howOftenTime , int dayNo ,String howOften, String everyDay, String DropdownNumber ,String DropdownDay )
 	{
-		if(typeOfMode=="Use Specific Days") {
+		if(typeOfMode.equals("Use Specific Days")){
 		
 		By drpdwnHowOften = By.xpath(String.format("(//label[text()='How often']/..//select[@id='patientOrderScheduleType'])[%d]", FrequencyNum));
 		this.SelectDropDownByText(drpdwnHowOften, howOften);
@@ -519,6 +544,8 @@ public class PhysicianPortal extends PageTemplate {
 			this.SelectDropDownByText(drpdwnHowOften, howOften);
 			
 			By radioUseByWeeks = By.xpath(String.format("((//div[@class='form-row']//input[@name='rdoMonthlyChoice'])[4])"));
+			
+		//	By radioUseByWeeks = By.xpath(String.format("(//div[@class='card'])[2]//div[@class='form-row']//input"(//div[@class='card'])[2]//div[@class='form-row']//input
 			
 			
 			boolean IsSelected = wd.findElement(By.xpath(String.format("((//div[@class='form-row']//input[@name='rdoMonthlyChoice'])[4])"))).getAttribute("ng-reflect-value").equals("true");
@@ -705,12 +732,12 @@ public class PhysicianPortal extends PageTemplate {
 		//	List<String> TotalNoOfResidentCount = new ArrayList<>();
 			if(totalNoOfOrders.size()>0)
 			{
-				this.testReport.logInfo("any previous orders display in the list for the resident");
+				this.testReport.logSuccess("any previous orders display in the list for the resident");
 	
 			}
 			else
 			{
-				this.testReport.logInfo("No previous orders display in the list for the resident");
+				this.testReport.logSuccess("No previous orders display in the list for the resident");
 			}
 			
 		}
@@ -718,7 +745,7 @@ public class PhysicianPortal extends PageTemplate {
 		
 		public void FullOrderPageVerification()
 		{
-			this.testReport.logInfo("Clicking on Create an Orders button, open Full Order Page with below fields Save button,Cancel button,Type List box,Add frequency Button");
+			this.testReport.logSuccess("Clicking on Create an Orders button, open Full Order Page with below fields Save button,Cancel button,Type List box,Add frequency Button");
 			this.click(btnCreateOrder, "Create An Order");
 			this.VerifyWebElementPresent(btnSaveOrder, "Save button");
 			this.VerifyWebElementPresent(btnCancel, "Cancel button");
@@ -972,9 +999,146 @@ public class PhysicianPortal extends PageTemplate {
 			}
 		}
 		
+		public void CancelOrder()
+		{
+			this.waitInSecs(2);
+			this.click(btnCancel, "Cancel");
+		}
+		
+		public void OrderFrequencyType(int num,String frequencyType)
+		{
+			By drpdwnFrequencyType = By.xpath(String.format("(//select[@id='routineTypeId'])[%d]", num));
+			this.VerifyWebElementPresent(drpdwnFrequencyType, "Frequency Type");
+			this.SelectDropDownByText(drpdwnFrequencyType, frequencyType);
+		}
+		
+		public void StartDate(int num,String startDate , String startDateTime)
+		{
+			By txtStartDate = By.xpath(String.format("(//label[text()='Start Date']/..//input[@placeholder='mm/dd/yyyy' and @class='form-control'])[%d]",num));
+			this.VerifyWebElementPresent(txtStartDate, "Start Date");
+			By iconCalender = By.xpath(String.format("((//label[text()='Start Date']/..//button[@class='btn btn-outline-secondary']/i))[%d]",num));
+			this.click(iconCalender, "Calender icon");
+			By HighlightDate = By.xpath(String.format("(//label[text()='Start Date']/..//ngb-datepicker-month-view[@class='d-block']//div[@class='btn-light bg-primary text-white ng-star-inserted'])[%d]",num));
+			this.click(HighlightDate, "Today's Date");
+		//	this.SendKeysToElementClearFirst(txtStartDate, startDate);
+			By txtStartDateTime = By.xpath(String.format("(//label[text()='Start Date']/..//input[@placeholder='hh:mm ampm' ])[%d]",num));
+			this.VerifyWebElementPresent(txtStartDateTime, "Start Date Time");
+			this.SendKeysToElementClearFirst(txtStartDateTime, startDateTime);
+		}
+
+		
+		public void OrderEndType(int num, int byDateno, int afterNoOfAdminstrationsNo , String endDateType ,String endDate , String ByDate ,String byDateTime, String afterNumberOfAdminstrations)
+		{
+			if(endDateType.equals("No End")) 
+			{
+			By drpdwnEndDate = By.xpath(String.format("(//label[text()='End']/..//select[@id='actions'])[%d]", num));
+			this.VerifyWebElementPresent(drpdwnEndDate, "No End Date");
+			this.SelectDropDownByText(drpdwnEndDate, endDate);
+			}
+			else if(endDateType.equals("By Date"))
+			{
+				By drpdwnEndDate = By.xpath(String.format("(//label[text()='End']/..//select[@id='actions'])[%d]", num));
+				this.VerifyWebElementPresent(drpdwnEndDate, "By Date");
+				this.SelectDropDownByText(drpdwnEndDate, endDate);
+				By txtByDate = By.xpath(String.format("(//label[text()='End']/..//input[@placeholder='mm/dd/yyyy' and @class='form-control'])[%d]",byDateno));
+				this.VerifyWebElementPresent(txtByDate, "By Date");
+				By iconCalender = By.xpath(String.format("((//label[text()='End']/..//button[@class='btn btn-outline-secondary']/i))[%d]",num));
+				this.click(iconCalender, "Calender icon");
+				By HighlightDate = By.xpath(String.format("((//label[text()='End']/..//ngb-datepicker-month-view[@class='d-block']//div[@class='btn-light ng-star-inserted'])[1])[%d]",num));
+				this.click(HighlightDate, "Today's Date");
+				
+			//	this.SendKeysToElementClearFirst(txtByDate, ByDate);
+				By txtByDateTime = By.xpath(String.format("(//label[text()='End']/..//input[@placeholder='hh:mm ampm' ])[%d]",byDateno));
+				this.VerifyWebElementPresent(txtByDateTime, "By Date Time");
+				this.SendKeysToElementClearFirst(txtByDateTime, byDateTime);
+			}
+			else
+			{
+				By drpdwnEndDate = By.xpath(String.format("(//label[text()='End']/..//select[@id='actions'])[%d]", num));
+				this.VerifyWebElementPresent(drpdwnEndDate, "After Number Of Administrations");
+				this.SelectDropDownByText(drpdwnEndDate, endDate);
+				By txtAfterNumberOfAdministrations = By.xpath(String.format("(//label[text()='End']/..//input[@formcontrolname='endAfterNumberOfAdmin'])[%d]", afterNoOfAdminstrationsNo));
+				this.VerifyWebElementPresent(txtAfterNumberOfAdministrations, "After Number Of Administrations");
+				this.sendKeys(txtAfterNumberOfAdministrations, afterNumberOfAdminstrations);
+			}
+		}
 		
 		
+		public void RequireActionRelatedLabel(int num,String frequencyType ,String requiredActions,String othersRequiredActions ,String requiredActionsPostDropdown,String othersRequiredActionsPostDropdown, String administeredBy,String maxDoesHours,
+				String followUpAfterMinutes,String slidingScaleMin,String slidingScaleMax,String slidingScaleUnits)
+		{
+			By drpdwnRequiredActions = By.xpath(String.format("(//label[text()='Require Action(s)']/..//select[@id='actions'])[%d]", num));
+			this.SelectDropDownByText(drpdwnRequiredActions, requiredActions);
+			if(requiredActions.equals("Other"))
+			{
+				By txtOthersRequiredActions = By.xpath(String.format("(//select[@id='actions']/..//input[@formcontrolname='description'])[%d]", num));
+				this.sendKeys(txtOthersRequiredActions, othersRequiredActions);
+			}
+			By drpdwnRequiredActionsPostDropdown = By.xpath(String.format("(//label[text()='Require Action(s) Post Administration']/..//select[@id='actionsPost'])[%d]", num));
+			this.SelectDropDownByText(drpdwnRequiredActionsPostDropdown, requiredActionsPostDropdown);
+			if(requiredActionsPostDropdown.equals("Other"))
+			{
+				By txtOthersRequiredActionsPostDropdown = By.xpath(String.format("(//select[@id='actionsPost']/..//input[@formcontrolname='description'])[%d]", num));
+				this.sendKeys(txtOthersRequiredActionsPostDropdown, othersRequiredActionsPostDropdown);
+			}
+			By drpdwnAdministeredBy = By.xpath(String.format("(//label[text()='Administered By']/..//select[@id='settingOrderAdministratorId'])[%d]", num));
+			this.SelectDropDownByText(drpdwnAdministeredBy, administeredBy);		
+			By chkbxIsSelfAdministered = By.xpath(String.format("(//input[@id='selfAdministered'])[%d]",num));
+			this.click(chkbxIsSelfAdministered,"Is Self Administered Check Box");
+			By chkbxselfAdministeredRequiresSupervision = By.xpath(String.format("(//input[@id='selfAdministeredRequiresSupervision'])[%d]", num));
+			this.click(chkbxselfAdministeredRequiresSupervision,"Self Administered Requires Supervision Check Box");
+			if(frequencyType.equals("Routine"))
+			{			
+				By chkbxRequiresFollowUp =By.xpath(String.format("(//input[@id='requiresFollowUp'])[%d]",num));
+				this.click(chkbxRequiresFollowUp,"Requires FollowUp Check Box");
+			}
+				
+			By txtFollowUpAfterMinutes = By.xpath(String.format("(//input[@id='followUpAfterMinutes'])[%d]", num));
+			this.sendKeys(txtFollowUpAfterMinutes, followUpAfterMinutes);
+			By chkbxRequiesSlidingScale = By.xpath(String.format("(//label[@class='form-check-label']/input[@id='useSlidingScale'])[%d]", num));
+			this.click(chkbxRequiesSlidingScale,"Requies Sliding Scale Check Box");
+			By txtSlidingScaleMin = By.xpath(String.format("(//table//input[@formcontrolname='minValue'])[%d]", num));
+			this.sendKeys(txtSlidingScaleMin, slidingScaleMin);
+			By txtSlidingScaleMax = By.xpath(String.format("(//table//input[@formcontrolname='maxValue'])[%d]", num));
+			this.sendKeys(txtSlidingScaleMax, slidingScaleMax);
+			By txtSlidingScaleUnits = By.xpath(String.format("(//table//input[@formcontrolname='units'])[%d]", num));
+			this.sendKeys(txtSlidingScaleUnits, slidingScaleUnits);
+			By chkBoxSlidingScaleNotifyRemove = By.xpath(String.format("(//table//input[@formcontrolname='notifyPhysician'])[%d]", num));
+			this.click(chkBoxSlidingScaleNotifyRemove,"Sliding Scale Notify Remove Check Box");
+		}
 		
+		public void OrderDisplayPageColourVerification()
+		{
+			List<WebElement> bluecolourNeedSinging = wd.findElements(By.xpath("//strong[text()='Needs Signing']"));
+			int needSinging = bluecolourNeedSinging.size();
+			System.out.println("Total No of Need Singing" +needSinging);
+			
+			List<WebElement> grayColourNeedsVerifications = wd.findElements(By.xpath("//strong[text()='Needs Verification']"));
+			int needsVerifications = grayColourNeedsVerifications.size();
+			System.out.println("Total No of Needs Verifications" +needsVerifications);
+			
+			List<WebElement> greencolourActive = wd.findElements(By.xpath("//strong[text()='Active']"));
+			int Active = greencolourActive.size();
+			System.out.println("Total No of Active" +Active);
+		}
+		
+		public void OrderDisplayPageColoumnsVerification()
+		{
+			this.VerifyWebElementPresent(spanOrderSummaryDescription, "Summary Description");
+			this.VerifyWebElementPresent(spanOrderSummaryType, "SummaryType");
+			this.VerifyWebElementPresent(spanOrderSummaryPhysician, "SummaryPhysician");
+			this.VerifyWebElementPresent(spanOrderSummaryFrequencies, "Order Summary Frequencies");
+			this.VerifyWebElementPresent(spanOrderSummaryStatus, "Order Summary Status");
+			
+		}
+		
+		public void BottomPaneOfContainer()
+		{
+			this.VerifyWebElementPresent(defaultSection, "Default Section 25");
+			List<WebElement> pagesNo = wd.findElements(By.xpath("//li[@class='pages']"));
+			int PagesNoInOrderDisplay  = pagesNo.size();
+			System.out.println("Total No of Normal page Containers" + PagesNoInOrderDisplay);
+		}
 		
 		}
 
