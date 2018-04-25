@@ -20,7 +20,7 @@ public class PhysicianPortal extends PageTemplate {
 	}
 	//Create Physician Portal 
 	public By btnPhysicianPortal = By.xpath("//button[text()='Physician Portal']");
-	public By aResidentOrders = By.xpath("//a[text()='Resident Orders']");
+	public By aResidentOrders = By.xpath("//button[text()='Resident Orders']");
 	//public By resident = By.xpath("//datatable-scroller[@class='datatable-scroll ng-star-inserted']/datatable-row-wrapper[1]//datatable-body-cell[3]");
 	
 	//Create An order 
@@ -97,13 +97,13 @@ public class PhysicianPortal extends PageTemplate {
 	public By btnHeaderMessages = By.xpath("//*[@class='col-auto nav primary-menu-links']//button[contains(text(),'Messages')]");
 	public By btnHeaderMediprocity = By.xpath("//*[@class='col-auto nav primary-menu-links']//button[contains(text(),'@@Mediprocity')]");
 	
-	public By spandrpdwnSign = By.xpath("//div[@aria-labelledby='menuDropDown']//a[text()='Sign']");
-	public By spandrpdwnResidentOrder = By.xpath("//div[@aria-labelledby='menuDropDown']//a[text()='Resident Orders']");
-	public By spandrpdwnRecap = By.xpath("//div[@aria-labelledby='menuDropDown']//a[text()='Recap']");
-	public By spandrpdwnVerify = By.xpath("//div[@aria-labelledby='menuDropDown']//a[text()='Verify']");
-	public By spandrpdwnHistoryandPhysical = By.xpath("//div[@aria-labelledby='menuDropDown']//a[text()='History and Physical']");
-	public By spandrpdwnPhysicianProgressNoteAssessment = By.xpath("//div[@aria-labelledby='menuDropDown']//a[text()='Physician Progress Note Assessment']");
-	public By spandrpdwnPhysicianProgressNotes = By.xpath("//div[@aria-labelledby='menuDropDown']//a[text()='Physician Progress Notes']");
+	public By spandrpdwnSign = By.xpath("//div[@aria-labelledby='menuDropDown']//button[text()='Sign']");
+	public By spandrpdwnResidentOrder = By.xpath("//div[@aria-labelledby='menuDropDown']//button[text()='Resident Orders']");
+	public By spandrpdwnRecap = By.xpath("//div[@aria-labelledby='menuDropDown']//button[text()='Recap']");
+	public By spandrpdwnVerify = By.xpath("//div[@aria-labelledby='menuDropDown']//button[text()='Verify']");
+	public By spandrpdwnHistoryandPhysical = By.xpath("//div[@aria-labelledby='menuDropDown']//button[text()='History and Physical']");
+	public By spandrpdwnPhysicianProgressNoteAssessment = By.xpath("//div[@aria-labelledby='menuDropDown']//button[text()='Physician Progress Note Assessment']");
+	public By spandrpdwnPhysicianProgressNotes = By.xpath("//div[@aria-labelledby='menuDropDown']//button[text()='Physician Progress Notes']");
 	
 	public By spanResidentFirstName = By.xpath("//div[@class='datatable-row-center ng-star-inserted']//span[text()='First Name']");
 	public By spanResidentLastName = By.xpath("//div[@class='datatable-row-center ng-star-inserted']//span[text()='Last Name']");
@@ -140,7 +140,9 @@ public class PhysicianPortal extends PageTemplate {
 	
 	public void ClickOnExistingResident(String residentMR)
 	{
-		By Resident = By.xpath((String.format("//datatable-scroller[@class='datatable-scroll ng-star-inserted']/datatable-row-wrapper//datatable-body-cell[3]//span[text()='%s']", residentMR)));
+	//	By Resident = By.xpath((String.format("//datatable-scroller[@class='datatable-scroll ng-star-inserted']/datatable-row-wrapper//datatable-body-cell[3]//span[text()='%s']", residentMR)));
+		
+		By Resident = By.xpath((String.format("//datatable-scroller[@class='datatable-scroll ng-star-inserted']/datatable-row-wrapper//datatable-body-cell[4]//span[text()='%s']/../../..//div/button[text()='Select']", residentMR)));
 		this.testReport.logSuccess("Clicked on Existing Resident Present in the Portal ");		
 		for(int i=3;i<=8;i++)
 		{
@@ -449,17 +451,18 @@ public class PhysicianPortal extends PageTemplate {
 	}
 	
 	
-	public void CreateOrderFrequencyForRoutine(int num ,String physicianInstructions, String additionalInstruction,String frequencyType)
+	public void CreateOrderFrequencyForRoutine(int num ,String physicianInstructions, String additionalInstruction,String type)
 	{
-		if(frequencyType.equals("Routine"))
-		{
-		By txtPhysicianInstructions  = By.xpath(String.format("(//label[text()='Physician Instructions']/..//textarea[@id='instructions'])[%d]", num));
-		this.sendKeys(txtPhysicianInstructions, physicianInstructions);
-		}
-		else
+		if(type.equals("Medication") || type.equals("Treatment With Medication"))
 		{
 			By btnGenerrate = By.xpath(String.format("(//label[text()='Physician Instructions']/..//button[text()='Generate'])[%d]",num));
 			this.click(btnGenerrate, "Genrate Button");
+		}
+		else
+		{
+			
+			By txtPhysicianInstructions  = By.xpath(String.format("(//label[text()='Physician Instructions']/..//textarea[@id='instructions'])[%d]", num));
+			this.sendKeys(txtPhysicianInstructions, physicianInstructions);
 		}
 		By txtAdditionalInstruction = By.xpath(String.format("(//label[text()='Additional Instruction']/..//textarea[@id='additionalNotes'])[%d]", num));
 		this.sendKeys(txtAdditionalInstruction, additionalInstruction);
@@ -543,12 +546,12 @@ public class PhysicianPortal extends PageTemplate {
 			By drpdwnHowOften = By.xpath(String.format("(//label[text()='How often']/..//select[@id='patientOrderScheduleType'])[%d]", FrequencyNum));
 			this.SelectDropDownByText(drpdwnHowOften, howOften);
 			
-			By radioUseByWeeks = By.xpath(String.format("((//div[@class='form-row']//input[@name='rdoMonthlyChoice'])[4])"));
+		//	By radioUseByWeeks = By.xpath(String.format("((//div[@class='form-row']//input[@name='rdoMonthlyChoice'])[4])"));
 			
-		//	By radioUseByWeeks = By.xpath(String.format("(//div[@class='card'])[2]//div[@class='form-row']//input"(//div[@class='card'])[2]//div[@class='form-row']//input
+			By radioUseByWeeks = By.xpath(String.format("((//div[@class='card'])[%d]//div[@class='form-row']//input[@name='rdoMonthlyChoice'])[2]",FrequencyNum));
 			
 			
-			boolean IsSelected = wd.findElement(By.xpath(String.format("((//div[@class='form-row']//input[@name='rdoMonthlyChoice'])[4])"))).getAttribute("ng-reflect-value").equals("true");
+			boolean IsSelected = wd.findElement(By.xpath(String.format("((//div[@class='card'])[%d]//div[@class='form-row']//input[@name='rdoMonthlyChoice'])[2]",FrequencyNum))).getAttribute("ng-reflect-value").equals("true");
 			if(!IsSelected)
 			{
 				this.click(radioUseByWeeks,"Use By Weeks Radio Button");
@@ -561,7 +564,7 @@ public class PhysicianPortal extends PageTemplate {
 			By drpdwnDay = By.xpath(String.format("(//select[@formcontrolname='dayOfTheWeek'])[%d]",howOftenTime));
 			this.SelectDropDownByText(drpdwnDay, DropdownDay);
 			
-			By txtEveryDay  = By.xpath(String.format("(//label[text()='of every']/..//input[@id='happensEvery'])[%d]", newHowOftenTime));
+			By txtEveryDay  = By.xpath(String.format("((//div[@class='card'])[%d]//label[text()='of every']/..//input[@id='happensEvery'])", FrequencyNum));
 			this.sendKeys(txtEveryDay, everyDay);			
 		
 		}
@@ -578,8 +581,12 @@ public class PhysicianPortal extends PageTemplate {
 			this.SelectDropDownByText(drpdwnScheduleOnMonth, scheduleOnMonth);
 			By drpdwnScheduleOnNumber = By.xpath(String.format("(//label[text()='On']/..//input[@formcontrolname='dayOfTheMonth'])[%d]",newHowOftenNumber));
 			this.SendKeysToElementClearFirst(drpdwnScheduleOnNumber, scheduleOnNumber);
-			By drpdwnScheduleOnYear = By.xpath(String.format("(//label[text()='of every']/..//input[@formcontrolname='happensEvery'])[%d]",newHowOftenNumber));
-			this.sendKeys(drpdwnScheduleOnYear, scheduleOnYear);
+	//		By drpdwnScheduleOnYear = By.xpath(String.format("(//label[text()='of every']/..//input[@formcontrolname='happensEvery'])[%d]",newHowOftenNumber));
+	//		this.sendKeys(drpdwnScheduleOnYear, scheduleOnYear);
+			
+			By txtEveryDay  = By.xpath(String.format("((//div[@class='card'])[%d]//label[text()='of every']/..//input[@id='happensEvery'])", FrequencyNum));
+			this.sendKeys(txtEveryDay, scheduleOnYear);			
+		
 			
 		}
 	
@@ -591,20 +598,17 @@ public class PhysicianPortal extends PageTemplate {
 		this.SelectDropDownByText(drpdwnFrequency, frequency);
 	}
 	
-	public void TextTypeNoOfTimesAdayFrequency(String frequencytype ,int frequencyNum , String frequency ,int frequencyCount , int numberOfShifts , String timeInADay,int chkbxNo)
+	public void TextTypeNoOfTimesAdayFrequency(String frequencytype ,int frequencyNum , String frequency , int numberOfShifts , String timeInADay)
 	{
 		By drpdwnFrequency = By.xpath(String.format("(//label[text()='Frequency']/..//select[@id='typeOrderFrequencyId'])[%d]", frequencyNum));
 	
 		this.SelectDropDownByText(drpdwnFrequency, frequency); 
-		if(frequencytype=="text Box")	{					
+		if(frequencytype.equals("text Box"))	{					
 		for(int i=1;i<=numberOfShifts;i++)
-		{
-	//	By textbxTimeInADayOnce = By.xpath(String.format("(((//div[@formarrayname='timeRanges'])[%d]//input[@placeholder='hh:mm ampm'])[%d])",frequencyCount,i));
-		By textbxTimeInADayOnce = By.xpath(String.format("((//label[text()='Times']/..//div[@formarrayname='timeRanges'])[%d]/..//div//input[@placeholder='hh:mm ampm'])[%d]",frequencyCount,i));	
-		
-	/*	for(double j=06.00;j<12.00;j++) {
-			int 
-		}   */
+		{			
+			
+		By textbxTimeInADayOnce = By.xpath(String.format("(((//div[@class='card'])[%d]//label[text()='Times']/..//div[@formarrayname='timeRanges'])/..//div//input[@placeholder='hh:mm ampm'])[%d]",frequencyNum,i));	
+	
 		this.SendKeysToElementClearFirst(textbxTimeInADayOnce, timeInADay);
 		
 		}
@@ -612,13 +616,13 @@ public class PhysicianPortal extends PageTemplate {
 		else
 		{
 		
-	//	int newfrequencyCount = (frequencyCount + 1);
-		By chkbxUserPredefinedTimeRange = By.xpath((String.format("(//label[text()='Times']/..//input[@ng-reflect-model='false'])[%d]", chkbxNo)));
+	
+		By chkbxUserPredefinedTimeRange = By.xpath((String.format("(//div[@class='card'])[%d]//label[text()='Times']/..//input[@ng-reflect-model='false']", frequencyNum)));
 		this.click(chkbxUserPredefinedTimeRange, "User Predefined TimeRange Check Box");						
 		for(int i=1;i<=numberOfShifts;i++)
 		{
-	//	By ckhbxTimeInADayOnce = By.xpath(String.format("((//div[@formarrayname='timeRanges']//select[@formcontrolname='settingId'])[%d])[%d]", i,frequencyCount));
-			By ckhbxTimeInADayOnce = By.xpath(String.format("((((//label[text()='Times'])/..//div[@formarrayname='timeRanges'])[%d])//div//select[@formcontrolname='settingId'])[%d]",frequencyCount,i));
+	
+			By ckhbxTimeInADayOnce = By.xpath(String.format("(((//div[@class='card'])[%d]//label[text()='Times']/..//div[@formarrayname='timeRanges'])//select[@formcontrolname='settingId'])[%d]",frequencyNum,i));
 	 
 		this.SelectDropDownByText(ckhbxTimeInADayOnce, timeInADay);
 		
@@ -1018,7 +1022,7 @@ public class PhysicianPortal extends PageTemplate {
 			this.VerifyWebElementPresent(txtStartDate, "Start Date");
 			By iconCalender = By.xpath(String.format("((//label[text()='Start Date']/..//button[@class='btn btn-outline-secondary']/i))[%d]",num));
 			this.click(iconCalender, "Calender icon");
-			By HighlightDate = By.xpath(String.format("(//label[text()='Start Date']/..//ngb-datepicker-month-view[@class='d-block']//div[@class='btn-light bg-primary text-white ng-star-inserted'])[%d]",num));
+			By HighlightDate = By.xpath(String.format("((//div[@class='card'])[%d]//label[text()='Start Date']/..//ngb-datepicker-month-view[@class='d-block']//div[@ng-reflect-selected='true'])",num));
 			this.click(HighlightDate, "Today's Date");
 		//	this.SendKeysToElementClearFirst(txtStartDate, startDate);
 			By txtStartDateTime = By.xpath(String.format("(//label[text()='Start Date']/..//input[@placeholder='hh:mm ampm' ])[%d]",num));
@@ -1082,7 +1086,13 @@ public class PhysicianPortal extends PageTemplate {
 				this.sendKeys(txtOthersRequiredActionsPostDropdown, othersRequiredActionsPostDropdown);
 			}
 			By drpdwnAdministeredBy = By.xpath(String.format("(//label[text()='Administered By']/..//select[@id='settingOrderAdministratorId'])[%d]", num));
-			this.SelectDropDownByText(drpdwnAdministeredBy, administeredBy);		
+			this.SelectDropDownByText(drpdwnAdministeredBy, administeredBy);
+			if(!frequencyType.equals("Routine"))
+			{			
+				By txtMaxDoesHours = By.xpath(String.format("(//label[text()='Max Doses Per 24 Hours']/..//input[@id='prnMaxDailyAdministration'])[%d]",num));
+				this.sendKeys(txtMaxDoesHours,maxDoesHours);
+			}
+			
 			By chkbxIsSelfAdministered = By.xpath(String.format("(//input[@id='selfAdministered'])[%d]",num));
 			this.click(chkbxIsSelfAdministered,"Is Self Administered Check Box");
 			By chkbxselfAdministeredRequiresSupervision = By.xpath(String.format("(//input[@id='selfAdministeredRequiresSupervision'])[%d]", num));
@@ -1094,7 +1104,7 @@ public class PhysicianPortal extends PageTemplate {
 			}
 				
 			By txtFollowUpAfterMinutes = By.xpath(String.format("(//input[@id='followUpAfterMinutes'])[%d]", num));
-			this.sendKeys(txtFollowUpAfterMinutes, followUpAfterMinutes);
+			this.SendKeysToElementClearFirst(txtFollowUpAfterMinutes, followUpAfterMinutes);
 			By chkbxRequiesSlidingScale = By.xpath(String.format("(//label[@class='form-check-label']/input[@id='useSlidingScale'])[%d]", num));
 			this.click(chkbxRequiesSlidingScale,"Requies Sliding Scale Check Box");
 			By txtSlidingScaleMin = By.xpath(String.format("(//table//input[@formcontrolname='minValue'])[%d]", num));
@@ -1111,15 +1121,15 @@ public class PhysicianPortal extends PageTemplate {
 		{
 			List<WebElement> bluecolourNeedSinging = wd.findElements(By.xpath("//strong[text()='Needs Signing']"));
 			int needSinging = bluecolourNeedSinging.size();
-			System.out.println("Total No of Need Singing" +needSinging);
+			System.out.println("Total No of Need Singing : " +needSinging);
 			
 			List<WebElement> grayColourNeedsVerifications = wd.findElements(By.xpath("//strong[text()='Needs Verification']"));
 			int needsVerifications = grayColourNeedsVerifications.size();
-			System.out.println("Total No of Needs Verifications" +needsVerifications);
+			System.out.println("Total No of Needs Verifications : " +needsVerifications);
 			
 			List<WebElement> greencolourActive = wd.findElements(By.xpath("//strong[text()='Active']"));
 			int Active = greencolourActive.size();
-			System.out.println("Total No of Active" +Active);
+			System.out.println("Total No of Active : " +Active);
 		}
 		
 		public void OrderDisplayPageColoumnsVerification()
@@ -1137,7 +1147,29 @@ public class PhysicianPortal extends PageTemplate {
 			this.VerifyWebElementPresent(defaultSection, "Default Section 25");
 			List<WebElement> pagesNo = wd.findElements(By.xpath("//li[@class='pages']"));
 			int PagesNoInOrderDisplay  = pagesNo.size();
-			System.out.println("Total No of Normal page Containers" + PagesNoInOrderDisplay);
+			System.out.println("Total No of Normal page Containers : " + PagesNoInOrderDisplay);
+		}
+		
+		public void HourWiseFrequency(int frequencyNum , String frequency,String startingTime)
+		{
+			By drpdwnFrequency = By.xpath(String.format("(//label[text()='Frequency']/..//select[@id='typeOrderFrequencyId'])[%d]", frequencyNum));
+			
+			this.SelectDropDownByText(drpdwnFrequency, frequency); 
+			By startingAt = By.xpath(String.format("((//div[@class='card'])[%d]//label[text()='Times']/..//input[@placeholder='hh:mm ampm'])",frequencyNum));
+			this.SendKeysToElementClearFirst(startingAt, startingTime);
+			
+			List<WebElement> NoOfTimings = wd.findElements(By.xpath("(//div[@class='card'])[2]//label[text()='Times']/..//select/option"));
+			int frequencyNoOfTimings = NoOfTimings.size();
+			System.out.println("Total No of Timings in a Frequency : " + frequencyNoOfTimings);
+			
+			By FirstTimings = By.xpath(String.format("(//div[@class='card'])[%d]//label[text()='Times']/..//select/option[1]",frequencyNum));
+			String dosetimingsValue = FirstTimings.toString();
+			
+			By doseTimings = By.xpath(String.format("(//div[@class='card'])[%d]//label[text()='Times']/..//select",frequencyNum));
+			this.SendKeysToElementClearFirst(doseTimings, dosetimingsValue);
+			
+			
+		
 		}
 		
 		}

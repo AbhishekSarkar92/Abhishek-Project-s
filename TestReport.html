@@ -38,7 +38,8 @@
 		<!-- slideout menu -->
 		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
 			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
-						<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+						<li class='waves-effect'><a href='#!' view='exception-view' onclick="configureView(2)"><i class='material-icons'>bug_report</i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
 		</ul>
 
 		<!-- report name -->
@@ -51,7 +52,7 @@
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<li>
                 <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>Apr 12, 2018 06:30:11 PM</span>
+                    <span class='label suite-start-time blue darken-3'>Apr 25, 2018 06:34:09 PM</span>
 				</a>
 			</li>
 			<li>
@@ -77,6 +78,8 @@
 				</a>
 				<ul id='tests-toggle' class='dropdown-content'>
 											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+						<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+						<li status='error'><a href='#!'>Error <i class='material-icons red-text lighten-2'>error</i></a></li>
 					<li class='divider'></li>
 					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
 				</ul>
@@ -127,10 +130,10 @@
 					<canvas id='parent-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>1</span> test(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> test(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='100%'>1</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -142,10 +145,10 @@
 					<canvas id='child-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='97.765%'><span class='strong'>175</span> step(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='72.464%'><span class='strong'>50</span> step(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='2.235%'>4</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='7.246%'>5</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='20.29%'>14</span> others
 				</div>
 			</div>
 		</div>
@@ -160,17 +163,17 @@
 			<ul id='test-collection' class='test-collection'>
 				
 				
-				<li class='test displayed active  pass' status='pass' bdd='false' test-id='1'>
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='1'>
 					<div class='test-heading'>
-						<span class='test-name'>Test-QA09_ResidentOrders_CreateAnOrderWithFrequencyRoutine</span>
-						<span class='test-time'>Apr 12, 2018 06:30:11 PM</span>
-						<span class='test-status right pass'>pass</span>
+						<span class='test-name'>Test-QA10_ResidentOrders_CreateAnOrderWithFrequencyRoutine</span>
+						<span class='test-time'>Apr 25, 2018 06:34:09 PM</span>
+						<span class='test-status right fail'>fail</span>
 					</div>
 					<div class='test-content hide'>
 <div class='test-time-info'>
-	<span class='label start-time'>Apr 12, 2018 06:30:11 PM</span>
-	<span class='label end-time'>Apr 12, 2018 06:33:26 PM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 3m 14s+299ms</span>
+	<span class='label start-time'>Apr 25, 2018 06:34:09 PM</span>
+	<span class='label end-time'>Apr 25, 2018 06:40:23 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 6m 14s+200ms</span>
 </div>
 	<div class='test-steps'>
 		<table class='bordered table-results'>
@@ -184,898 +187,439 @@
 			<tbody>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:07 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //input[@placeholder='Key'] )</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:08 PM</td>
-					<td class='step-details'>StepName - SendKeys, StepDescription - Entered Text - <mark>5F94A69E-F7F4-E511-8114-000C291AF998</mark> To Locator - <mark>By.xpath: //input[@placeholder='Key'] </mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:08 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //button[text()='Submit Key'])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:08 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //button[text()='Submit Key'])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:08 PM</td>
-					<td class='step-details'>StepName - Click, StepDescription - Click Performed On Locator - <mark>Submit Key Button</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:11 PM</td>
+					<td class='timestamp'>6:34:52 PM</td>
 					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //input[@placeholder='Username'] )</td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:12 PM</td>
+					<td class='timestamp'>6:34:53 PM</td>
 					<td class='step-details'>StepName - SendKeys, StepDescription - Entered Text - <mark>tester1</mark> To Locator - <mark>By.xpath: //input[@placeholder='Username'] </mark></td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:12 PM</td>
+					<td class='timestamp'>6:34:53 PM</td>
 					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //input[@placeholder='Password'] )</td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:12 PM</td>
+					<td class='timestamp'>6:34:54 PM</td>
 					<td class='step-details'>StepName - SendKeys, StepDescription - Entered Text - <mark>Asd123!@#</mark> To Locator - <mark>By.xpath: //input[@placeholder='Password'] </mark></td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:12 PM</td>
+					<td class='timestamp'>6:34:54 PM</td>
 					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //button[text()='Sign in'])</td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:12 PM</td>
+					<td class='timestamp'>6:34:54 PM</td>
 					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //button[text()='Sign in'])</td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:12 PM</td>
+					<td class='timestamp'>6:34:55 PM</td>
 					<td class='step-details'>StepName - Click, StepDescription - Click Performed On Locator - <mark>Sign In Button</mark></td>
 				</tr>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>6:31:17 PM</td>
-					<td class='step-details'>Thread - 15 , Executes Next Test Method - QA09_ResidentOrders_CreateAnOrderWithFrequencyRoutine On Browser - ie</td>
+					<td class='timestamp'>6:35:00 PM</td>
+					<td class='step-details'>Thread - 15 , Executes Next Test Method - QA10_ResidentOrders_CreateAnOrderWithFrequencyRoutine On Browser - ie</td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:17 PM</td>
+					<td class='timestamp'>6:35:00 PM</td>
 					<td class='step-details'>Click to Physician Portal From Menu Bar</td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:17 PM</td>
+					<td class='timestamp'>6:35:00 PM</td>
 					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //div[@class='col-md-auto']//button)</td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:17 PM</td>
+					<td class='timestamp'>6:35:00 PM</td>
 					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //div[@class='col-md-auto']//button)</td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:18 PM</td>
+					<td class='timestamp'>6:35:00 PM</td>
 					<td class='step-details'>StepName - Click, StepDescription - Click Performed On Locator - <mark>Menu Button</mark></td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:18 PM</td>
+					<td class='timestamp'>6:35:00 PM</td>
 					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //div[@class='modal-content']//img[@src='https://cdn.bluestrataemr.com/Images/Menu/sigma_medical_doctor_128.png'])</td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:18 PM</td>
+					<td class='timestamp'>6:35:00 PM</td>
 					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //div[@class='modal-content']//img[@src='https://cdn.bluestrataemr.com/Images/Menu/sigma_medical_doctor_128.png'])</td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:18 PM</td>
+					<td class='timestamp'>6:35:04 PM</td>
 					<td class='step-details'>StepName - Click, StepDescription - Click Performed On Locator - <mark>Physician Portal Option</mark></td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:18 PM</td>
+					<td class='timestamp'>6:35:04 PM</td>
 					<td class='step-details'>Navigate to Residents Order From Physician Portal</td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:18 PM</td>
+					<td class='timestamp'>6:35:04 PM</td>
 					<td class='step-details'>Clicked on Physician Portal Button</td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:18 PM</td>
+					<td class='timestamp'>6:35:04 PM</td>
 					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //button[text()='Physician Portal'])</td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:18 PM</td>
+					<td class='timestamp'>6:35:04 PM</td>
 					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //button[text()='Physician Portal'])</td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:18 PM</td>
+					<td class='timestamp'>6:35:05 PM</td>
 					<td class='step-details'>StepName - Click, StepDescription - Click Performed On Locator - <mark>Physician Portal Button</mark></td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:20 PM</td>
+					<td class='timestamp'>6:35:07 PM</td>
 					<td class='step-details'>Clicked on Resident Orders Links</td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:20 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //a[text()='Resident Orders'])</td>
+					<td class='timestamp'>6:35:07 PM</td>
+					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //button[text()='Resident Orders'])</td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:20 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //a[text()='Resident Orders'])</td>
+					<td class='timestamp'>6:35:07 PM</td>
+					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //button[text()='Resident Orders'])</td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:21 PM</td>
+					<td class='timestamp'>6:35:08 PM</td>
 					<td class='step-details'>StepName - Click, StepDescription - Click Performed On Locator - <mark>Resident Orders</mark></td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:23 PM</td>
+					<td class='timestamp'>6:35:10 PM</td>
 					<td class='step-details'>Click On existing Resident</td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:23 PM</td>
+					<td class='timestamp'>6:35:10 PM</td>
 					<td class='step-details'>Clicked on Existing Resident Present in the Portal</td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:23 PM</td>
+					<td class='timestamp'>6:35:10 PM</td>
 					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//*[@class='datatable-pager ng-star-inserted']//a)[3])</td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:23 PM</td>
+					<td class='timestamp'>6:35:10 PM</td>
 					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//*[@class='datatable-pager ng-star-inserted']//a)[3])</td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:24 PM</td>
+					<td class='timestamp'>6:35:10 PM</td>
 					<td class='step-details'>StepName - Click, StepDescription - Click Performed On Locator - <mark>Navigate Page</mark></td>
 				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:26 PM</td>
-					<td class='step-details'>StepName - isElementVisible, StepDescription - Element Present - (By - By.xpath: //datatable-scroller[@class='datatable-scroll ng-star-inserted']/datatable-row-wrapper//datatable-body-cell[3]//span[text()='201332147'])</td>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:35:32 PM</td>
+					<td class='step-details'>Element Not Prensent - (By - By.xpath: //datatable-scroller[@class='datatable-scroll ng-star-inserted']/datatable-row-wrapper//datatable-body-cell[4]//span[text()='201332171']/../../..//div/button[text()='Select'])</td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:26 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //datatable-scroller[@class='datatable-scroll ng-star-inserted']/datatable-row-wrapper//datatable-body-cell[3]//span[text()='201332147'])</td>
+					<td class='timestamp'>6:35:32 PM</td>
+					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//*[@class='datatable-pager ng-star-inserted']//a)[4])</td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:26 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //datatable-scroller[@class='datatable-scroll ng-star-inserted']/datatable-row-wrapper//datatable-body-cell[3]//span[text()='201332147'])</td>
+					<td class='timestamp'>6:35:32 PM</td>
+					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//*[@class='datatable-pager ng-star-inserted']//a)[4])</td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:27 PM</td>
-					<td class='step-details'>StepName - Click, StepDescription - Click Performed On Locator - <mark>Selected Resident</mark></td>
+					<td class='timestamp'>6:35:33 PM</td>
+					<td class='step-details'>StepName - Click, StepDescription - Click Performed On Locator - <mark>Navigate Page</mark></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:35:55 PM</td>
+					<td class='step-details'>Element Not Prensent - (By - By.xpath: //datatable-scroller[@class='datatable-scroll ng-star-inserted']/datatable-row-wrapper//datatable-body-cell[4]//span[text()='201332171']/../../..//div/button[text()='Select'])</td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:27 PM</td>
-					<td class='step-details'>Create Order With Treatment Dropdown Option</td>
+					<td class='timestamp'>6:35:55 PM</td>
+					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//*[@class='datatable-pager ng-star-inserted']//a)[5])</td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:32 PM</td>
-					<td class='step-details'>StepName - isElementPresent, StepDescription - Element Present - (By - By.xpath: //button[text()='Create an Order'])</td>
+					<td class='timestamp'>6:35:55 PM</td>
+					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//*[@class='datatable-pager ng-star-inserted']//a)[5])</td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:32 PM</td>
-					<td class='step-details'>Order Created</td>
+					<td class='timestamp'>6:35:56 PM</td>
+					<td class='step-details'>StepName - Click, StepDescription - Click Performed On Locator - <mark>Navigate Page</mark></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:36:18 PM</td>
+					<td class='step-details'>Element Not Prensent - (By - By.xpath: //datatable-scroller[@class='datatable-scroll ng-star-inserted']/datatable-row-wrapper//datatable-body-cell[4]//span[text()='201332171']/../../..//div/button[text()='Select'])</td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:32 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //button[text()='Create an Order'])</td>
+					<td class='timestamp'>6:36:18 PM</td>
+					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//*[@class='datatable-pager ng-star-inserted']//a)[6])</td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:32 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //button[text()='Create an Order'])</td>
+					<td class='timestamp'>6:36:18 PM</td>
+					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//*[@class='datatable-pager ng-star-inserted']//a)[6])</td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:32 PM</td>
-					<td class='step-details'>StepName - Click, StepDescription - Click Performed On Locator - <mark>Create Order Button</mark></td>
+					<td class='timestamp'>6:36:19 PM</td>
+					<td class='step-details'>StepName - Click, StepDescription - Click Performed On Locator - <mark>Navigate Page</mark></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:36:41 PM</td>
+					<td class='step-details'>Element Not Prensent - (By - By.xpath: //datatable-scroller[@class='datatable-scroll ng-star-inserted']/datatable-row-wrapper//datatable-body-cell[4]//span[text()='201332171']/../../..//div/button[text()='Select'])</td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:37 PM</td>
+					<td class='timestamp'>6:36:41 PM</td>
+					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//*[@class='datatable-pager ng-star-inserted']//a)[7])</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:36:41 PM</td>
+					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//*[@class='datatable-pager ng-star-inserted']//a)[7])</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:36:41 PM</td>
+					<td class='step-details'>StepName - Click, StepDescription - Click Performed On Locator - <mark>Navigate Page</mark></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:37:04 PM</td>
+					<td class='step-details'>Element Not Prensent - (By - By.xpath: //datatable-scroller[@class='datatable-scroll ng-star-inserted']/datatable-row-wrapper//datatable-body-cell[4]//span[text()='201332171']/../../..//div/button[text()='Select'])</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:37:04 PM</td>
+					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//*[@class='datatable-pager ng-star-inserted']//a)[8])</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:37:04 PM</td>
+					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//*[@class='datatable-pager ng-star-inserted']//a)[8])</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:37:04 PM</td>
+					<td class='step-details'>StepName - Click, StepDescription - Click Performed On Locator - <mark>Navigate Page</mark></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:37:26 PM</td>
+					<td class='step-details'>Element Not Prensent - (By - By.xpath: //datatable-scroller[@class='datatable-scroll ng-star-inserted']/datatable-row-wrapper//datatable-body-cell[4]//span[text()='201332171']/../../..//div/button[text()='Select'])</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:37:49 PM</td>
+					<td class='step-details'>Element Not Prensent - (By - By.xpath: //button[text()='Create an Order'])</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>6:37:49 PM</td>
 					<td class='step-details'>StepName - waitUntilElementIsVisible, StepDescription - Element visible - (By - By.id: settingOrderTypeId)</td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:37 PM</td>
+					<td class='timestamp'>6:37:49 PM</td>
 					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.id: settingOrderTypeId)</td>
 				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:38 PM</td>
-					<td class='step-details'>StepName - SelectDropDownByText, StepDescription - Selected Visible Text - <mark>Treatment</mark> On Locator - <mark>By.id: settingOrderTypeId</mark></td>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>6:38:09 PM</td>
+					<td class='step-details'>StepName - SelectDropDownByText, StepDescription - Failed To Perform Select Visible Text - <mark>Treatment</mark> On Locator - <mark>By.id: settingOrderTypeId</mark><img data-featherlight='ErrorScreenshots\Screenshot_15_25-04-2018_18_38_09_269_1.jpg' width='10%' src='ErrorScreenshots\Screenshot_15_25-04-2018_18_38_09_269_1.jpg' data-src='ErrorScreenshots\Screenshot_15_25-04-2018_18_38_09_269_1.jpg'></td>
+				</tr>
+				<tr class='log' status='error'>
+					<td class='status error' title='error' alt='error'><i class='material-icons'>error</i></td>
+					<td class='timestamp'>6:38:09 PM</td>
+					<td class='step-details'><pre>org.openqa.selenium.NoSuchElementException: Unable to find element with css selector == #settingOrderTypeId
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.6.0', revision: '6fbf3ec767', time: '2017-09-27T15:28:36.4Z'
+System info: host: 'HW1562', ip: '10.11.4.35', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_141'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{proxy=Proxy(), acceptInsecureCerts=false, browserVersion=11, se:ieOptions={nativeEvents=true, browserAttachTimeout=0, ie.ensureCleanSession=true, elementScrollBehavior=0, enablePersistentHover=true, ie.browserCommandLineSwitches=, ie.forceCreateProcessApi=false, requireWindowFocus=false, initialBrowserUrl=http://localhost:2220/, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, ignoreProtectedModeSettings=false}, timeouts={implicit=0, pageLoad=300000, script=30000}, browserName=internet explorer, pageLoadStrategy=normal, javascriptEnabled=true, platformName=WINDOWS, setWindowRect=true, platform=WINDOWS}]
+Session ID: 505c69f0-8d8a-4e0a-8eec-fc617540074e
+*** Element info: {Using=id, value=settingOrderTypeId}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:319)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:365)
+	at org.openqa.selenium.By$ById.findElement(By.java:218)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:311)
+	at dweb.aut.pages.templates.PageTemplate.SelectDropDownByText(PageTemplate.java:191)
+	at aut.bluestrata.pages.PhysicianPortal.CreateAnOrderWithOrderDetails(PhysicianPortal.java:174)
+	at aut.tests.functionaltests.PhysicianPortalTestCases.QA10_ResidentOrders_CreateAnOrderWithFrequencyRoutine(PhysicianPortalTestCases.java:397)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.access$000(SuiteRunner.java:39)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:414)
+	at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+</pre></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:38:36 PM</td>
+					<td class='step-details'>Element Not Prensent - (By - By.xpath: //label[contains(.,'Pick From Library')]/../div/button)</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>6:38:36 PM</td>
+					<td class='step-details'>StepName - Element Not Present, StepDescription - Element not present - <mark>Create Library Item Link</mark></td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:46 PM</td>
-					<td class='step-details'>StepName - isElementPresent, StepDescription - Element Present - (By - By.xpath: //label[contains(.,'Pick From Library')]/../div/button)</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:46 PM</td>
-					<td class='step-details'>StepName - Element Present, StepDescription - Element is present - <mark>Create Library Item Link</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:46 PM</td>
+					<td class='timestamp'>6:38:36 PM</td>
 					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //label[contains(.,'Pick From Library')]/../div/button)</td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:46 PM</td>
+					<td class='timestamp'>6:38:36 PM</td>
 					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //label[contains(.,'Pick From Library')]/../div/button)</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>6:38:56 PM</td>
+					<td class='step-details'>StepName - clickWithJavascript, StepDescription - Failed To Perform Click On Locator - <mark>By.xpath: //label[contains(.,'Pick From Library')]/../div/button</mark><img data-featherlight='ErrorScreenshots\Screenshot_15_25-04-2018_18_38_56_894_1.jpg' width='10%' src='ErrorScreenshots\Screenshot_15_25-04-2018_18_38_56_894_1.jpg' data-src='ErrorScreenshots\Screenshot_15_25-04-2018_18_38_56_894_1.jpg'></td>
+				</tr>
+				<tr class='log' status='error'>
+					<td class='status error' title='error' alt='error'><i class='material-icons'>error</i></td>
+					<td class='timestamp'>6:38:56 PM</td>
+					<td class='step-details'><pre>org.openqa.selenium.NoSuchElementException: Unable to find element with xpath == //label[contains(.,'Pick From Library')]/../div/button
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.6.0', revision: '6fbf3ec767', time: '2017-09-27T15:28:36.4Z'
+System info: host: 'HW1562', ip: '10.11.4.35', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_141'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{proxy=Proxy(), acceptInsecureCerts=false, browserVersion=11, se:ieOptions={nativeEvents=true, browserAttachTimeout=0, ie.ensureCleanSession=true, elementScrollBehavior=0, enablePersistentHover=true, ie.browserCommandLineSwitches=, ie.forceCreateProcessApi=false, requireWindowFocus=false, initialBrowserUrl=http://localhost:2220/, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, ignoreProtectedModeSettings=false}, timeouts={implicit=0, pageLoad=300000, script=30000}, browserName=internet explorer, pageLoadStrategy=normal, javascriptEnabled=true, platformName=WINDOWS, setWindowRect=true, platform=WINDOWS}]
+Session ID: 505c69f0-8d8a-4e0a-8eec-fc617540074e
+*** Element info: {Using=xpath, value=//label[contains(.,'Pick From Library')]/../div/button}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:319)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:421)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:311)
+	at dweb.aut.pages.templates.PageTemplate.clickWithJavascript(PageTemplate.java:174)
+	at dweb.aut.pages.templates.PageTemplate.click(PageTemplate.java:144)
+	at aut.bluestrata.pages.PhysicianPortal.CreateAnOrderWithOrderDetails(PhysicianPortal.java:200)
+	at aut.tests.functionaltests.PhysicianPortalTestCases.QA10_ResidentOrders_CreateAnOrderWithFrequencyRoutine(PhysicianPortalTestCases.java:397)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.access$000(SuiteRunner.java:39)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:414)
+	at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+</pre></td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:46 PM</td>
+					<td class='timestamp'>6:38:56 PM</td>
 					<td class='step-details'>StepName - Click, StepDescription - Click Performed On Locator - <mark>Create Library Item Link</mark></td>
 				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:48 PM</td>
-					<td class='step-details'>StepName - isElementPresent, StepDescription - Element Present - (By - By.xpath: //label[contains(text(),'Pick From Library')]/..//button[1])</td>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:39:18 PM</td>
+					<td class='step-details'>Element Not Prensent - (By - By.xpath: //label[contains(text(),'Pick From Library')]/..//button[1])</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>6:39:18 PM</td>
+					<td class='step-details'>StepName - Element Not Present, StepDescription - Element not present - <mark>Create Link</mark></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>6:39:41 PM</td>
+					<td class='step-details'>Element Not Prensent - (By - By.xpath: //label[contains(text(),'Pick From Library')]/..//button[2])</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>6:39:41 PM</td>
+					<td class='step-details'>StepName - Element Not Present, StepDescription - Element not present - <mark>Cancel</mark></td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:48 PM</td>
-					<td class='step-details'>StepName - Element Present, StepDescription - Element is present - <mark>Create Link</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:50 PM</td>
-					<td class='step-details'>StepName - isElementPresent, StepDescription - Element Present - (By - By.xpath: //label[contains(text(),'Pick From Library')]/..//button[2])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:50 PM</td>
-					<td class='step-details'>StepName - Element Present, StepDescription - Element is present - <mark>Cancel</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:52 PM</td>
+					<td class='timestamp'>6:39:43 PM</td>
 					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.id: libraryCreate)</td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:53 PM</td>
-					<td class='step-details'>StepName - SendKeys, StepDescription - Entered Text - <mark>Testing Description Created </mark> To Locator - <mark>By.id: libraryCreate</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:55 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //label[contains(text(),'Pick From Library')]/..//button[1])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:55 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //label[contains(text(),'Pick From Library')]/..//button[1])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:56 PM</td>
-					<td class='step-details'>StepName - Click, StepDescription - Click Performed On Locator - <mark>Create Link</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:58 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //label[text()='Diagnosis']/..//button[@class='btn btn-link']/i)</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:58 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //label[text()='Diagnosis']/..//button[@class='btn btn-link']/i)</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:31:58 PM</td>
-					<td class='step-details'>StepName - Click, StepDescription - Click Performed On Locator - <mark>Add Diagonosis Link</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:00 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsVisible, StepDescription - Element visible - (By - By.id: query)</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:00 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.id: query)</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:00 PM</td>
-					<td class='step-details'>StepName - SendKeys, StepDescription - Entered Text - <mark>10</mark> To Locator - <mark>By.id: query</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:02 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //div[@class='form-group row']//button[@type='submit'])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:02 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //div[@class='form-group row']//button[@type='submit'])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:03 PM</td>
-					<td class='step-details'>StepName - Click, StepDescription - Click Performed On Locator - <mark>Search Diogonosis Button</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:05 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//div[@class='datatable-body-cell-label']/span)[1])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:05 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//div[@class='datatable-body-cell-label']/span)[1])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:06 PM</td>
-					<td class='step-details'>StepName - Click, StepDescription - Click Performed On Locator - <mark>Diogonosis Option</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:08 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //div[@class='col ng-star-inserted']//input[@value='TX'])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:08 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //div[@class='col ng-star-inserted']//input[@value='TX'])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:08 PM</td>
-					<td class='step-details'>StepName - Click, StepDescription - Click Performed On Locator - <mark>Treatment radio Button</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:10 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //label[text()='Medicare B Priority']/..//input[@id='query'])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:11 PM</td>
-					<td class='step-details'>StepName - SendKeys, StepDescription - Entered Text - <mark>5.0</mark> To Locator - <mark>By.xpath: //label[text()='Medicare B Priority']/..//input[@id='query']</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:13 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//div[@class='col ng-star-inserted']//div[@class='form-check']/label)[4])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:13 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//div[@class='col ng-star-inserted']//div[@class='form-check']/label)[4])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:13 PM</td>
-					<td class='step-details'>StepName - Click, StepDescription - Click Performed On Locator - <mark>Admitting Check Box</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:15 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//div[@class='col ng-star-inserted']//div[@class='form-check']/label)[5])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:15 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//div[@class='col ng-star-inserted']//div[@class='form-check']/label)[5])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:15 PM</td>
-					<td class='step-details'>StepName - Click, StepDescription - Click Performed On Locator - <mark>Send To MDS Check Box</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:17 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//div[@class='col ng-star-inserted']//div[@class='form-check']/label)[6])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:17 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//div[@class='col ng-star-inserted']//div[@class='form-check']/label)[6])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:17 PM</td>
-					<td class='step-details'>StepName - Click, StepDescription - Click Performed On Locator - <mark>Billing Admit Diagnosis Check Box</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:19 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //div[@class='col ng-star-inserted']//button[@type='submit'])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:20 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //div[@class='col ng-star-inserted']//button[@type='submit'])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:20 PM</td>
-					<td class='step-details'>StepName - Click, StepDescription - Click Performed On Locator - <mark>Create Diogonosis Button</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:22 PM</td>
-					<td class='step-details'>StepName - isElementPresent, StepDescription - Element Present - (By - By.xpath: //div[text()='Duplicate Diagnosis'])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:22 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //button[@class='close']/span)</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:22 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //button[@class='close']/span)</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:22 PM</td>
-					<td class='step-details'>StepName - Click, StepDescription - Click Performed On Locator - <mark>Close Button</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:24 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //label[text()='Diagnosis']/..//select[@id='diagnosisCode'])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:25 PM</td>
-					<td class='step-details'>StepName - SelectDropDownByText, StepDescription - Selected Visible Text - <mark>R29.71 - NIHSS score 10-19</mark> On Locator - <mark>By.xpath: //label[text()='Diagnosis']/..//select[@id='diagnosisCode']</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:27 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.id: physicianId)</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:28 PM</td>
-					<td class='step-details'>StepName - SelectDropDownByText, StepDescription - Selected Visible Text - <mark>TestDR, Test</mark> On Locator - <mark>By.id: physicianId</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:30 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.id: receivedById)</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:31 PM</td>
-					<td class='step-details'>StepName - SelectDropDownByText, StepDescription - Selected Visible Text - <mark>Singh, Vishal</mark> On Locator - <mark>By.id: receivedById</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:33 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.id: typeReceivedOrder)</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:33 PM</td>
-					<td class='step-details'>StepName - SelectDropDownByText, StepDescription - Selected Visible Text - <mark>Telephone</mark> On Locator - <mark>By.id: typeReceivedOrder</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:35 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.id: isAdmitting)</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:36 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.id: isAdmitting)</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:36 PM</td>
-					<td class='step-details'>StepName - Click, StepDescription - Click Performed On Locator - <mark>Is Admitting Check Box</mark></td>
+					<td class='timestamp'>6:40:03 PM</td>
+					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.id: libraryCreate)</td>
 				</tr>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>6:32:38 PM</td>
-					<td class='step-details'>Adding the Order Frequency</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:38 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //button[text()='Add Frequency'])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:38 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //button[text()='Add Frequency'])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:38 PM</td>
-					<td class='step-details'>StepName - Click, StepDescription - Click Performed On Locator - <mark>Add Frequency Button</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:40 PM</td>
-					<td class='step-details'>StepName - isElementPresent, StepDescription - Element Present - (By - By.xpath: (//select[@id='routineTypeId'])[1])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:40 PM</td>
-					<td class='step-details'>StepName - Element Present, StepDescription - Element is present - <mark>Frequency Type</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:40 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//select[@id='routineTypeId'])[1])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:41 PM</td>
-					<td class='step-details'>StepName - SelectDropDownByText, StepDescription - Selected Visible Text - <mark>Routine</mark> On Locator - <mark>By.xpath: (//select[@id='routineTypeId'])[1]</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:43 PM</td>
-					<td class='step-details'>StepName - isElementPresent, StepDescription - Element Present - (By - By.xpath: (//label[text()='Start Date']/..//input[@placeholder='mm/dd/yyyy' and @class='form-control'])[1])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:43 PM</td>
-					<td class='step-details'>StepName - Element Present, StepDescription - Element is present - <mark>Start Date</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:43 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: ((//label[text()='Start Date']/..//button[@class='btn btn-outline-secondary']/i))[1])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:43 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: ((//label[text()='Start Date']/..//button[@class='btn btn-outline-secondary']/i))[1])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:44 PM</td>
-					<td class='step-details'>StepName - Click, StepDescription - Click Performed On Locator - <mark>Calender icon</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:44 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//label[text()='Start Date']/..//ngb-datepicker-month-view[@class='d-block']//div[@class='btn-light bg-primary text-white ng-star-inserted'])[1])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:44 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//label[text()='Start Date']/..//ngb-datepicker-month-view[@class='d-block']//div[@class='btn-light bg-primary text-white ng-star-inserted'])[1])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:44 PM</td>
-					<td class='step-details'>StepName - Click, StepDescription - Click Performed On Locator - <mark>Today's Date</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:46 PM</td>
-					<td class='step-details'>StepName - isElementPresent, StepDescription - Element Present - (By - By.xpath: (//label[text()='Start Date']/..//input[@placeholder='hh:mm ampm' ])[1])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:46 PM</td>
-					<td class='step-details'>StepName - Element Present, StepDescription - Element is present - <mark>Start Date Time</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:46 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//label[text()='Start Date']/..//input[@placeholder='hh:mm ampm' ])[1])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:46 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//label[text()='Start Date']/..//input[@placeholder='hh:mm ampm' ])[1])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:47 PM</td>
-					<td class='step-details'>StepName - SendKeys, StepDescription - Entered Text - <mark>10.00am</mark> To Locator - <mark>By.xpath: (//label[text()='Start Date']/..//input[@placeholder='hh:mm ampm' ])[1]</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:47 PM</td>
-					<td class='step-details'>StepName - Click, StepDescription - Entered Text - <mark>10.00am</mark> To Locator - <mark>By.xpath: (//label[text()='Start Date']/..//input[@placeholder='hh:mm ampm' ])[1]</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:49 PM</td>
-					<td class='step-details'>StepName - isElementPresent, StepDescription - Element Present - (By - By.xpath: (//label[text()='End']/..//select[@id='actions'])[1])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:49 PM</td>
-					<td class='step-details'>StepName - Element Present, StepDescription - Element is present - <mark>No End Date</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:49 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//label[text()='End']/..//select[@id='actions'])[1])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:32:50 PM</td>
-					<td class='step-details'>StepName - SelectDropDownByText, StepDescription - Selected Visible Text - <mark>No End</mark> On Locator - <mark>By.xpath: (//label[text()='End']/..//select[@id='actions'])[1]</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:11 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//label[text()='Require Action(s)']/..//select[@id='actions'])[1])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:11 PM</td>
-					<td class='step-details'>StepName - SelectDropDownByText, StepDescription - Selected Visible Text - <mark>Other</mark> On Locator - <mark>By.xpath: (//label[text()='Require Action(s)']/..//select[@id='actions'])[1]</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:11 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//select[@id='actions']/..//input[@formcontrolname='description'])[1])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:12 PM</td>
-					<td class='step-details'>StepName - SendKeys, StepDescription - Entered Text - <mark>Other New1</mark> To Locator - <mark>By.xpath: (//select[@id='actions']/..//input[@formcontrolname='description'])[1]</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:12 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//label[text()='Require Action(s) Post Administration']/..//select[@id='actionsPost'])[1])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:13 PM</td>
-					<td class='step-details'>StepName - SelectDropDownByText, StepDescription - Selected Visible Text - <mark>Other</mark> On Locator - <mark>By.xpath: (//label[text()='Require Action(s) Post Administration']/..//select[@id='actionsPost'])[1]</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:13 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//select[@id='actionsPost']/..//input[@formcontrolname='description'])[1])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:13 PM</td>
-					<td class='step-details'>StepName - SendKeys, StepDescription - Entered Text - <mark>Other New2</mark> To Locator - <mark>By.xpath: (//select[@id='actionsPost']/..//input[@formcontrolname='description'])[1]</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:13 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//label[text()='Administered By']/..//select[@id='settingOrderAdministratorId'])[1])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:14 PM</td>
-					<td class='step-details'>StepName - SelectDropDownByText, StepDescription - Selected Visible Text - <mark>LPN</mark> On Locator - <mark>By.xpath: (//label[text()='Administered By']/..//select[@id='settingOrderAdministratorId'])[1]</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:14 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//input[@id='selfAdministered'])[1])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:14 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//input[@id='selfAdministered'])[1])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:14 PM</td>
-					<td class='step-details'>StepName - Click, StepDescription - Click Performed On Locator - <mark>Is Self Administered Check Box</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:14 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//input[@id='selfAdministeredRequiresSupervision'])[1])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:14 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//input[@id='selfAdministeredRequiresSupervision'])[1])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:14 PM</td>
-					<td class='step-details'>StepName - Click, StepDescription - Click Performed On Locator - <mark>Self Administered Requires Supervision Check Box</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:14 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//input[@id='requiresFollowUp'])[1])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:14 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//input[@id='requiresFollowUp'])[1])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:15 PM</td>
-					<td class='step-details'>StepName - Click, StepDescription - Click Performed On Locator - <mark>Requires FollowUp Check Box</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:15 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//input[@id='followUpAfterMinutes'])[1])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:15 PM</td>
-					<td class='step-details'>StepName - SendKeys, StepDescription - Entered Text - <mark>10</mark> To Locator - <mark>By.xpath: (//input[@id='followUpAfterMinutes'])[1]</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:15 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//label[@class='form-check-label']/input[@id='useSlidingScale'])[1])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:15 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//label[@class='form-check-label']/input[@id='useSlidingScale'])[1])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:15 PM</td>
-					<td class='step-details'>StepName - Click, StepDescription - Click Performed On Locator - <mark>Requies Sliding Scale Check Box</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:15 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//table//input[@formcontrolname='minValue'])[1])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:16 PM</td>
-					<td class='step-details'>StepName - SendKeys, StepDescription - Entered Text - <mark>2</mark> To Locator - <mark>By.xpath: (//table//input[@formcontrolname='minValue'])[1]</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:16 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//table//input[@formcontrolname='maxValue'])[1])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:16 PM</td>
-					<td class='step-details'>StepName - SendKeys, StepDescription - Entered Text - <mark>10</mark> To Locator - <mark>By.xpath: (//table//input[@formcontrolname='maxValue'])[1]</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:16 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//table//input[@formcontrolname='units'])[1])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:17 PM</td>
-					<td class='step-details'>StepName - SendKeys, StepDescription - Entered Text - <mark>5</mark> To Locator - <mark>By.xpath: (//table//input[@formcontrolname='units'])[1]</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:17 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//table//input[@formcontrolname='notifyPhysician'])[1])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:17 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//table//input[@formcontrolname='notifyPhysician'])[1])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:17 PM</td>
-					<td class='step-details'>StepName - Click, StepDescription - Click Performed On Locator - <mark>Sliding Scale Notify Remove Check Box</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:17 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//label[text()='Frequency']/..//select[@id='typeOrderFrequencyId'])[1])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:18 PM</td>
-					<td class='step-details'>StepName - SelectDropDownByText, StepDescription - Selected Visible Text - <mark>Once a Shift</mark> On Locator - <mark>By.xpath: (//label[text()='Frequency']/..//select[@id='typeOrderFrequencyId'])[1]</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:18 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//label[text()='How often']/..//select[@id='patientOrderScheduleType'])[1])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:19 PM</td>
-					<td class='step-details'>StepName - SelectDropDownByText, StepDescription - Selected Visible Text - <mark>Daily</mark> On Locator - <mark>By.xpath: (//label[text()='How often']/..//select[@id='patientOrderScheduleType'])[1]</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:19 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//label[text()='Every']/..//input[@id='happensEvery'])[1])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:19 PM</td>
-					<td class='step-details'>StepName - SendKeys, StepDescription - Entered Text - <mark>5</mark> To Locator - <mark>By.xpath: (//label[text()='Every']/..//input[@id='happensEvery'])[1]</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:19 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//label[text()='Physician Instructions']/..//textarea[@id='instructions'])[1])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:20 PM</td>
-					<td class='step-details'>StepName - SendKeys, StepDescription - Entered Text - <mark>Comments</mark> To Locator - <mark>By.xpath: (//label[text()='Physician Instructions']/..//textarea[@id='instructions'])[1]</mark></td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:20 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: (//label[text()='Additional Instruction']/..//textarea[@id='additionalNotes'])[1])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:20 PM</td>
-					<td class='step-details'>StepName - SendKeys, StepDescription - Entered Text - <mark>Comments</mark> To Locator - <mark>By.xpath: (//label[text()='Additional Instruction']/..//textarea[@id='additionalNotes'])[1]</mark></td>
-				</tr>
-				<tr class='log' status='info'>
-					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>6:33:20 PM</td>
-					<td class='step-details'>Add the Order Successfully</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:20 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //button[text()='Save'])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:20 PM</td>
-					<td class='step-details'>StepName - waitUntilElementIsClickable, StepDescription - Element clickable - (By - By.xpath: //button[text()='Save'])</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>6:33:20 PM</td>
-					<td class='step-details'>StepName - Click, StepDescription - Click Performed On Locator - <mark>Save Order</mark></td>
-				</tr>
-				<tr class='log' status='info'>
-					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>6:33:26 PM</td>
-					<td class='step-details'>Thread - 15 , Completes Executing Test Method - QA09_ResidentOrders_CreateAnOrderWithFrequencyRoutine On Browser - ie</td>
+					<td class='timestamp'>6:40:23 PM</td>
+					<td class='step-details'>Thread - 15 , Completes Executing Test Method - QA10_ResidentOrders_CreateAnOrderWithFrequencyRoutine On Browser - ie</td>
 				</tr>
 			</tbody>
 		</table>
@@ -1108,6 +652,163 @@
 </div>
 <!-- test view -->
 <!-- category view -->
+<div id='exception-view' class='view hide'>
+
+    <section id='controls'>
+        <div class='controls grey lighten-4'>
+            <!-- search -->
+            <div class='chip transparent' alt='Search Tests' title='Search Tests'>
+                <a href="#" class='search-div'>
+                    <i class='material-icons'>search</i> Search
+                </a>
+
+                <div class='input-field left hide'>
+                    <input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+                </div>
+
+            </div>
+            <!-- search -->
+        </div>
+    </section>
+
+    <div class='subview-left left'>
+
+        <div class='view-summary'>
+            <h5>Exceptions</h3>
+                <ul id='exception-collection' class='exception-collection'>
+
+                        <li class='exception displayed active'>
+                            <div class='exception-heading'>
+                                <span class='exception-name'>org.openqa.selenium.NoSuchElementException</span>
+                                <span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
+                            </div>
+                            <div class='exception-content hide'>
+                                <div class='exception-tests'>
+                                    <table class='bordered table-results'>
+                                        <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                    <tr>
+                                                        <td>Apr 25, 2018 06:34:09 PM</td>
+                                                        <td class='linked' test-id='1'>Test-QA10_ResidentOrders_CreateAnOrderWithFrequencyRoutine</td>
+                                                        <td><pre><pre>org.openqa.selenium.NoSuchElementException: Unable to find element with css selector == #settingOrderTypeId
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.6.0', revision: '6fbf3ec767', time: '2017-09-27T15:28:36.4Z'
+System info: host: 'HW1562', ip: '10.11.4.35', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_141'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{proxy=Proxy(), acceptInsecureCerts=false, browserVersion=11, se:ieOptions={nativeEvents=true, browserAttachTimeout=0, ie.ensureCleanSession=true, elementScrollBehavior=0, enablePersistentHover=true, ie.browserCommandLineSwitches=, ie.forceCreateProcessApi=false, requireWindowFocus=false, initialBrowserUrl=http://localhost:2220/, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, ignoreProtectedModeSettings=false}, timeouts={implicit=0, pageLoad=300000, script=30000}, browserName=internet explorer, pageLoadStrategy=normal, javascriptEnabled=true, platformName=WINDOWS, setWindowRect=true, platform=WINDOWS}]
+Session ID: 505c69f0-8d8a-4e0a-8eec-fc617540074e
+*** Element info: {Using=id, value=settingOrderTypeId}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:319)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:365)
+	at org.openqa.selenium.By$ById.findElement(By.java:218)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:311)
+	at dweb.aut.pages.templates.PageTemplate.SelectDropDownByText(PageTemplate.java:191)
+	at aut.bluestrata.pages.PhysicianPortal.CreateAnOrderWithOrderDetails(PhysicianPortal.java:174)
+	at aut.tests.functionaltests.PhysicianPortalTestCases.QA10_ResidentOrders_CreateAnOrderWithFrequencyRoutine(PhysicianPortalTestCases.java:397)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.access$000(SuiteRunner.java:39)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:414)
+	at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+</pre></pre></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Apr 25, 2018 06:34:09 PM</td>
+                                                        <td class='linked' test-id='1'>Test-QA10_ResidentOrders_CreateAnOrderWithFrequencyRoutine</td>
+                                                        <td><pre><pre>org.openqa.selenium.NoSuchElementException: Unable to find element with xpath == //label[contains(.,'Pick From Library')]/../div/button
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.6.0', revision: '6fbf3ec767', time: '2017-09-27T15:28:36.4Z'
+System info: host: 'HW1562', ip: '10.11.4.35', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_141'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{proxy=Proxy(), acceptInsecureCerts=false, browserVersion=11, se:ieOptions={nativeEvents=true, browserAttachTimeout=0, ie.ensureCleanSession=true, elementScrollBehavior=0, enablePersistentHover=true, ie.browserCommandLineSwitches=, ie.forceCreateProcessApi=false, requireWindowFocus=false, initialBrowserUrl=http://localhost:2220/, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, ignoreProtectedModeSettings=false}, timeouts={implicit=0, pageLoad=300000, script=30000}, browserName=internet explorer, pageLoadStrategy=normal, javascriptEnabled=true, platformName=WINDOWS, setWindowRect=true, platform=WINDOWS}]
+Session ID: 505c69f0-8d8a-4e0a-8eec-fc617540074e
+*** Element info: {Using=xpath, value=//label[contains(.,'Pick From Library')]/../div/button}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:319)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:421)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:311)
+	at dweb.aut.pages.templates.PageTemplate.clickWithJavascript(PageTemplate.java:174)
+	at dweb.aut.pages.templates.PageTemplate.click(PageTemplate.java:144)
+	at aut.bluestrata.pages.PhysicianPortal.CreateAnOrderWithOrderDetails(PhysicianPortal.java:200)
+	at aut.tests.functionaltests.PhysicianPortalTestCases.QA10_ResidentOrders_CreateAnOrderWithFrequencyRoutine(PhysicianPortalTestCases.java:397)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.access$000(SuiteRunner.java:39)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:414)
+	at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+</pre></pre></td>
+                                                    </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                </ul>
+        </div>
+    </div>
+
+    <div class='subview-right left'>
+        <div class='view-summary'>
+            <h5 class='exception-name'></h5>
+        </div>
+    </div>
+</div>
 <!-- exception view -->
 <div id='dashboard-view' class='view hide'>
 	<div class='card-panel transparent np-v'>
@@ -1123,25 +824,25 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>179</div>
+					<div class='panel-lead'>69</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Apr 12, 2018 06:30:11 PM</div>
+					<div class='panel-lead'>Apr 25, 2018 06:34:09 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Apr 12, 2018 06:33:38 PM</div>
+			 		<div class='panel-lead'>Apr 25, 2018 06:40:24 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>0h 3m 26s+932ms</div>
+					<div class='panel-lead'>0h 6m 15s+185ms</div>
 				</div>
 			</div>
 			<div class='col s4'>
@@ -1178,22 +879,22 @@
 
 		<script>
 			var statusGroup = {
-				passParent: 1,
-				failParent: 0,
+				passParent: 0,
+				failParent: 1,
 				fatalParent: 0,
 				errorParent: 0,
 				warningParent: 0,
 				skipParent: 0,
-				exceptionsParent: 0,
+				exceptionsParent: 1,
 				
-				passChild: 175,
-				failChild: 0,
+				passChild: 50,
+				failChild: 5,
 				fatalChild: 0,
-				errorChild: 0,
+				errorChild: 2,
 				warningChild: 0,
 				skipChild: 0,
-				infoChild: 4,
-				exceptionsChild: 0,
+				infoChild: 12,
+				exceptionsChild: 7,
 				
 				passGrandChild: 0,
 				failGrandChild: 0,

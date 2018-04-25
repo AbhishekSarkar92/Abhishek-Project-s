@@ -23,14 +23,14 @@ public class LoginPage extends PageTemplate {
 	}
 	
 	public By btnTester1 = By.xpath("//button[@id='userDropDown']");
-	public By logout = By.xpath("//button[@id='userDropDown']/..//div/a[text()='Logout']");
+	public By logout = By.xpath("//button[@id='userDropDown']/..//div/button[text()='Logout']");
 	
-	public void login(String userName, String password, String key)
+	public void login(String userName, String password)
 	{
 		String strValFromConfigFile = null;
 		this.wd = this.wd.switchTo().defaultContent();		
-		this.sendKeys((By.xpath(String.format(this.getLocator("placeHolderTextBox"), "Key"))), key);
-		this.click(By.xpath(String.format(this.getLocator("button"), "Submit Key")),"Submit Key Button");		
+		/*this.sendKeys((By.xpath(String.format(this.getLocator("placeHolderTextBox"), "Key"))), key);
+		this.click(By.xpath(String.format(this.getLocator("button"), "Submit Key")),"Submit Key Button");	*/	
 		
 		strValFromConfigFile = String.format(ReusableLibs.getKeyValue(IConstants.AUT_CONFIG_FILE, "placeHolderTextBox"), "Username");
 		this.waitInSecs(3);	

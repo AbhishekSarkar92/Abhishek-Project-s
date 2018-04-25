@@ -173,9 +173,9 @@ public abstract class TestTemplateMethodLevelInit extends TestTemplate {
 			/**Login**/
 			String userName = this.getTestParameter(testContext, "userName");
 			String password = this.getTestParameter(testContext, "password");
-			String key = this.getTestParameter(testContext, "key");
+		//	String key = this.getTestParameter(testContext, "key");
 			LoginPage loginPage = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
-			loginPage.login(userName, password, key);             
+			loginPage.login(userName, password);             
 			
 			/*****/
 			
