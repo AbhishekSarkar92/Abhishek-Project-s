@@ -330,12 +330,13 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 	}
 	
 	
+	@SuppressWarnings("null")
 	@Test(priority =1)
 	public void QA10_ResidentOrders_CreateAnOrderWithFrequencyRoutine(ITestContext testContext)
 	{
 		PhysicianPortal physicianPortal=new PhysicianPortal(threadLocalWebDriver.get(), TestTemplate.testReport);
 		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
-		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
+	//	LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
 		
 		
 		TestTemplate.testReport.logSuccess("Click to Physician Portal From Menu Bar");
@@ -343,6 +344,9 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		
 		TestTemplate.testReport.logSuccess("Navigate to Residents Order From Physician Portal");
 		physicianPortal.ClickOnPhysicianPortal();	
+		
+		 
+		
 		
 		String ResidentNo = xlsReader.getCellData("physicianportal", 0, 16);
 		String type1 = xlsReader.getCellData("physicianportal", 1, 16);
@@ -389,37 +393,171 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		String physicianInstructions = xlsReader.getCellData("physicianportal", 40, 16);
 		String additionalInstruction = physicianInstructions ;
 		String endDateType = xlsReader.getCellData("physicianportal", 42, 16);
+		String frequency2 = xlsReader.getCellData("physicianportal", 43, 16);
+		String frequency3 = xlsReader.getCellData("physicianportal", 44, 16);
+		String frequency4 = xlsReader.getCellData("physicianportal", 45, 16);
+		String frequency5 = xlsReader.getCellData("physicianportal", 46, 16);
+		String frequency6 = xlsReader.getCellData("physicianportal", 47, 16);
+		String frequency7 = xlsReader.getCellData("physicianportal", 48, 16);
+		String frequencyTexttype = xlsReader.getCellData("physicianportal", 49, 16);
+		String frequencyTexttype1 = xlsReader.getCellData("physicianportal", 50, 16);
+		String timeInADayTime = xlsReader.getCellData("physicianportal", 51, 16);
+		String timeInADayShift = xlsReader.getCellData("physicianportal", 52, 16);
+		String frequency8 = xlsReader.getCellData("physicianportal", 53, 16);
+		String frequency9 = xlsReader.getCellData("physicianportal", 54, 16);
+		String frequency10 = xlsReader.getCellData("physicianportal", 55, 16);
+		String frequency11 = xlsReader.getCellData("physicianportal", 56, 16);
+		String frequency12 = xlsReader.getCellData("physicianportal", 57, 16);
+		String frequency13 = xlsReader.getCellData("physicianportal", 58, 16);
+		String frequency14 = xlsReader.getCellData("physicianportal", 59, 16);
+		String frequency15 = xlsReader.getCellData("physicianportal", 60, 16);
+		String timeInADayShiftBedTime = xlsReader.getCellData("physicianportal", 61, 16);
+		String frequency16 = xlsReader.getCellData("physicianportal", 62, 16);
+		String frequency17 = xlsReader.getCellData("physicianportal", 63, 16);
+		String frequency18 = xlsReader.getCellData("physicianportal", 64, 16);
+		String frequency19 = xlsReader.getCellData("physicianportal", 65, 16);
+		String frequency20 = xlsReader.getCellData("physicianportal", 66, 16);
+	    String frequency21 = xlsReader.getCellData("physicianportal", 67, 16);
+		String FrequencyName =  frequency21 ;
 		
 		
 		TestTemplate.testReport.logSuccess("Click On existing Resident");
 		physicianPortal.ClickOnExistingResident(ResidentNo);
 		
-		physicianPortal.CreateAnOrderWithOrderDetails(type1,libraryText+type1,SearchDiogonosisTxt,medicarePriority,diogonosisName,physicianType,ReceivedByType,ReceivedOrderType,routes,WrittenDate,NoOfRefillis,WhenToFill);
+		
+   //  String[] typeArray= {"Treatment", "Therapy", "Ancillaries", "Diet","Nursing Monitoring","Lab","Nursing"};
+     
+     String[] typeArray= {type1,type2,type3,type4,type5,type6,type7};
+	    int numberOfItems = typeArray.length;
+	    for (int i=0; i<numberOfItems; i++)
+		    		        
+		{
+		
+	    	String type = typeArray[i];
+	    	
+		physicianPortal.CreateAnOrderWithOrderDetails(type,libraryText+type,SearchDiogonosisTxt,medicarePriority,diogonosisName,physicianType,ReceivedByType,ReceivedOrderType,routes,WrittenDate,NoOfRefillis,WhenToFill);
 		physicianPortal.OrderFrequencyType(Integer.parseInt(num),frequencyType);
 		physicianPortal.StartDate(Integer.parseInt(num),startDate,startDateTime);
 		physicianPortal.OrderEndType(Integer.parseInt(num),Integer.parseInt(byDateno),Integer.parseInt(afterNoOfAdminstrationsNo) ,endDateType,endDate ,ByDate ,byDateTime, afterNumberOfAdminstrations);
 		physicianPortal.RequireActionRelatedLabel(Integer.parseInt(num),frequencyType ,requiredActions,othersRequiredActions ,requiredActionsPostDropdown,othersRequiredActionsPostDropdown, administeredBy,maxDoesHours,followUpAfterMinutes, slidingScaleMin, slidingScaleMax, slidingScaleUnits);
 		physicianPortal.OnceAShiftFrequency(Integer.parseInt(num),frequency);
 		physicianPortal.HowOftenDailyType(Integer.parseInt(num),howOften,everyDay);
-		physicianPortal.CreateOrderFrequencyForRoutine(Integer.parseInt(num),physicianInstructions,additionalInstruction,type1);
+		physicianPortal.CreateOrderFrequencyForRoutine(Integer.parseInt(num),physicianInstructions,additionalInstruction,type);
 		
 		physicianPortal.AddOrderFrequency();
 		
-		for(int newnum=2;newnum<=7;newnum ++)
-		{
 		
+		
+		for(int newnum=2;newnum<=27;newnum ++)
+		{
+	
+		physicianPortal.OrderFrequencyType(newnum,frequencyType);
+		physicianPortal.StartDate(newnum,startDate,startDateTime);
+		physicianPortal.OrderEndType(newnum,Integer.parseInt(byDateno),Integer.parseInt(afterNoOfAdminstrationsNo) ,endDateType,endDate ,ByDate ,byDateTime, afterNumberOfAdminstrations);
+		physicianPortal.RequireActionRelatedLabel(newnum,frequencyType ,requiredActions,othersRequiredActions ,requiredActionsPostDropdown,othersRequiredActionsPostDropdown, administeredBy,maxDoesHours,followUpAfterMinutes, slidingScaleMin, slidingScaleMax, slidingScaleUnits);
+		switch (newnum)
+		{
+		case 2:	
+			physicianPortal.TextTypeNoOfTimesAdayFrequency(frequencyTexttype ,newnum ,frequency2 , Integer.parseInt(num) , timeInADayTime);
+			break;
+		case 3:				
+	    	physicianPortal.TextTypeNoOfTimesAdayFrequency(frequencyTexttype1 ,newnum ,frequency2 , Integer.parseInt(num) , timeInADayShift);
+			break;
+		case 4:				
+		    physicianPortal.TextTypeNoOfTimesAdayFrequency(frequencyTexttype ,newnum ,frequency3 , (Integer.parseInt(num)+1) , timeInADayTime);
+			break;
+		case 5:				
+	    	physicianPortal.TextTypeNoOfTimesAdayFrequency(frequencyTexttype1 ,newnum ,frequency3 , (Integer.parseInt(num)+1) , timeInADayShift);
+			break;
+		case 6:				
+		    physicianPortal.TextTypeNoOfTimesAdayFrequency(frequencyTexttype ,newnum ,frequency4 , (Integer.parseInt(num)+2) , timeInADayTime);
+			break;
+		case 7:				
+	    	physicianPortal.TextTypeNoOfTimesAdayFrequency(frequencyTexttype1 ,newnum ,frequency4 , (Integer.parseInt(num)+2) , timeInADayShift);
+	     	break;
+		case 8:		
+			physicianPortal.TextTypeNoOfTimesAdayFrequency(frequencyTexttype ,newnum ,frequency5 , (Integer.parseInt(num)+3) , timeInADayTime);
+			break;
+		case 9:				
+	    	physicianPortal.TextTypeNoOfTimesAdayFrequency(frequencyTexttype1 ,newnum ,frequency5 , (Integer.parseInt(num)+3) , timeInADayShift);
+			break;
+		case 10:				
+		    physicianPortal.TextTypeNoOfTimesAdayFrequency(frequencyTexttype ,newnum ,frequency6 , (Integer.parseInt(num)+4) , timeInADayTime);
+			break;
+		case 11:				
+	    	physicianPortal.TextTypeNoOfTimesAdayFrequency(frequencyTexttype1 ,newnum ,frequency6 , (Integer.parseInt(num)+4) , timeInADayShift);
+			break;
+		case 12:				
+		    physicianPortal.TextTypeNoOfTimesAdayFrequency(frequencyTexttype ,newnum ,frequency7 , (Integer.parseInt(num)+5) , timeInADayTime);
+			break;
+		case 13:				
+	    	physicianPortal.TextTypeNoOfTimesAdayFrequency(frequencyTexttype1 ,newnum ,frequency7 , (Integer.parseInt(num)+5) , timeInADayShift);
+	     	break;
+		case 14:				
+	    	physicianPortal.BedTimeFrequency(frequencyTexttype ,newnum ,frequency8,timeInADayTime);
+	     	break;	  	
+		case 15:				
+			physicianPortal.HourWiseFrequency(newnum ,frequency9 ,timeInADayTime );
+	     	break;
+		case 16:				
+	    	physicianPortal.HourWiseFrequency(newnum ,frequency10 ,timeInADayTime );
+	     	break;
+		case 17:				
+			physicianPortal.HourWiseFrequency(newnum ,frequency11 ,timeInADayTime );
+	     	break;
+		case 18:				
+			physicianPortal.HourWiseFrequency(newnum ,frequency12 ,timeInADayTime );
+	     	break;
+		case 19:				
+			physicianPortal.HourWiseFrequency(newnum ,frequency13 ,timeInADayTime );
+	     	break;
+		case 20:				
+			physicianPortal.HourWiseFrequency(newnum ,frequency14 ,timeInADayTime );
+	     	break;
+		case 21:				
+			physicianPortal.HourWiseFrequency(newnum ,frequency15 ,timeInADayTime );
+	     	break;
+	    case 22:				
+			physicianPortal.MealWiseFrequency(newnum ,frequency16,timeInADayShiftBedTime );
+	     	break;
+	   	case 23:				
+	   		physicianPortal.MealWiseFrequency(newnum ,frequency17,timeInADayShiftBedTime );
+	     	break; 	
+	    case 24:				
+	    	physicianPortal.MealWiseFrequency(newnum ,frequency18,timeInADayShiftBedTime );
+	     	break;
+	    case 25:				
+	    	physicianPortal.MealWiseFrequency(newnum ,frequency19,timeInADayShiftBedTime );
+	     	break;
+	   	case 26:				
+	   		physicianPortal.MealWiseFrequency(newnum ,frequency20,timeInADayShiftBedTime );
+	     	break; 	
+	   		
+		
+		}
+		
+		physicianPortal.HowOftenDailyType(newnum,howOften,everyDay);
+	
+		physicianPortal.CreateOrderFrequencyForRoutine(newnum,physicianInstructions,additionalInstruction,type);		
+		physicianPortal.AddOrderFrequency();
 		
 		physicianPortal.OrderFrequencyType(newnum,frequencyType);
 		physicianPortal.StartDate(newnum,startDate,startDateTime);
 		physicianPortal.OrderEndType(newnum,Integer.parseInt(byDateno),Integer.parseInt(afterNoOfAdminstrationsNo) ,endDateType,endDate ,ByDate ,byDateTime, afterNumberOfAdminstrations);
 		physicianPortal.RequireActionRelatedLabel(newnum,frequencyType ,requiredActions,othersRequiredActions ,requiredActionsPostDropdown,othersRequiredActionsPostDropdown, administeredBy,maxDoesHours,followUpAfterMinutes, slidingScaleMin, slidingScaleMax, slidingScaleUnits);
-		physicianPortal.TextTypeNoOfTimesAdayFrequency("text Box" ,newnum ,frequency , (newnum-1) , "08:00 am");
-		physicianPortal.HowOftenDailyType(Integer.parseInt(num),howOften,everyDay);
-		physicianPortal.CreateOrderFrequencyForRoutine(Integer.parseInt(num),physicianInstructions,additionalInstruction,type1);
+		physicianPortal.OnceAShiftFrequency(newnum,frequency);
+		
+		physicianPortal.CreateOrderFrequencyForRoutine(newnum,physicianInstructions,additionalInstruction,type);
 		
 		physicianPortal.AddOrderFrequency();
+		
 		}
-	
+		physicianPortal.SaveOrderFrequency();		
+		
+		}	
+	    
+	    
+		
 	}
 	
 	

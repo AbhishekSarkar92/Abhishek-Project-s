@@ -8,6 +8,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import com.testreport.IReporter;
 
@@ -598,12 +599,12 @@ public class PhysicianPortal extends PageTemplate {
 		this.SelectDropDownByText(drpdwnFrequency, frequency);
 	}
 	
-	public void TextTypeNoOfTimesAdayFrequency(String frequencytype ,int frequencyNum , String frequency , int numberOfShifts , String timeInADay)
+	public void TextTypeNoOfTimesAdayFrequency(String frequencyTexttype ,int frequencyNum , String frequency , int numberOfShifts , String timeInADay)
 	{
 		By drpdwnFrequency = By.xpath(String.format("(//label[text()='Frequency']/..//select[@id='typeOrderFrequencyId'])[%d]", frequencyNum));
 	
 		this.SelectDropDownByText(drpdwnFrequency, frequency); 
-		if(frequencytype.equals("text Box"))	{					
+		if(frequencyTexttype.equals("text Box"))	{					
 		for(int i=1;i<=numberOfShifts;i++)
 		{			
 			
@@ -1152,25 +1153,84 @@ public class PhysicianPortal extends PageTemplate {
 		
 		public void HourWiseFrequency(int frequencyNum , String frequency,String startingTime)
 		{
-			By drpdwnFrequency = By.xpath(String.format("(//label[text()='Frequency']/..//select[@id='typeOrderFrequencyId'])[%d]", frequencyNum));
-			
+			By drpdwnFrequency = By.xpath(String.format("(//label[text()='Frequency']/..//select[@id='typeOrderFrequencyId'])[%d]", frequencyNum));			
 			this.SelectDropDownByText(drpdwnFrequency, frequency); 
-			By startingAt = By.xpath(String.format("((//div[@class='card'])[%d]//label[text()='Times']/..//input[@placeholder='hh:mm ampm'])",frequencyNum));
-			this.SendKeysToElementClearFirst(startingAt, startingTime);
 			
-			List<WebElement> NoOfTimings = wd.findElements(By.xpath("(//div[@class='card'])[2]//label[text()='Times']/..//select/option"));
+			By startingAt = By.xpath(String.format("((//div[@class='card'])[%d]//label[text()='Times']/..//input[@placeholder='hh:mm ampm'])",frequencyNum));
+		    this.SendKeysToElementClearFirst(startingAt, startingTime);
+		//	this.SendKeysToElementClearFirst(startingAt, "12:00 am");
+			this.waitInSecs(2);
+			//	By doseTimings = By.xpath("//select[contains(@class,'form-control ng-pristine ng-valid ng-touched')]");
+			
+			
+			By doseTimings = By.xpath(String.format("(//div[@class='card'])[%d]//label[text()='with the last dose at ']/../..//select[contains(@class,'form-control')]",frequencyNum));
+			this.click(doseTimings, "Dose Timings ");
+			
+			List<WebElement> NoOfTimings = wd.findElements(By.xpath(String.format("(//div[@class='card'])[%d]//label[text()='with the last dose at ']/../..//select[contains(@class,'form-control')]/option",frequencyNum)));
 			int frequencyNoOfTimings = NoOfTimings.size();
 			System.out.println("Total No of Timings in a Frequency : " + frequencyNoOfTimings);
-			
-			By FirstTimings = By.xpath(String.format("(//div[@class='card'])[%d]//label[text()='Times']/..//select/option[1]",frequencyNum));
-			String dosetimingsValue = FirstTimings.toString();
-			
-			By doseTimings = By.xpath(String.format("(//div[@class='card'])[%d]//label[text()='Times']/..//select",frequencyNum));
-			this.SendKeysToElementClearFirst(doseTimings, dosetimingsValue);
+									
+	//		this.SelectDropDownByText(doseTimings, "09:00 am");
+		
+			this.SelectDropDownByIndex(doseTimings, 1);
 			
 			
 		
 		}
+		
+		public void BedTimeFrequency(String frequencyTexttype ,int frequencyNum , String frequency,String timeInADay)
+		{
+			
+			By drpdwnFrequency = By.xpath(String.format("(//label[text()='Frequency']/..//select[@id='typeOrderFrequencyId'])[%d]", frequencyNum));			
+			this.SelectDropDownByText(drpdwnFrequency, frequency); 
+			
+			if(frequencyTexttype.equals("text Box"))
+			{
+				By chkbxUserPredefinedTimeRange = By.xpath((String.format("(//div[@class='card'])[%d]//label[text()='Times']/..//input[@ng-reflect-model='true']", frequencyNum)));
+				this.click(chkbxUserPredefinedTimeRange, "User Predefined TimeRange Check Box");	
+				
+				By textbxTimeInADayOnce = By.xpath(String.format("(((//div[@class='card'])[%d]//label[text()='Times']/..//div[@formarrayname='timeRanges'])/..//div//input[@placeholder='hh:mm ampm'])",frequencyNum));	
+				
+				this.SendKeysToElementClearFirst(textbxTimeInADayOnce, timeInADay);
+			}
+			else
+			{				
+				By ckhbxTimeInADayOnce = By.xpath(String.format("(((//div[@class='card'])[%d]//label[text()='Times']/..//div[@formarrayname='timeRanges'])//select[@formcontrolname='settingId'])",frequencyNum));
+				 
+				this.SelectDropDownByText(ckhbxTimeInADayOnce, timeInADay);
+				
+				
+			}
+			
+		}
+		
+		public void MealWiseFrequency(int frequencyNum , String frequency,String timeInADay)
+		{
+			By drpdwnFrequency = By.xpath(String.format("(//label[text()='Frequency']/..//select[@id='typeOrderFrequencyId'])[%d]", frequencyNum));			
+			this.SelectDropDownByText(drpdwnFrequency, frequency); 
+			
+			if(frequency.equals("Before Meals + Bed Time") || frequency.equals("After Meals + Bed Time"))
+			{
+			for(int i=1;i<=4;i++)
+			{
+				By ckhbxTimeInADayOnce = By.xpath(String.format("(((//div[@class='card'])[%d]//label[text()='Times']/..//div[@formarrayname='timeRanges'])//select[@formcontrolname='settingId'])[%d]",frequencyNum,i));
+				 
+				this.SelectDropDownByText(ckhbxTimeInADayOnce, timeInADay);
+			}
+			}
+			else
+			{
+				for(int i=1;i<=3;i++)
+				{
+					By ckhbxTimeInADayOnce = By.xpath(String.format("(((//div[@class='card'])[%d]//label[text()='Times']/..//div[@formarrayname='timeRanges'])//select[@formcontrolname='settingId'])[%d]",frequencyNum,i));
+					 
+					this.SelectDropDownByText(ckhbxTimeInADayOnce, timeInADay);
+				}
+			}
+		}
+		
+		
+		
 		
 		}
 
