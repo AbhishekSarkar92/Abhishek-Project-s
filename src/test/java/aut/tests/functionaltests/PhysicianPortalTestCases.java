@@ -19,6 +19,7 @@ import dweb.test.templates.TestTemplateMethodLevelInit;
 
 public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 	
+	//private static final boolean false = false;
 	Xls_Reader xlsReader = new Xls_Reader("C:\\Bluestrata\\Abhishek-Project-s\\src\\test\\resources\\testdata\\BluestrataTestData.xlsx");
 	
 	@Test(enabled = false)
@@ -28,8 +29,8 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
 		
-		String ResidentNo = xlsReader.getCellData("physicianportal", 0, 3);
-		
+	//	String ResidentNo = xlsReader.getCellData("physicianportal", 0, 3);
+		String EnterValue = xlsReader.getCellData("physicianportal", 1, 3);
 		
 		homepage.NavigateToPhysicianPortal();
 		
@@ -40,8 +41,11 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		physicianPortal.CounttheNoOfResidentInAPage();
 		physicianPortal.AssendingOrderUsingFirstName();
 		physicianPortal.AssendingOrderUsingLastName();
-		physicianPortal.AssendingOrderUsingMr();		
-		physicianPortal.ClickOnExistingResident(ResidentNo)	;
+		physicianPortal.AssendingOrderUsingMr();
+		physicianPortal.AssendingOrderUsingAge();
+		physicianPortal.AssendingOrderUsingLocation();
+		physicianPortal.SearchResidentWithApplyFilterButton(EnterValue);
+	//	physicianPortal.ClickOnExistingResident(ResidentNo)	;
 		physicianPortal.VerifyPreviousOrders();
 		physicianPortal.VerifyButtonInResidentOrders();
 		physicianPortal.FullOrderPageVerification();
@@ -330,8 +334,8 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 	}
 	
 	
-	@SuppressWarnings("null")
-	@Test(priority =1)
+	
+	@Test(priority = 1)
 	public void QA10_ResidentOrders_CreateAnOrderWithFrequencyRoutine(ITestContext testContext)
 	{
 		PhysicianPortal physicianPortal=new PhysicianPortal(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -418,15 +422,14 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		String frequency19 = xlsReader.getCellData("physicianportal", 65, 16);
 		String frequency20 = xlsReader.getCellData("physicianportal", 66, 16);
 	    String frequency21 = xlsReader.getCellData("physicianportal", 67, 16);
-		String FrequencyName =  frequency21 ;
+		//String FrequencyName =  frequency21 ;
 		
 		
 		TestTemplate.testReport.logSuccess("Click On existing Resident");
 		physicianPortal.ClickOnExistingResident(ResidentNo);
 		
 		
-   //  String[] typeArray= {"Treatment", "Therapy", "Ancillaries", "Diet","Nursing Monitoring","Lab","Nursing"};
-     
+        
      String[] typeArray= {type1,type2,type3,type4,type5,type6,type7};
 	    int numberOfItems = typeArray.length;
 	    for (int i=0; i<numberOfItems; i++)
@@ -532,24 +535,28 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 	   	case 26:				
 	   		physicianPortal.MealWiseFrequency(newnum ,frequency20,timeInADayShiftBedTime );
 	     	break; 	
-	   		
+		case 27:				
+			physicianPortal.OnceAShiftFrequency(newnum,frequency21);
+	     	break; 	
 		
 		}
+		String[] FrequencyNames = {frequency2,frequency2,frequency3,frequency3,frequency4,frequency4,frequency5,frequency5,frequency6,frequency6,frequency7,frequency7,frequency8,frequency9,frequency10,frequency11,
+				frequency12,frequency13,frequency14,frequency15,frequency16,frequency17,frequency18,frequency19,frequency20,frequency21};
+		 
+		String FrequencyName = FrequencyNames[newnum-2];
 		
+		if(FrequencyName!=frequency21)
+		{
 		physicianPortal.HowOftenDailyType(newnum,howOften,everyDay);
+		}
 	
 		physicianPortal.CreateOrderFrequencyForRoutine(newnum,physicianInstructions,additionalInstruction,type);		
-		physicianPortal.AddOrderFrequency();
 		
-		physicianPortal.OrderFrequencyType(newnum,frequencyType);
-		physicianPortal.StartDate(newnum,startDate,startDateTime);
-		physicianPortal.OrderEndType(newnum,Integer.parseInt(byDateno),Integer.parseInt(afterNoOfAdminstrationsNo) ,endDateType,endDate ,ByDate ,byDateTime, afterNumberOfAdminstrations);
-		physicianPortal.RequireActionRelatedLabel(newnum,frequencyType ,requiredActions,othersRequiredActions ,requiredActionsPostDropdown,othersRequiredActionsPostDropdown, administeredBy,maxDoesHours,followUpAfterMinutes, slidingScaleMin, slidingScaleMax, slidingScaleUnits);
-		physicianPortal.OnceAShiftFrequency(newnum,frequency);
+		if(FrequencyName!=frequency21)
+		{
+			physicianPortal.AddOrderFrequency();
+		}
 		
-		physicianPortal.CreateOrderFrequencyForRoutine(newnum,physicianInstructions,additionalInstruction,type);
-		
-		physicianPortal.AddOrderFrequency();
 		
 		}
 		physicianPortal.SaveOrderFrequency();		
@@ -1339,117 +1346,413 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		TestTemplate.testReport.logSuccess("Navigate to Residents Order From Physician Portal");
 		physicianPortal.ClickOnPhysicianPortal();	
 		
-		String ResidentNo = xlsReader.getCellData("physicianportal", 28, 7);
+		String ResidentNo = xlsReader.getCellData("physicianportal", 28, 32);
 		
 		TestTemplate.testReport.logSuccess("Click On existing Resident");
 		physicianPortal.ClickOnExistingResident(ResidentNo);
 		
 		
-		String type1 = xlsReader.getCellData("physicianportal", 0, 7);
-		String type2 = xlsReader.getCellData("physicianportal", 1, 7);
-		String type3 = xlsReader.getCellData("physicianportal", 2, 7);
-		String type4 = xlsReader.getCellData("physicianportal", 3, 7);
-		String type5 = xlsReader.getCellData("physicianportal", 4, 7);
-		String type6 = xlsReader.getCellData("physicianportal", 5, 7);
-		String type7 = xlsReader.getCellData("physicianportal", 6, 7);
-		String libraryText = xlsReader.getCellData("physicianportal", 7, 7);
-		String createdType = xlsReader.getCellData("physicianportal", 8, 7);
-		/*String libraryText1 = xlsReader.getCellData("physicianportal", 7, 7);
-		String createdType1 = xlsReader.getCellData("physicianportal", 8, 7);	*/	
-		String libraryText1 = xlsReader.getCellData("physicianportal", 9, 7);
-		String createdType1 = xlsReader.getCellData("physicianportal", 10, 7);
-		String nullDiagonisis = xlsReader.getCellData("physicianportal", 11, 7);
-		String SearchDiogonosisTxt = xlsReader.getCellData("physicianportal", 12, 7);
-		String medicarePriority = xlsReader.getCellData("physicianportal", 13, 7);
-		String diogonosisName = xlsReader.getCellData("physicianportal", 14, 7);
-		String physicianType = xlsReader.getCellData("physicianportal", 15, 7);
-		String ReceivedByType = xlsReader.getCellData("physicianportal", 16, 7);
-		String ReceivedOrderType1 = xlsReader.getCellData("physicianportal", 17, 7);
-		String ReceivedOrderType2 = xlsReader.getCellData("physicianportal", 18, 7);
-		String ReceivedOrderType3 = xlsReader.getCellData("physicianportal", 19, 7);
-		String ReceivedOrderType4 = xlsReader.getCellData("physicianportal", 20, 7);
-		String ReceivedOrderType5 = xlsReader.getCellData("physicianportal", 21, 7);
-		String ReceivedOrderType6 = xlsReader.getCellData("physicianportal", 22, 7);
-		String ReceivedOrderType7 = xlsReader.getCellData("physicianportal", 23, 7);
-		String routes = xlsReader.getCellData("physicianportal", 24, 7);
-		String WrittenDate = xlsReader.getCellData("physicianportal", 25, 7);
-		String NoOfRefillis = xlsReader.getCellData("physicianportal", 26, 7);
-		String WhenToFill = xlsReader.getCellData("physicianportal", 27, 7);
+		String type1 = xlsReader.getCellData("physicianportal", 0, 32);
+		String type2 = xlsReader.getCellData("physicianportal", 1, 32);
+		String medicationType = xlsReader.getCellData("physicianportal", 2, 32);
+		String medicationType1 = xlsReader.getCellData("physicianportal", 3, 32);
+		String searchMedicationName = xlsReader.getCellData("physicianportal", 4, 32);
+		String type6 = xlsReader.getCellData("physicianportal", 5, 32);
+		String type7 = xlsReader.getCellData("physicianportal", 6, 32);
+		String libraryText = xlsReader.getCellData("physicianportal", 7, 32);
+		String createdType = xlsReader.getCellData("physicianportal", 8, 32);		
+		String libraryText1 = xlsReader.getCellData("physicianportal", 9, 32);
+		String createdType1 = xlsReader.getCellData("physicianportal", 10, 32);
+		String nullDiagonisis = xlsReader.getCellData("physicianportal", 11, 32);
+		String SearchDiogonosisTxt = xlsReader.getCellData("physicianportal", 12, 32);
+		String medicarePriority = xlsReader.getCellData("physicianportal", 13, 32);
+		String diogonosisName = xlsReader.getCellData("physicianportal", 14, 32);
+		String physicianType = xlsReader.getCellData("physicianportal", 15, 32);
+		String ReceivedByType = xlsReader.getCellData("physicianportal", 16, 32);
+		String ReceivedOrderType1 = xlsReader.getCellData("physicianportal", 17, 32);
+		String ReceivedOrderType2 = xlsReader.getCellData("physicianportal", 18, 32);
+		String ReceivedOrderType3 = xlsReader.getCellData("physicianportal", 19, 32);
+		String ReceivedOrderType4 = xlsReader.getCellData("physicianportal", 20, 32);
+		String ReceivedOrderType5 = xlsReader.getCellData("physicianportal", 21, 32);
+		String ReceivedOrderType6 = xlsReader.getCellData("physicianportal", 22, 32);
+		String ReceivedOrderType7 = xlsReader.getCellData("physicianportal", 23, 32);
+		String routes = xlsReader.getCellData("physicianportal", 24, 32);
+		String WrittenDate = xlsReader.getCellData("physicianportal", 25, 32);
+		String NoOfRefillis = xlsReader.getCellData("physicianportal", 26, 32);
+		String WhenToFill = xlsReader.getCellData("physicianportal", 27, 32);
 		
 		
-		physicianPortal.ResidentFullOrderDetailsWithoutMedication(type1,libraryText,createdType);
-		physicianPortal.ResidentFullOrderDetails(type1 ,nullDiagonisis ,SearchDiogonosisTxt,medicarePriority,diogonosisName,physicianType, ReceivedByType,ReceivedOrderType1,routes,WrittenDate,NoOfRefillis,WhenToFill);
+		String[] frequencyTpyes = {type1,type2};
+		for(int n=0;n<=1;n++)
+		{
+		String frequency = frequencyTpyes[n];
 		
-		physicianPortal.CancelOrder();	
+		String[] receivedOrders = {ReceivedOrderType1,ReceivedOrderType2,ReceivedOrderType3,ReceivedOrderType4,ReceivedOrderType5,ReceivedOrderType6,ReceivedOrderType7};
+		String[] medicationtypes = {medicationType,medicationType1,medicationType,medicationType1,medicationType,medicationType1,medicationType};
+		for(int i=0;i<=6;i++)
+		{
+		String RecivedOrderType = receivedOrders[i];
+		String medicationtype = medicationtypes[i];
 		
-		physicianPortal.ResidentFullOrderDetailsWithoutMedication(type1,libraryText1,createdType1);
-		physicianPortal.ResidentFullOrderDetails(type1 ,nullDiagonisis ,SearchDiogonosisTxt,medicarePriority,diogonosisName,physicianType, ReceivedByType,ReceivedOrderType1,routes,WrittenDate,NoOfRefillis,WhenToFill);
-		
-		physicianPortal.CancelOrder();	
-		
-		physicianPortal.ResidentFullOrderDetailsWithoutMedication(type2,libraryText,createdType);
-		physicianPortal.ResidentFullOrderDetails(type2 ,nullDiagonisis ,SearchDiogonosisTxt,medicarePriority,diogonosisName,physicianType, ReceivedByType,ReceivedOrderType2,routes,WrittenDate,NoOfRefillis,WhenToFill);
-		
-		physicianPortal.CancelOrder();
-		
-		physicianPortal.ResidentFullOrderDetailsWithoutMedication(type2,libraryText1,createdType1);
-		physicianPortal.ResidentFullOrderDetails(type2 ,nullDiagonisis ,SearchDiogonosisTxt,medicarePriority,diogonosisName,physicianType, ReceivedByType,ReceivedOrderType2,routes,WrittenDate,NoOfRefillis,WhenToFill);
+		physicianPortal.ResidentFullOrderDetailsWithMedication(frequency,medicationtype,searchMedicationName,libraryText1);
+		physicianPortal.ResidentFullOrderDetails(frequency ,nullDiagonisis ,SearchDiogonosisTxt,medicarePriority,diogonosisName,physicianType, ReceivedByType,RecivedOrderType,routes,WrittenDate,NoOfRefillis,WhenToFill);
 		
 		physicianPortal.CancelOrder();	
 		
-		physicianPortal.ResidentFullOrderDetailsWithoutMedication(type3,libraryText,createdType);
-		physicianPortal.ResidentFullOrderDetails(type3 ,nullDiagonisis ,SearchDiogonosisTxt,medicarePriority,diogonosisName,physicianType, ReceivedByType,ReceivedOrderType3,routes,WrittenDate,NoOfRefillis,WhenToFill);
 		
-		physicianPortal.CancelOrder();
+		}
+		}
 		
-		physicianPortal.ResidentFullOrderDetailsWithoutMedication(type3,libraryText1,createdType1);
-		physicianPortal.ResidentFullOrderDetails(type3 ,nullDiagonisis ,SearchDiogonosisTxt,medicarePriority,diogonosisName,physicianType, ReceivedByType,ReceivedOrderType3,routes,WrittenDate,NoOfRefillis,WhenToFill);
 		
-		physicianPortal.CancelOrder();	
-		
-		physicianPortal.ResidentFullOrderDetailsWithoutMedication(type4,libraryText,createdType);
-		physicianPortal.ResidentFullOrderDetails(type4 ,nullDiagonisis ,SearchDiogonosisTxt,medicarePriority,diogonosisName,physicianType, ReceivedByType,ReceivedOrderType4,routes,WrittenDate,NoOfRefillis,WhenToFill);
-		
-		physicianPortal.CancelOrder();
-		
-		physicianPortal.ResidentFullOrderDetailsWithoutMedication(type4,libraryText1,createdType1);
-		physicianPortal.ResidentFullOrderDetails(type4 ,nullDiagonisis ,SearchDiogonosisTxt,medicarePriority,diogonosisName,physicianType, ReceivedByType,ReceivedOrderType4,routes,WrittenDate,NoOfRefillis,WhenToFill);
-		
-		physicianPortal.CancelOrder();	
-		
-		physicianPortal.ResidentFullOrderDetailsWithoutMedication(type5,libraryText,createdType);
-		physicianPortal.ResidentFullOrderDetails(type5 ,nullDiagonisis ,SearchDiogonosisTxt,medicarePriority,diogonosisName,physicianType, ReceivedByType,ReceivedOrderType5,routes,WrittenDate,NoOfRefillis,WhenToFill);
-		
-		physicianPortal.CancelOrder();
-		
-		physicianPortal.ResidentFullOrderDetailsWithoutMedication(type5,libraryText1,createdType1);
-		physicianPortal.ResidentFullOrderDetails(type5 ,nullDiagonisis ,SearchDiogonosisTxt,medicarePriority,diogonosisName,physicianType, ReceivedByType,ReceivedOrderType5,routes,WrittenDate,NoOfRefillis,WhenToFill);
-		
-		physicianPortal.CancelOrder();	
-		
-		physicianPortal.ResidentFullOrderDetailsWithoutMedication(type6,libraryText,createdType);
-		physicianPortal.ResidentFullOrderDetails(type6 ,nullDiagonisis ,SearchDiogonosisTxt,medicarePriority,diogonosisName,physicianType, ReceivedByType,ReceivedOrderType6,routes,WrittenDate,NoOfRefillis,WhenToFill);
-		
-		physicianPortal.CancelOrder();
-		
-		physicianPortal.ResidentFullOrderDetailsWithoutMedication(type6,libraryText1,createdType1);
-		physicianPortal.ResidentFullOrderDetails(type6 ,nullDiagonisis ,SearchDiogonosisTxt,medicarePriority,diogonosisName,physicianType, ReceivedByType,ReceivedOrderType6,routes,WrittenDate,NoOfRefillis,WhenToFill);
-		
-		physicianPortal.CancelOrder();	
-		
-		physicianPortal.ResidentFullOrderDetailsWithoutMedication(type7,libraryText,createdType);
-		physicianPortal.ResidentFullOrderDetails(type7 ,nullDiagonisis ,SearchDiogonosisTxt,medicarePriority,diogonosisName,physicianType, ReceivedByType,ReceivedOrderType7,routes,WrittenDate,NoOfRefillis,WhenToFill);
-		
-		physicianPortal.CancelOrder();
-		
-		physicianPortal.ResidentFullOrderDetailsWithoutMedication(type7,libraryText1,createdType1);
-		physicianPortal.ResidentFullOrderDetails(type7 ,nullDiagonisis ,SearchDiogonosisTxt,medicarePriority,diogonosisName,physicianType, ReceivedByType,ReceivedOrderType7,routes,WrittenDate,NoOfRefillis,WhenToFill);
-		
-		physicianPortal.CancelOrder();	
+				
 		login.Logout();
 		
 		
 	}
 	
+	
+	@Test(enabled = false)
+	public void QA15_ResidentOrders_CreateAnOrderWithFrequencyRoutine(ITestContext testContext)
+	{
+		PhysicianPortal physicianPortal=new PhysicianPortal(threadLocalWebDriver.get(), TestTemplate.testReport);
+		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
+		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
+		
+		
+		TestTemplate.testReport.logSuccess("Click to Physician Portal From Menu Bar");
+		homepage.NavigateToPhysicianPortal();
+		
+		TestTemplate.testReport.logSuccess("Navigate to Residents Order From Physician Portal");
+		physicianPortal.ClickOnPhysicianPortal();	
+		
+		
+		String ResidentNo = xlsReader.getCellData("physicianportal", 0, 36);
+		String type1 = xlsReader.getCellData("physicianportal", 1, 36);
+		String type2 = xlsReader.getCellData("physicianportal", 2, 36);
+		String medicationType = xlsReader.getCellData("physicianportal", 3, 36);
+		String medicationType1 = xlsReader.getCellData("physicianportal", 4, 36);
+		String searchMedicationName = xlsReader.getCellData("physicianportal", 5, 36);
+		String type6 = xlsReader.getCellData("physicianportal", 6, 36);
+		String type7 = xlsReader.getCellData("physicianportal", 7, 36);
+		String libraryText = xlsReader.getCellData("physicianportal", 8, 36);			
+		String SearchDiogonosisTxt = xlsReader.getCellData("physicianportal", 9, 36);
+		String medicarePriority = xlsReader.getCellData("physicianportal", 10, 36);
+		String diogonosisName = xlsReader.getCellData("physicianportal", 11, 36);
+		String physicianType = xlsReader.getCellData("physicianportal", 12, 36);
+		String ReceivedByType = xlsReader.getCellData("physicianportal", 13, 36);
+		String ReceivedOrderType = xlsReader.getCellData("physicianportal", 14, 36);		
+		String routes = xlsReader.getCellData("physicianportal", 15, 36);
+		String WrittenDate = xlsReader.getCellData("physicianportal", 16, 36);
+		String NoOfRefillis = xlsReader.getCellData("physicianportal", 17, 36);
+		String WhenToFill = xlsReader.getCellData("physicianportal", 18, 36);
+		String num = xlsReader.getCellData("physicianportal", 19, 36);
+		String frequencyType = xlsReader.getCellData("physicianportal", 20, 36);
+		String startDate = xlsReader.getCellData("physicianportal", 21, 36);  
+		String ByDate =startDate;
+		String startDateTime = xlsReader.getCellData("physicianportal", 22, 36);
+		String byDateTime =startDateTime ;
+		String byDateno = xlsReader.getCellData("physicianportal", 23, 36);
+		String afterNoOfAdminstrationsNo = xlsReader.getCellData("physicianportal", 24, 36);		
+		String endDate = xlsReader.getCellData("physicianportal", 25, 36);
+		String afterNumberOfAdminstrations = xlsReader.getCellData("physicianportal", 26, 36);
+		String requiredActions = xlsReader.getCellData("physicianportal", 27, 36);
+		String othersRequiredActions = xlsReader.getCellData("physicianportal", 28, 36);
+		String requiredActionsPostDropdown = xlsReader.getCellData("physicianportal", 29, 36);
+		String othersRequiredActionsPostDropdown = xlsReader.getCellData("physicianportal", 30, 36);
+		String administeredBy = xlsReader.getCellData("physicianportal", 31, 36);
+		String maxDoesHours = xlsReader.getCellData("physicianportal", 32, 36);
+		String followUpAfterMinutes = xlsReader.getCellData("physicianportal", 33, 36);
+		String slidingScaleMin = xlsReader.getCellData("physicianportal", 34, 36);
+		String slidingScaleMax = xlsReader.getCellData("physicianportal", 35, 36);
+		String slidingScaleUnits = xlsReader.getCellData("physicianportal", 36, 36);
+		String frequency = xlsReader.getCellData("physicianportal", 37, 36);
+		String howOften = xlsReader.getCellData("physicianportal", 38, 36);
+		String everyDay = xlsReader.getCellData("physicianportal", 39, 36);
+		String physicianInstructions = xlsReader.getCellData("physicianportal", 40, 36);
+		String additionalInstruction = physicianInstructions ;
+		String endDateType = xlsReader.getCellData("physicianportal", 42, 36);
+		String endDateType1 = xlsReader.getCellData("physicianportal", 43, 36);
+		String endDateType2 = xlsReader.getCellData("physicianportal", 44, 36);
+		String TypeOfMode = xlsReader.getCellData("physicianportal", 45, 36);
+		String howOften1 = xlsReader.getCellData("physicianportal", 46, 36);
+		String howOften2 = xlsReader.getCellData("physicianportal", 47, 36);
+		String howOften3 = xlsReader.getCellData("physicianportal", 48, 36);
+		String DropdownNumber = xlsReader.getCellData("physicianportal", 49, 36);
+		String DropdownDay = xlsReader.getCellData("physicianportal", 50, 36);
+		String TypeOfMode1 = xlsReader.getCellData("physicianportal", 51, 36);
+		String scheduleOnMonth = xlsReader.getCellData("physicianportal", 52, 36);
+		
+		TestTemplate.testReport.logSuccess("Click On existing Resident");
+		physicianPortal.ClickOnExistingResident(ResidentNo);
+	
+		TestTemplate.testReport.logSuccess("Create Order With Treatment Dropdown Option");
+		int newnum;
+		String[] frequencyTpyes = {type1,type2};
+		for(int n=0;n<=1;n++)
+		{
+			String Frequency = frequencyTpyes[n];	
+		
+		physicianPortal.CreateAnOrderWithOrderDetails(Frequency,libraryText,SearchDiogonosisTxt,medicarePriority,diogonosisName,physicianType,ReceivedByType,ReceivedOrderType,routes,WrittenDate,NoOfRefillis,WhenToFill);
+		
+		for( newnum=1;newnum<=5;newnum++)
+		{
+		physicianPortal.OrderFrequencyType(newnum,frequencyType);
+		physicianPortal.StartDate(newnum,startDate,startDateTime);
+		String[] OrderEndType = {endDateType,endDateType1,endDateType2,endDateType,endDateType1};
+		
+		String OrderEnd = OrderEndType[newnum-1];
+		physicianPortal.OrderEndType(newnum,Integer.parseInt(byDateno),Integer.parseInt(afterNoOfAdminstrationsNo) ,OrderEnd,endDate ,ByDate ,byDateTime, afterNumberOfAdminstrations);
+		physicianPortal.DoseUnitWithMedication(newnum,Frequency);
+		physicianPortal.RequireActionRelatedLabel(newnum,frequencyType ,requiredActions,othersRequiredActions ,requiredActionsPostDropdown,othersRequiredActionsPostDropdown, administeredBy,maxDoesHours,followUpAfterMinutes, slidingScaleMin, slidingScaleMax, slidingScaleUnits);
+		physicianPortal.OnceAShiftFrequency(newnum,frequency);
+		switch(newnum)
+		{
+		case 1 :physicianPortal.HowOftenDailyType(newnum,howOften,everyDay);
+				break;
+		case 2 :physicianPortal.HowOftenWeeklytype(newnum,Integer.parseInt(num),howOften1,everyDay);
+				break;		
+		case 3 :physicianPortal.HowOftenMonthlytype(TypeOfMode,newnum,Integer.parseInt(num),Integer.parseInt(num),howOften2,everyDay,DropdownNumber,DropdownDay);
+				break;	
+		case 4 :physicianPortal.HowOftenMonthlytype(TypeOfMode1,newnum,(Integer.parseInt(num)+1),Integer.parseInt(num),howOften2,everyDay,DropdownNumber,DropdownDay);
+				break;
+		case 5 :physicianPortal.HowOftenYearlyType(newnum,Integer.parseInt(num),howOften3,scheduleOnMonth,everyDay,everyDay);
+				break;
+		
+		}
+		physicianPortal.CreateOrderFrequencyForRoutine(newnum,physicianInstructions,additionalInstruction,Frequency);
+		physicianPortal.AddOrderFrequency();
+		}
+		physicianPortal.RemoveFrequency(newnum);		
+		physicianPortal.SaveOrderFrequency();
+		physicianPortal.WhereToTabValidation();
+		physicianPortal.OrderDisplayPageColourVerification();
+		physicianPortal.OrderDisplayPageColoumnsVerification();
+		physicianPortal.BottomPaneOfContainer();
+		
+		}
+		
+		login.Logout();
+		
+	}
+	
+	@Test(enabled = false)
+	public void QA16_ResidentOrders_CreateAnOrderWithFrequencyPRNEveryHour(ITestContext testContext)
+	{
+		PhysicianPortal physicianPortal=new PhysicianPortal(threadLocalWebDriver.get(), TestTemplate.testReport);
+		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
+		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
+		
+		
+		TestTemplate.testReport.logSuccess("Click to Physician Portal From Menu Bar");
+		homepage.NavigateToPhysicianPortal();
+		
+		TestTemplate.testReport.logSuccess("Navigate to Residents Order From Physician Portal");
+		physicianPortal.ClickOnPhysicianPortal();	
+		
+		
+		String ResidentNo = xlsReader.getCellData("physicianportal", 0, 40);
+		String type1 = xlsReader.getCellData("physicianportal", 1, 40);
+		String type2 = xlsReader.getCellData("physicianportal", 2, 40);
+		/*String medicationType = xlsReader.getCellData("physicianportal", 3, 40);
+		String medicationType1 = xlsReader.getCellData("physicianportal", 4, 40);
+		String searchMedicationName = xlsReader.getCellData("physicianportal", 5, 40);
+		String type6 = xlsReader.getCellData("physicianportal", 6, 40);
+		String type7 = xlsReader.getCellData("physicianportal", 7, 40);*/
+		String libraryText = xlsReader.getCellData("physicianportal", 8, 40);			
+		String SearchDiogonosisTxt = xlsReader.getCellData("physicianportal", 9, 40);
+		String medicarePriority = xlsReader.getCellData("physicianportal", 10, 40);
+		String diogonosisName = xlsReader.getCellData("physicianportal", 11, 40);
+		String physicianType = xlsReader.getCellData("physicianportal", 12, 40);
+		String ReceivedByType = xlsReader.getCellData("physicianportal", 13, 40);
+		String ReceivedOrderType = xlsReader.getCellData("physicianportal", 14, 40);		
+		String routes = xlsReader.getCellData("physicianportal", 15, 40);
+		String WrittenDate = xlsReader.getCellData("physicianportal", 16, 40);
+		String NoOfRefillis = xlsReader.getCellData("physicianportal", 17, 40);
+		String WhenToFill = xlsReader.getCellData("physicianportal", 18, 40);
+		//String num = xlsReader.getCellData("physicianportal", 19, 40);
+		String frequencyType = xlsReader.getCellData("physicianportal", 20, 40);
+		String startDate = xlsReader.getCellData("physicianportal", 21, 40);  
+		String ByDate =startDate;
+		String startDateTime = xlsReader.getCellData("physicianportal", 22, 40);
+		String byDateTime =startDateTime ;
+		String byDateno = xlsReader.getCellData("physicianportal", 23, 40);
+		String afterNoOfAdminstrationsNo = xlsReader.getCellData("physicianportal", 24, 40);		
+		String endDate = xlsReader.getCellData("physicianportal", 25, 40);
+		String afterNumberOfAdminstrations = xlsReader.getCellData("physicianportal", 26, 40);
+		String requiredActions = xlsReader.getCellData("physicianportal", 27, 40);
+		String othersRequiredActions = xlsReader.getCellData("physicianportal", 28, 40);
+		String requiredActionsPostDropdown = xlsReader.getCellData("physicianportal", 29, 40);
+		String othersRequiredActionsPostDropdown = xlsReader.getCellData("physicianportal", 30, 40);
+		String administeredBy = xlsReader.getCellData("physicianportal", 31, 40);
+		String maxDoesHours = xlsReader.getCellData("physicianportal", 32, 40);
+		String followUpAfterMinutes = xlsReader.getCellData("physicianportal", 33, 40);
+		String slidingScaleMin = xlsReader.getCellData("physicianportal", 34, 40);
+		String slidingScaleMax = xlsReader.getCellData("physicianportal", 35, 40);
+		String slidingScaleUnits = xlsReader.getCellData("physicianportal", 36, 40);
+		/*String frequency = xlsReader.getCellData("physicianportal", 37, 40);
+		String howOften = xlsReader.getCellData("physicianportal", 38, 40);
+		String everyDay = xlsReader.getCellData("physicianportal", 39, 40);*/
+		String physicianInstructions = xlsReader.getCellData("physicianportal", 40, 40);
+		String additionalInstruction = physicianInstructions ;
+		String endDateType = xlsReader.getCellData("physicianportal", 42, 40);
+		String endDateType1 = xlsReader.getCellData("physicianportal", 43, 40);
+		String endDateType2 = xlsReader.getCellData("physicianportal", 44, 40);
+		/*String TypeOfMode = xlsReader.getCellData("physicianportal", 45, 40);
+		String howOften1 = xlsReader.getCellData("physicianportal", 46, 40);
+		String howOften2 = xlsReader.getCellData("physicianportal", 47, 40);
+		String howOften3 = xlsReader.getCellData("physicianportal", 48, 40);
+		String DropdownNumber = xlsReader.getCellData("physicianportal", 49, 40);
+		String DropdownDay = xlsReader.getCellData("physicianportal", 50, 40);
+		String TypeOfMode1 = xlsReader.getCellData("physicianportal", 51, 40);
+		String scheduleOnMonth = xlsReader.getCellData("physicianportal", 52, 40);*/
+		
+		TestTemplate.testReport.logSuccess("Click On existing Resident");
+		physicianPortal.ClickOnExistingResident(ResidentNo);
+	
+		TestTemplate.testReport.logSuccess("Create Order With Treatment Dropdown Option");
+		int newnum;
+		String[] frequencyTpyes = {type1,type2};
+		for(int n=0;n<=1;n++)
+		{
+			String Frequency = frequencyTpyes[n];	
+		
+		physicianPortal.CreateAnOrderWithOrderDetails(Frequency,libraryText,SearchDiogonosisTxt,medicarePriority,diogonosisName,physicianType,ReceivedByType,ReceivedOrderType,routes,WrittenDate,NoOfRefillis,WhenToFill);
+		
+		for( newnum=1;newnum<=3;newnum++)
+		{
+		physicianPortal.OrderFrequencyType(newnum,frequencyType);
+		physicianPortal.StartDate(newnum,startDate,startDateTime);
+		String[] OrderEndType = {endDateType,endDateType1,endDateType2};
+		
+		String OrderEnd = OrderEndType[newnum-1];
+		physicianPortal.OrderEndType(newnum,Integer.parseInt(byDateno),Integer.parseInt(afterNoOfAdminstrationsNo) ,OrderEnd,endDate ,ByDate ,byDateTime, afterNumberOfAdminstrations);
+		physicianPortal.DoseUnitWithMedication(newnum,Frequency);
+		physicianPortal.RequireActionRelatedLabel(newnum,frequencyType ,requiredActions,othersRequiredActions ,requiredActionsPostDropdown,othersRequiredActionsPostDropdown, administeredBy,maxDoesHours,followUpAfterMinutes, slidingScaleMin, slidingScaleMax, slidingScaleUnits);
+		
+		physicianPortal.CreateOrderFrequencyForRoutine(newnum,physicianInstructions,additionalInstruction,Frequency);
+		physicianPortal.AddOrderFrequency();
+		}
+		physicianPortal.RemoveFrequency(newnum);		
+		physicianPortal.SaveOrderFrequency();
+		physicianPortal.WhereToTabValidation();
+		physicianPortal.OrderDisplayPageColourVerification();
+		physicianPortal.OrderDisplayPageColoumnsVerification();
+		physicianPortal.BottomPaneOfContainer();
+		
+		}
+		
+		login.Logout();
+		
+	}
+	
+	@Test(enabled = false)
+	public void QA17_ResidentOrders_CreateAnOrderWithFrequencyPRN(ITestContext testContext)
+	{
+		PhysicianPortal physicianPortal=new PhysicianPortal(threadLocalWebDriver.get(), TestTemplate.testReport);
+		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
+		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
+		
+		
+		TestTemplate.testReport.logSuccess("Click to Physician Portal From Menu Bar");
+		homepage.NavigateToPhysicianPortal();
+		
+		TestTemplate.testReport.logSuccess("Navigate to Residents Order From Physician Portal");
+		physicianPortal.ClickOnPhysicianPortal();	
+		
+		
+		String ResidentNo = xlsReader.getCellData("physicianportal", 0, 44);
+		String type1 = xlsReader.getCellData("physicianportal", 1, 44);
+		String type2 = xlsReader.getCellData("physicianportal", 2, 44);
+		/*String medicationType = xlsReader.getCellData("physicianportal", 3, 44);
+		String medicationType1 = xlsReader.getCellData("physicianportal", 4, 44);
+		String searchMedicationName = xlsReader.getCellData("physicianportal", 5, 44);
+		String type6 = xlsReader.getCellData("physicianportal", 6, 44);
+		String type7 = xlsReader.getCellData("physicianportal", 7, 44);*/
+		String libraryText = xlsReader.getCellData("physicianportal", 8, 44);			
+		String SearchDiogonosisTxt = xlsReader.getCellData("physicianportal", 9, 44);
+		String medicarePriority = xlsReader.getCellData("physicianportal", 10, 44);
+		String diogonosisName = xlsReader.getCellData("physicianportal", 11, 44);
+		String physicianType = xlsReader.getCellData("physicianportal", 12, 44);
+		String ReceivedByType = xlsReader.getCellData("physicianportal", 13, 44);
+		String ReceivedOrderType = xlsReader.getCellData("physicianportal", 14, 44);		
+		String routes = xlsReader.getCellData("physicianportal", 15, 44);
+		String WrittenDate = xlsReader.getCellData("physicianportal", 16, 44);
+		String NoOfRefillis = xlsReader.getCellData("physicianportal", 17, 44);
+		String WhenToFill = xlsReader.getCellData("physicianportal", 18, 44);
+		/*String num = xlsReader.getCellData("physicianportal", 19, 44);*/
+		String frequencyType = xlsReader.getCellData("physicianportal", 20, 44);
+		String startDate = xlsReader.getCellData("physicianportal", 21, 44);  
+		String ByDate =startDate;
+		String startDateTime = xlsReader.getCellData("physicianportal", 22, 44);
+		String byDateTime =startDateTime ;
+		String byDateno = xlsReader.getCellData("physicianportal", 23, 44);
+		String afterNoOfAdminstrationsNo = xlsReader.getCellData("physicianportal", 24, 44);		
+		String endDate = xlsReader.getCellData("physicianportal", 25, 44);
+		String afterNumberOfAdminstrations = xlsReader.getCellData("physicianportal", 26, 44);
+		String requiredActions = xlsReader.getCellData("physicianportal", 27, 44);
+		String othersRequiredActions = xlsReader.getCellData("physicianportal", 28, 44);
+		String requiredActionsPostDropdown = xlsReader.getCellData("physicianportal", 29, 44);
+		String othersRequiredActionsPostDropdown = xlsReader.getCellData("physicianportal", 30, 44);
+		String administeredBy = xlsReader.getCellData("physicianportal", 31, 44);
+		String maxDoesHours = xlsReader.getCellData("physicianportal", 32, 44);
+		String followUpAfterMinutes = xlsReader.getCellData("physicianportal", 33, 44);
+		String slidingScaleMin = xlsReader.getCellData("physicianportal", 34, 44);
+		String slidingScaleMax = xlsReader.getCellData("physicianportal", 35, 44);
+		String slidingScaleUnits = xlsReader.getCellData("physicianportal", 36, 44);
+		/*String frequency = xlsReader.getCellData("physicianportal", 37, 44);
+		String howOften = xlsReader.getCellData("physicianportal", 38, 44);
+		String everyDay = xlsReader.getCellData("physicianportal", 39, 44);*/
+		String physicianInstructions = xlsReader.getCellData("physicianportal", 40, 44);
+		String additionalInstruction = physicianInstructions ;
+		String endDateType = xlsReader.getCellData("physicianportal", 42, 44);
+		String endDateType1 = xlsReader.getCellData("physicianportal", 43, 44);
+		String endDateType2 = xlsReader.getCellData("physicianportal", 44, 44);
+		/*String TypeOfMode = xlsReader.getCellData("physicianportal", 45, 44);
+		String howOften1 = xlsReader.getCellData("physicianportal", 46, 44);
+		String howOften2 = xlsReader.getCellData("physicianportal", 47, 44);
+		String howOften3 = xlsReader.getCellData("physicianportal", 48, 44);
+		String DropdownNumber = xlsReader.getCellData("physicianportal", 49, 44);
+		String DropdownDay = xlsReader.getCellData("physicianportal", 50, 44);
+		String TypeOfMode1 = xlsReader.getCellData("physicianportal", 51, 44);
+		String scheduleOnMonth = xlsReader.getCellData("physicianportal", 52, 44);*/
+		
+		TestTemplate.testReport.logSuccess("Click On existing Resident");
+		physicianPortal.ClickOnExistingResident(ResidentNo);
+	
+		TestTemplate.testReport.logSuccess("Create Order With Treatment Dropdown Option");
+		int newnum;
+		String[] frequencyTpyes = {type1,type2};
+		for(int n=0;n<=1;n++)
+		{
+			String Frequency = frequencyTpyes[n];	
+		
+		physicianPortal.CreateAnOrderWithOrderDetails(Frequency,libraryText,SearchDiogonosisTxt,medicarePriority,diogonosisName,physicianType,ReceivedByType,ReceivedOrderType,routes,WrittenDate,NoOfRefillis,WhenToFill);
+		
+		for( newnum=1;newnum<=3;newnum++)
+		{
+		physicianPortal.OrderFrequencyType(newnum,frequencyType);
+		physicianPortal.StartDate(newnum,startDate,startDateTime);
+		String[] OrderEndType = {endDateType,endDateType1,endDateType2};
+		
+		String OrderEnd = OrderEndType[newnum-1];
+		physicianPortal.OrderEndType(newnum,Integer.parseInt(byDateno),Integer.parseInt(afterNoOfAdminstrationsNo) ,OrderEnd,endDate ,ByDate ,byDateTime, afterNumberOfAdminstrations);
+		physicianPortal.DoseUnitWithMedication(newnum,Frequency);
+		physicianPortal.RequireActionRelatedLabel(newnum,frequencyType ,requiredActions,othersRequiredActions ,requiredActionsPostDropdown,othersRequiredActionsPostDropdown, administeredBy,maxDoesHours,followUpAfterMinutes, slidingScaleMin, slidingScaleMax, slidingScaleUnits);
+		
+		physicianPortal.CreateOrderFrequencyForRoutine(newnum,physicianInstructions,additionalInstruction,Frequency);
+		physicianPortal.AddOrderFrequency();
+		}
+		physicianPortal.RemoveFrequency(newnum);		
+		physicianPortal.SaveOrderFrequency();
+		physicianPortal.WhereToTabValidation();
+		physicianPortal.OrderDisplayPageColourVerification();
+		physicianPortal.OrderDisplayPageColoumnsVerification();
+		physicianPortal.BottomPaneOfContainer();
+		
+		}
+		
+		login.Logout();
+		
+	}
 	
 }
