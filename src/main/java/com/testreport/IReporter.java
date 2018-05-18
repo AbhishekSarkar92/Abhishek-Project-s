@@ -1,7 +1,7 @@
 package com.testreport;
 /**
  * 
- * @author E001518 - Debasish Pradhan (Architect)
+ * @author E002489 - Abhishek Sarkar
  *
  */
 public interface IReporter {
@@ -35,4 +35,6 @@ public interface IReporter {
 	 void updateTestCaseStatus();
 	 void close();
 	 void manipulateTestReport(ITestReportManipulator objTestReportManipulator);
+
+	void InitTestCase(String TestCaseName, String stepDescription);
 }

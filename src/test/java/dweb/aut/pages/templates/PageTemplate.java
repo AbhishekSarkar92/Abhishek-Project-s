@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.HashMap;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
@@ -26,7 +27,7 @@ import com.utilities.ReusableLibs;
 
 /**
  * 
- * @author E001518 - Debasish Pradhan (Architect)
+ * @author Abhishek Sarkar(Test Engineer)
  *
  */
 public abstract class PageTemplate {
@@ -408,7 +409,26 @@ public abstract class PageTemplate {
 		return isSuccess;
 	}
 
-	protected boolean isElementVisible(By byLocator) {
+	
+	protected boolean isElementNotPresent(By byLocator) {
+		boolean isSuccess = false;
+		try {
+			// validate element is displayed or not
+			waitInSecs(2);
+			Assert.assertEquals(wd.findElements(byLocator).size() <= 0, true);
+			LOG.info(String.format("Element Present - (By - %s)", byLocator));
+			this.testReport.logSuccess("isElementNotPresent", String.format("Element Not Present - (By - %s)", byLocator));
+			isSuccess = true;
+		} catch (Exception | AssertionError ex) {
+			isSuccess = false;
+			LOG.info(String.format("Element Prensent - (By - %s)", byLocator));
+			this.testReport.logInfo(String.format("Element Prensent - (By - %s)", byLocator));
+		}
+
+		return isSuccess;
+	}
+	
+	protected boolean isElementVisible(By byLocator ) {
 		boolean isSuccess = false;
 		try {
 			// validate element is displayed or not
@@ -554,5 +574,65 @@ public abstract class PageTemplate {
  
 	 
 }*/
+	 
+	 public  void AssertTextEqual( By locator, String text)
+     {
+      //   String actual = "";
+         
+             if (this.isElementPresent(locator))
+             {
+            	 String actual = wd.findElement(locator).getText();
+             //    Assert.assertEquals(actual, text);
+              if(actual.equals(text)) 
+              {
+                 testReport.logSuccess("Verify Equal", String.format("Actual: <mark>%s</mark>,Expected: <mark>%s</mark> are matching", actual, text));
+             }
+             else
+             {
+                 testReport.logFailure("Verify Equal", String.format("Actual: <mark>%s</mark>,Expected: <mark>%s</mark> are not matching", actual, text));
+             }
+             }
+         
+
+     }
+	 
+	 public void VerifyWebElementNotPresent( By locator, String controlName)
+     {
+		 if (this.isElementPresent(locator))
+         {
+             testReport.logFailure("Element Present", String.format("Element is present - <mark>%s</mark>", controlName));
+
+         }
+         else
+         {
+             testReport.logSuccess("Element Not Present", String.format("Element is not present - <mark>%s</mark>", controlName));
+             
+         }
+
+     }
+	 
+	 public  void AssertTextNotEqual( By locator, String text)
+     {
+         String actual = "";
+         
+             if (this.isElementPresent(locator))
+             {
+                 actual = wd.findElement(locator).getText();
+                 Assert.assertEquals(actual, text);
+                 
+                 testReport.logFailure("Verify Equal", String.format("Actual: <mark>%s</mark>,Expected: <mark>%s</mark> are  matching", actual, text));
+             }
+             else
+             {
+                 testReport.logSuccess("Verify Equal", String.format("Actual: <mark>%s</mark>,Expected: <mark>%s</mark> are not matching", actual, text));
+             }
+         
+         
+
+     }
+
+	 
+	 
+	 
 }
 

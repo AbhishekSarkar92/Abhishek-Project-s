@@ -36,7 +36,7 @@ import io.appium.java_client.service.local.AppiumDriverLocalService;
 /**
  * Class with configuration for test execution
  * 
- * @author E001518 - Debasish Pradhan (Architect)
+ * @author E001518 - Abhishek Sarkar(Test Engineer)
  *
  */
 public abstract class TestTemplateMethodLevelInit extends TestTemplate {

@@ -23,7 +23,7 @@ import com.utilities.TestUtil;
  * 
  * Class for reusable test function to be used in test scripts
  * 
- * @author E001518
+ * @author Abhishek Sarkar(Test Engineer)
  *
  */
 public abstract class TestTemplate {
