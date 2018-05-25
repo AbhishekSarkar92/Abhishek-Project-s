@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="10" total="11" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="SuiteRegression" duration-ms="408488" started-at="2018-05-25T07:57:21Z" finished-at="2018-05-25T08:04:09Z">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="408488" started-at="2018-05-25T07:57:21Z" finished-at="2018-05-25T08:04:09Z">
+      <class name="aut.tests.functionaltests.ClinicalTestCases">
+        <test-method status="PASS" signature="beforeSuite(org.testng.ITestContext, org.testng.xml.XmlTest)[pri:0, instance:aut.tests.functionaltests.ClinicalTestCases@53aad5d5]" name="beforeSuite" is-config="true" duration-ms="157" started-at="2018-05-25T13:27:21Z" finished-at="2018-05-25T13:27:21Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@7cb7b7ac]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[[Test: "Test" verbose:1[parameters:][metagroups:] [included: ][excluded: ]  classes: packages:] ]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeSuite -->
+        <test-method status="PASS" signature="beforeTest(org.testng.ITestContext)[pri:0, instance:aut.tests.functionaltests.ClinicalTestCases@53aad5d5]" name="beforeTest" is-config="true" duration-ms="0" started-at="2018-05-25T13:27:21Z" finished-at="2018-05-25T13:27:21Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@7cb7b7ac]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="beforeMethod(org.testng.ITestContext, java.lang.reflect.Method)[pri:0, instance:aut.tests.functionaltests.ClinicalTestCases@53aad5d5]" name="beforeMethod" is-config="true" duration-ms="55703" started-at="2018-05-25T13:27:21Z" finished-at="2018-05-25T13:28:17Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@7cb7b7ac]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void aut.tests.functionaltests.ClinicalTestCases.QA99_ResidentOrders_CreateAnOrderUsingDetailsTypeTreatmentWithMedication_And_Medication_WithFrequencyPRNEveryHour(org.testng.ITestContext)]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="QA99_ResidentOrders_CreateAnOrderUsingDetailsTypeTreatmentWithMedication_And_Medication_WithFrequencyPRNEveryHour(org.testng.ITestContext)[pri:1, instance:aut.tests.functionaltests.ClinicalTestCases@53aad5d5]" name="QA99_ResidentOrders_CreateAnOrderUsingDetailsTypeTreatmentWithMedication_And_Medication_WithFrequencyPRNEveryHour" duration-ms="351943" started-at="2018-05-25T13:28:17Z" finished-at="2018-05-25T13:34:08Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@7cb7b7ac]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- QA99_ResidentOrders_CreateAnOrderUsingDetailsTypeTreatmentWithMedication_And_Medication_WithFrequencyPRNEveryHour -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestContext, org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:aut.tests.functionaltests.ClinicalTestCases@53aad5d5]" name="afterMethod" is-config="true" duration-ms="772" started-at="2018-05-25T13:34:08Z" finished-at="2018-05-25T13:34:09Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@7cb7b7ac]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[[TestResult name=QA99_ResidentOrders_CreateAnOrderUsingDetailsTypeTreatmentWithMedication_And_Medication_WithFrequencyPRNEveryHour status=SUCCESS method=ClinicalTestCases.QA99_ResidentOrders_CreateAnOrderUsingDetailsTypeTreatmentWithMedication_And_Medication_WithFrequencyPRNEveryHour(org.testng.ITestContext)[pri:1, instance:aut.tests.functionaltests.ClinicalTestCases@53aad5d5] output={null}]]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[public void aut.tests.functionaltests.ClinicalTestCases.QA99_ResidentOrders_CreateAnOrderUsingDetailsTypeTreatmentWithMedication_And_Medication_WithFrequencyPRNEveryHour(org.testng.ITestContext)]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="afterTest(org.testng.ITestContext)[pri:0, instance:aut.tests.functionaltests.ClinicalTestCases@53aad5d5]" name="afterTest" is-config="true" duration-ms="56" started-at="2018-05-25T13:34:09Z" finished-at="2018-05-25T13:34:09Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@7cb7b7ac]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+        <test-method status="PASS" signature="afterSuite(org.testng.ITestContext)[pri:0, instance:aut.tests.functionaltests.ClinicalTestCases@53aad5d5]" name="afterSuite" is-config="true" duration-ms="63" started-at="2018-05-25T13:34:09Z" finished-at="2018-05-25T13:34:09Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@7cb7b7ac]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterSuite -->
+      </class> <!-- aut.tests.functionaltests.ClinicalTestCases -->
+    </test> <!-- Test -->
+  </suite> <!-- SuiteRegression -->
+</testng-results>
