@@ -14,14 +14,22 @@ public class HomePage extends PageTemplate {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public By btnMenu = By.xpath("//div[@class='col-md-auto']//button");
+	public By btnMenu = By.xpath("//div[contains(@class,'col-md-auto')]//button");
 	public By optionPhysicianPortal = By.xpath("//div[@class='modal-content']//img[@src='https://cdn.bluestrataemr.com/Images/Menu/sigma_medical_doctor_128.png']");
 	public By optionFacilityPortal = By.xpath("//div[@class='modal-content']//img[@src='https://cdn.bluestrataemr.com/Images/Menu/sigma_educationicons_school_128.png']");
+	public By optionClinicalPortal = By.xpath("//div[@class='modal-content']//img[@src='https://cdn.bluestrataemr.com/Images/Menu/sigma_medical_nurse_128.png']");
+	
 	
 	public void NavigateToPhysicianPortal()
 	{
 		this.click(btnMenu ,"Menu Button");
 		this.click(optionPhysicianPortal ,"Physician Portal Option");
+	}
+	
+	public void NavigateToClinicalPortal()
+	{
+		this.click(btnMenu ,"Menu Button");
+		this.click(optionClinicalPortal ,"Clinical Option");
 	}
 	
 	public void NavigateToFacilityPortal()

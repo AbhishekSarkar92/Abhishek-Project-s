@@ -114,7 +114,7 @@ public class PhysicianPortal extends PageTemplate {
 	
 	public By btnHeaderPhysicianPortal = By.xpath("//*[@class='col-auto nav primary-menu-links']//button[text()='Physician Portal']");
 	public By btnHeaderMessages = By.xpath("//*[@class='col-auto nav primary-menu-links']//button[contains(text(),'Messages')]");
-	public By btnHeaderMediprocity = By.xpath("//*[@class='col-auto nav primary-menu-links']//button[contains(text(),'@@Mediprocity')]");
+	public By btnHeaderMediprocity = By.xpath("//*[@class='col-auto nav primary-menu-links']//button[contains(text(),'Mediprocity')]");
 	
 	public By spandrpdwnSign = By.xpath("//div[@aria-labelledby='menuDropDown']//button[text()='Sign']");
 	public By spandrpdwnResidentOrder = By.xpath("//div[@aria-labelledby='menuDropDown']//button[text()='Resident Orders']");
@@ -158,6 +158,7 @@ public class PhysicianPortal extends PageTemplate {
 	public By btnIgnore = By.xpath("//button[text()='Ignore']");
 	
 	public By labelOrderPageDescription = By.xpath("//span[text()='Description']");
+	public By labelOrderPageCreated = By.xpath("//span[text()='Created']");
 	public By labelOrderPageType = By.xpath("//span[text()='Type']");
 	public By labelOrderPagePhysician = By.xpath("//span[text()='Physician']");
 	public By labelOrderPageFrequencies = By.xpath("//span[text()='Frequencies']");
@@ -205,7 +206,7 @@ public class PhysicianPortal extends PageTemplate {
 	public By msgChkboxDiscontinue = By.xpath("//div[text()='Request Discontinue Complete']");
 	public By msgDiscontinue = By.xpath("//div[contains(text(),'This order will discontinue on')]");
 	
-	public By labelOrderPagePharmacyInformation = By.xpath("//div[@class='card']//h5[text()='Electronic Pharmacy Information']");
+	public By labelOrderPagePharmacyInformation = By.xpath("//*[text()='Electronic Pharmacy Information']");
 	public By labelOrderPagePharmacyName = By.xpath("//div[@class='card']//div[text()='Name']");
 	public By labelOrderPagePharmacyAddrerss = By.xpath("//div[@class='card']//div[text()='Address']");
 	public By labelOrderPagePharmacyContact = By.xpath("//div[@class='card']//div[text()='Contact']");
@@ -216,6 +217,10 @@ public class PhysicianPortal extends PageTemplate {
 	public By btnToggleVerifyAll = By.xpath("//button[text()='Toggle Verify All']");
 	public By btnToggleVerifed = By.xpath("//button[text()='Toggle Verified']");
 	public By msgOrderVerified = By.xpath("//div[text()='Orders Verified']");
+	public By btnToggleRecapAll = By.xpath("//button[text()='Toggle Recap All']");
+	public By btnToggleRecap = By.xpath("//button[text()='Toggle Recap']");
+	public By btnRecap = By.xpath("//span[text()='Recap']");
+	
 	
 	public By btnToggleSignedAll = By.xpath("//button[text()='Toggle Signed All']");
 	public By btnToggleSigned = By.xpath("//button[text()='Toggle Signed']");
@@ -242,6 +247,7 @@ public class PhysicianPortal extends PageTemplate {
 	public By listRecapPhysicians = By.xpath("//label[text()='Physicians']/..//button");
 	public By calenderRecapDate = By.xpath("//label[text()='Recap Date']/..//input");
 	public By btnApplyFilter = By.xpath("//button[text()='Apply Filter']");
+	public By calenenderRecapDate = By.xpath("//label[text()='Recap Date']/..//button[@class='btn btn-outline-secondary']/i");
 	
 	
 	public void ClickOnPhysicianPortal()
@@ -837,6 +843,9 @@ public class PhysicianPortal extends PageTemplate {
 			
 		}
 		
+		
+		
+		
 		public void VerifyTheOrderByClickingVerifyButton()
 		{
 			this.VerifyWebElementPresent(btnHeaderPhysicianPortal,"Physician Portal");
@@ -851,6 +860,14 @@ public class PhysicianPortal extends PageTemplate {
 			this.click(btnHeaderPhysicianPortal,"Physician Portal");
 			this.VerifyWebElementPresent(spandrpdwnSign,"Sign");
 			this.click(spandrpdwnSign,"Sign");
+		}
+		
+		public void VerifyTheOrderByClickingRecapButton()
+		{
+			this.VerifyWebElementPresent(btnHeaderPhysicianPortal,"Physician Portal");
+			this.click(btnHeaderPhysicianPortal,"Physician Portal");
+			this.VerifyWebElementPresent(spandrpdwnRecap,"Recap");
+			this.click(spandrpdwnRecap,"Recap");
 		}
 		
 		
@@ -1746,47 +1763,121 @@ public class PhysicianPortal extends PageTemplate {
 		
 		
 		
-		public void VerifyOrderAndStatusInOrders(String OrderName)
+		public void VerifyOrderInCreateRecaps(String OrderName)
 		{
-			By page100 = By.xpath("//ul//li/a[text()='100']");
-			this.click(page100, "100");
+			 
+			String ActiveNo = wd.findElement(By.xpath("//ul[@class='pager']//li[@class='pages active']")).getText();
+			int OrdersInResident = Integer.parseInt(ActiveNo);
+			List<WebElement> OrdersNoInPage = wd.findElements(By.xpath("//datatable-body-cell[2]/div"));
+			int OrdersNo = OrdersNoInPage.size();
+			List<WebElement> OrdersChkBxInPage = wd.findElements(By.xpath("//datatable-body-cell[1]/div"));
+			int OrdersChkBxNo = OrdersChkBxInPage.size();
+			List<WebElement> OrdersDetailsButtonInPage = wd.findElements(By.xpath("//datatable-body-cell[6]/div//button[text()='Detail']"));
+			int OrdersDetailsNo = OrdersDetailsButtonInPage.size();
+			
+			if(OrdersNo==(OrdersChkBxNo) && OrdersNo==(OrdersDetailsNo))
+			{
+				this.testReport.logSuccess("Verify All Listed Orders", String.format("All listed order who need to verify have a checkbox and details button for each orders <mark>%s<mark/> , <mark>%s<mark/> are same with the Orders <mark>%s<mark/> ", OrdersChkBxNo,OrdersDetailsNo,OrdersNo));
+			}
+			else
+			{
+				this.testReport.logFailure("Verify All Listed Orders", String.format("All listed order who need to verify have a checkbox and details button for each orders <mark>%s<mark/> , <mark>%s<mark/> are not same with the Orders <mark>%s<mark/> ", OrdersChkBxNo,OrdersDetailsNo,OrdersNo));
+			}	
+			
+			if(OrdersInResident==OrdersNo)
+			{			
+			By RightSideClick = By.xpath("//a/i[@class='datatable-icon-skip']");
+			if(this.isElementVisible(RightSideClick));
+			{
+			this.click(RightSideClick, "Right Side Arrow");
+			}
+			
+			List<WebElement>  pageNos= wd.findElements(By.xpath("(//ul[@class='pager']//li[@role='button']/a)"));
+			int pageSize = pageNos.size();
+			String lastPageNo = wd.findElement(By.xpath(String.format("(//ul[@class='pager']//li[@role='button']/a)[%s]",pageSize))).getText();
+			int LastPageNo = Integer.parseInt(lastPageNo);
+			
+			
 			By leftSideArrow = By.xpath("//a/i[@class='datatable-icon-prev']");
-			if(this.waitUntilElementIsClickable(leftSideArrow));
+			if(this.isElementVisible(leftSideArrow));
 			{
 			this.click(leftSideArrow, "Left Side Arrow");
 			}
-			for(int i=3;i<=8;i++)
+			
+			
+			for(int i=1;i<=(LastPageNo);i++)
 			{
-				By linkPageBottom = By.xpath(String.format("(//*[@class='datatable-pager ng-star-inserted']//a)[%d]",i));
-				click(linkPageBottom,"Navigate Page");
-			List<WebElement> Orders = wd.findElements(By.xpath("//datatable-body-cell[1]/div"));
-			int ordersNo = Orders.size();
+				
+			if(this.isElementPresent(labelOrderPageDescription) && this.isElementPresent(labelOrderPageType))
+			{
+				List<WebElement> Orders = wd.findElements(By.xpath("//datatable-body-cell[1]/div"));
+				int ordersNo = Orders.size();
 			for(int j=1;j<=ordersNo;j++)
 			{
+				
+				
+				By OrderDescription = By.xpath(String.format("(//datatable-body-cell[2]/div)[%d]",j));
+				String requriedOrder = wd.findElement(By.xpath(String.format("(//datatable-body-cell[2]/div)[%d]",j))).getText();
+			
+				if(requriedOrder.equals(OrderName) )
+				{
+					By OrderDescriptionDetail = By.xpath(String.format("(//datatable-body-cell[6]/div)[%d]//button[text()='Detail']",j));
+					By OrderCheckBox = By.xpath(String.format("(//datatable-body-cell[1]/div)[%s]//input[@type='checkbox']",j));
+					
+					this.click(OrderCheckBox, "Click on the Check Box of the  Order");
+					this.click(OrderDescriptionDetail, "Click on the Detail Button of the  Order");
+					break;
+				}
+				if(requriedOrder.equals(OrderName) )
+				{
+					break;
+				}
+				
+			}
+				
+		}
+			By nxtrightSideArrow = By.xpath("//a/i[@class='datatable-icon-right']");
+			if(this.isElementPresent(nxtrightSideArrow))
+			{
+			this.click(nxtrightSideArrow, "Next Right Side Arrow");
+			}
+			
+		}
+			}
+			
+			else
+			{
+				List<WebElement> Orders = wd.findElements(By.xpath("//datatable-body-cell[1]/div"));
+				int ordersNo = Orders.size();
+			for(int j=1;j<=ordersNo;j++)
+			{
+				
+				
 				By OrderDescription = By.xpath(String.format("(//datatable-body-cell[1]/div)[%d]",j));
 				String requriedOrder = wd.findElement(By.xpath(String.format("(//datatable-body-cell[1]/div)[%d]",j))).getText();
 			//	int RequireOrder = requriedOrder.length();
 				if(requriedOrder.equals(OrderName) )
 				{
-					this.testReport.logSuccess("Created Order Present",String.format("Created Order Present in the List - <mark>%s</mark> To Locator - <mark>%s</mark>", requriedOrder, OrderName));
-					By statusNeedsSigning = By.xpath(String.format("(//datatable-body-cell[5]//small)[%s]//strong[text()='Needs Signing']", ordersNo));
-					this.VerifyWebElementPresent(statusNeedsSigning, "status Needs Signing in That Order");
-					By statusNeedsVerification = By.xpath(String.format("(//datatable-body-cell[5]//small)[%s]//strong[text()='Needs Verification']", ordersNo));
-					this.VerifyWebElementPresent(statusNeedsVerification, "status Needs Verification in That Order");
-					By statusActive = By.xpath(String.format("(//datatable-body-cell[5]//small)[%s]//strong[text()='Active']", ordersNo));
-					this.VerifyWebElementPresent(statusActive, "status Active in That Order");	
+					By OrderDescriptionDetail = By.xpath(String.format("(//datatable-body-cell[6]/div)[%d]//button[text()='Detail']",j));
+					By OrderCheckBox = By.xpath(String.format("(//datatable-body-cell[1]/div)[%s]//input[@type='checkbox']",j));
 					
-					this.click(OrderDescription, "Click on the Created Order");
+					this.click(OrderCheckBox, "Click on the Check Box of the  Order");
+					this.click(OrderDescriptionDetail, "Click on the Detail Button of the  Order");
+					break;
+				}
+				if(requriedOrder.equals(OrderName) )
+				{
 					break;
 				}
 				
-				
 			}
-		/*	By nxtrightSideArrow = By.xpath("//a/i[@class='datatable-icon-right']");
-			this.click(nxtrightSideArrow, "Next Right Side Arrow");
-			*/
 			}
+		
 		}
+		
+		
+		
+		
 		
 		public void VerifyOrderAndStatusInOrder(String OrderName)
 		{ 
@@ -1913,7 +2004,7 @@ public class PhysicianPortal extends PageTemplate {
 			this.VerifyWebElementPresent(btnOrderPageDiscontinue, "Order Page Discontinue");
 			
 			this.VerifyWebElementPresent(btnOrderPageCopy, "Order Page Copy");
-			String ResidentName = wd.findElement(By.xpath("//div[@class='d-print-none']//h3")).getText();			
+			String ResidentName = wd.findElement(By.xpath("//div//h3[@id='home']")).getText();			
 			System.out.println("Order Resident Name :-" +ResidentName);	
 			By residentName = By.xpath("//div[@class='d-print-none']//h3");
 			this.VerifyWebElementPresent(residentName, "Resident Name  Present");
@@ -2321,7 +2412,7 @@ public class PhysicianPortal extends PageTemplate {
 		
 		public void VerifyCreatedOrderIntheVerifyList(String OrderName)
 		{
-			 
+
 			String ActiveNo = wd.findElement(By.xpath("//ul[@class='pager']//li[@class='pages active']")).getText();
 			int OrdersInResident = Integer.parseInt(ActiveNo);
 			List<WebElement> OrdersNoInPage = wd.findElements(By.xpath("//datatable-body-cell[2]/div"));
@@ -2330,7 +2421,7 @@ public class PhysicianPortal extends PageTemplate {
 			int OrdersChkBxNo = OrdersChkBxInPage.size();
 			List<WebElement> OrdersDetailsButtonInPage = wd.findElements(By.xpath("//datatable-body-cell[7]/div//button[text()='Detail']"));
 			int OrdersDetailsNo = OrdersDetailsButtonInPage.size();
-			
+
 			if(OrdersNo==(OrdersChkBxNo) && OrdersNo==(OrdersDetailsNo))
 			{
 				this.testReport.logSuccess("Verify All Listed Orders", String.format("All listed order who need to verify have a checkbox and details button for each orders <mark>%s<mark/> , <mark>%s<mark/> are same with the Orders <mark>%s<mark/> ", OrdersChkBxNo,OrdersDetailsNo,OrdersNo));
@@ -2339,59 +2430,62 @@ public class PhysicianPortal extends PageTemplate {
 			{
 				this.testReport.logFailure("Verify All Listed Orders", String.format("All listed order who need to verify have a checkbox and details button for each orders <mark>%s<mark/> , <mark>%s<mark/> are not same with the Orders <mark>%s<mark/> ", OrdersChkBxNo,OrdersDetailsNo,OrdersNo));
 			}	
-			
+
 			if(OrdersInResident==OrdersNo)
 			{			
-			By RightSideClick = By.xpath("//a/i[@class='datatable-icon-skip']");
-			if(this.isElementVisible(RightSideClick));
-			{
-			this.click(RightSideClick, "Right Side Arrow");
-			}
-			
-			List<WebElement>  pageNos= wd.findElements(By.xpath("(//ul[@class='pager']//li[@role='button']/a)"));
-			int pageSize = pageNos.size();
-			String lastPageNo = wd.findElement(By.xpath(String.format("(//ul[@class='pager']//li[@role='button']/a)[%s]",pageSize))).getText();
-			int LastPageNo = Integer.parseInt(lastPageNo);
-			
-			
-			By leftSideArrow = By.xpath("//a/i[@class='datatable-icon-prev']");
-			if(this.isElementVisible(leftSideArrow));
-			{
-			this.click(leftSideArrow, "Left Side Arrow");
-			}
-			
-			
-			for(int i=1;i<=(LastPageNo);i++)
-			{
-				
-			if(this.isElementPresent(labelOrderPageDescription) && this.isElementPresent(labelOrderPageType))
-			{
-				List<WebElement> Orders = wd.findElements(By.xpath("//datatable-body-cell[1]/div"));
-				int ordersNo = Orders.size();
-			for(int j=1;j<=ordersNo;j++)
-			{
-				
-				
-				By OrderDescription = By.xpath(String.format("(//datatable-body-cell[2]/div)[%d]",j));
-				String requriedOrder = wd.findElement(By.xpath(String.format("(//datatable-body-cell[2]/div)[%d]",j))).getText();
-			
-				if(requriedOrder.equals(OrderName) )
+				By RightSideClick = By.xpath("//a/i[@class='datatable-icon-skip']");
+				if(this.isElementVisible(RightSideClick));
 				{
-					By OrderDescriptionDetail = By.xpath(String.format("(//datatable-body-cell[7]/div)[%d]//button[text()='Detail']",j));
-					
-					this.click(OrderDescriptionDetail, "Click on the Detail Button of the  Order");
-					break;
+					this.click(RightSideClick, "Right Side Arrow");
 				}
-				if(requriedOrder.equals(OrderName) )
+
+				List<WebElement>  pageNos= wd.findElements(By.xpath("(//ul[@class='pager']//li[@role='button']/a)"));
+				int pageSize = pageNos.size();
+				String lastPageNo = wd.findElement(By.xpath(String.format("(//ul[@class='pager']//li[@role='button']/a)[%s]",pageSize))).getText();
+				int LastPageNo = Integer.parseInt(lastPageNo);
+
+
+				By leftSideArrow = By.xpath("//a/i[@class='datatable-icon-prev']");
+				if(this.isElementVisible(leftSideArrow));
 				{
-					break;
+					this.click(leftSideArrow, "Left Side Arrow");
 				}
+
+				this.click(labelOrderPageCreated, "Created");
+				this.click(labelOrderPageCreated, "Created");
 				
-			}
-				
-		}
+
+				for(int i=1;i<=(LastPageNo);i++)
+				{
+
+					if(this.isElementPresent(labelOrderPageDescription) && this.isElementPresent(labelOrderPageType))
+					{
+						List<WebElement> Orders = wd.findElements(By.xpath("//datatable-body-cell[1]/div"));
+						int ordersNo = Orders.size();
+						for(int j=1;j<=ordersNo;j++)
+						{
+
+
+							By OrderDescription = By.xpath(String.format("(//datatable-body-cell[2]/div)[%d]",j));
+							String requriedOrder = wd.findElement(By.xpath(String.format("(//datatable-body-cell[2]/div)[%d]",j))).getText();
+
+							if(requriedOrder.equals(OrderName) )
+							{
+								By OrderDescriptionDetail = By.xpath(String.format("(//datatable-body-cell[7]/div)[%d]//button[text()='Detail']",j));
+
+								this.click(OrderDescriptionDetail, "Click on the Detail Button of the  Order");
+								break;
+							}
+							if(requriedOrder.equals(OrderName) )
+							{
+								break;
+							}
+
+						}
+
+					}
 			By nxtrightSideArrow = By.xpath("//a/i[@class='datatable-icon-right']");
-			if(this.isElementPresent(nxtrightSideArrow))
+			if(this.isElementVisible(nxtrightSideArrow))
 			{
 			this.click(nxtrightSideArrow, "Next Right Side Arrow");
 			}
@@ -2401,6 +2495,9 @@ public class PhysicianPortal extends PageTemplate {
 			
 			else
 			{
+				this.click(labelOrderPageCreated, "Created");
+				this.click(labelOrderPageCreated, "Created");
+				
 				List<WebElement> Orders = wd.findElements(By.xpath("//datatable-body-cell[1]/div"));
 				int ordersNo = Orders.size();
 			for(int j=1;j<=ordersNo;j++)
@@ -2454,7 +2551,7 @@ public class PhysicianPortal extends PageTemplate {
 		
 		public void VerifyClickingOnToggledVerifiedButton()
 		{
-			String ResidentName = wd.findElement(By.xpath("//div[@class='d-print-none']//h3")).getText();
+			String ResidentName = wd.findElement(By.xpath("//div//h3[@id='home']")).getText();
 			String descriptionName = wd.findElement(By.xpath("//div[@class='card-body']//label[text()='Description']/..//div[contains(@class,'form-control')]")).getText();
 			this.click(btnToggleVerifed, "Toggle Verifed Button");
 			this.waitInSecs(3);
@@ -2490,9 +2587,9 @@ public class PhysicianPortal extends PageTemplate {
 			
 			}
 			
-		public void VerifyClickingOnToggledSignedButton()
+		public String VerifyClickingOnToggledSignedButton()
 		{
-			String ResidentName = wd.findElement(By.xpath("//div[@class='d-print-none']//h3")).getText();
+			String ResidentName = wd.findElement(By.xpath("//div//h3[@id='home']")).getText();
 			String descriptionName = wd.findElement(By.xpath("//div[@class='card-body']//label[text()='Description']/..//div[contains(@class,'form-control')]")).getText();
 			this.click(btnToggleSigned, "Toggle Signed Button");
 			this.waitInSecs(3);
@@ -2521,6 +2618,8 @@ public class PhysicianPortal extends PageTemplate {
 				this.testReport.logSuccess("Verified Resident", String.format("Verified Resident Present <mark>%s<mark/> with Description Name <mark>%s<mark/>",ResidentName,descriptionName));
 			}
 			
+			
+			return ResidentName;
 		}
 		
 		public void VerifyAddSignatureButton()
@@ -2581,6 +2680,12 @@ public class PhysicianPortal extends PageTemplate {
 			this.VerifyWebElementPresent(btnRecapPageSelectStatus, "Recap Page Select Status");
 		}
 		
+		public void ClickOnCreateRecap()
+		{
+			this.click(btnCreateRecap, "Create Recap");
+			
+		}
+		
 		public void RecapePageTextVerification()
 		{
 			this.VerifyWebElementPresent(labelOrderPageDescription, "Recap Page Description");
@@ -2593,7 +2698,7 @@ public class PhysicianPortal extends PageTemplate {
 		
 		public void DisplayCreateRecapPageDisplay()
 		{
-			this.VerifyWebElementPresent(txtCreateRecap, "Create Recap");
+		//	this.VerifyWebElementPresent(txtCreateRecap, "Create Recap");
 			this.VerifyWebElementPresent(txtRecapDescription, "Recap Description");
 			this.VerifyWebElementPresent(listRecapResidentStatus, "Recap Resident Status");			
 			this.VerifyWebElementPresent(listRecapStations, "Recap Stations");
@@ -2604,26 +2709,108 @@ public class PhysicianPortal extends PageTemplate {
 			this.VerifyWebElementPresent(btnApplyFilter, "Apply Filter");
 		}
 		
+		public void VerifyRecapDescription(String Description)
+		{
+			this.VerifyWebElementPresent(txtRecapDescription, "Recap Description");
+			this.SendKeysToElementClearFirst(txtRecapDescription, Description);
+		}
+		
+		public void VerifyResidentStatus(String Option ,String ResidentOption)
+		{
+			this.VerifyWebElementPresent(listRecapResidentStatus, "Recap Resident Status");	
+			this.click(listRecapResidentStatus, "Recap Resident Status");
+			VerifyRecapPageResidentStatusDisplay();
+			SelectionOfResidentOption(Option,ResidentOption);
+		}
+		
+		public void VerifyResidentStations(String Option ,String ResidentOption)
+		{
+			this.VerifyWebElementPresent(listRecapStations, "Recap Stations");
+			this.click(listRecapStations, "Recap Stations");
+			VerifyRecapPageResidentStationsDisplay();
+			SelectionOfResidentOption(Option,ResidentOption);
+		}
+		
+		
+		public void VerifyRecapResidents(String Option ,String ResidentOption)
+		{
+			this.VerifyWebElementPresent(listRecapResidents, "Recap Residents");
+			this.click(listRecapResidents, "Recap Residents");
+			VerifyRecapPageResidentDisplay();
+			
+			FindOptionInRecapPage(Option,ResidentOption);
+		}
+		
+		
+		public void VerifyRecapOthers(String Option ,String ResidentOption)
+		{
+			this.VerifyWebElementPresent(listRecapOtherStatus, "Recap Other Status");
+			this.click(listRecapOtherStatus, "Recap Other Status");
+			VerifyRecapPageOrderStatusDisplay();
+			SelectionOfResidentOption(Option,ResidentOption);
+		}
+		
+		
+		public void VerifyRecapPhysicians(String Option ,String ResidentOption)
+		{
+			this.VerifyWebElementPresent(listRecapPhysicians, "Recap Physicians");
+			this.click(listRecapPhysicians, "Recap Physicians");
+			VerifyRecapPagePhysiciansDisplay();
+			FindOptionInRecapPage(Option,ResidentOption);
+		}
+		
+		
+		
+		
 		public void VerifyRecapPageResidentStatusDisplay()
 		{
 			List<WebElement> statusOptions = wd.findElements(By.xpath("//label[text()='Resident Status']/..//button//following-sibling::ul//a/span[contains(@class,'fa fa')]"));
 			int status = statusOptions.size();
 			for(int i=1;i<=status;i++)
 			{
-				WebElement Element = statusOptions.get(i);
-				String Text = Element.getAttribute("style");
-				System.out.println("Resident Status : " +Text);
+				String ResidentStatus = wd.findElement(By.xpath(String.format("(//label[text()='Resident Status']/..//button//following-sibling::ul//a)[%s]", i))).getText();
+				
+				System.out.println("Resident Status : " +ResidentStatus);
+				this.testReport.logSuccess("Resident Name Option", String.format("Option Present <mark>%s<mark/>", ResidentStatus));
 			}
 			
 			
 			List<WebElement> StatusOptions = wd.findElements(By.xpath("//label[text()='Resident Status']/..//button//following-sibling::ul//a/span[@style='font-weight: normal;']"));
 			int Status = StatusOptions.size();
-			for(int i=1;i<=Status;i++)
+			for(int i=1;i<=Status;i++)			
+				
 			{
-				WebElement Element = StatusOptions.get(i);
-				String Text = Element.getAttribute("style");
-				System.out.println("Resident Status : " +Text);
+				
+				String ResidentStatus = wd.findElement(By.xpath(String.format("(//label[text()='Resident Status']/..//button//following-sibling::ul//a/span[@style='font-weight: normal;'])[%s]", i))).getText();
+							
+				System.out.println("Resident Status : " +ResidentStatus);
+				this.testReport.logSuccess("Resident Status Option", String.format("Option Present <mark>%s<mark/>", ResidentStatus));				
 			}
+		}
+		
+		
+		public void SelectionOfResidentOption(String Option ,String ResidentOption)
+		{
+			if(Option.equals("Select All"))
+			{
+			By OptionSelectAll = By.xpath(String.format("(//label[text()='%s']/..//button//following-sibling::ul//a)[1]",ResidentOption));
+			this.click(OptionSelectAll, "Select All");
+			}
+			
+			else
+			{
+			By OptionSelectAll = By.xpath(String.format("(//label[text()='%s']/..//button//following-sibling::ul//a)[2]",ResidentOption));
+			this.click(OptionSelectAll, "Unselect All");
+			}
+		}
+		
+		public void FindOptionInRecapPage(String Option ,String ResidentOption)
+		{
+			By FindOption = By.xpath(String.format("//label[text()='%s']/..//input[@placeholder='Find']",ResidentOption));
+			this.SendKeysToElementClearFirst(FindOption, Option);
+			
+			By SelectedOption = By.xpath(String.format("(//label[text()='%s']/..//button//following-sibling::ul//a/span[contains(text(),'%s')])", ResidentOption,Option));
+			this.click(SelectedOption, Option.toString());
 		}
 		
 		
@@ -2633,9 +2820,10 @@ public class PhysicianPortal extends PageTemplate {
 			int Stations = StationsOptions.size();
 			for(int i=1;i<=Stations;i++)
 			{
-				WebElement Element = StationsOptions.get(i);
-				String Text = Element.getAttribute("style");
-				System.out.println("Resident Status : " +Text);
+				String stations = wd.findElement(By.xpath(String.format("(//label[text()='Stations']/..//button//following-sibling::ul//a)[%s]", i))).getText();
+				
+				System.out.println("Stations : " +stations);
+				this.testReport.logSuccess("Stations Option", String.format("Option Present <mark>%s<mark/>", stations));
 			}
 		}
 		
@@ -2645,12 +2833,120 @@ public class PhysicianPortal extends PageTemplate {
 			int Residents = ResidentsOptions.size();
 			for(int i=1;i<=Residents;i++)
 			{
-				WebElement Element = ResidentsOptions.get(i);
-				String Text = Element.getAttribute("style");
-				System.out.println("Resident Status : " +Text);
+				String residents = wd.findElement(By.xpath(String.format("(//label[text()='Residents']/..//button//following-sibling::ul//a)[%s]", i))).getText();
+				
+				System.out.println("Resident  : " +residents);
+				this.testReport.logSuccess("Resident ", String.format("Option Present <mark>%s<mark/>", residents));
+			}
+			
+			
+			List<WebElement> residentOptions = wd.findElements(By.xpath("//label[text()='Physicians']/..//button//following-sibling::ul//a/span[@style='font-weight: normal;']"));
+			int residents = residentOptions.size();
+			for(int i=1;i<=residents;i++)			
+				
+			{
+				
+				String OtherResidents = wd.findElement(By.xpath(String.format("(//label[text()='Physicians']/..//button//following-sibling::ul//a/span[@style='font-weight: normal;'])[%s]", i))).getText();
+							
+				System.out.println("Physicians  : " +OtherResidents);
+				this.testReport.logSuccess("Physicians Count ", String.format("Option Present <mark>%s<mark/>", residents));
+				this.testReport.logSuccess("Physicians ", String.format("Option Present <mark>%s<mark/>", OtherResidents));				
 			}
 		}
 		
+		public void VerifyRecapPageOrderStatusDisplay()
+		{
+			List<WebElement> OrderStatusOptions = wd.findElements(By.xpath("//label[text()='Order Status']/..//button//following-sibling::ul//a/span[contains(@class,'fa fa')]"));
+			int OrderStatus = OrderStatusOptions.size();
+			for(int i=1;i<=OrderStatus;i++)
+			{
+				String orderStatus = wd.findElement(By.xpath(String.format("(//label[text()='Order Status']/..//button//following-sibling::ul//a)[%s]", i))).getText();
+				
+				System.out.println("Order Status  : " +orderStatus);
+				this.testReport.logSuccess("Order Status ", String.format("Option Present <mark>%s<mark/>", orderStatus));
+			}
+		}
+		
+		
+		public void VerifyRecapPagePhysiciansDisplay()
+		{
+			List<WebElement> PhysiciansOptions = wd.findElements(By.xpath("//label[text()='Physicians']/..//button//following-sibling::ul//a/span[contains(@class,'fa fa')]"));
+			int Physicians = PhysiciansOptions.size();
+			for(int i=1;i<=Physicians;i++)
+			{
+                String physicians = wd.findElement(By.xpath(String.format("(//label[text()='Physicians']/..//button//following-sibling::ul//a)[%s]", i))).getText();
+				
+				System.out.println("Physicians  : " +physicians);
+				this.testReport.logSuccess("Physicians ", String.format("Option Present <mark>%s<mark/>", physicians));
+			}
+			
+			List<WebElement> physiciansOptions = wd.findElements(By.xpath("//label[text()='Physicians']/..//button//following-sibling::ul//a/span[@style='font-weight: normal;']"));
+			int physicians = physiciansOptions.size();
+			for(int i=1;i<=physicians;i++)			
+				
+			{
+				
+				String OtherPhysicians = wd.findElement(By.xpath(String.format("(//label[text()='Physicians']/..//button//following-sibling::ul//a/span[@style='font-weight: normal;'])[%s]", i))).getText();
+							
+				System.out.println("Physicians  : " +OtherPhysicians);
+				this.testReport.logSuccess("Physicians Count ", String.format("Option Present <mark>%s<mark/>", physicians));
+				this.testReport.logSuccess("Physicians ", String.format("Option Present <mark>%s<mark/>", OtherPhysicians));				
+			}
+		}
+		
+		public void VerifyRecapeDate(String date)
+		{
+			this.VerifyWebElementPresent(calenderRecapDate, "Recap Date");
+			this.VerifyWebElementPresent(calenenderRecapDate, "Recap Date");
+			this.click(calenenderRecapDate, "Recap Date");
+			By Date = By.xpath(String.format("(//label[text()='Recap Date']/..//ngb-datepicker-month-view[@class='d-block']//div[text()='%s'])[1]", date));
+			this.click(Date, "Recape Date Clicked");
+		}
+		
+		
+		public void RecapApplyFilter()
+		{
+			this.VerifyWebElementPresent(btnApplyFilter, "Apply Filter");
+			this.click(btnApplyFilter, "Apply Filter");
+			this.waitInSecs(5);
+		}
+		
+		public void RecapPageButtonmVerification()
+		{
+			this.VerifyWebElementPresent(btnToggleRecapAll, "Toggle Recap All");
+			this.VerifyWebElementPresent(btnCancel, "Cancel Button");
+			this.VerifyWebElementPresent(btnAddSignature, "Add Signature");
+			this.VerifyWebElementPresent(btnToggleRecap, "Toggle Recap");
+		}
+		
+		public void VerifyToggleRecapAll()
+		
+		{
+			this.click(btnToggleRecapAll, "Toggle Recap All");
+			this.waitInSecs(2);
+			List<WebElement> RecapOptions = wd.findElements(By.xpath("//span[text()='Recap']"));
+			int Recap = RecapOptions.size();
+			this.testReport.logSuccess("Recap Options", String.format("Total Recap OptionS Present <mark>%s<mark/>", Recap));
+			this.waitInSecs(2);
+			this.click(btnToggleRecapAll, "Toggle Recap All");
+			this.waitInSecs(2);
+			this.VerifyWebElementNotPresent(btnRecap, "Recap Not Present");
+			
+			
+		}
+		
+		public void VerifyToggleRecap()
+		{
+			this.click(btnToggleRecap, "Toggle Recap");
+			this.VerifyWebElementPresent(btnRecap, "Recap Present");
+		}
+		
+		
+		public void VerifyRecapFromCheckBox()
+		{
+			this.VerifyWebElementPresent(btnRecap, "Recap Present");
+			this.click(btnToggleRecap, "Toggle Recap");
+		}
 	}
 		
 		
