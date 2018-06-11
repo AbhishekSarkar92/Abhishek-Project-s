@@ -22,7 +22,7 @@ public class LoginPage extends PageTemplate {
 		
 	}
 	
-	public By btnTester1 = By.xpath("//button[@id='userDropDown']");
+	public By btnTester = By.xpath("//button[@id='userDropDown']");
 	public By logout = By.xpath("//button[@id='userDropDown']/..//div/button[text()='Logout']");
 	
 	public void login(String userName, String password)
@@ -34,21 +34,32 @@ public class LoginPage extends PageTemplate {
 		
 		strValFromConfigFile = String.format(ReusableLibs.getKeyValue(IConstants.AUT_CONFIG_FILE, "placeHolderTextBox"), "Username");
 		this.waitInSecs(3);	
+		if(this.isElementPresent(By.xpath(strValFromConfigFile)))
+		{
+		this.VerifyWebElementPresent(By.xpath(strValFromConfigFile), "User Name");
 		this.sendKeys(By.xpath(strValFromConfigFile), userName);
+		}
 		
 		strValFromConfigFile = String.format(ReusableLibs.getKeyValue(IConstants.AUT_CONFIG_FILE, "placeHolderTextBox"), "Password");
+		if(this.isElementPresent(By.xpath(strValFromConfigFile)))
+		{
+		this.VerifyWebElementPresent(By.xpath(strValFromConfigFile), "Password");
 		this.sendKeys(By.xpath(strValFromConfigFile), password);
+		}
 		
 		strValFromConfigFile = String.format(ReusableLibs.getKeyValue(IConstants.AUT_CONFIG_FILE, "button"), "Sign in");
-		
+		if(this.isElementPresent(By.xpath(strValFromConfigFile)))
+		{
+		this.VerifyWebElementPresent(By.xpath(strValFromConfigFile),"Sign In Button");
 		this.click(By.xpath(strValFromConfigFile),"Sign In Button");
+		}
 		
 		this.waitInSecs(5);
 	}
 	
 	public void Logout()
 	{
-		this.click(btnTester1, "Tester1 Button");
+		this.click(btnTester, "Tester Button");
 		this.click(logout, "Logout");
 	}
 	

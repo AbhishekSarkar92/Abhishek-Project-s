@@ -4,7 +4,7 @@
 	<groupId>com.jtaf.i18n</groupId>
 	<artifactId>jtafi18n</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>JTAFi18n</name>
+	<name>BlueStarata</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

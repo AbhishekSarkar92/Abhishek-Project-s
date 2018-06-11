@@ -6,7 +6,7 @@
  <parameter name="automationKit" value="selenium" />
   <test name="Test">
     <classes>     
-      <class name="aut.tests.functionaltests.ClinicalTestCases"/>      
+      <class name="aut.tests.functionaltests.EmarTestCases"/>      
     </classes>
   </test> <!-- Test -->
 </suite> <!-- SuiteRegression -->

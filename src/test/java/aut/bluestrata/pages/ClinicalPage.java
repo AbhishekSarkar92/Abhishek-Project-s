@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 import com.testreport.IReporter;
 
-public class ClinicalPage extends PhysicianPortal {
+public class ClinicalPage extends PhysicianPortalPage {
 
 	public ClinicalPage(WebDriver webDriver, IReporter testReport) {
 		super(webDriver, testReport);

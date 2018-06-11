@@ -3,12 +3,14 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Calendar;
+import java.util.HashMap;
 
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFDateUtil;
 import org.apache.poi.hssf.util.HSSFColor;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.xssf.usermodel.*;
 
@@ -27,6 +29,7 @@ public class Xls_Reader {
 	private XSSFSheet sheet = null;
 	private XSSFRow row   =null;
 	private XSSFCell cell = null;
+	private String returnValue;
 	
 	public Xls_Reader(String path) {
 		
@@ -511,7 +514,67 @@ public class Xls_Reader {
 				}
 	}
 	
-	
-	
+	public HashMap<String, String> GetValue(String sheetName, String TestCaseName)		
+	{
+		
+		HashMap<String , String> obj = new HashMap<String , String>();
+		//String returnValue = null;
+		int index = workbook.getSheetIndex(sheetName);
+
+		if(index==-1)
+			//return "";
+		sheet = workbook.getSheetAt(index);
+		int rowNo =sheet.getLastRowNum();
+		int coloumNo = getColumnCount(sheetName);
+		for(int i=0;i<=(rowNo);i++)
+		{
+
+
+			String Data = sheet.getRow(i).getCell(0).getStringCellValue();
+			
+			
+			if(Data.contains(TestCaseName))
+			{
+				
+				int count = i ;
+				for(int j=1;j<=coloumNo-1;j++)
+				{
+					int no = j;
+					
+					DataFormatter formatter = new DataFormatter();
+					//String val = formatter.formatCellValue(sheet.getRow(row).getCell(col));
+					
+					String dummyValue = formatter.formatCellValue(sheet.getRow(count-1).getCell(j));
+					obj.put(dummyValue, formatter.formatCellValue(sheet.getRow(count).getCell(no)));
+					System.out.println(obj.keySet());
+					/*if(dummyValue.equals(Value))
+					{
+						
+
+						int no = j;
+						String ReturnValue = sheet.getRow(count).getCell(no).getStringCellValue();
+						return ReturnValue;
+					}*/
+					
+					/*if(dummyValue.equals(Value))
+					{
+						break;
+					}*/
+					
+				}
+				break;
+				
+			}
+
+
+
+		}
+		
+		
+		return obj;
+		
+
+	}
+
 	
 }

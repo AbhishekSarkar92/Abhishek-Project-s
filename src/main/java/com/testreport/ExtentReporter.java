@@ -303,6 +303,12 @@ public class ExtentReporter implements IReporter {
 		String format = screenShotPath.substring(screenShotPath.indexOf(".") + 1);     
 		ImageIO.write(screenshot.getImage(), format, new File(screenShotPath));*/
 	}
+
+	@Override
+	public void InitTestCase(String TestCaseName, String stepDescription) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 }

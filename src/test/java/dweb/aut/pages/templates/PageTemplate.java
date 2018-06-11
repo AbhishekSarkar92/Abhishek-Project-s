@@ -169,7 +169,7 @@ public abstract class PageTemplate {
 
 	}
 	
-	private void clickWithJavascript(By byLocator) {
+	protected void clickWithJavascript(By byLocator) {
 		try {
 			this.waitUntilElementIsClickable(byLocator);
 			((JavascriptExecutor) this.wd).executeScript("arguments[0].click();", this.wd.findElement(byLocator));
