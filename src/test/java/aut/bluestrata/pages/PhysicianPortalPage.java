@@ -254,6 +254,9 @@ public class PhysicianPortalPage extends PageTemplate {
 	public By calenenderRecapDate = By.xpath("//label[text()='Recap Date']/..//button[@class='btn btn-outline-secondary']/i");
 	
 	
+	public By btnHeaderOrders = By.xpath("//button[text()='Orders']");
+	
+	
 	public void ClickOnPhysicianPortal()
 	{
 		/*this.click(By.xpath(String.format(this.getLocator("button"), "Physician Portal")));
@@ -860,26 +863,57 @@ public class PhysicianPortalPage extends PageTemplate {
 		
 		public void VerifyTheOrderByClickingVerifyButton()
 		{
+			if(this.isElementPresent(btnHeaderPhysicianPortal))
+			{
 			this.VerifyWebElementPresent(btnHeaderPhysicianPortal,"Physician Portal");
 			this.click(btnHeaderPhysicianPortal,"Physician Portal");
 			this.VerifyWebElementPresent(spandrpdwnVerify,"Verify");
 			this.click(spandrpdwnVerify,"Verify");
+			}
+			if(this.isElementPresent(btnHeaderOrders))
+			{
+			this.VerifyWebElementPresent(btnHeaderOrders,"Orders");
+			this.click(btnHeaderOrders,"Orders");
+			this.VerifyWebElementPresent(spandrpdwnVerify,"Verify");
+			this.click(spandrpdwnVerify,"Verify");
+			}
 		}
 		
 		public void VerifyTheOrderByClickingSignButton()
 		{
+			if(this.isElementPresent(btnHeaderPhysicianPortal))
+			{
 			this.VerifyWebElementPresent(btnHeaderPhysicianPortal,"Physician Portal");
 			this.click(btnHeaderPhysicianPortal,"Physician Portal");
 			this.VerifyWebElementPresent(spandrpdwnSign,"Sign");
 			this.click(spandrpdwnSign,"Sign");
+			}
+			if(this.isElementPresent(btnHeaderOrders))
+			{
+			this.VerifyWebElementPresent(btnHeaderOrders,"Orders");
+			this.click(btnHeaderOrders,"Orders");
+			this.VerifyWebElementPresent(spandrpdwnSign,"Sign");
+			this.click(spandrpdwnSign,"Sign");
+			}
+			
 		}
 		
 		public void VerifyTheOrderByClickingRecapButton()
 		{
+			if(this.isElementPresent(btnHeaderPhysicianPortal))
+			{
 			this.VerifyWebElementPresent(btnHeaderPhysicianPortal,"Physician Portal");
 			this.click(btnHeaderPhysicianPortal,"Physician Portal");
 			this.VerifyWebElementPresent(spandrpdwnRecap,"Recap");
 			this.click(spandrpdwnRecap,"Recap");
+			}
+			if(this.isElementPresent(btnHeaderOrders))
+			{
+			this.VerifyWebElementPresent(btnHeaderOrders,"Orders");
+			this.click(btnHeaderOrders,"Orders");
+			this.VerifyWebElementPresent(spandrpdwnRecap,"Recap");
+			this.click(spandrpdwnRecap,"Recap");
+			}
 		}
 		
 		

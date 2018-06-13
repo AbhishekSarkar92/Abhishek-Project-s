@@ -110,9 +110,9 @@ public class HomePage extends PageTemplate {
 		List<WebElement> apps = wd.findElements(By.xpath("//div[@class='modal-content']//img/..//small"));
 		int No = apps.size();
 		ArrayList<String> Apps = new ArrayList<String>();
-		for(int i =1 ; i<=No ;i++)
+		for(int i=1 ; i<=No ;i++)
 		{
-			Apps.add(wd.findElement(By.xpath("//div[@class='modal-content']//img/..//small")).getText());
+			Apps.add(wd.findElement(By.xpath(String.format("(//div[@class='modal-content']//img/..//small)[%s]",i))).getText());
 		}
 		this.testReport.logSuccess("Present Apps ", String.format("Present Apps On application Menu <mark>%s<mark/> ", Apps.toString()) );
 		
