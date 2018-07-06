@@ -222,7 +222,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 	
 	
 	
-	//@Test(priority = 4)
+	@Test(priority = 4)
 	public void QA010_ResidentOrders_CreateAnOrderWithFrequencyRoutine(ITestContext testContext)
 	{
 		PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1065,10 +1065,10 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		physicianPortal.VerifyTheFieldsinFrequencyInOrdersInSets(newnum,Frequency);
 		}
 		
-		physicianPortal.CreateAnOrderWithOrderDetails(testData.get("type1"),testData.get("description"),testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
+		String TypeName = physicianPortal.CreateAnOrderWithOrderDetails(testData.get("type1"),testData.get("description"),testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
 		physicianPortal.VerifyIgnoreOrderSet();
 		physicianPortal.SaveOrderFrequency();
-		physicianPortal.VerifyOrderAndStatusInOrder(testData.get("libraryText"));
+		physicianPortal.OrdersSelection(TypeName ,testData.get("libraryText"));
 		
 		login.Logout();
 	}
@@ -1153,10 +1153,10 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		physicianPortal.VerifyButtonInResidentOrders();
 		physicianPortal.CreateFromSet();
 		physicianPortal.SelectOrderFromOrderSets(testData.get("libraryText"));
-		physicianPortal.CreateAnOrderWithOrderDetails(testData.get("type8"),testData.get("libraryText"),testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
+		String TypeName = physicianPortal.CreateAnOrderWithOrderDetails(testData.get("type8"),testData.get("libraryText"),testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
 		physicianPortal.SaveOrderFrequency();	
 		physicianPortal.OrdersPageTextVerification();
-		physicianPortal.VerifyOrderAndStatusInOrder(testData.get("libraryText"));
+		physicianPortal.OrdersSelection(TypeName ,testData.get("libraryText"));
 		physicianPortal.PharmacyValidation();
 		physicianPortal.VerifyButtonInResidentOrders();
 		physicianPortal.OrdersDisplayPageForPerticularResident(testData.get("type8"));
@@ -1179,9 +1179,9 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		physicianPortal.VerifyButtonInResidentOrders();
 		physicianPortal.CreateFromSet();
 		physicianPortal.SelectOrderFromOrderSets(Description);
-		physicianPortal.CreateAnOrderWithOrderDetails(testData.get("type1"),Description,testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
+		String TypeName2 = physicianPortal.CreateAnOrderWithOrderDetails(testData.get("type1"),Description,testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
 		physicianPortal.SaveOrderFrequency();	
-		physicianPortal.VerifyOrderAndStatusInOrder(Description);
+		physicianPortal.OrdersSelection(TypeName2 , Description);
 		physicianPortal.OrdersDisplayPageForPerticularResident(testData.get("type1"));
 		physicianPortal.ClickingOnCreatedOrder(Description);
 		physicianPortal.VerifyButtonsInOrdersAndFrequency();

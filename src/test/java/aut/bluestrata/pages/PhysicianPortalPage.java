@@ -2200,7 +2200,7 @@ public class PhysicianPortalPage extends PageTemplate {
 		}
 		
 		
-		public void VerifyOrderAndStatusInOrder(String OrderName)
+		/*public void VerifyOrderAndStatusInOrder(String OrderName)
 		{ 
 			String ActiveNo = wd.findElement(By.xpath("//ul[@class='pager']//li[@class='pages active']")).getText();
 			int OrdersInResident = Integer.parseInt(ActiveNo);
@@ -2232,11 +2232,11 @@ public class PhysicianPortalPage extends PageTemplate {
 			
 			for(int i=1;i<=(LastPageNo);i++)
 			{
-				/*By nxtrightSideArrow = By.xpath("//a/i[@class='datatable-icon-right']");
-				this.click(nxtrightSideArrow, "Next Right Side Arrow");*/
+				By nxtrightSideArrow = By.xpath("//a/i[@class='datatable-icon-right']");
+				this.click(nxtrightSideArrow, "Next Right Side Arrow");
 				
-		/*	List<WebElement> Orders = wd.findElements(By.xpath("//datatable-body-cell[1]/div"));
-			int ordersNo = Orders.size();*/
+			List<WebElement> Orders = wd.findElements(By.xpath("//datatable-body-cell[1]/div"));
+			int ordersNo = Orders.size();
 			if(this.isElementPresent(labelOrderPageDescription) && this.isElementPresent(labelOrderPageType))
 			{
 				
@@ -2315,7 +2315,7 @@ public class PhysicianPortalPage extends PageTemplate {
 				
 			}
 			}
-		}
+		}*/
 		
 		
 		public void OrdersSelection(String Type , String OrderName)
