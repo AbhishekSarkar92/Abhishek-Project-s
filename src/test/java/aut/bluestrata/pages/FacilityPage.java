@@ -72,6 +72,29 @@ public class FacilityPage extends PhysicianPortalPage {
 		}
 	}
 	
+	
+	
+	public void HourWiseFrequencyFacilityPage(int frequencyNum , String frequency,String startingTime)
+	{
+		int newfrequencyNum = frequencyNum-1;
+		By drpdwnFrequency = By.xpath(String.format("(//label[text()='Frequency']/..//select[@id='typeOrderFrequencyId'])[%d]", newfrequencyNum));			
+		this.SelectDropDownByText(drpdwnFrequency, frequency); 
+		
+		By startingAt = By.xpath(String.format("((//div[@class='card'])[%d]//label[text()='Times']/..//input[@placeholder='hh:mm ampm'])",frequencyNum));
+	    this.SendKeysToElementClearFirst(startingAt, startingTime);	
+		this.waitInSecs(2);		
+		By doseTimings = By.xpath(String.format("(//div[@class='card'])[%d]//label[text()='with the last dose at ']/../..//select[contains(@class,'form-control')]",frequencyNum));
+	
+		List<WebElement> NoOfTimings = wd.findElements(By.xpath(String.format("(//div[@class='card'])[%d]//label[text()='with the last dose at ']/../..//select[contains(@class,'form-control')]/option",frequencyNum)));
+		int frequencyNoOfTimings = NoOfTimings.size();
+		System.out.println("Total No of Timings in a Frequency : " + frequencyNoOfTimings);
+
+		this.SelectDropDownByIndex(doseTimings, 0);
+		
+		
+	
+	}
+	
 	public void VerifyAndClickManageOrderLibrary()
 	{
 		if(this.isElementPresent(btnMaintenance))
@@ -269,6 +292,7 @@ public class FacilityPage extends PhysicianPortalPage {
 	public void VerifyManageOrderFromSets(String description)
 	{
 		By Description = By.xpath(String.format("//div[@class='list-group']//a//div/h5[text()='%s']", description));
+		this.waitInSecs(5);
 		this.VerifyWebElementPresent(Description, "Created order present in Existing Set");
 	}
 	

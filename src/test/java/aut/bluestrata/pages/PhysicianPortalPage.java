@@ -116,7 +116,7 @@ public class PhysicianPortalPage extends PageTemplate {
 	
 	public By btnHeaderPhysicianPortal = By.xpath("//*[@class='col-auto nav primary-menu-links']//button[text()='Physician Portal']");
 	public By btnHeaderMessages = By.xpath("//*[@class='col-auto nav primary-menu-links']//button[contains(text(),'Messages')]");
-	public By btnHeaderMediprocity = By.xpath("//*[@class='col-auto nav primary-menu-links']//button[contains(text(),'Mediprocity')]");
+	public By btnHeaderMediprocity = By.xpath("//*[@class='col-auto nav primary-menu-links']//button/img");
 	
 	public By spandrpdwnSign = By.xpath("//div[@aria-labelledby='menuDropDown']//button[text()='Sign']");
 	public By spandrpdwnResidentOrder = By.xpath("//div[@aria-labelledby='menuDropDown']//button[text()='Resident Orders']");
@@ -300,7 +300,7 @@ public class PhysicianPortalPage extends PageTemplate {
 		}
 	}
 
-	public void CreateAnOrderWithOrderDetails(String type , String libraryText , String SearchDiogonosisTxt , String medicarePriority , 
+	public String CreateAnOrderWithOrderDetails(String type , String libraryText , String SearchDiogonosisTxt , String medicarePriority , 
 			String diogonosisName ,String physicianType,String ReceivedByType , String ReceivedOrderType,
 			String routes,String WrittenDate,String NoOfRefillis,String WhenToFill)
 	{
@@ -403,6 +403,8 @@ public class PhysicianPortalPage extends PageTemplate {
 			this.SelectDropDownByText(DrpdwnWhenToFill, WhenToFill);
 			this.waitInSecs(2);*/
 		}
+		
+		return type;
 		
 	}
 	
@@ -524,27 +526,45 @@ public class PhysicianPortalPage extends PageTemplate {
 			}
 
 			By chkbxRequiesSlidingScale = By.xpath(String.format("(//label[@class='form-check-label']/input[@id='useSlidingScale'])[%d]", num));
-			By txtSlidingScaleMin = By.xpath(String.format("(//table//input[@formcontrolname='minValue'])[%d]", num));
-			By txtSlidingScaleMax = By.xpath(String.format("(//table//input[@formcontrolname='maxValue'])[%d]", num));
-			By txtSlidingScaleUnits = By.xpath(String.format("(//table//input[@formcontrolname='units'])[%d]", num));
-			By chkBoxSlidingScaleNotifyRemove = By.xpath(String.format("(//table//input[@formcontrolname='notifyPhysician'])[%d]", num));
-
-			if(this.isElementPresent(txtSlidingScaleMin) && this.isElementPresent(txtSlidingScaleMax) && this.isElementPresent(txtSlidingScaleUnits))
+			for(int i=1 ;i<=5;i++)
 			{
+				By txtSlidingScaleMin = By.xpath(String.format("(//table//input[@formcontrolname='minValue'])[%s]", i));
 
-				this.SendKeysToElementClearFirst(txtSlidingScaleMin, slidingScaleMin);			
-				this.SendKeysToElementClearFirst(txtSlidingScaleMax, slidingScaleMax);			
-				this.SendKeysToElementClearFirst(txtSlidingScaleUnits, slidingScaleUnits);			
-				this.click(chkBoxSlidingScaleNotifyRemove,"Sliding Scale Notify Remove Check Box");
-			}
+				By txtSlidingScaleMax = By.xpath(String.format("(//table//input[@formcontrolname='maxValue'])[%s]", i));
 
-			else
-			{
-				this.click(chkbxRequiesSlidingScale,"Requies Sliding Scale Check Box");
-				this.SendKeysToElementClearFirst(txtSlidingScaleMin, slidingScaleMin);			
-				this.SendKeysToElementClearFirst(txtSlidingScaleMax, slidingScaleMax);			
-				this.SendKeysToElementClearFirst(txtSlidingScaleUnits, slidingScaleUnits);			
-				this.click(chkBoxSlidingScaleNotifyRemove,"Sliding Scale Notify Remove Check Box");
+				By txtSlidingScaleUnits = By.xpath(String.format("(//table//input[@formcontrolname='units'])[%s]", i));
+
+				By chkBoxSlidingScaleNotifyRemove = By.xpath(String.format("(//table//input[@formcontrolname='notifyPhysician'])[%s]", i));
+
+				//By btnAddScale = By.xpath(String.format("(//div[@class='card'])[%s]//button[contains(@class,'btn-link')]", num));
+				By btnAddScale = By.cssSelector(".col-auto.btn.btn-link");
+				
+				if(this.isElementPresent(txtSlidingScaleMin) && this.isElementPresent(txtSlidingScaleMax) && this.isElementPresent(txtSlidingScaleUnits))
+				{
+
+					this.SendKeysToElementClearFirst(txtSlidingScaleMin, slidingScaleMin);			
+					this.SendKeysToElementClearFirst(txtSlidingScaleMax, slidingScaleMax);			
+					this.SendKeysToElementClearFirst(txtSlidingScaleUnits, slidingScaleUnits);			
+					this.click(chkBoxSlidingScaleNotifyRemove,"Sliding Scale Notify Remove Check Box");
+				}
+
+				else
+				{
+					this.click(chkbxRequiesSlidingScale,"Requies Sliding Scale Check Box");
+					this.SendKeysToElementClearFirst(txtSlidingScaleMin, slidingScaleMin);			
+					this.SendKeysToElementClearFirst(txtSlidingScaleMax, slidingScaleMax);			
+					this.SendKeysToElementClearFirst(txtSlidingScaleUnits, slidingScaleUnits);			
+					this.click(chkBoxSlidingScaleNotifyRemove,"Sliding Scale Notify Remove Check Box");
+
+				}
+
+				List<WebElement> SlidingScaleMin = wd.findElements(By.xpath(String.format("(//table//input[@formcontrolname='minValue'])")));
+				int MinCount = SlidingScaleMin.size();
+				if(MinCount<=4)		
+				{
+					this.click(btnAddScale,"Add Scale");
+				}
+				
 			}
 
 
@@ -633,10 +653,55 @@ public class PhysicianPortalPage extends PageTemplate {
 		By txtFollowUpAfterMinutes = By.xpath(String.format("(//input[@id='followUpAfterMinutes'])[%d]", num));
 		this.sendKeys(txtFollowUpAfterMinutes, followUpAfterMinutes);
 		
+		for(int i=1 ;i<=5;i++)
+		{
+			By chkbxRequiesSlidingScale = By.xpath(String.format("(//label[@class='form-check-label']/input[@id='useSlidingScale'])[%d]", num));
+			
+			By txtSlidingScaleMin = By.xpath(String.format("((//div[@class='card'])[%d]//table//input[@formcontrolname='minValue'])[%s]", num,i));
+
+			By txtSlidingScaleMax = By.xpath(String.format("((//div[@class='card'])[%d]//table//input[@formcontrolname='maxValue'])[%s]", num,i));
+
+			By txtSlidingScaleUnits = By.xpath(String.format("((//div[@class='card'])[%d]//table//input[@formcontrolname='units'])[%s]", num,i));
+
+			By chkBoxSlidingScaleNotifyRemove = By.xpath(String.format("((//div[@class='card'])[%d]//table//input[@formcontrolname='notifyPhysician'])[%s]", num,i));
+
+			By btnAddScale = By.xpath(String.format("(//div[@class='card'])[%s]//button[contains(@class,'btn-link')]", num));
+
+
+			/*if(this.isElementNotPresent(txtSlidingScaleMin) && this.isElementNotPresent(txtSlidingScaleMax) && this.isElementNotPresent(txtSlidingScaleUnits))
+			{
+				this.click(btnAddScale,"Add Scale");
+			}*/
+				
+			if(this.isElementPresent(txtSlidingScaleMin) && this.isElementPresent(txtSlidingScaleMax) && this.isElementPresent(txtSlidingScaleUnits))
+			{
+
+				this.SendKeysToElementClearFirst(txtSlidingScaleMin, slidingScaleMin);			
+				this.SendKeysToElementClearFirst(txtSlidingScaleMax, slidingScaleMax);			
+				this.SendKeysToElementClearFirst(txtSlidingScaleUnits, slidingScaleUnits);			
+				this.click(chkBoxSlidingScaleNotifyRemove,"Sliding Scale Notify Remove Check Box");
+			}
+
+			else
+			{
+				this.click(chkbxRequiesSlidingScale,"Requies Sliding Scale Check Box");
+				this.SendKeysToElementClearFirst(txtSlidingScaleMin, slidingScaleMin);			
+				this.SendKeysToElementClearFirst(txtSlidingScaleMax, slidingScaleMax);			
+				this.SendKeysToElementClearFirst(txtSlidingScaleUnits, slidingScaleUnits);			
+				this.click(chkBoxSlidingScaleNotifyRemove,"Sliding Scale Notify Remove Check Box");
+				
+			}
+			
+			List<WebElement> SlidingScaleMin = wd.findElements(By.xpath(String.format("((//div[@class='card'])[%s]//table//input[@formcontrolname='minValue'])", num)));
+			int MinCount = SlidingScaleMin.size();
+			if(MinCount<=4)		
+			{
+				this.click(btnAddScale,"Add Scale");
+			}
+		}
 		
 		
-		
-		By chkbxRequiesSlidingScale = By.xpath(String.format("(//label[@class='form-check-label']/input[@id='useSlidingScale'])[%d]", num));
+		/*By chkbxRequiesSlidingScale = By.xpath(String.format("(//label[@class='form-check-label']/input[@id='useSlidingScale'])[%d]", num));
 		this.click(chkbxRequiesSlidingScale,"Requies Sliding Scale Check Box");
 		By txtSlidingScaleMin = By.xpath(String.format("(//table//input[@formcontrolname='minValue'])[%d]", num));
 		this.sendKeys(txtSlidingScaleMin, slidingScaleMin);
@@ -645,7 +710,7 @@ public class PhysicianPortalPage extends PageTemplate {
 		By txtSlidingScaleUnits = By.xpath(String.format("(//table//input[@formcontrolname='units'])[%d]", num));
 		this.sendKeys(txtSlidingScaleUnits, slidingScaleUnits);
 		By chkBoxSlidingScaleNotifyRemove = By.xpath(String.format("(//table//input[@formcontrolname='notifyPhysician'])[%d]", num));
-		this.click(chkBoxSlidingScaleNotifyRemove,"Sliding Scale Notify Remove Check Box");
+		this.click(chkBoxSlidingScaleNotifyRemove,"Sliding Scale Notify Remove Check Box");*/
 		
 		
 	}
@@ -709,18 +774,20 @@ public class PhysicianPortalPage extends PageTemplate {
 
 	public void HowOftenMonthlytype(String typeOfMode ,int FrequencyNum,int howOftenTime , int dayNo ,String howOften, String everyDay, String DropdownNumber ,String DropdownDay )
 	{
-		if(typeOfMode.equals("Use Specific Days")){
+		if(typeOfMode.equals("Use specific days")){			
 		
 		By drpdwnHowOften = By.xpath(String.format("((//div[@class='card'])[%d])//label[text()='How often']/..//select[@id='patientOrderScheduleType']", FrequencyNum));
 		this.SelectDropDownByText(drpdwnHowOften, howOften);
-		By chkbxUseSpecificDays = By.xpath(String.format("(((//div[@class='card'])[%d])//div[@class='form-row']//input[@name='rdoMonthlyChoice'])[1]", FrequencyNum));
+		/*By chkbxUseSpecificDays = By.xpath(String.format("(((//div[@class='card'])[%d])//div[@class='form-row']//input[@name='rdoMonthlyChoice'])[1]", FrequencyNum));
 		
 		boolean IsSelected = wd.findElement(By.xpath(String.format("(((//div[@class='card'])[%d])//div[@class='form-row']//input[@name='rdoMonthlyChoice'])[1]", FrequencyNum))).getAttribute("ng-reflect-value").equals("true");
 		if(!IsSelected)
 		{
 			this.click(chkbxUseSpecificDays,"Use Specific Days Check box");
-		}
+		}*/
 		
+		By drpDwnUseSpecificDays = By.xpath(String.format("((//div[@class='card'])[%s])//label[text()='Schedule']/..//select[@id='patientOrderScheduleType']", FrequencyNum));
+		this.SelectDropDownByText(drpDwnUseSpecificDays, typeOfMode);
 		
 		List<WebElement> MonthlyDays = wd.findElements(By.xpath(String.format("(//div[@class='card'])[%d]//div[@formarrayname='schedules']/div", FrequencyNum)));
 		List<String> MonthlyDaysInHowOften = new ArrayList<>();
@@ -742,7 +809,8 @@ public class PhysicianPortalPage extends PageTemplate {
 			this.SendKeysToElementClearFirst(txtEveryDay, everyDay);	
 			
 		}
-		else {
+		else if (typeOfMode.equals("Use by week"))
+		{
 			
 			int newHowOftenTime =(howOftenTime + 1 );
 			
@@ -751,14 +819,14 @@ public class PhysicianPortalPage extends PageTemplate {
 			
 		//	By radioUseByWeeks = By.xpath(String.format("((//div[@class='form-row']//input[@name='rdoMonthlyChoice'])[4])"));
 			
-			By radioUseByWeeks = By.xpath(String.format("((//div[@class='card'])[%d]//div[@class='form-row']//input[@name='rdoMonthlyChoice'])[2]",FrequencyNum));
+			By drpDwnUseByWeeks = By.xpath(String.format("((//div[@class='card'])[%s])//label[text()='Schedule']/..//select[@id='patientOrderScheduleType']",FrequencyNum));
+			this.SelectDropDownByText(drpDwnUseByWeeks, typeOfMode);
 			
-			
-			boolean IsSelected = wd.findElement(By.xpath(String.format("((//div[@class='card'])[%d]//div[@class='form-row']//input[@name='rdoMonthlyChoice'])[2]",FrequencyNum))).getAttribute("ng-reflect-value").equals("true");
+			/*boolean IsSelected = wd.findElement(By.xpath(String.format("((//div[@class='card'])[%d]//div[@class='form-row']//input[@name='rdoMonthlyChoice'])[2]",FrequencyNum))).getAttribute("ng-reflect-value").equals("true");
 			if(!IsSelected)
 			{
 				this.click(radioUseByWeeks,"Use By Weeks Radio Button");
-			}
+			}*/
 									
 			
 			By drpdwnNumber = By.xpath(String.format("((//div[@class='card'])[%d]//select[@formcontrolname='weekOfTheMonth'])",FrequencyNum));
@@ -854,7 +922,7 @@ public class PhysicianPortalPage extends PageTemplate {
 			this.testReport.logSuccess("clicking on Physician Portal app, below menu display : Physician Portal, Messages, Mediprocity");
 			this.VerifyWebElementPresent(btnHeaderPhysicianPortal,"Physician Portal");
 			this.VerifyWebElementPresent(btnHeaderMessages,"Messages");
-			this.VerifyWebElementPresent(btnHeaderMediprocity,"Mediprocity");
+			this.VerifyWebElementPresent(btnHeaderMediprocity,"Image Present ");
 			
 		}
 		
@@ -1235,6 +1303,7 @@ public class PhysicianPortalPage extends PageTemplate {
 		
 		public void ResidentFullOrderDetailsWithoutMedication(String type , String libraryText , String createdType)
 		{
+			this.waitInSecs(5);
 			if(this.isElementPresent(btnCreateOrder))
 			{
 			this.testReport.logSuccess("Order Created ");
@@ -1242,6 +1311,7 @@ public class PhysicianPortalPage extends PageTemplate {
 			this.waitInSecs(5);
 			}
 			this.waitUntilElementIsVisible(txtOrderType);
+			this.click(txtOrderType, type);
 			this.SelectDropDownByText(txtOrderType, type);
 			this.waitInSecs(5);
 			this.VerifyWebElementPresent(labelPickFromLibrary,"Label Pick From Library");	
@@ -1478,10 +1548,10 @@ public class PhysicianPortalPage extends PageTemplate {
 			}
 			if(frequencyType.equals("PRN Every (x) Hour(s)"))
 			{
-			By PNREvery = By.xpath(String.format("((//div[@class='card'])[%d]//label[text()='PRN Every']/..//input[@id='prnHourlyInterval'])",num));
-			this.SendKeysToElementClearFirst(PNREvery,maxDoesHours);
+				By PNREvery = By.xpath(String.format("((//div[@class='card'])[%d]//label[text()='PRN Every']/..//input[@id='prnHourlyInterval'])",num));
+				this.SendKeysToElementClearFirst(PNREvery,maxDoesHours);
 			}
-			
+
 			By chkbxIsSelfAdministered = By.xpath(String.format("((//div[@class='card'])[%d]//input[@id='selfAdministered'])",num));
 			this.click(chkbxIsSelfAdministered,"Is Self Administered Check Box");
 			By chkbxselfAdministeredRequiresSupervision = By.xpath(String.format("((//div[@class='card'])[%d]//input[@id='selfAdministeredRequiresSupervision'])", num));
@@ -1491,39 +1561,53 @@ public class PhysicianPortalPage extends PageTemplate {
 				By chkbxRequiresFollowUp =By.xpath(String.format("((//div[@class='card'])[%d]//input[@id='requiresFollowUp'])",num));
 				this.click(chkbxRequiresFollowUp,"Requires FollowUp Check Box");
 			}
-				
+
 			By txtFollowUpAfterMinutes = By.xpath(String.format("((//div[@class='card'])[%d]//input[@id='followUpAfterMinutes'])", num));
 			this.SendKeysToElementClearFirst(txtFollowUpAfterMinutes, followUpAfterMinutes);
 			By chkbxRequiesSlidingScale = By.xpath(String.format("((//div[@class='card'])[%d]//label[@class='form-check-label']/input[@id='useSlidingScale'])", num));
-			
-			By txtSlidingScaleMin = By.xpath(String.format("((//div[@class='card'])[%d]//table//input[@formcontrolname='minValue'])", num));
-			
-			By txtSlidingScaleMax = By.xpath(String.format("((//div[@class='card'])[%d]//table//input[@formcontrolname='maxValue'])", num));
-			
-			By txtSlidingScaleUnits = By.xpath(String.format("((//div[@class='card'])[%d]//table//input[@formcontrolname='units'])", num));
-			
-			By chkBoxSlidingScaleNotifyRemove = By.xpath(String.format("((//div[@class='card'])[%d]//table//input[@formcontrolname='notifyPhysician'])", num));
-			
-			
-			
-			
-			if(this.isElementPresent(txtSlidingScaleMin) && this.isElementPresent(txtSlidingScaleMax) && this.isElementPresent(txtSlidingScaleUnits))
+
+
+			for(int i=1 ;i<=5;i++)
 			{
+				By txtSlidingScaleMin = By.xpath(String.format("((//div[@class='card'])[%d]//table//input[@formcontrolname='minValue'])[%s]", num,i));
+
+				By txtSlidingScaleMax = By.xpath(String.format("((//div[@class='card'])[%d]//table//input[@formcontrolname='maxValue'])[%s]", num,i));
+
+				By txtSlidingScaleUnits = By.xpath(String.format("((//div[@class='card'])[%d]//table//input[@formcontrolname='units'])[%s]", num,i));
+
+				By chkBoxSlidingScaleNotifyRemove = By.xpath(String.format("((//div[@class='card'])[%d]//table//input[@formcontrolname='notifyPhysician'])[%s]", num,i));
+
+				By btnAddScale = By.xpath(String.format("(//div[@class='card'])[%s]//button[contains(@class,'btn-link')]", num));
+
+				if(this.isElementPresent(txtSlidingScaleMin) && this.isElementPresent(txtSlidingScaleMax) && this.isElementPresent(txtSlidingScaleUnits))
+				{
+
+					this.SendKeysToElementClearFirst(txtSlidingScaleMin, slidingScaleMin);			
+					this.SendKeysToElementClearFirst(txtSlidingScaleMax, slidingScaleMax);			
+					this.SendKeysToElementClearFirst(txtSlidingScaleUnits, slidingScaleUnits);			
+					this.click(chkBoxSlidingScaleNotifyRemove,"Sliding Scale Notify Remove Check Box");
+				}
+
+				else
+				{
+					this.click(chkbxRequiesSlidingScale,"Requies Sliding Scale Check Box");
+					this.SendKeysToElementClearFirst(txtSlidingScaleMin, slidingScaleMin);			
+					this.SendKeysToElementClearFirst(txtSlidingScaleMax, slidingScaleMax);			
+					this.SendKeysToElementClearFirst(txtSlidingScaleUnits, slidingScaleUnits);			
+					this.click(chkBoxSlidingScaleNotifyRemove,"Sliding Scale Notify Remove Check Box");
+
+				}
+
+				List<WebElement> SlidingScaleMin = wd.findElements(By.xpath(String.format("((//div[@class='card'])[%s]//table//input[@formcontrolname='minValue'])", num)));
+				int MinCount = SlidingScaleMin.size();
+				if(MinCount<=4)		
+				{
+					this.click(btnAddScale,"Add Scale");
+				}
 				
-				this.SendKeysToElementClearFirst(txtSlidingScaleMin, slidingScaleMin);			
-				this.SendKeysToElementClearFirst(txtSlidingScaleMax, slidingScaleMax);			
-				this.SendKeysToElementClearFirst(txtSlidingScaleUnits, slidingScaleUnits);			
-				this.click(chkBoxSlidingScaleNotifyRemove,"Sliding Scale Notify Remove Check Box");
 			}
 			
-			else
-			{
-				this.click(chkbxRequiesSlidingScale,"Requies Sliding Scale Check Box");
-				this.SendKeysToElementClearFirst(txtSlidingScaleMin, slidingScaleMin);			
-				this.SendKeysToElementClearFirst(txtSlidingScaleMax, slidingScaleMax);			
-				this.SendKeysToElementClearFirst(txtSlidingScaleUnits, slidingScaleUnits);			
-				this.click(chkBoxSlidingScaleNotifyRemove,"Sliding Scale Notify Remove Check Box");
-			}
+			
 		}
 		
 		public void OrderDisplayPageColourVerification()
@@ -1577,9 +1661,7 @@ public class PhysicianPortalPage extends PageTemplate {
 			List<WebElement> NoOfTimings = wd.findElements(By.xpath(String.format("(//div[@class='card'])[%d]//label[text()='with the last dose at ']/../..//select[contains(@class,'form-control')]/option",frequencyNum)));
 			int frequencyNoOfTimings = NoOfTimings.size();
 			System.out.println("Total No of Timings in a Frequency : " + frequencyNoOfTimings);
-									
-	//		this.SelectDropDownByText(doseTimings, "09:00 am");
-		
+	
 			this.SelectDropDownByIndex(doseTimings, 0);
 			
 			
@@ -2235,6 +2317,33 @@ public class PhysicianPortalPage extends PageTemplate {
 			}
 		}
 		
+		
+		public void OrdersSelection(String Type , String OrderName)
+		{
+			By DownArrow = By.xpath(String.format("(//*[contains(text(),'%s')]/parent::a[contains(@class,'down')])", Type));
+			if (this.isElementNotPresent(DownArrow))
+			{
+				By RightArrow = By.xpath(String.format("(//*[contains(text(),'%s')]/parent::a[contains(@class,'down')])", Type));
+				this.click(RightArrow, "Right Arrow");
+			}
+			this.click(labelOrderPageCreated, "Created");
+			this.click(labelOrderPageCreated, "Created");
+
+			List<WebElement> Orders = wd.findElements(By.xpath("//datatable-body-cell[1]/div"));
+			int ordersNo = Orders.size();
+			for(int j=1;j<=ordersNo;j++)
+			{
+				By OrderDescription = By.xpath(String.format("(//datatable-body-cell[1]/div)[%d]",j));
+				String requriedOrder = wd.findElement(By.xpath(String.format("(//datatable-body-cell[1]/div)[%d]",j))).getText();
+				
+				if(requriedOrder.equals(OrderName) )
+				{
+					this.click(OrderDescription, "Click on the Created Order");
+					break;
+				}
+			}
+		}
+		
 				
 		
 		public void OrdersDisplayPageForPerticularResident(String type)
@@ -2530,7 +2639,7 @@ public class PhysicianPortalPage extends PageTemplate {
 			
 			SaveOrderFrequency();
 			WhereToTabValidation();
-			VerifyOrderAndStatusInOrder(libraryText);
+			OrdersSelection(RequriredType,libraryText);
 			ArrowButtonVerification();
 			ClickOnListViewForNavigateToOrdersView();
 		}

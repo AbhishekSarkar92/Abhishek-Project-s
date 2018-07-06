@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>18/2/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>2/0/0</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Jun 12 19:10:01 IST 2018</td>
+<td>Started on:</td><td>Fri Jul 06 11:54:21 IST 2018</td>
 </tr>
-<tr><td>Total time:</td><td>22406 seconds (22406742 ms)</td>
+<tr><td>Total time:</td><td>3259 seconds (3259699 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,124 +67,6 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-failed'>
-<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
-<tr><td><b>Test method</b></td>
-<td width="30%"><b>Exception</b></td>
-<td width="10%"><b>Time (seconds)</b></td>
-<td><b>Instance</b></td>
-</tr>
-<tr>
-<td title='aut.tests.functionaltests.ClinicalTestCases.QA093_FrequencyFieldSelectionWhen_FrequencyTypeRoutine()'><b>QA093_FrequencyFieldSelectionWhen_FrequencyTypeRoutine</b><br>Test class: aut.tests.functionaltests.ClinicalTestCases<br>Parameters: org.testng.TestRunner@45007ed7</td>
-<td><div><pre>org.openqa.selenium.NoSuchElementException: Unable to find element with css selector == #query
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;3.6.0&apos;, revision: &apos;6fbf3ec767&apos;, time: &apos;2017-09-27T15:28:36.4Z&apos;
-System info: host: &apos;HW1562&apos;, ip: &apos;10.11.4.36&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_141&apos;
-Driver info: org.openqa.selenium.ie.InternetExplorerDriver
-Capabilities [{proxy=Proxy(), acceptInsecureCerts=false, browserVersion=11, se:ieOptions={nativeEvents=true, browserAttachTimeout=0, ie.ensureCleanSession=true, elementScrollBehavior=0, enablePersistentHover=true, ie.browserCommandLineSwitches=, ie.forceCreateProcessApi=false, requireWindowFocus=false, initialBrowserUrl=http://localhost:35698/, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, ignoreProtectedModeSettings=false}, timeouts={implicit=0, pageLoad=300000, script=30000}, browserName=internet explorer, pageLoadStrategy=normal, javascriptEnabled=true, platformName=WINDOWS, setWindowRect=true, platform=WINDOWS}]
-Session ID: 94b97bfd-d5e6-4b28-8953-2bb335d943ae
-*** Element info: {Using=id, value=query}
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:319)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:365)
-	at org.openqa.selenium.By$ById.findElement(By.java:218)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:311)
-	at dweb.aut.pages.templates.PageTemplate.SendKeysToElementClearFirst(PageTemplate.java:520)
-	at aut.bluestrata.pages.PhysicianPortalPage.CreateAnOrderWithOrderDetails(PhysicianPortalPage.java:317)
-	at aut.tests.functionaltests.ClinicalTestCases.QA093_FrequencyFieldSelectionWhen_FrequencyTypeRoutine(ClinicalTestCases.java:413)
-	at java.util.concurrent.FutureTask.run(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-... Removed 20 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace145446192", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace145446192'><pre>org.openqa.selenium.NoSuchElementException: Unable to find element with css selector == #query
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;3.6.0&apos;, revision: &apos;6fbf3ec767&apos;, time: &apos;2017-09-27T15:28:36.4Z&apos;
-System info: host: &apos;HW1562&apos;, ip: &apos;10.11.4.36&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_141&apos;
-Driver info: org.openqa.selenium.ie.InternetExplorerDriver
-Capabilities [{proxy=Proxy(), acceptInsecureCerts=false, browserVersion=11, se:ieOptions={nativeEvents=true, browserAttachTimeout=0, ie.ensureCleanSession=true, elementScrollBehavior=0, enablePersistentHover=true, ie.browserCommandLineSwitches=, ie.forceCreateProcessApi=false, requireWindowFocus=false, initialBrowserUrl=http://localhost:35698/, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, ignoreProtectedModeSettings=false}, timeouts={implicit=0, pageLoad=300000, script=30000}, browserName=internet explorer, pageLoadStrategy=normal, javascriptEnabled=true, platformName=WINDOWS, setWindowRect=true, platform=WINDOWS}]
-Session ID: 94b97bfd-d5e6-4b28-8953-2bb335d943ae
-*** Element info: {Using=id, value=query}
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:319)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:365)
-	at org.openqa.selenium.By$ById.findElement(By.java:218)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:311)
-	at dweb.aut.pages.templates.PageTemplate.SendKeysToElementClearFirst(PageTemplate.java:520)
-	at aut.bluestrata.pages.PhysicianPortalPage.CreateAnOrderWithOrderDetails(PhysicianPortalPage.java:317)
-	at aut.tests.functionaltests.ClinicalTestCases.QA093_FrequencyFieldSelectionWhen_FrequencyTypeRoutine(ClinicalTestCases.java:413)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:744)
-	at org.testng.TestRunner.run(TestRunner.java:602)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
-	at org.testng.SuiteRunner.access$000(SuiteRunner.java:39)
-	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:414)
-	at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
-	at java.util.concurrent.FutureTask.run(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-</pre></div></td>
-<td>230</td>
-<td>aut.tests.functionaltests.ClinicalTestCases@8317c52</td></tr>
-<tr>
-<td title='aut.tests.functionaltests.ClinicalTestCases.QA102_ViewAndModifyAnOrder_ViaOrderSets()'><b>QA102_ViewAndModifyAnOrder_ViaOrderSets</b><br>Test class: aut.tests.functionaltests.ClinicalTestCases<br>Parameters: org.testng.TestRunner@45007ed7</td>
-<td><div><pre>java.lang.NullPointerException
-	at aut.tests.functionaltests.ClinicalTestCases.QA102_ViewAndModifyAnOrder_ViaOrderSets(ClinicalTestCases.java:1640)
-	at java.util.concurrent.FutureTask.run(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-... Removed 16 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace348461390", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace348461390'><pre>java.lang.NullPointerException
-	at aut.tests.functionaltests.ClinicalTestCases.QA102_ViewAndModifyAnOrder_ViaOrderSets(ClinicalTestCases.java:1640)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:744)
-	at org.testng.TestRunner.run(TestRunner.java:602)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
-	at org.testng.SuiteRunner.access$000(SuiteRunner.java:39)
-	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:414)
-	at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
-	at java.util.concurrent.FutureTask.run(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-</pre></div></td>
-<td>85</td>
-<td>aut.tests.functionaltests.ClinicalTestCases@8317c52</td></tr>
-</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -193,95 +75,15 @@ Session ID: 94b97bfd-d5e6-4b28-8953-2bb335d943ae
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='aut.tests.functionaltests.ClinicalTestCases.QA090_OrderCreationViaClinicalAPP()'><b>QA090_OrderCreationViaClinicalAPP</b><br>Test class: aut.tests.functionaltests.ClinicalTestCases</td>
+<td title='aut.tests.functionaltests.PhysicianPortalTestCases.QA022_SignAnOrder_ViaOrderSetsOrCreateAnOrder()'><b>QA022_SignAnOrder_ViaOrderSetsOrCreateAnOrder</b><br>Test class: aut.tests.functionaltests.PhysicianPortalTestCases<br>Parameters: org.testng.TestRunner@17d35547</td>
 <td></td>
-<td>117</td>
-<td>aut.tests.functionaltests.ClinicalTestCases@8317c52</td></tr>
+<td>655</td>
+<td>aut.tests.functionaltests.PhysicianPortalTestCases@8317c52</td></tr>
 <tr>
-<td title='aut.tests.functionaltests.ClinicalTestCases.QA091_ResidentOrders_CreateAnOrderUsingDetailsType()'><b>QA091_ResidentOrders_CreateAnOrderUsingDetailsType</b><br>Test class: aut.tests.functionaltests.ClinicalTestCases<br>Parameters: org.testng.TestRunner@45007ed7</td>
+<td title='aut.tests.functionaltests.PhysicianPortalTestCases.QA023_ViewAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder()'><b>QA023_ViewAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder</b><br>Test class: aut.tests.functionaltests.PhysicianPortalTestCases<br>Parameters: org.testng.TestRunner@17d35547</td>
 <td></td>
-<td>677</td>
-<td>aut.tests.functionaltests.ClinicalTestCases@8317c52</td></tr>
-<tr>
-<td title='aut.tests.functionaltests.ClinicalTestCases.QA092_AddingFrequencyFromResidentOrders_CreateAnOrderWithFrequencyRoutine()'><b>QA092_AddingFrequencyFromResidentOrders_CreateAnOrderWithFrequencyRoutine</b><br>Test class: aut.tests.functionaltests.ClinicalTestCases<br>Parameters: org.testng.TestRunner@45007ed7</td>
-<td></td>
-<td>916</td>
-<td>aut.tests.functionaltests.ClinicalTestCases@8317c52</td></tr>
-<tr>
-<td title='aut.tests.functionaltests.ClinicalTestCases.QA094_HowOftenFieldSelectionWhen_FrequencyTypeRoutine()'><b>QA094_HowOftenFieldSelectionWhen_FrequencyTypeRoutine</b><br>Test class: aut.tests.functionaltests.ClinicalTestCases</td>
-<td></td>
-<td>2202</td>
-<td>aut.tests.functionaltests.ClinicalTestCases@8317c52</td></tr>
-<tr>
-<td title='aut.tests.functionaltests.ClinicalTestCases.QA095_AddingFrequencyFromOrders_WithFrequencyPRN()'><b>QA095_AddingFrequencyFromOrders_WithFrequencyPRN</b><br>Test class: aut.tests.functionaltests.ClinicalTestCases<br>Parameters: org.testng.TestRunner@45007ed7</td>
-<td></td>
-<td>860</td>
-<td>aut.tests.functionaltests.ClinicalTestCases@8317c52</td></tr>
-<tr>
-<td title='aut.tests.functionaltests.ClinicalTestCases.QA096_AddingFrequencyFromResidentOrder_WithFrequencyPRNEveryHour()'><b>QA096_AddingFrequencyFromResidentOrder_WithFrequencyPRNEveryHour</b><br>Test class: aut.tests.functionaltests.ClinicalTestCases<br>Parameters: org.testng.TestRunner@45007ed7</td>
-<td></td>
-<td>870</td>
-<td>aut.tests.functionaltests.ClinicalTestCases@8317c52</td></tr>
-<tr>
-<td title='aut.tests.functionaltests.ClinicalTestCases.QA097_ResidentOrders_CreateAnOrderUsingDetailsTypeTreatmentWithMedication_And_Medication()'><b>QA097_ResidentOrders_CreateAnOrderUsingDetailsTypeTreatmentWithMedication_And_Medication</b><br>Test class: aut.tests.functionaltests.ClinicalTestCases<br>Parameters: org.testng.TestRunner@45007ed7</td>
-<td></td>
-<td>1758</td>
-<td>aut.tests.functionaltests.ClinicalTestCases@8317c52</td></tr>
-<tr>
-<td title='aut.tests.functionaltests.ClinicalTestCases.QA098_ResidentOrders_CreateAnOrderUsingDetailsTypeTreatmentWithMedication_And_Medication_FrequencyTypeRoutine()'><b>QA098_ResidentOrders_CreateAnOrderUsingDetailsTypeTreatmentWithMedication_And_Medication_FrequencyTypeRoutine</b><br>Test class: aut.tests.functionaltests.ClinicalTestCases<br>Parameters: org.testng.TestRunner@45007ed7</td>
-<td></td>
-<td>882</td>
-<td>aut.tests.functionaltests.ClinicalTestCases@8317c52</td></tr>
-<tr>
-<td title='aut.tests.functionaltests.ClinicalTestCases.QA099_ResidentOrders_CreateAnOrderUsingDetailsTypeTreatmentWithMedication_And_Medication_WithFrequencyPRNEveryHour()'><b>QA099_ResidentOrders_CreateAnOrderUsingDetailsTypeTreatmentWithMedication_And_Medication_WithFrequencyPRNEveryHour</b><br>Test class: aut.tests.functionaltests.ClinicalTestCases<br>Parameters: org.testng.TestRunner@45007ed7</td>
-<td></td>
-<td>612</td>
-<td>aut.tests.functionaltests.ClinicalTestCases@8317c52</td></tr>
-<tr>
-<td title='aut.tests.functionaltests.ClinicalTestCases.QA100_ResidentOrders_CreateAnOrderUsingDetailsTypeTreatmentWithMedication_And_Medication_WithFrequencyPRN()'><b>QA100_ResidentOrders_CreateAnOrderUsingDetailsTypeTreatmentWithMedication_And_Medication_WithFrequencyPRN</b><br>Test class: aut.tests.functionaltests.ClinicalTestCases<br>Parameters: org.testng.TestRunner@45007ed7</td>
-<td></td>
-<td>600</td>
-<td>aut.tests.functionaltests.ClinicalTestCases@8317c52</td></tr>
-<tr>
-<td title='aut.tests.functionaltests.ClinicalTestCases.QA101_CreateAnOrder_ViaOrderSets()'><b>QA101_CreateAnOrder_ViaOrderSets</b><br>Test class: aut.tests.functionaltests.ClinicalTestCases<br>Parameters: org.testng.TestRunner@45007ed7</td>
-<td></td>
-<td>919</td>
-<td>aut.tests.functionaltests.ClinicalTestCases@8317c52</td></tr>
-<tr>
-<td title='aut.tests.functionaltests.ClinicalTestCases.QA103_VerifyAnOrder_ViaOrderSetsOrCreateAnOrder()'><b>QA103_VerifyAnOrder_ViaOrderSetsOrCreateAnOrder</b><br>Test class: aut.tests.functionaltests.ClinicalTestCases<br>Parameters: org.testng.TestRunner@45007ed7</td>
-<td></td>
-<td>531</td>
-<td>aut.tests.functionaltests.ClinicalTestCases@8317c52</td></tr>
-<tr>
-<td title='aut.tests.functionaltests.ClinicalTestCases.QA104_VerifyAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder()'><b>QA104_VerifyAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder</b><br>Test class: aut.tests.functionaltests.ClinicalTestCases<br>Parameters: org.testng.TestRunner@45007ed7</td>
-<td></td>
-<td>1730</td>
-<td>aut.tests.functionaltests.ClinicalTestCases@8317c52</td></tr>
-<tr>
-<td title='aut.tests.functionaltests.ClinicalTestCases.QA105_SignAnOrder_ViaOrderSetsOrCreateAnOrder()'><b>QA105_SignAnOrder_ViaOrderSetsOrCreateAnOrder</b><br>Test class: aut.tests.functionaltests.ClinicalTestCases<br>Parameters: org.testng.TestRunner@45007ed7</td>
-<td></td>
-<td>671</td>
-<td>aut.tests.functionaltests.ClinicalTestCases@8317c52</td></tr>
-<tr>
-<td title='aut.tests.functionaltests.ClinicalTestCases.QA106_ViewAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder()'><b>QA106_ViewAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder</b><br>Test class: aut.tests.functionaltests.ClinicalTestCases<br>Parameters: org.testng.TestRunner@45007ed7</td>
-<td></td>
-<td>2453</td>
-<td>aut.tests.functionaltests.ClinicalTestCases@8317c52</td></tr>
-<tr>
-<td title='aut.tests.functionaltests.ClinicalTestCases.QA107_RecapAnOrder_ViaOrderSetsOrCreateAnOrder()'><b>QA107_RecapAnOrder_ViaOrderSetsOrCreateAnOrder</b><br>Test class: aut.tests.functionaltests.ClinicalTestCases<br>Parameters: org.testng.TestRunner@45007ed7</td>
-<td></td>
-<td>1857</td>
-<td>aut.tests.functionaltests.ClinicalTestCases@8317c52</td></tr>
-<tr>
-<td title='aut.tests.functionaltests.ClinicalTestCases.QA108_SignatureOnRecap_Wheather_OrderCreatedFromOrder_Or_FromSets()'><b>QA108_SignatureOnRecap_Wheather_OrderCreatedFromOrder_Or_FromSets</b><br>Test class: aut.tests.functionaltests.ClinicalTestCases<br>Parameters: org.testng.TestRunner@45007ed7</td>
-<td></td>
-<td>779</td>
-<td>aut.tests.functionaltests.ClinicalTestCases@8317c52</td></tr>
-<tr>
-<td title='aut.tests.functionaltests.ClinicalTestCases.QA109_ViewAndModify_Recaps()'><b>QA109_ViewAndModify_Recaps</b><br>Test class: aut.tests.functionaltests.ClinicalTestCases<br>Parameters: org.testng.TestRunner@45007ed7</td>
-<td></td>
-<td>2219</td>
-<td>aut.tests.functionaltests.ClinicalTestCases@8317c52</td></tr>
+<td>2451</td>
+<td>aut.tests.functionaltests.PhysicianPortalTestCases@8317c52</td></tr>
 </table><p>
 </body>
 </html>

@@ -416,7 +416,7 @@ public abstract class PageTemplate {
 			// validate element is displayed or not
 			waitInSecs(2);
 			Assert.assertEquals(wd.findElements(byLocator).size() <= 0, true);
-			LOG.info(String.format("Element Present - (By - %s)", byLocator));
+			LOG.info(String.format("Element Not Present - (By - %s)", byLocator));
 			this.testReport.logSuccess("isElementNotPresent", String.format("Element Not Present - (By - %s)", byLocator));
 			isSuccess = true;
 		} catch (Exception | AssertionError ex) {

@@ -517,16 +517,17 @@ public class Xls_Reader {
 	public HashMap<String, String> GetValue(String sheetName, String TestCaseName)		
 	{
 		
-		HashMap<String , String> obj = new HashMap<String , String>();
-		//String returnValue = null;
+		HashMap<String , String> obj = new HashMap<String , String>();		
 		int index = workbook.getSheetIndex(sheetName);
 
 		if(index==-1)
-			//return "";
+			
 		sheet = workbook.getSheetAt(index);
-		int rowNo =sheet.getLastRowNum();
-		int coloumNo = getColumnCount(sheetName);
-		for(int i=0;i<=(rowNo);i++)
+		int rowNo =getRowCount(sheetName);
+		int coloumNo = (getColumnCount(sheetName));
+		//int coloumNo = row.getLastCellNum();
+		
+		for(int i=0;i<=(rowNo-1);i++)
 		{
 
 
@@ -537,7 +538,7 @@ public class Xls_Reader {
 			{
 				
 				int count = i ;
-				for(int j=1;j<=coloumNo-1;j++)
+				for(int j=1;j<=(coloumNo-1);j++)
 				{
 					int no = j;
 					
@@ -547,19 +548,7 @@ public class Xls_Reader {
 					String dummyValue = formatter.formatCellValue(sheet.getRow(count-1).getCell(j));
 					obj.put(dummyValue, formatter.formatCellValue(sheet.getRow(count).getCell(no)));
 					System.out.println(obj.keySet());
-					/*if(dummyValue.equals(Value))
-					{
-						
-
-						int no = j;
-						String ReturnValue = sheet.getRow(count).getCell(no).getStringCellValue();
-						return ReturnValue;
-					}*/
 					
-					/*if(dummyValue.equals(Value))
-					{
-						break;
-					}*/
 					
 				}
 				break;

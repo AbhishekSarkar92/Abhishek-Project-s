@@ -6,18 +6,17 @@
   <parameter name="automationKit" value="selenium"/>
   <test name="Test(failed)" parallel="tests">
     <classes>
-      <class name="aut.tests.functionaltests.ClinicalTestCases">
+      <class name="aut.tests.functionaltests.PhysicianPortalTestCases">
         <methods>
           <include name="beforeMethod"/>
-          <include name="QA102_ViewAndModifyAnOrder_ViaOrderSets" invocation-numbers="0"/>
-          <include name="beforeTest"/>
-          <include name="afterMethod"/>
-          <include name="QA093_FrequencyFieldSelectionWhen_FrequencyTypeRoutine" invocation-numbers="0"/>
-          <include name="afterSuite"/>
           <include name="beforeSuite"/>
           <include name="afterTest"/>
+          <include name="beforeTest"/>
+          <include name="afterSuite"/>
+          <include name="afterMethod"/>
+          <include name="QA010_ResidentOrders_CreateAnOrderWithFrequencyRoutine" invocation-numbers="0"/>
         </methods>
-      </class> <!-- aut.tests.functionaltests.ClinicalTestCases -->
+      </class> <!-- aut.tests.functionaltests.PhysicianPortalTestCases -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [SuiteRegression] -->

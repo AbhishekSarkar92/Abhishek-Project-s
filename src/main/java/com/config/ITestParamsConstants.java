@@ -12,6 +12,7 @@ import io.appium.java_client.remote.MobileCapabilityType;
  */
 public interface ITestParamsConstants {
 
+	//String BROWSER = CapabilityType.BROWSER_NAME;
 	String BROWSER = CapabilityType.BROWSER_NAME;
 	String APPURL = "appURL";
 	String LOCALE_COUNTRY = "localeCountry";

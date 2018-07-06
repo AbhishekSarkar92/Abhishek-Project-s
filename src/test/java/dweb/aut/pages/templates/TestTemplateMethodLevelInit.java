@@ -1,7 +1,9 @@
 package dweb.aut.pages.templates;
 
+import java.io.File;
 import java.lang.reflect.Method;
 import java.net.URISyntaxException;
+import java.nio.file.Paths;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.TimeoutException;
@@ -17,8 +19,10 @@ import org.testng.annotations.BeforeTest;
 import org.testng.xml.XmlTest;
 
 import com.config.ITestParamsConstants;
+import com.excel.Xls_Reader;
 import com.factories.AppiumServiceFactory;
 import com.factories.WebDriverFactory;
+import com.google.common.io.Resources;
 import com.testreport.ExtentReporter;
 import com.testreport.ExtentReporter.ExtentTestVisibilityMode;
 import com.testreport.ReportFactory;
@@ -44,6 +48,8 @@ public abstract class TestTemplateMethodLevelInit extends TestTemplate {
 
 	private static final Logger LOG = Logger.getLogger(TestTemplateMethodLevelInit.class);
     private AppiumDriverLocalService appiumDriverLocalService = null;
+    protected Xls_Reader xlsReader = null;
+    
 	/**
 	 * Configuration/Initialization before starting suite
 	 * 
@@ -61,6 +67,9 @@ public abstract class TestTemplateMethodLevelInit extends TestTemplate {
 
 		TestTemplate.testReport = ReportFactory.getInstance(ReportType.ExtentHtml,
 				ExtentTestVisibilityMode.valueOf(extentTestVisibilityMode));
+		
+		//initialize excel reader
+		xlsReader = new Xls_Reader(Paths.get(Resources.getResource("testdata" + File.separator + "BluestrataTestData.xlsx").toURI()).toFile().getAbsolutePath());
 	}
 
 	@AfterSuite
