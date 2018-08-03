@@ -1759,7 +1759,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		TestTemplate.testReport.logSuccess("Navigate to Residents Order From Physician Portal");
 		physicianPortal.ClickOnPhysicianPortal();	
 		
-		/*TestTemplate.testReport.logSuccess("Click On existing Resident");
+		TestTemplate.testReport.logSuccess("Click On existing Resident");
 		physicianPortal.SearchResidentWithApplyFilterButton(testData.get("ResidentNo"));
 		physicianPortal.VerifyButtonInResidentOrders();
 		
@@ -1776,11 +1776,11 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		physicianPortal.SaveOrderFrequency();
 		
 		physicianPortal.OrdersSelection(TypeName,Description);
-		physicianPortal.ClickOnListViewForNavigateToOrdersView();*/
+		physicianPortal.ClickOnListViewForNavigateToOrdersView();
 		/*physicianPortal.VerifyTheOrderByClickingVerifyButton();
 		physicianPortal.VerifyCreatedOrderIntheVerifyList(Description);
 		physicianPortal.VerifyClickingOnToggledVerifiedButton();*/
-		/*physicianPortal.VerifyTheOrderByClickingSignButton();
+		physicianPortal.VerifyTheOrderByClickingSignButton();
 		physicianPortal.VerifyCreatedOrderIntheVerifyList(Description);
 		
 		String Resident = physicianPortal.VerifyClickingOnToggledSignedButton();
@@ -1816,7 +1816,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		physicianPortal.ModifyOrderFrequency(Integer.parseInt(testData.get("modifyButtonNo")),Integer.parseInt(testData.get("num")),Integer.parseInt(testData.get("No")),testData.get("frequencyType1"),testData.get("endDateType"),testData.get("requiredActions"),testData.get("requiredActionsPostDropdown") ,testData.get("administeredBy1") ,testData.get("maxDoesHours") ,
 				testData.get("followUpAfterMinutes"),testData.get("slidingScaleMin"),testData.get("slidingScaleMax") ,testData.get("slidingScaleUnits") ,testData.get("frequency"),testData.get("howOften"),testData.get("everyDay"),testData.get("physicianInstructions"),testData.get("additionalInstruction"),testData.get("type1"));
 		physicianPortal.AddHoldDatesVerification(testData.get("startDate"),testData.get("endDate"),testData.get("startDateTime"),testData.get("startDateTime"),Integer.parseInt(testData.get("slidingScaleMin")) );
-		*/
+		
 		
 		physicianPortal.DiscontinueOrderValidation(testData.get("startDate"),testData.get("startDateTime"),testData.get("physicianType1"),testData.get("ReceivedOrderType1"),testData.get("discontinueForCorrection"),testData.get("copyOrder"),testData.get("dcMessage"));
 		physicianPortal.DiscontinueValidation(testData.get("discontinueForCorrection"),testData.get("copyOrder"),testData.get("dcMessage"));
