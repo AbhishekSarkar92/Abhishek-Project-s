@@ -110,6 +110,7 @@ public class EmarPage extends LoginPage {
 	public By labelLatestAdministrationsReason = By.xpath("//h5[text()='Latest Administrations']/..//*[text()='Reason']");
 	public By labelPostAdministrationRequirements = By.xpath("//div[contains(text(),'Post Administration Requirements')]");
 	public By btnPostAdministrationRequirementsSave = By.xpath("//div[contains(text(),'Post Administration Requirements')]/..//button[text()='Save']");
+	public By invalidMessage = By.xpath("//div[text()='Invalid form']");
 	
 	public By txtFollowUp = By.xpath("//*[text()='Follow-up']");
 	public By drpDwnFollowUpResult =By.xpath("//div[@class='modal-content']//select[@formcontrolname='administered']");
@@ -156,6 +157,21 @@ public class EmarPage extends LoginPage {
     public By UndoModelTitle = By.cssSelector("div[class='modal-header']>h4[class='modal-title']");
     public By UndoCancel = By.cssSelector("button[class*='dark']");
     public By UndoOK = By.cssSelector("div[class*='modal-footer']>button[class*='btn-primary']");
+    
+    public By labelVitalDescription = By.xpath("//datatable-header-cell//span[text()='Description']");
+    public By labelVitalValue = By.xpath("//datatable-header-cell//span[text()='Value']");
+    public By labelVitalDateRecorded = By.xpath("//datatable-header-cell//span[text()='Date Recorded']");
+    public By btnAddVitals = By.xpath("//button[text()='Add Vitals']");
+    public By btnRecrdVitalSave = By.xpath("//button[text()='Save']");
+    public By btnRecrdVitalCancel = By.xpath("//button[text()='Cancel']");
+    public By SelectVitalListBox = By.xpath("//div[@class='card-body']//button");
+    public By inputVitalListBox = By.xpath("//div[@class='card-body']//button/following::ul//input");
+    
+    
+    
+    
+   /* # All Emar Module Related Methods Will Start from here # */
+   /* ---------------------------------------------*/
     
     
 	public void SwitchToHomePage(String ParentWindow)
@@ -701,6 +717,7 @@ public class EmarPage extends LoginPage {
 	{
 		String ParrentWindow = wd.getWindowHandle();
 		this.click(btnViewAllorders, "View All Orders");
+		
 
 		Set<String> Allwindows = wd.getWindowHandles();
 		for(String ChildWindow : Allwindows)
@@ -740,12 +757,16 @@ public class EmarPage extends LoginPage {
 				this.waitInSecs(10);
 				if(Task.equals("CurrentTask"))
 				{
-					BooleanCurrentTasks();					
-					String RoutineCount = BooleanRoutinePRNFollowUpTab(TabType);
-					if((Integer.parseInt(RoutineCount)!=0))
+					BooleanCurrentTasks();	
+					if(!TabType.equals(""))
 					{
+						String RoutineCount = BooleanRoutinePRNFollowUpTab(TabType);
 
-						break;
+						if((Integer.parseInt(RoutineCount)!=0))
+						{
+
+							break;
+						}
 					}
 				}
 				else if(Task.equals("InteractionsTask"))
@@ -767,6 +788,28 @@ public class EmarPage extends LoginPage {
 					}
 					
 				}
+				else if(Task.equals("Missed Administrations"))
+				{
+					
+					VerifyPastAdministrationsTab(Task);
+					String RoutineCount = BooleanRoutinePRNFollowUpTab(TabType);
+					
+					if((Integer.parseInt(RoutineCount)!=0))
+					{
+						break;
+					}
+				}
+				
+				else if(Task.equals("Vitals"))
+				{
+					BooleanTasks(Task);
+					int VitalDescriptionCount = VitalPageDescriptionCount();					
+					if(VitalDescriptionCount!=0)
+					{
+						VerifyVitalPage();
+						break;
+					}
+				}
 
 
 			}
@@ -776,7 +819,7 @@ public class EmarPage extends LoginPage {
 			RoutineDescriptionFrontColorValidation(TabType);
 
 
-			if(TabType.equals("current") || TabType.equals("prn"))
+			if((TabType.equals("current")||TabType.equals("routine")) || TabType.equals("prn"))
 			{
 				RoutineDescriptionSelectionWithCheckBox(TabType);
 			}
@@ -872,7 +915,7 @@ public class EmarPage extends LoginPage {
 					
 			this.click(AdministrationTabButton,"Administer Tab Button");
 		}
-
+        this.waitInSecs(10);
 		String RoutineCount = wd.findElement(By.xpath(String.format("//div[@class='card-body']//a[@id='%s']/span",TabType))).getText();
 		return RoutineCount;
 	}
@@ -1023,7 +1066,7 @@ public class EmarPage extends LoginPage {
 
 		if(Integer.parseInt(RoutineCount)!=0)
 		{
-			if(TabType.equals("current") || TabType.equals("followup"))
+			if((TabType.equals("current")||TabType.equals("routine")) || TabType.equals("followup"))
 			{
 			List<WebElement> RedColor = wd.findElements(By.xpath(String.format("//div[@aria-labelledby='%s']//span[contains(@class,'danger')]",TabType)));
 			int RedColourCount = RedColor.size();
@@ -1118,7 +1161,7 @@ public class EmarPage extends LoginPage {
 
 			String DescriptionName = wd.findElement(By.xpath(String.format("(//div[@aria-labelledby='%s']//li[contains(@class,'inserted')])[%s]",TabType, Description))).getText();
 
-			if(TabType.equals("current") || TabType.equals("prn"))
+			if((TabType.equals("current")||TabType.equals("routine"))|| TabType.equals("prn"))
 			{
 
 				By DescriptionChkBox = By.xpath(String.format("(//div[@aria-labelledby='%s']//li[contains(@class,'inserted')])[%s]//input",TabType, Description));
@@ -1136,13 +1179,13 @@ public class EmarPage extends LoginPage {
 
 		}
 
-		if(TabType.equals("current") || TabType.equals("prn"))
+		if((TabType.equals("current")||TabType.equals("routine")) || TabType.equals("prn"))
 		{
 		this.click(btnAdminister, "Button Administer");
 		}
 
 		String[] arr = new String[2];
-		if(TabType.equals("current") || TabType.equals("prn"))
+		if((TabType.equals("current")||TabType.equals("routine")) || TabType.equals("prn"))
 		{
 		arr[0] = Value;
 		}
@@ -1168,20 +1211,23 @@ public class EmarPage extends LoginPage {
 			{
 				List<WebElement> Boxs = wd.findElements(By.xpath("//h4[text()='Pre Administration Requirements']/..//h5"));
 				int OptionsNo = Boxs.size();
-				for(int i=1;i<=OptionsNo;i++)
+				if(OptionsNo>0)
 				{
-					By IgnoreBox = By.xpath(String.format("(//*[text()='Pre Administration Requirements']/..//input[@formcontrolname='isSkipping'])[%s]", i));
-					this.VerifyWebElementPresent(IgnoreBox, "Ignore Box Present");	
-					By CompletechkBox = By.xpath(String.format("(//*[text()='Pre Administration Requirements']/..//input[@formcontrolname='value'])[%s]", i));
-					if(this.isElementVisible(CompletechkBox))
+					for(int i=1;i<=OptionsNo;i++)
 					{
-						this.VerifyWebElementPresent(CompletechkBox, "Complete Check Box Present");	
+						By IgnoreBox = By.xpath(String.format("(//*[text()='Pre Administration Requirements']/..//input[@formcontrolname='isSkipping'])[%s]", i));
+						this.VerifyWebElementPresent(IgnoreBox, "Ignore Box Present");	
+						By CompletechkBox = By.xpath(String.format("(//*[text()='Pre Administration Requirements']/..//input[@formcontrolname='value'])[%s]", i));
+						if(this.isElementVisible(CompletechkBox))
+						{
+							this.VerifyWebElementPresent(CompletechkBox, "Complete Check Box Present");	
+						}
+						this.click(IgnoreBox, "Ignore Box");
+						By IgnoreReasonBox = By.xpath(String.format("(//label[text()='Reason For Ingoring']/..//textarea[@formcontrolname='skipReason'])[%s]", i));
+						this.SendKeysToElementClearFirst(IgnoreReasonBox, Comment);
 					}
-					this.click(IgnoreBox, "Ignore Box");
-					By IgnoreReasonBox = By.xpath(String.format("(//label[text()='Reason For Ingoring']/..//textarea[@formcontrolname='skipReason'])[%s]", i));
-					this.SendKeysToElementClearFirst(IgnoreReasonBox, Comment);
 				}
-				
+
 			}
 		}
 
@@ -1270,17 +1316,24 @@ public class EmarPage extends LoginPage {
 		{
 			if(this.isElementPresent(labelPostAdministrationRequirements))
 			{
+				this.click(btnPostAdministrationRequirementsSave, "Post Administration Requirements Save Button");
+				this.VerifyWebElementPresent(invalidMessage, "Invalid form");
+				
+				
 				List<WebElement> Boxs = wd.findElements(By.xpath("//div[contains(text(),'Post Administration Requirements')]/..//h5"));
 				int OptionsNo = Boxs.size();
-				for(int i=1;i<=OptionsNo;i++)
+				if(OptionsNo>0)
 				{
-					By IgnoreBox = By.xpath(String.format("(//div[contains(text(),'Post Administration Requirements')]/..//h5/..//input[@formcontrolname='isSkipping'])[%s]", i));
-					this.VerifyWebElementPresent(IgnoreBox, "Ignore Box Present");		
-					this.click(IgnoreBox, "Ignore Box");
-					By IgnoreReasonBox = By.xpath(String.format("(//label[text()='Reason For Ingoring']/..//textarea[@formcontrolname='skipReason'])[%s]", i));
-					this.SendKeysToElementClearFirst(IgnoreReasonBox, Comment);
-					
-					this.click(btnPostAdministrationRequirementsSave, "Post Administration Requirements Save Button");
+					for(int i=1;i<=OptionsNo;i++)
+					{
+						By IgnoreBox = By.xpath(String.format("(//div[contains(text(),'Post Administration Requirements')]/..//h5/..//input[@formcontrolname='isSkipping'])[%s]", i));
+						this.VerifyWebElementPresent(IgnoreBox, "Ignore Box Present");		
+						this.click(IgnoreBox, "Ignore Box");
+						By IgnoreReasonBox = By.xpath(String.format("(//label[text()='Reason For Ingoring']/..//textarea[@formcontrolname='skipReason'])[%s]", i));
+						this.SendKeysToElementClearFirst(IgnoreReasonBox, Comment);
+
+						this.click(btnPostAdministrationRequirementsSave, "Post Administration Requirements Save Button");
+					}
 				}
 			}
 		}
@@ -1305,11 +1358,11 @@ public class EmarPage extends LoginPage {
         }
     }
 	
-	public void VerifyAdministrationHistoryOverLast24Hours(String descriptionName , String routineCount,String TabType) throws Throwable
+	public void VerifyAdministrationHistoryOverLast24Hours(String descriptionName , String routineCount,String TabType , String Task ) throws Throwable
 	{
 		try
 		{
-			BooleanCurrentTasks();
+			BooleanTasks(Task);
 			if(TabType.equals("current"))
 			{
 				this.click(btnAdministerRoutine, "Button Administer Routine");
@@ -1490,6 +1543,8 @@ public class EmarPage extends LoginPage {
 		this.SendKeysToElementClearFirst(TypeFollowUpNotes, Notes);
 		this.VerifyWebElementPresent(btnFollowUpSave, "FollowUp Save Button");
 		this.click(btnFollowUpSave, "FollowUp Save Button");
+		
+		
 		}
 		catch(Exception e)
 		{
@@ -1497,6 +1552,8 @@ public class EmarPage extends LoginPage {
 		}
 		
 	}
+	
+	
 	
 	
 	public void ShowFutureOrdersConfirmTabValidation(String TabType , String RoutineCount) throws Throwable
@@ -1714,7 +1771,7 @@ public class EmarPage extends LoginPage {
 		
 	}
 	
-	public String GetCurrentDateInCalenderFormat()
+	public int GetCurrentDateInCalenderFormat()
 	{
 		 Calendar now = Calendar.getInstance();
 		 int Date =now.get(Calendar.DATE) ; 
@@ -1723,7 +1780,7 @@ public class EmarPage extends LoginPage {
 		 int Year = now.get(Calendar.YEAR);
 		 
 		 String CurrentDate = (Day +", "+ Month + " " + Integer.toString(Date) + ", " + Integer.toString(Year));
-		 return CurrentDate;
+		 return Date;
 	}
 	
 	
@@ -1731,12 +1788,13 @@ public class EmarPage extends LoginPage {
 	{
 		BooleanTasks(Task);
 		this.VerifyWebElementPresent(dateFrmtAdministrationDate , "Administration Date");
-		this.VerifyWebElementPresent(labelPastAdministrations, "Past Administrations");
+		By Lavel = By.xpath(String.format("//div[contains(text(),'%s')]", Task));
+		this.VerifyWebElementPresent(Lavel, "Administrations");
 		this.VerifyWebElementPresent(btnApply, "Apply");		
-		String CurrentDate = GetCurrentDateInCalenderFormat();		 
+		int date = GetCurrentDateInCalenderFormat();		 
         this.click(btnCalender, "Calender Icon");
-        By Date = By.xpath(String.format("//div[@aria-label='%s']/div", CurrentDate));
-        this.click(Date, CurrentDate);        
+        By Date = By.xpath(String.format("//div[contains(@class,'btn-light') and text()='%s']", date));
+        this.click(Date, Integer.toString(date));        
         this.click(btnApply, "Apply");
 		
 	}
@@ -1770,9 +1828,10 @@ public class EmarPage extends LoginPage {
 		return RoutineCount;
 	}
 	
-	public String[] VerifyTabsForAdministrations(String Task, String TabType)
+	public Object[] VerifyTabsForAdministrations(String Task, String TabType)
 	{
 		String AdministrationDescription = null ;
+		int EditButtonNO = 0 ;
 		BooleanTasks(Task);
 		String RoutineCount = AdministrationBooleanRoutinePRNFollowUpTab(TabType);
 		
@@ -1815,7 +1874,7 @@ public class EmarPage extends LoginPage {
 			}			
 			
 			List<WebElement> EditButton = wd.findElements(By.xpath("//button[text()='Edit']"));
-			int EditButtonNO = EditButton.size();
+			EditButtonNO = EditButton.size();
 			List<WebElement> UndoButton = wd.findElements(By.xpath("//button[text()='Undo']"));
 			int UndoButtonNO = UndoButton.size();
 
@@ -1824,47 +1883,159 @@ public class EmarPage extends LoginPage {
 			
 
 		}
-		String[] arr = new String[2];
+		Object[] arr = new Object[3];
 		arr[0]= AdministrationDescription;
 		arr[1] = RoutineCount ;
+		arr[2] = EditButtonNO;
 		
 		return arr;
 		
 	}
 	
 	
-	public void EditUndoButtonVerification(String TabType , String RoutineCount)
+	public void EditUndoButtonVerification(String TabType , String RoutineCount , int EditButtonNo)
 	{
-		By EditButton = By.xpath("(//button[text()='Edit'])[1]");
-		this.click(EditButton, "Edit Button");
-		this.VerifyWebElementPresent(txtEditAdministration, "Edit Administration");
-		this.VerifyWebElementPresent(btnEditadministrationClose, "Edit Administration Close Button");
-		this.VerifyWebElementPresent(labelOrderDescription, "Order Description");
-		this.VerifyWebElementPresent(labelAdministered, "Administered");
-		this.VerifyWebElementPresent(labelInstruction, "Instruction");
-		this.VerifyWebElementPresent(labelNotes, "Notes");
-		this.VerifyWebElementPresent(labelStatus, "Status");
-		this.VerifyWebElementPresent(btnEditadministrationSave, "Edit Administration Save Button");
-		this.click(btnEditadministrationClose, "Edit Administration Close Button");
-
-		By UndoButton = By.xpath("(//button[text()='Undo'])[1]");
-		this.click(UndoButton, "Undo Button");
-		this.VerifyWebElementPresent(UndoModelTitle, "Confirm");
-		this.VerifyWebElementPresent(UndoCancel, "Cancel");
-		this.VerifyWebElementPresent(UndoOK, "OK");
-		this.click(UndoOK, "OK");
-		this.waitInSecs(2);
-
-		String NewRoutineCount = AdministrationBooleanRoutinePRNFollowUpTab(TabType);
-		if((Integer.parseInt(RoutineCount))==(Integer.parseInt(NewRoutineCount)+1))
+		if((EditButtonNo)>0)
 		{
-			this.testReport.logSuccess(" Undo button Verification", String.format("Clicking on Undo button under Routine tab to revert the changes made on past administration med"));
+			By EditButton = By.xpath("(//button[text()='Edit'])[1]");
+			this.click(EditButton, "Edit Button");
+			this.VerifyWebElementPresent(txtEditAdministration, "Edit Administration");
+			this.VerifyWebElementPresent(btnEditadministrationClose, "Edit Administration Close Button");
+			this.VerifyWebElementPresent(labelOrderDescription, "Order Description");
+			this.VerifyWebElementPresent(labelAdministered, "Administered");
+			this.VerifyWebElementPresent(labelInstruction, "Instruction");
+			this.VerifyWebElementPresent(labelNotes, "Notes");
+			this.VerifyWebElementPresent(labelStatus, "Status");
+			this.VerifyWebElementPresent(btnEditadministrationSave, "Edit Administration Save Button");
+			this.click(btnEditadministrationClose, "Edit Administration Close Button");
+
+			By UndoButton = By.xpath("(//button[text()='Undo'])[1]");
+			this.click(UndoButton, "Undo Button");
+			this.VerifyWebElementPresent(UndoModelTitle, "Confirm");
+			this.VerifyWebElementPresent(UndoCancel, "Cancel");
+			this.VerifyWebElementPresent(UndoOK, "OK");
+			this.click(UndoOK, "OK");
+			this.waitInSecs(2);
+
+			String NewRoutineCount = AdministrationBooleanRoutinePRNFollowUpTab(TabType);
+			if((Integer.parseInt(RoutineCount))==(Integer.parseInt(NewRoutineCount)+1))
+			{
+				this.testReport.logSuccess(" Undo button Verification", String.format("Clicking on Undo button under Routine tab to revert the changes made on past administration med"));
+			}
+			else
+			{
+				this.testReport.logFailure(" Undo button Verification", String.format("Clicking on Undo button under Routine tab to revert the changes not made on past administration med"));
+			}		
+
+		}
+	}
+	
+	
+	public int VitalPageDescriptionCount()
+	{
+		List<WebElement> totalDescriptions = wd.findElements(By.xpath("//datatable-body//datatable-row-wrapper"));
+		int descriptionsNo = totalDescriptions.size();
+		return descriptionsNo ;	
+		
+	}
+	
+	public void VerifyVitalPage()
+	{		
+		this.VerifyWebElementPresent(labelVitalDescription, "Vital Page Description");
+		this.VerifyWebElementPresent(labelVitalValue, "Vital Page Value");
+		this.VerifyWebElementPresent(labelVitalDateRecorded, "Vital Page Date Recorded");
+		String pageDescriptionCount = wd.findElement(By.cssSelector(".page-count.ng-star-inserted")).getText();
+		this.testReport.logSuccess("Page Count", String.format("Page Count :- <mark>%s</mark>", pageDescriptionCount), this.getScreenShotName());
+		this.VerifyWebElementPresent(btnAddVitals, "Add Vitals Button");
+		
+	}
+	
+	public void RecordSvitalPageVerifiaction(String VitalSign,String VitalSigntext)
+	{
+		this.click(btnAddVitals, "Add Vitals Button");
+		this.VerifyWebElementPresent(btnRecrdVitalSave, "Vital Save");
+		this.VerifyWebElementPresent(btnRecrdVitalCancel, "Vital Cancel");
+		this.VerifyWebElementPresent(SelectVitalListBox, "Select Vital List Box");
+		this.click(SelectVitalListBox, "Select Vital List Box");
+		List<WebElement> VitalSigns = wd.findElements(By.xpath("//div[@class='card-body']//button/following::ul/li/a/span[@style='font-weight: normal;']"));
+		int VitalSignsCount = VitalSigns.size();
+		ArrayList<String> AllVitalSigns = new ArrayList<String>();
+		for(int i=1 ; i<=VitalSignsCount;i++)
+		{
+			AllVitalSigns.add( wd.findElement(By.xpath(String.format("(//div[@class='card-body']//button/following::ul/li/a/span[@style='font-weight: normal;'])[%s]",i))).getText());
+		}
+		
+		By SeletedVitalSign = By.xpath(String.format("//div[@class='card-body']//button/following::ul/li/a/span[contains(text(),'%s')]", VitalSign));
+		this.click(SeletedVitalSign, VitalSign);
+		
+		this.VerifyWebElementPresent(inputVitalListBox, "Vital List Input Box");
+		this.SendKeysToElementClearFirst(inputVitalListBox, VitalSigntext);
+		By SeletedVitalSignText = By.xpath(String.format("//div[@class='card-body']//button/following::ul/li/a/span[contains(text(),'%s')]", VitalSigntext));
+		this.click(SeletedVitalSignText, VitalSigntext);
+		this.click(inputVitalListBox, VitalSigntext);	
+	}
+	
+	
+	public void UpdateNewVitalSign(String TextArea , String Task)
+	{
+		List<WebElement> VitalSigns = wd.findElements(By.xpath("//div[contains(@class,'card ng-star')]//div[@class='card-body']"));
+		int VitalSignsCount = VitalSigns.size();
+		for(int i=1;i<=VitalSignsCount;i++)
+		{
+			List<WebElement> VitalSignTextarea = wd.findElements(By.xpath(String.format("(//div[contains(@class,'card ng-star')]//div[@class='card-body'])[%s]//div[@class='form-group']//textarea",i)));
+			int VitalSignTextareaCount = VitalSignTextarea.size();
+			if(VitalSignTextareaCount!=0)
+			{
+				for(int j=1;j<=VitalSignTextareaCount;j++)
+				{
+					By textArea = By.xpath(String.format("((//div[contains(@class,'card ng-star')]//div[@class='card-body'])[%s]//div[@class='form-group']//textarea)[%s]", i,j));
+					this.SendKeysToElementClearFirst(textArea, TextArea);
+				}
+			}
+
+			List<WebElement> VitalSignSelect = wd.findElements(By.xpath(String.format("(//div[contains(@class,'card ng-star')]//div[@class='card-body'])[%s]//div[@class='form-group']//select",i)));
+			int VitalSignSelectCount = VitalSignSelect.size();
+			if(VitalSignSelectCount!=0)
+			{
+				for(int j=1;j<=VitalSignSelectCount;j++)
+				{
+					By textArea = By.xpath(String.format("((//div[contains(@class,'card ng-star')]//div[@class='card-body'])[%s]//div[@class='form-group']//select)[%s]", i,j));
+					this.SelectDropDownByIndex(textArea, 0);
+				}
+			}
+
+			List<WebElement> VitalSignInput = wd.findElements(By.xpath(String.format("(//div[contains(@class,'card ng-star')]//div[@class='card-body'])[%s]//div[@class='form-group']//input",i)));
+			int VitalSignInputCount = VitalSignInput.size();
+			if(VitalSignInputCount!=0)
+			{
+				for(int j=1;j<=VitalSignInputCount;j++)
+				{
+					By textArea = By.xpath(String.format("((//div[contains(@class,'card ng-star')]//div[@class='card-body'])[%s]//div[@class='form-group']//input)[%s]", i,j));
+					this.SendKeysToElementClearFirst(textArea, TextArea);
+				}
+			}
+		}
+		this.click(btnRecrdVitalSave, "Vital Save");
+		this.waitInSecs(5);
+		BooleanTasks(Task);
+	}
+	
+	
+	public void CreatedVitalSign(String VitalSign , String VitalSigntext)
+	{		
+		
+		By CreatedDescription = By.xpath(String.format("(//datatable-body-cell//span[contains(text(),'%s')])[1]", VitalSign));
+		By CreatedTextDescription = By.xpath(String.format("(//datatable-body-cell//span[contains(text(),'%s')])[1]", VitalSigntext));
+		/*this.VerifyWebElementPresent(CreatedDescription, VitalSign);
+		this.VerifyWebElementPresent(CreatedTextDescription, VitalSigntext);*/	
+		if(this.isElementPresent(CreatedDescription) && this.isElementPresent(CreatedTextDescription))
+		{
+		this.testReport.logSuccess("new added Vital sign ", String.format("new added Vital sign  :- <mark>%s</mark> and  <mark>%s</mark> present", VitalSign,VitalSigntext), this.getScreenShotName());
 		}
 		else
 		{
-			this.testReport.logFailure(" Undo button Verification", String.format("Clicking on Undo button under Routine tab to revert the changes not made on past administration med"));
-		}		
-
+			this.testReport.logFailure("new added Vital sign ", String.format("new added Vital sign  :- <mark>%s</mark> and  <mark>%s</mark> not present ", VitalSign,VitalSigntext), this.getScreenShotName());
+		}
 	}
 }
 

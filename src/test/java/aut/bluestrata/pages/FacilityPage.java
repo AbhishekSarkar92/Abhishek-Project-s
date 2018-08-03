@@ -51,7 +51,7 @@ public class FacilityPage extends PhysicianPortalPage {
 		{
 		this.VerifyWebElementPresent(btnCreateAnOrderSet, "Create an Order Set");
 		
-		List<WebElement> Description = wd.findElements(By.xpath("//div[@class='list-group']//a//div/h5"));
+		List<WebElement> Description = wd.findElements(By.xpath("//datatable-body-row//datatable-body-cell[1]//span"));
 		int TotalDescriptionNo = Description.size();
 		ArrayList<String> description = new ArrayList<String>();
 		this.testReport.logSuccess("Total Number of Created Order ",String.format("Number of Created Order Present in the List - <mark>%s</mark> ", TotalDescriptionNo));
@@ -60,7 +60,7 @@ public class FacilityPage extends PhysicianPortalPage {
 			/*String DescriptionName = wd.findElement(By.xpath(String.format("(//div[@class='list-group']//a//div/h5)[%s]",i))).getAttribute("innerHTML");
 			this.testReport.logSuccess("Created Order ",String.format("Created Order Present in the List - <mark>%s</mark> ", DescriptionName));*/
 			
-			description.add(wd.findElement(By.xpath(String.format("(//div[@class='list-group']//a//div/h5)[%s]",i))).getAttribute("innerHTML"));
+			description.add(wd.findElement(By.xpath(String.format("(//datatable-body-row//datatable-body-cell[1]//span)[%s]",i))).getAttribute("innerHTML"));
 			
 			
 		}
@@ -70,6 +70,33 @@ public class FacilityPage extends PhysicianPortalPage {
 		
 		this.click(btnCreateAnOrderSet,"Create an Order Set");
 		}
+	}
+	
+	public void DeleteCreatedOrders()
+	{
+		if(this.isElementPresent(btnMaintenance))
+		{
+			this.VerifyWebElementPresent(btnMaintenance, "Maintenance");
+			this.click(btnMaintenance, "Maintenance");
+		}
+		if(this.isElementPresent(btnManageOrderSets))
+		{
+			this.VerifyWebElementPresent(btnManageOrderSets, "Manage Order Sets");
+			this.VerifyWebElementPresent(btnManageOrderLibrary, "Manage Order Library");
+			this.click(btnManageOrderSets, "Manage Order Sets");
+		}
+		
+		List<WebElement> RemoveButton = wd.findElements(By.xpath("//button[text()='Remove']"));
+		int RemoveButtonCount = RemoveButton.size();
+		for(int i=1;i<=RemoveButtonCount-30;i++)
+		{
+			By removeButton = By.xpath(String.format("(//button[text()='Remove'])[%s]",i));
+			this.click(removeButton, "Remove");
+			By OkButton = By.xpath("//button[text()='Ok']");
+			this.click(OkButton, "Ok");
+			this.waitInSecs(2);
+		}
+
 	}
 	
 	
@@ -106,7 +133,7 @@ public class FacilityPage extends PhysicianPortalPage {
 		{
 		this.VerifyWebElementPresent(btnManageOrderSets, "Manage Order Sets");
 		this.VerifyWebElementPresent(btnManageOrderLibrary, "Manage Order Library");
-		this.clickWithJavascript(btnManageOrderLibrary);
+		this.click(btnManageOrderLibrary,"");
 		}
 	}
 	
@@ -147,19 +174,19 @@ public class FacilityPage extends PhysicianPortalPage {
 			int UpdateNo = OrderUpdate.size();
 			int RemoveNo = OrderRemove.size();
 			
-			for(int j=1;j<=decriptionNo;j++)
+			/*for(int j=1;j<=decriptionNo;j++)
 			{
-				Options.add(wd.findElement(By.xpath(String.format("(//datatable-body-cell//input)[%s]",i))).getAttribute("ng-reflect-model"));
+				Options.add(wd.findElement(By.xpath(String.format("(//datatable-body-cell//input[contains(@class,touched)])[%s]",j))).getText());
 				Options.toString();
 			}
 			
 			this.testReport.logSuccess("Description ",String.format(" Description Present in the List - <mark>%s</mark> ", Options.toString()));
-			
+			*/
 			this.testReport.logSuccess("Order Type ",String.format("No of Description : <mark>%s</mark> , No of Update Button : <mark>%s</mark> , No of Remove Button : <mark>%s</mark> in Order Type: <mark>%s</mark>  ",decriptionNo,UpdateNo,RemoveNo, type ));
 			
 			//every time we will Edit The First Description 
 			
-			By FirstDescription = By.xpath("(//datatable-body-cell//input)[1]");
+			By FirstDescription = By.xpath("(//datatable-body-cell//input[contains(@class,touched)])[1]");
 			this.SendKeysToElementClearFirst(FirstDescription, description);
 			By UpadteButton = By.xpath("(//button[text()='Update'])[1]");
 			this.click(UpadteButton, "Upadte Button");
@@ -195,14 +222,19 @@ public class FacilityPage extends PhysicianPortalPage {
 
 			this.click(Typebutton, "Type Clicked");
 			this.waitInSecs(4);
+			
+			By RemoveButton = By.xpath("(//datatable-body-cell//input)[1]/..//..//following-sibling::datatable-body-cell//button[text()='Remove']");
+			this.click(RemoveButton, "Order Template Remove Button");
+			
+			
 
-			List<WebElement> Orderdecription = wd.findElements(By.xpath("//datatable-body-cell//input"));
+			/*List<WebElement> Orderdecription = wd.findElements(By.xpath("//datatable-body-cell//input"));
 			int decriptionNo = Orderdecription.size();
 
 			for(int j=1;j<=decriptionNo;j++)
 			{
 
-				String Description = wd.findElement(By.xpath(String.format("(//datatable-body-cell//input)[%s]",j))).getAttribute("ng-reflect-model");
+				String Description = wd.findElement(By.xpath(String.format("(//datatable-body-cell//input[contains(@class,'control')])[%s]",j))).getAttribute("innerHTML");
 				if(description.equals(Description))
 				{
 					By RemoveButton = By.xpath(String.format("//datatable-body-cell//input[@ng-reflect-model='%s']/..//..//following-sibling::datatable-body-cell//button[text()='Remove']",Description));
@@ -215,7 +247,7 @@ public class FacilityPage extends PhysicianPortalPage {
 					break;
 				}
 
-			}
+			}*/
 		}
 
 	}
@@ -291,8 +323,10 @@ public class FacilityPage extends PhysicianPortalPage {
 	
 	public void VerifyManageOrderFromSets(String description)
 	{
-		By Description = By.xpath(String.format("//div[@class='list-group']//a//div/h5[text()='%s']", description));
+		//By Description = By.xpath(String.format("//div[@class='list-group']//a//div/h5[text()='%s']", description));
+		By Description = By.xpath(String.format("//datatable-body-cell//div//span[text()='%s']", description));
 		this.waitInSecs(5);
+		this.waitUntilElementIsVisible(Description);
 		this.VerifyWebElementPresent(Description, "Created order present in Existing Set");
 	}
 	
@@ -327,12 +361,16 @@ public class FacilityPage extends PhysicianPortalPage {
 			 
 		this.VerifyWebElementPresent(btnRemvFrequency, "Remove Frequency");
 		 }
+		 
+		 this.click(btnAddOrder, "Add Order");
 	}
 	
 	
 	public void ClickingTheCreatedOrderFromSets(String description)
 	{
-		By Description = By.xpath(String.format("//div[@class='list-group']//a//div/h5[text()='%s']", description));
+		//By Description = By.xpath(String.format("//div[@class='list-group']//a//div/h5[text()='%s']", description));
+		By Description = By.xpath(String.format("//datatable-body-cell//span[text()='%s']", description));
+		this.waitUntilElementIsVisible(Description);
 		this.click(Description, "Created order present in Existing Set");
 	}
 	

@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -24,6 +26,9 @@ public class HomePage extends PageTemplate {
 	public By optionClinicalPortal = By.xpath("//div[@class='modal-content']//img[@src='https://cdn.bluestrataemr.com/Images/Menu/sigma_medical_nurse_128.png']");
 	public By optionEmarPortal = By.xpath("//div[@class='modal-content']//img[@src='https://cdn.bluestrataemr.com/Images/Menu/sigma_medical_tablet_128.png']");
 	
+	public By btnFacilyIcon = By.xpath("//button/i[contains(@class,'refresh')]");
+	public By btnResidentIcon = By.xpath("//a/i[contains(@class,'refresh')]");
+	
 	
 	public void NavigateToPhysicianPortal()
 	{
@@ -39,7 +44,10 @@ public class HomePage extends PageTemplate {
 	
 	public void NavigateToFacilityPortal()
 	{
+		/*String Element = wd.findElement(By.xpath("//div[contains(@class,'col-md-auto')]//button")).getCssValue("background-color");
+		System.out.println(Element);*/
 		this.click(btnMenu ,"Menu Button");
+		
 		this.click(optionFacilityPortal ,"Facility Portal Option");
 	}
 	
@@ -117,6 +125,22 @@ public class HomePage extends PageTemplate {
 		this.testReport.logSuccess("Present Apps ", String.format("Present Apps On application Menu <mark>%s<mark/> ", Apps.toString()) );
 		
 		this.click(btnMenu ,"Menu Button");
+	}
+	
+	public void VerifyFacilityIconAndName()
+	{
+		this.VerifyWebElementPresent(btnFacilyIcon, "Facility Icon");
+		String FacilityName = wd.findElement(By.xpath("//button/i[contains(@class,'refresh')]/../following-sibling::a"));
+		this.testReport.logSuccess("Facillity Name ", String.format("Facillity Name :- <mark>%s<mark/> ", FacilityName) );
+		
+	}
+	
+	public void VerifyResidentIconAndName()
+	{
+		this.VerifyWebElementPresent(btnResidentIcon, "Resident Icon");
+		String ResidentName = wd.findElement(By.xpath("//a/i[contains(@class,'refresh')]/../following-sibling::a"));
+		this.testReport.logSuccess("Resident Name ", String.format("Resident Name :- <mark>%s<mark/> ", ResidentName) );
+		
 	}
 
 	

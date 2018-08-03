@@ -1,5 +1,8 @@
 package dweb.aut.pages.templates;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -130,7 +133,8 @@ public abstract class PageTemplate {
 		}
 
 	}
-
+	
+	
 	protected void click(By byLocator , String ControlName) {
 		try {
 			this.waitUntilElementIsClickable(byLocator);
@@ -185,7 +189,8 @@ public abstract class PageTemplate {
 
 		}
 	}
-
+	
+	
 	protected void SelectDropDownByText(By byLocator, String visibleText) {
 		try {
 			this.waitUntilElementIsClickable(byLocator);
@@ -630,6 +635,16 @@ public abstract class PageTemplate {
          
 
      }
+	 
+	 public void ClickENTER() throws AWTException
+	 {
+		 Robot robot = new Robot();
+		 this.waitInSecs(3);
+		 robot.keyPress(KeyEvent.VK_ENTER);
+		 this.waitInSecs(3);
+		 robot.keyRelease(KeyEvent.VK_ENTER);
+		 this.waitInSecs(3);
+	 }
 
 	 
 	 

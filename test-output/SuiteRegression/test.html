@@ -1,0 +1,216 @@
+<html>
+<head>
+<title>TestNG:  test</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>test</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>11/1/0</td>
+</tr><tr>
+<td>Started on:</td><td>Thu Aug 02 19:02:35 IST 2018</td>
+</tr>
+<tr><td>Total time:</td><td>18081 seconds (18081963 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='aut.tests.functionaltests.FacilityAppTestCases.QA043_CreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication()'><b>QA043_CreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication</b><br>Test class: aut.tests.functionaltests.FacilityAppTestCases</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: Unable to find element with xpath == //datatable-scroller[@class=&apos;datatable-scroll ng-star-inserted&apos;]//span[text()=&apos;Amoxicillin 250 MG Capsule&apos;]
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.6.0&apos;, revision: &apos;6fbf3ec767&apos;, time: &apos;2017-09-27T15:28:36.4Z&apos;
+System info: host: &apos;HW1562&apos;, ip: &apos;10.11.4.37&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_141&apos;
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{proxy=Proxy(), acceptInsecureCerts=false, browserVersion=11, se:ieOptions={nativeEvents=true, browserAttachTimeout=0, ie.ensureCleanSession=true, elementScrollBehavior=0, enablePersistentHover=true, ie.browserCommandLineSwitches=, ie.forceCreateProcessApi=false, requireWindowFocus=false, initialBrowserUrl=http://localhost:4080/, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, ignoreProtectedModeSettings=false}, timeouts={implicit=0, pageLoad=300000, script=30000}, browserName=internet explorer, pageLoadStrategy=normal, javascriptEnabled=true, platformName=WINDOWS, setWindowRect=true, platform=WINDOWS}]
+Session ID: 15bd152f-b973-46e4-b090-4893713483c7
+*** Element info: {Using=xpath, value=//datatable-scroller[@class=&apos;datatable-scroll ng-star-inserted&apos;]//span[text()=&apos;Amoxicillin 250 MG Capsule&apos;]}
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:160)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:371)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:473)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at aut.bluestrata.pages.FacilityPage.CreateOrderSetDescription(FacilityPage.java:297)
+	at aut.tests.functionaltests.FacilityAppTestCases.QA043_CreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication(FacilityAppTestCases.java:494)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+... Removed 20 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace845814186", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace845814186'><pre>org.openqa.selenium.NoSuchElementException: Unable to find element with xpath == //datatable-scroller[@class=&apos;datatable-scroll ng-star-inserted&apos;]//span[text()=&apos;Amoxicillin 250 MG Capsule&apos;]
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.6.0&apos;, revision: &apos;6fbf3ec767&apos;, time: &apos;2017-09-27T15:28:36.4Z&apos;
+System info: host: &apos;HW1562&apos;, ip: &apos;10.11.4.37&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_141&apos;
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{proxy=Proxy(), acceptInsecureCerts=false, browserVersion=11, se:ieOptions={nativeEvents=true, browserAttachTimeout=0, ie.ensureCleanSession=true, elementScrollBehavior=0, enablePersistentHover=true, ie.browserCommandLineSwitches=, ie.forceCreateProcessApi=false, requireWindowFocus=false, initialBrowserUrl=http://localhost:4080/, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, ignoreProtectedModeSettings=false}, timeouts={implicit=0, pageLoad=300000, script=30000}, browserName=internet explorer, pageLoadStrategy=normal, javascriptEnabled=true, platformName=WINDOWS, setWindowRect=true, platform=WINDOWS}]
+Session ID: 15bd152f-b973-46e4-b090-4893713483c7
+*** Element info: {Using=xpath, value=//datatable-scroller[@class=&apos;datatable-scroll ng-star-inserted&apos;]//span[text()=&apos;Amoxicillin 250 MG Capsule&apos;]}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:160)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:371)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:473)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at aut.bluestrata.pages.FacilityPage.CreateOrderSetDescription(FacilityPage.java:297)
+	at aut.tests.functionaltests.FacilityAppTestCases.QA043_CreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication(FacilityAppTestCases.java:494)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.access$000(SuiteRunner.java:39)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:414)
+	at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+</pre></div></td>
+<td>133</td>
+<td>aut.tests.functionaltests.FacilityAppTestCases@55b53d44</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='aut.tests.functionaltests.FacilityAppTestCases.QA037_CreateAnOrderSetsviaFacilityAppfor_DetailsType()'><b>QA037_CreateAnOrderSetsviaFacilityAppfor_DetailsType</b><br>Test class: aut.tests.functionaltests.FacilityAppTestCases</td>
+<td></td>
+<td>92</td>
+<td>aut.tests.functionaltests.FacilityAppTestCases@55b53d44</td></tr>
+<tr>
+<td title='aut.tests.functionaltests.FacilityAppTestCases.QA038_AddingFrequencyInNewlyCreatedOrderSetsViaFacilityAppFor_DetailsType_WithFrequencyType_Routine()'><b>QA038_AddingFrequencyInNewlyCreatedOrderSetsViaFacilityAppFor_DetailsType_WithFrequencyType_Routine</b><br>Test class: aut.tests.functionaltests.FacilityAppTestCases</td>
+<td></td>
+<td>624</td>
+<td>aut.tests.functionaltests.FacilityAppTestCases@55b53d44</td></tr>
+<tr>
+<td title='aut.tests.functionaltests.FacilityAppTestCases.QA039_FrequencyFieldSelection_WithFrequencyType_Routine()'><b>QA039_FrequencyFieldSelection_WithFrequencyType_Routine</b><br>Test class: aut.tests.functionaltests.FacilityAppTestCases</td>
+<td></td>
+<td>9572</td>
+<td>aut.tests.functionaltests.FacilityAppTestCases@55b53d44</td></tr>
+<tr>
+<td title='aut.tests.functionaltests.FacilityAppTestCases.QA040_HowOftenFieldSelection_WithFrequencyType_Routine()'><b>QA040_HowOftenFieldSelection_WithFrequencyType_Routine</b><br>Test class: aut.tests.functionaltests.FacilityAppTestCases</td>
+<td></td>
+<td>2564</td>
+<td>aut.tests.functionaltests.FacilityAppTestCases@55b53d44</td></tr>
+<tr>
+<td title='aut.tests.functionaltests.FacilityAppTestCases.QA041_AddingFrequencyInNewCreatedOrderSetsVia_FacilityAppForDetailsType_WithFrequencyType_PNR()'><b>QA041_AddingFrequencyInNewCreatedOrderSetsVia_FacilityAppForDetailsType_WithFrequencyType_PNR</b><br>Test class: aut.tests.functionaltests.FacilityAppTestCases</td>
+<td></td>
+<td>757</td>
+<td>aut.tests.functionaltests.FacilityAppTestCases@55b53d44</td></tr>
+<tr>
+<td title='aut.tests.functionaltests.FacilityAppTestCases.QA042_AddingFrequencyInNewCreatedOrderSetsVia_FacilityAppForDetailsType_WithFrequencyType_PNREveryHour()'><b>QA042_AddingFrequencyInNewCreatedOrderSetsVia_FacilityAppForDetailsType_WithFrequencyType_PNREveryHour</b><br>Test class: aut.tests.functionaltests.FacilityAppTestCases</td>
+<td></td>
+<td>769</td>
+<td>aut.tests.functionaltests.FacilityAppTestCases@55b53d44</td></tr>
+<tr>
+<td title='aut.tests.functionaltests.FacilityAppTestCases.QA044_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_Routine()'><b>QA044_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_Routine</b><br>Test class: aut.tests.functionaltests.FacilityAppTestCases</td>
+<td></td>
+<td>956</td>
+<td>aut.tests.functionaltests.FacilityAppTestCases@55b53d44</td></tr>
+<tr>
+<td title='aut.tests.functionaltests.FacilityAppTestCases.QA045_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_PNR()'><b>QA045_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_PNR</b><br>Test class: aut.tests.functionaltests.FacilityAppTestCases</td>
+<td></td>
+<td>354</td>
+<td>aut.tests.functionaltests.FacilityAppTestCases@55b53d44</td></tr>
+<tr>
+<td title='aut.tests.functionaltests.FacilityAppTestCases.QA046_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_PNREveryHour()'><b>QA046_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_PNREveryHour</b><br>Test class: aut.tests.functionaltests.FacilityAppTestCases</td>
+<td></td>
+<td>357</td>
+<td>aut.tests.functionaltests.FacilityAppTestCases@55b53d44</td></tr>
+<tr>
+<td title='aut.tests.functionaltests.FacilityAppTestCases.QA047_AddMultipleOrdersetsWithinOneOrdersetTemplate()'><b>QA047_AddMultipleOrdersetsWithinOneOrdersetTemplate</b><br>Test class: aut.tests.functionaltests.FacilityAppTestCases</td>
+<td></td>
+<td>263</td>
+<td>aut.tests.functionaltests.FacilityAppTestCases@55b53d44</td></tr>
+<tr>
+<td title='aut.tests.functionaltests.FacilityAppTestCases.QA048_UpdatingOrRemovingOrder_LibrariesViaFacilityAppForDetailsType()'><b>QA048_UpdatingOrRemovingOrder_LibrariesViaFacilityAppForDetailsType</b><br>Test class: aut.tests.functionaltests.FacilityAppTestCases</td>
+<td></td>
+<td>1129</td>
+<td>aut.tests.functionaltests.FacilityAppTestCases@55b53d44</td></tr>
+</table><p>
+</body>
+</html>

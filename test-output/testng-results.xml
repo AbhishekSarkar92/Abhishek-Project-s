@@ -1,158 +1,613 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+<testng-results skipped="0" failed="1" ignored="0" total="12" passed="11">
   <reporter-output>
   </reporter-output>
-  <suite name="SuiteRegression" duration-ms="3259699" started-at="2018-07-06T06:24:21Z" finished-at="2018-07-06T07:18:41Z">
+  <suite name="SuiteRegression" duration-ms="18081963" started-at="2018-08-02T13:32:35Z" finished-at="2018-08-02T18:33:57Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="3259699" started-at="2018-07-06T06:24:21Z" finished-at="2018-07-06T07:18:41Z">
-      <class name="aut.tests.functionaltests.PhysicianPortalTestCases">
-        <test-method status="PASS" signature="beforeSuite(org.testng.ITestContext, org.testng.xml.XmlTest)[pri:0, instance:aut.tests.functionaltests.PhysicianPortalTestCases@8317c52]" name="beforeSuite" is-config="true" duration-ms="149" started-at="2018-07-06T11:54:21Z" finished-at="2018-07-06T11:54:21Z">
+    <test name="test" duration-ms="18081963" started-at="2018-08-02T13:32:35Z" finished-at="2018-08-02T18:33:57Z">
+      <class name="aut.tests.functionaltests.FacilityAppTestCases">
+        <test-method status="PASS" signature="beforeSuite(org.testng.ITestContext, org.testng.xml.XmlTest)[pri:0, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44]" name="beforeSuite" is-config="true" duration-ms="371" started-at="2018-08-02T19:02:35Z" finished-at="2018-08-02T19:02:35Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@17d35547]]>
+                <![CDATA[org.testng.TestRunner@5dafbe45]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[[Test: "Test" verbose:1[parameters:][metagroups:] [included: ][excluded: ]  classes: packages:] ]]>
+                <![CDATA[[Test: "test" verbose:1[parameters:][metagroups:] [included: ][excluded: ]  classes: packages:] ]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeSuite -->
-        <test-method status="PASS" signature="beforeTest(org.testng.ITestContext)[pri:0, instance:aut.tests.functionaltests.PhysicianPortalTestCases@8317c52]" name="beforeTest" is-config="true" duration-ms="1" started-at="2018-07-06T11:54:21Z" finished-at="2018-07-06T11:54:21Z">
+        <test-method status="PASS" signature="beforeTest(org.testng.ITestContext)[pri:0, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44]" name="beforeTest" is-config="true" duration-ms="1" started-at="2018-08-02T19:02:35Z" finished-at="2018-08-02T19:02:35Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@17d35547]]>
+                <![CDATA[org.testng.TestRunner@5dafbe45]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="beforeMethod(org.testng.ITestContext, java.lang.reflect.Method)[pri:0, instance:aut.tests.functionaltests.PhysicianPortalTestCases@8317c52]" name="beforeMethod" is-config="true" duration-ms="76317" started-at="2018-07-06T11:54:21Z" finished-at="2018-07-06T11:55:37Z">
+        <test-method status="PASS" signature="beforeMethod(org.testng.ITestContext, java.lang.reflect.Method)[pri:0, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44]" name="beforeMethod" is-config="true" duration-ms="41635" started-at="2018-08-02T19:02:35Z" finished-at="2018-08-02T19:03:17Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@17d35547]]>
+                <![CDATA[org.testng.TestRunner@5dafbe45]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[public void aut.tests.functionaltests.PhysicianPortalTestCases.QA022_SignAnOrder_ViaOrderSetsOrCreateAnOrder(org.testng.ITestContext) throws java.awt.AWTException]]>
+                <![CDATA[public void aut.tests.functionaltests.FacilityAppTestCases.QA037_CreateAnOrderSetsviaFacilityAppfor_DetailsType()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="QA022_SignAnOrder_ViaOrderSetsOrCreateAnOrder(org.testng.ITestContext)[pri:16, instance:aut.tests.functionaltests.PhysicianPortalTestCases@8317c52]" name="QA022_SignAnOrder_ViaOrderSetsOrCreateAnOrder" duration-ms="655494" started-at="2018-07-06T11:55:37Z" finished-at="2018-07-06T12:06:33Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@17d35547]]>
-              </value>
-            </param>
-          </params>
+        <test-method status="PASS" signature="QA037_CreateAnOrderSetsviaFacilityAppfor_DetailsType()[pri:1, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44]" name="QA037_CreateAnOrderSetsviaFacilityAppfor_DetailsType" duration-ms="92290" started-at="2018-08-02T19:03:17Z" finished-at="2018-08-02T19:04:49Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- QA022_SignAnOrder_ViaOrderSetsOrCreateAnOrder -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestContext, org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:aut.tests.functionaltests.PhysicianPortalTestCases@8317c52]" name="afterMethod" is-config="true" duration-ms="762" started-at="2018-07-06T12:06:33Z" finished-at="2018-07-06T12:06:34Z">
+        </test-method> <!-- QA037_CreateAnOrderSetsviaFacilityAppfor_DetailsType -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestContext, org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44]" name="afterMethod" is-config="true" duration-ms="757" started-at="2018-08-02T19:04:49Z" finished-at="2018-08-02T19:04:50Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@17d35547]]>
+                <![CDATA[org.testng.TestRunner@5dafbe45]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[[TestResult name=QA022_SignAnOrder_ViaOrderSetsOrCreateAnOrder status=SUCCESS method=PhysicianPortalTestCases.QA022_SignAnOrder_ViaOrderSetsOrCreateAnOrder(org.testng.ITestContext)[pri:16, instance:aut.tests.functionaltests.PhysicianPortalTestCases@8317c52] output={null}]]]>
+                <![CDATA[[TestResult name=QA037_CreateAnOrderSetsviaFacilityAppfor_DetailsType status=SUCCESS method=FacilityAppTestCases.QA037_CreateAnOrderSetsviaFacilityAppfor_DetailsType()[pri:1, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44] output={null}]]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[public void aut.tests.functionaltests.PhysicianPortalTestCases.QA022_SignAnOrder_ViaOrderSetsOrCreateAnOrder(org.testng.ITestContext) throws java.awt.AWTException]]>
+                <![CDATA[public void aut.tests.functionaltests.FacilityAppTestCases.QA037_CreateAnOrderSetsviaFacilityAppfor_DetailsType()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="beforeMethod(org.testng.ITestContext, java.lang.reflect.Method)[pri:0, instance:aut.tests.functionaltests.PhysicianPortalTestCases@8317c52]" name="beforeMethod" is-config="true" duration-ms="75338" started-at="2018-07-06T12:06:34Z" finished-at="2018-07-06T12:07:49Z">
+        <test-method status="PASS" signature="beforeMethod(org.testng.ITestContext, java.lang.reflect.Method)[pri:0, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44]" name="beforeMethod" is-config="true" duration-ms="36393" started-at="2018-08-02T19:04:50Z" finished-at="2018-08-02T19:05:26Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@17d35547]]>
+                <![CDATA[org.testng.TestRunner@5dafbe45]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[public void aut.tests.functionaltests.PhysicianPortalTestCases.QA023_ViewAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder(org.testng.ITestContext) throws java.awt.AWTException]]>
+                <![CDATA[public void aut.tests.functionaltests.FacilityAppTestCases.QA038_AddingFrequencyInNewlyCreatedOrderSetsViaFacilityAppFor_DetailsType_WithFrequencyType_Routine()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="QA023_ViewAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder(org.testng.ITestContext)[pri:17, instance:aut.tests.functionaltests.PhysicianPortalTestCases@8317c52]" name="QA023_ViewAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder" duration-ms="2451077" started-at="2018-07-06T12:07:49Z" finished-at="2018-07-06T12:48:40Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@17d35547]]>
-              </value>
-            </param>
-          </params>
+        <test-method status="PASS" signature="QA038_AddingFrequencyInNewlyCreatedOrderSetsViaFacilityAppFor_DetailsType_WithFrequencyType_Routine()[pri:2, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44]" name="QA038_AddingFrequencyInNewlyCreatedOrderSetsViaFacilityAppFor_DetailsType_WithFrequencyType_Routine" duration-ms="624795" started-at="2018-08-02T19:05:26Z" finished-at="2018-08-02T19:15:51Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- QA023_ViewAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestContext, org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:aut.tests.functionaltests.PhysicianPortalTestCases@8317c52]" name="afterMethod" is-config="true" duration-ms="630" started-at="2018-07-06T12:48:40Z" finished-at="2018-07-06T12:48:41Z">
+        </test-method> <!-- QA038_AddingFrequencyInNewlyCreatedOrderSetsViaFacilityAppFor_DetailsType_WithFrequencyType_Routine -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestContext, org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44]" name="afterMethod" is-config="true" duration-ms="637" started-at="2018-08-02T19:15:51Z" finished-at="2018-08-02T19:15:52Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@17d35547]]>
+                <![CDATA[org.testng.TestRunner@5dafbe45]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[[TestResult name=QA023_ViewAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder status=SUCCESS method=PhysicianPortalTestCases.QA023_ViewAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder(org.testng.ITestContext)[pri:17, instance:aut.tests.functionaltests.PhysicianPortalTestCases@8317c52] output={null}]]]>
+                <![CDATA[[TestResult name=QA038_AddingFrequencyInNewlyCreatedOrderSetsViaFacilityAppFor_DetailsType_WithFrequencyType_Routine status=SUCCESS method=FacilityAppTestCases.QA038_AddingFrequencyInNewlyCreatedOrderSetsViaFacilityAppFor_DetailsType_WithFrequencyType_Routine()[pri:2, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44] output={null}]]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[public void aut.tests.functionaltests.PhysicianPortalTestCases.QA023_ViewAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder(org.testng.ITestContext) throws java.awt.AWTException]]>
+                <![CDATA[public void aut.tests.functionaltests.FacilityAppTestCases.QA038_AddingFrequencyInNewlyCreatedOrderSetsViaFacilityAppFor_DetailsType_WithFrequencyType_Routine()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="afterTest(org.testng.ITestContext)[pri:0, instance:aut.tests.functionaltests.PhysicianPortalTestCases@8317c52]" name="afterTest" is-config="true" duration-ms="64" started-at="2018-07-06T12:48:41Z" finished-at="2018-07-06T12:48:41Z">
+        <test-method status="PASS" signature="beforeMethod(org.testng.ITestContext, java.lang.reflect.Method)[pri:0, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44]" name="beforeMethod" is-config="true" duration-ms="38126" started-at="2018-08-02T19:15:52Z" finished-at="2018-08-02T19:16:30Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@17d35547]]>
+                <![CDATA[org.testng.TestRunner@5dafbe45]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void aut.tests.functionaltests.FacilityAppTestCases.QA039_FrequencyFieldSelection_WithFrequencyType_Routine()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="QA039_FrequencyFieldSelection_WithFrequencyType_Routine()[pri:3, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44]" name="QA039_FrequencyFieldSelection_WithFrequencyType_Routine" duration-ms="9572549" started-at="2018-08-02T19:16:30Z" finished-at="2018-08-02T21:56:02Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- QA039_FrequencyFieldSelection_WithFrequencyType_Routine -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestContext, org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44]" name="afterMethod" is-config="true" duration-ms="1134" started-at="2018-08-02T21:56:02Z" finished-at="2018-08-02T21:56:03Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@5dafbe45]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[[TestResult name=QA039_FrequencyFieldSelection_WithFrequencyType_Routine status=SUCCESS method=FacilityAppTestCases.QA039_FrequencyFieldSelection_WithFrequencyType_Routine()[pri:3, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44] output={null}]]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[public void aut.tests.functionaltests.FacilityAppTestCases.QA039_FrequencyFieldSelection_WithFrequencyType_Routine()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod(org.testng.ITestContext, java.lang.reflect.Method)[pri:0, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44]" name="beforeMethod" is-config="true" duration-ms="50984" started-at="2018-08-02T21:56:03Z" finished-at="2018-08-02T21:56:54Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@5dafbe45]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void aut.tests.functionaltests.FacilityAppTestCases.QA040_HowOftenFieldSelection_WithFrequencyType_Routine()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="QA040_HowOftenFieldSelection_WithFrequencyType_Routine()[pri:4, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44]" name="QA040_HowOftenFieldSelection_WithFrequencyType_Routine" duration-ms="2564572" started-at="2018-08-02T21:56:54Z" finished-at="2018-08-02T22:39:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- QA040_HowOftenFieldSelection_WithFrequencyType_Routine -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestContext, org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44]" name="afterMethod" is-config="true" duration-ms="809" started-at="2018-08-02T22:39:39Z" finished-at="2018-08-02T22:39:40Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@5dafbe45]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[[TestResult name=QA040_HowOftenFieldSelection_WithFrequencyType_Routine status=SUCCESS method=FacilityAppTestCases.QA040_HowOftenFieldSelection_WithFrequencyType_Routine()[pri:4, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44] output={null}]]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[public void aut.tests.functionaltests.FacilityAppTestCases.QA040_HowOftenFieldSelection_WithFrequencyType_Routine()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod(org.testng.ITestContext, java.lang.reflect.Method)[pri:0, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44]" name="beforeMethod" is-config="true" duration-ms="45431" started-at="2018-08-02T22:39:40Z" finished-at="2018-08-02T22:40:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@5dafbe45]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void aut.tests.functionaltests.FacilityAppTestCases.QA041_AddingFrequencyInNewCreatedOrderSetsVia_FacilityAppForDetailsType_WithFrequencyType_PNR()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="QA041_AddingFrequencyInNewCreatedOrderSetsVia_FacilityAppForDetailsType_WithFrequencyType_PNR()[pri:5, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44]" name="QA041_AddingFrequencyInNewCreatedOrderSetsVia_FacilityAppForDetailsType_WithFrequencyType_PNR" duration-ms="757508" started-at="2018-08-02T22:40:25Z" finished-at="2018-08-02T22:53:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- QA041_AddingFrequencyInNewCreatedOrderSetsVia_FacilityAppForDetailsType_WithFrequencyType_PNR -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestContext, org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44]" name="afterMethod" is-config="true" duration-ms="765" started-at="2018-08-02T22:53:03Z" finished-at="2018-08-02T22:53:03Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@5dafbe45]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[[TestResult name=QA041_AddingFrequencyInNewCreatedOrderSetsVia_FacilityAppForDetailsType_WithFrequencyType_PNR status=SUCCESS method=FacilityAppTestCases.QA041_AddingFrequencyInNewCreatedOrderSetsVia_FacilityAppForDetailsType_WithFrequencyType_PNR()[pri:5, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44] output={null}]]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[public void aut.tests.functionaltests.FacilityAppTestCases.QA041_AddingFrequencyInNewCreatedOrderSetsVia_FacilityAppForDetailsType_WithFrequencyType_PNR()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod(org.testng.ITestContext, java.lang.reflect.Method)[pri:0, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44]" name="beforeMethod" is-config="true" duration-ms="38471" started-at="2018-08-02T22:53:03Z" finished-at="2018-08-02T22:53:42Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@5dafbe45]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void aut.tests.functionaltests.FacilityAppTestCases.QA042_AddingFrequencyInNewCreatedOrderSetsVia_FacilityAppForDetailsType_WithFrequencyType_PNREveryHour()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="QA042_AddingFrequencyInNewCreatedOrderSetsVia_FacilityAppForDetailsType_WithFrequencyType_PNREveryHour()[pri:6, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44]" name="QA042_AddingFrequencyInNewCreatedOrderSetsVia_FacilityAppForDetailsType_WithFrequencyType_PNREveryHour" duration-ms="769498" started-at="2018-08-02T22:53:42Z" finished-at="2018-08-02T23:06:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- QA042_AddingFrequencyInNewCreatedOrderSetsVia_FacilityAppForDetailsType_WithFrequencyType_PNREveryHour -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestContext, org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44]" name="afterMethod" is-config="true" duration-ms="784" started-at="2018-08-02T23:06:31Z" finished-at="2018-08-02T23:06:32Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@5dafbe45]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[[TestResult name=QA042_AddingFrequencyInNewCreatedOrderSetsVia_FacilityAppForDetailsType_WithFrequencyType_PNREveryHour status=SUCCESS method=FacilityAppTestCases.QA042_AddingFrequencyInNewCreatedOrderSetsVia_FacilityAppForDetailsType_WithFrequencyType_PNREveryHour()[pri:6, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44] output={null}]]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[public void aut.tests.functionaltests.FacilityAppTestCases.QA042_AddingFrequencyInNewCreatedOrderSetsVia_FacilityAppForDetailsType_WithFrequencyType_PNREveryHour()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod(org.testng.ITestContext, java.lang.reflect.Method)[pri:0, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44]" name="beforeMethod" is-config="true" duration-ms="39240" started-at="2018-08-02T23:06:32Z" finished-at="2018-08-02T23:07:11Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@5dafbe45]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void aut.tests.functionaltests.FacilityAppTestCases.QA043_CreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="FAIL" signature="QA043_CreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication()[pri:7, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44]" name="QA043_CreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication" duration-ms="133769" started-at="2018-08-02T23:07:11Z" finished-at="2018-08-02T23:09:25Z">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[Unable to find element with xpath == //datatable-scroller[@class='datatable-scroll ng-star-inserted']//span[text()='Amoxicillin 250 MG Capsule']
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.6.0', revision: '6fbf3ec767', time: '2017-09-27T15:28:36.4Z'
+System info: host: 'HW1562', ip: '10.11.4.37', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_141'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{proxy=Proxy(), acceptInsecureCerts=false, browserVersion=11, se:ieOptions={nativeEvents=true, browserAttachTimeout=0, ie.ensureCleanSession=true, elementScrollBehavior=0, enablePersistentHover=true, ie.browserCommandLineSwitches=, ie.forceCreateProcessApi=false, requireWindowFocus=false, initialBrowserUrl=http://localhost:4080/, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, ignoreProtectedModeSettings=false}, timeouts={implicit=0, pageLoad=300000, script=30000}, browserName=internet explorer, pageLoadStrategy=normal, javascriptEnabled=true, platformName=WINDOWS, setWindowRect=true, platform=WINDOWS}]
+Session ID: 15bd152f-b973-46e4-b090-4893713483c7
+*** Element info: {Using=xpath, value=//datatable-scroller[@class='datatable-scroll ng-star-inserted']//span[text()='Amoxicillin 250 MG Capsule']}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: Unable to find element with xpath == //datatable-scroller[@class='datatable-scroll ng-star-inserted']//span[text()='Amoxicillin 250 MG Capsule']
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.6.0', revision: '6fbf3ec767', time: '2017-09-27T15:28:36.4Z'
+System info: host: 'HW1562', ip: '10.11.4.37', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_141'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{proxy=Proxy(), acceptInsecureCerts=false, browserVersion=11, se:ieOptions={nativeEvents=true, browserAttachTimeout=0, ie.ensureCleanSession=true, elementScrollBehavior=0, enablePersistentHover=true, ie.browserCommandLineSwitches=, ie.forceCreateProcessApi=false, requireWindowFocus=false, initialBrowserUrl=http://localhost:4080/, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, ignoreProtectedModeSettings=false}, timeouts={implicit=0, pageLoad=300000, script=30000}, browserName=internet explorer, pageLoadStrategy=normal, javascriptEnabled=true, platformName=WINDOWS, setWindowRect=true, platform=WINDOWS}]
+Session ID: 15bd152f-b973-46e4-b090-4893713483c7
+*** Element info: {Using=xpath, value=//datatable-scroller[@class='datatable-scroll ng-star-inserted']//span[text()='Amoxicillin 250 MG Capsule']}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:160)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:371)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:473)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at aut.bluestrata.pages.FacilityPage.CreateOrderSetDescription(FacilityPage.java:297)
+	at aut.tests.functionaltests.FacilityAppTestCases.QA043_CreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication(FacilityAppTestCases.java:494)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.access$000(SuiteRunner.java:39)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:414)
+	at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- QA043_CreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestContext, org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44]" name="afterMethod" is-config="true" duration-ms="814" started-at="2018-08-02T23:09:25Z" finished-at="2018-08-02T23:09:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@5dafbe45]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[[TestResult name=QA043_CreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication status=FAILURE method=FacilityAppTestCases.QA043_CreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication()[pri:7, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44] output={null}]]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[public void aut.tests.functionaltests.FacilityAppTestCases.QA043_CreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod(org.testng.ITestContext, java.lang.reflect.Method)[pri:0, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44]" name="beforeMethod" is-config="true" duration-ms="38421" started-at="2018-08-02T23:09:26Z" finished-at="2018-08-02T23:10:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@5dafbe45]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void aut.tests.functionaltests.FacilityAppTestCases.QA044_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_Routine()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="QA044_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_Routine()[pri:8, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44]" name="QA044_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_Routine" duration-ms="956304" started-at="2018-08-02T23:10:04Z" finished-at="2018-08-02T23:26:01Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- QA044_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_Routine -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestContext, org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44]" name="afterMethod" is-config="true" duration-ms="849" started-at="2018-08-02T23:26:01Z" finished-at="2018-08-02T23:26:02Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@5dafbe45]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[[TestResult name=QA044_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_Routine status=SUCCESS method=FacilityAppTestCases.QA044_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_Routine()[pri:8, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44] output={null}]]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[public void aut.tests.functionaltests.FacilityAppTestCases.QA044_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_Routine()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod(org.testng.ITestContext, java.lang.reflect.Method)[pri:0, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44]" name="beforeMethod" is-config="true" duration-ms="42734" started-at="2018-08-02T23:26:02Z" finished-at="2018-08-02T23:26:44Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@5dafbe45]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void aut.tests.functionaltests.FacilityAppTestCases.QA045_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_PNR()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="QA045_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_PNR()[pri:9, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44]" name="QA045_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_PNR" duration-ms="354221" started-at="2018-08-02T23:26:44Z" finished-at="2018-08-02T23:32:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- QA045_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_PNR -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestContext, org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44]" name="afterMethod" is-config="true" duration-ms="1097" started-at="2018-08-02T23:32:39Z" finished-at="2018-08-02T23:32:40Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@5dafbe45]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[[TestResult name=QA045_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_PNR status=SUCCESS method=FacilityAppTestCases.QA045_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_PNR()[pri:9, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44] output={null}]]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[public void aut.tests.functionaltests.FacilityAppTestCases.QA045_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_PNR()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod(org.testng.ITestContext, java.lang.reflect.Method)[pri:0, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44]" name="beforeMethod" is-config="true" duration-ms="39153" started-at="2018-08-02T23:32:40Z" finished-at="2018-08-02T23:33:19Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@5dafbe45]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void aut.tests.functionaltests.FacilityAppTestCases.QA046_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_PNREveryHour()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="QA046_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_PNREveryHour()[pri:10, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44]" name="QA046_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_PNREveryHour" duration-ms="357432" started-at="2018-08-02T23:33:19Z" finished-at="2018-08-02T23:39:16Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- QA046_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_PNREveryHour -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestContext, org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44]" name="afterMethod" is-config="true" duration-ms="835" started-at="2018-08-02T23:39:16Z" finished-at="2018-08-02T23:39:17Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@5dafbe45]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[[TestResult name=QA046_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_PNREveryHour status=SUCCESS method=FacilityAppTestCases.QA046_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_PNREveryHour()[pri:10, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44] output={null}]]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[public void aut.tests.functionaltests.FacilityAppTestCases.QA046_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_PNREveryHour()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod(org.testng.ITestContext, java.lang.reflect.Method)[pri:0, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44]" name="beforeMethod" is-config="true" duration-ms="39287" started-at="2018-08-02T23:39:17Z" finished-at="2018-08-02T23:39:56Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@5dafbe45]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void aut.tests.functionaltests.FacilityAppTestCases.QA047_AddMultipleOrdersetsWithinOneOrdersetTemplate()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="QA047_AddMultipleOrdersetsWithinOneOrdersetTemplate()[pri:11, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44]" name="QA047_AddMultipleOrdersetsWithinOneOrdersetTemplate" duration-ms="263282" started-at="2018-08-02T23:39:56Z" finished-at="2018-08-02T23:44:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- QA047_AddMultipleOrdersetsWithinOneOrdersetTemplate -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestContext, org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44]" name="afterMethod" is-config="true" duration-ms="799" started-at="2018-08-02T23:44:20Z" finished-at="2018-08-02T23:44:20Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@5dafbe45]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[[TestResult name=QA047_AddMultipleOrdersetsWithinOneOrdersetTemplate status=SUCCESS method=FacilityAppTestCases.QA047_AddMultipleOrdersetsWithinOneOrdersetTemplate()[pri:11, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44] output={null}]]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[public void aut.tests.functionaltests.FacilityAppTestCases.QA047_AddMultipleOrdersetsWithinOneOrdersetTemplate()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="beforeMethod(org.testng.ITestContext, java.lang.reflect.Method)[pri:0, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44]" name="beforeMethod" is-config="true" duration-ms="41567" started-at="2018-08-02T23:44:20Z" finished-at="2018-08-02T23:45:02Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@5dafbe45]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void aut.tests.functionaltests.FacilityAppTestCases.QA048_UpdatingOrRemovingOrder_LibrariesViaFacilityAppForDetailsType()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="QA048_UpdatingOrRemovingOrder_LibrariesViaFacilityAppForDetailsType()[pri:12, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44]" name="QA048_UpdatingOrRemovingOrder_LibrariesViaFacilityAppForDetailsType" duration-ms="1129619" started-at="2018-08-02T23:45:02Z" finished-at="2018-08-03T00:03:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- QA048_UpdatingOrRemovingOrder_LibrariesViaFacilityAppForDetailsType -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestContext, org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44]" name="afterMethod" is-config="true" duration-ms="2792" started-at="2018-08-03T00:03:52Z" finished-at="2018-08-03T00:03:54Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@5dafbe45]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[[TestResult name=QA048_UpdatingOrRemovingOrder_LibrariesViaFacilityAppForDetailsType status=SUCCESS method=FacilityAppTestCases.QA048_UpdatingOrRemovingOrder_LibrariesViaFacilityAppForDetailsType()[pri:12, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44] output={null}]]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[public void aut.tests.functionaltests.FacilityAppTestCases.QA048_UpdatingOrRemovingOrder_LibrariesViaFacilityAppForDetailsType()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="afterTest(org.testng.ITestContext)[pri:0, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44]" name="afterTest" is-config="true" duration-ms="2543" started-at="2018-08-03T00:03:54Z" finished-at="2018-08-03T00:03:57Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@5dafbe45]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="afterSuite(org.testng.ITestContext)[pri:0, instance:aut.tests.functionaltests.PhysicianPortalTestCases@8317c52]" name="afterSuite" is-config="true" duration-ms="69" started-at="2018-07-06T12:48:41Z" finished-at="2018-07-06T12:48:41Z">
+        <test-method status="PASS" signature="afterSuite(org.testng.ITestContext)[pri:0, instance:aut.tests.functionaltests.FacilityAppTestCases@55b53d44]" name="afterSuite" is-config="true" duration-ms="1428" started-at="2018-08-03T00:03:57Z" finished-at="2018-08-03T00:03:59Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@17d35547]]>
+                <![CDATA[org.testng.TestRunner@5dafbe45]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterSuite -->
-      </class> <!-- aut.tests.functionaltests.PhysicianPortalTestCases -->
-    </test> <!-- Test -->
+      </class> <!-- aut.tests.functionaltests.FacilityAppTestCases -->
+    </test> <!-- test -->
   </suite> <!-- SuiteRegression -->
 </testng-results>

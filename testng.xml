@@ -2,12 +2,14 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="SuiteRegression" parallel="tests" thread-count="5">
 	<parameter name="appURL"
-		value="https://devapp.bluestrataemr.com" />
+		value="https://devclient.bluestrataemr.com/qa2" />
 	<parameter name="browserName" value="ie" />
 	<parameter name="automationKit" value="selenium" />
-	<test name="Test">
-		<classes>
-			<class name="aut.tests.functionaltests.PhysicianPortalTestCases" />
+	<test name="test">	
+		<classes>		
+			<class name="aut.tests.functionaltests.PhysicianPortalTestCases"/>							
 		</classes>
-	</test> <!-- Test -->
+	</test> <!-- Test -->	
 </suite> <!-- SuiteRegression -->
+
+

@@ -11,6 +11,7 @@ import org.testng.annotations.Test;
 import com.excel.Xls_Reader;
 
 import aut.bluestrata.pages.ClinicalPage;
+import aut.bluestrata.pages.EmarPage;
 import aut.bluestrata.pages.FacilityPage;
 import aut.bluestrata.pages.HomePage;
 import aut.bluestrata.pages.LoginPage;
@@ -24,7 +25,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		Xls_Reader xlsReader = new Xls_Reader("C:\\Bluestrata\\Abhishek-Project-s\\src\\test\\resources\\testdata\\BluestrataTestData.xlsx");
 		final String SheetName = "clinicalPortal";
 		
-		@Test(priority =1)
+		//@Test(priority =21)
 		public void QA090_OrderCreationViaClinicalAPP() throws URISyntaxException
 		{
 			PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -58,7 +59,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		}
 		
 		
-		@Test(priority =2)
+		//@Test(priority =22)
 		public void QA091_ResidentOrders_CreateAnOrderUsingDetailsType(ITestContext testContext)
 		{
 			
@@ -117,7 +118,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			HashMap<String ,String> testData = xlsReader.GetValue(SheetName,testCase);
 						
 			TestTemplate.testReport.logSuccess("Click On existing Resident");
-			physicianPortal.ClickOnExistingResident(testData.get("ResidentNo"));
+			physicianPortal.SearchResidentWithApplyFilterButton(testData.get("ResidentNo"));
 			physicianPortal.VerifyButtonInResidentOrders();
 			
 			
@@ -147,7 +148,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		}
 		
 		
-		@Test(priority =3)
+		//@Test(priority =23)
 		public void QA092_AddingFrequencyFromResidentOrders_CreateAnOrderWithFrequencyRoutine(ITestContext testContext)
 		{
 			PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -223,7 +224,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			HashMap<String ,String> testData = xlsReader.GetValue(SheetName,testCase);
 			
 			TestTemplate.testReport.logSuccess("Click On existing Resident");
-			physicianPortal.ClickOnExistingResident(testData.get("ResidentNo"));
+			physicianPortal.SearchResidentWithApplyFilterButton(testData.get("ResidentNo"));
 			physicianPortal.VerifyButtonInResidentOrders();
 		
 			TestTemplate.testReport.logSuccess("Create Order With Treatment Dropdown Option");
@@ -241,7 +242,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			physicianPortal.SaveOrderFrequency();
 			physicianPortal.OrderDisplayPageColourVerification();
 			physicianPortal.OrderDisplayPageColoumnsVerification();
-			physicianPortal.BottomPaneOfContainer();
+			
 			
 			physicianPortal.CreateAnOrderWithOrderDetails(testData.get("type2"),testData.get("libraryText")+testData.get("type2"),testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
 			physicianPortal.OrderFrequencyType(Integer.parseInt(testData.get("num")),testData.get("frequencyType"));
@@ -307,7 +308,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		
 		
 		
-		@Test(priority =4)
+		//@Test(priority =24)
 		public void QA093_FrequencyFieldSelectionWhen_FrequencyTypeRoutine(ITestContext testContext)
 		{
 			PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -402,7 +403,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			HashMap<String , String > testData = xlsReader.GetValue(SheetName, TestCase);
 			
 			TestTemplate.testReport.logSuccess("Click On existing Resident");
-			physicianPortal.ClickOnExistingResident(testData.get("ResidentNo"));
+			physicianPortal.SearchResidentWithApplyFilterButton(testData.get("ResidentNo"));
 			
 			
 	        
@@ -551,7 +552,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		
 
 		
-		@Test(priority =5)
+		//@Test(priority =25)
 		public void QA094_HowOftenFieldSelectionWhen_FrequencyTypeRoutine() throws URISyntaxException
 		{
 			PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -631,7 +632,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			HashMap<String , String > testData = xlsReader.GetValue(SheetName, TestCase);
 			
 			TestTemplate.testReport.logSuccess("Click On existing Resident");
-			physicianPortal.ClickOnExistingResident(testData.get("ResidentNo"));
+			physicianPortal.SearchResidentWithApplyFilterButton(testData.get("ResidentNo"));
 		
 			//Long GenerateNumber = physicianPortal.GenarateRandomNumber();
 			
@@ -724,7 +725,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		
 		
 		
-		@Test(priority =6)
+		//@Test(priority =26)
 		public void QA095_AddingFrequencyFromOrders_WithFrequencyPRN(ITestContext testContext)
 		{
 			PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -800,7 +801,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			HashMap<String , String > testData = xlsReader.GetValue(SheetName, TestCase);
 			
 			TestTemplate.testReport.logSuccess("Click On existing Resident");
-			physicianPortal.ClickOnExistingResident(testData.get("ResidentNo"));
+			physicianPortal.SearchResidentWithApplyFilterButton(testData.get("ResidentNo"));
 		
 			TestTemplate.testReport.logSuccess("Create Order With Treatment Dropdown Option");
 			
@@ -835,12 +836,12 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			
 			physicianPortal.OrderDisplayPageColourVerification();
 			physicianPortal.OrderDisplayPageColoumnsVerification();
-			physicianPortal.BottomPaneOfContainer();
+			
 			login.Logout();
 		}
 		
 		
-		@Test(priority =7)
+		//@Test(priority =27)
 		public void QA096_AddingFrequencyFromResidentOrder_WithFrequencyPRNEveryHour(ITestContext testContext)
 		{
 			PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -916,7 +917,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			HashMap<String , String > testData = xlsReader.GetValue(SheetName, TestCase);
 			
 			TestTemplate.testReport.logSuccess("Click On existing Resident");
-			physicianPortal.ClickOnExistingResident(testData.get("ResidentNo"));
+			physicianPortal.SearchResidentWithApplyFilterButton(testData.get("ResidentNo"));
 		
 			TestTemplate.testReport.logSuccess("Create Order With Treatment Dropdown Option");
 			
@@ -951,11 +952,11 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			
 			physicianPortal.OrderDisplayPageColourVerification();
 			physicianPortal.OrderDisplayPageColoumnsVerification();
-			physicianPortal.BottomPaneOfContainer();
+			
 			login.Logout();
 		}
 		
-		@Test(priority =8)
+		@Test(priority =28)
 		public void QA097_ResidentOrders_CreateAnOrderUsingDetailsTypeTreatmentWithMedication_And_Medication(ITestContext testContext)
 		{
 			
@@ -979,39 +980,8 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		//	String ResidentNo = xlsReader.getCellData("clinicalPortal", 28, 32);
 			
 			TestTemplate.testReport.logSuccess("Click On existing Resident");
-			physicianPortal.ClickOnExistingResident(testData.get("ResidentNo"));
-			physicianPortal.VerifyButtonInResidentOrders();
-			
-			
-			/*String type1 = xlsReader.getCellData("clinicalPortal", 0, 32);
-			String type2 = xlsReader.getCellData("clinicalPortal", 1, 32);
-			String medicationType = xlsReader.getCellData("clinicalPortal", 2, 32);
-			String medicationType1 = xlsReader.getCellData("clinicalPortal", 3, 32);
-			String searchMedicationName = xlsReader.getCellData("clinicalPortal", 4, 32);
-			String type6 = xlsReader.getCellData("clinicalPortal", 5, 32);
-			String type7 = xlsReader.getCellData("clinicalPortal", 6, 32);
-			String libraryText = xlsReader.getCellData("clinicalPortal", 7, 32);
-			String createdType = xlsReader.getCellData("clinicalPortal", 8, 32);		
-			String libraryText1 = xlsReader.getCellData("clinicalPortal", 9, 32);
-			String createdType1 = xlsReader.getCellData("clinicalPortal", 10, 32);
-			String nullDiagonisis = xlsReader.getCellData("clinicalPortal", 11, 32);
-			String SearchDiogonosisTxt = xlsReader.getCellData("clinicalPortal", 12, 32);
-			String medicarePriority = xlsReader.getCellData("clinicalPortal", 13, 32);
-			String diogonosisName = xlsReader.getCellData("clinicalPortal", 14, 32);
-			String physicianType = xlsReader.getCellData("clinicalPortal", 15, 32);
-			String ReceivedByType = xlsReader.getCellData("clinicalPortal", 16, 32);
-			String ReceivedOrderType1 = xlsReader.getCellData("clinicalPortal", 17, 32);
-			String ReceivedOrderType2 = xlsReader.getCellData("clinicalPortal", 18, 32);
-			String ReceivedOrderType3 = xlsReader.getCellData("clinicalPortal", 19, 32);
-			String ReceivedOrderType4 = xlsReader.getCellData("clinicalPortal", 20, 32);
-			String ReceivedOrderType5 = xlsReader.getCellData("clinicalPortal", 21, 32);
-			String ReceivedOrderType6 = xlsReader.getCellData("clinicalPortal", 22, 32);
-			String ReceivedOrderType7 = xlsReader.getCellData("clinicalPortal", 23, 32);
-			String routes = xlsReader.getCellData("clinicalPortal", 24, 32);
-			String WrittenDate = xlsReader.getCellData("clinicalPortal", 25, 32);
-			String NoOfRefillis = xlsReader.getCellData("clinicalPortal", 26, 32);
-			String WhenToFill = xlsReader.getCellData("clinicalPortal", 27, 32);*/
-			
+			physicianPortal.SearchResidentWithApplyFilterButton(testData.get("ResidentNo"));
+			physicianPortal.VerifyButtonInResidentOrders();			
 			
 			String[] frequencyTpyes = {testData.get("type1"),testData.get("type2")};
 			for(int n=0;n<=1;n++)
@@ -1042,7 +1012,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		}
 		
 		
-		@Test(priority =9)
+		//@Test(priority =29)
 		public void QA098_ResidentOrders_CreateAnOrderUsingDetailsTypeTreatmentWithMedication_And_Medication_FrequencyTypeRoutine(ITestContext testContext)
 		{
 			PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1118,7 +1088,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			HashMap<String ,String> testData = xlsReader.GetValue(SheetName,testCase);
 			
 			TestTemplate.testReport.logSuccess("Click On existing Resident");
-			physicianPortal.ClickOnExistingResident(testData.get("ResidentNo"));
+			physicianPortal.SearchResidentWithApplyFilterButton(testData.get("ResidentNo"));
 			physicianPortal.VerifyButtonInResidentOrders();
 		
 			TestTemplate.testReport.logSuccess("Create Order With Treatment Dropdown Option");
@@ -1166,7 +1136,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			physicianPortal.WhereToTabValidation();
 			physicianPortal.OrderDisplayPageColourVerification();
 			physicianPortal.OrderDisplayPageColoumnsVerification();
-			physicianPortal.BottomPaneOfContainer();
+			
 			
 			}
 			
@@ -1175,7 +1145,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			
 		}
 		
-		@Test(priority =10)
+		//@Test(priority =30)
 		public void QA099_ResidentOrders_CreateAnOrderUsingDetailsTypeTreatmentWithMedication_And_Medication_WithFrequencyPRNEveryHour(ITestContext testContext)
 		{
 			PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1251,7 +1221,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			HashMap<String ,String> testData = xlsReader.GetValue(SheetName,testCase);
 			
 			TestTemplate.testReport.logSuccess("Click On existing Resident");
-			physicianPortal.ClickOnExistingResident(testData.get("ResidentNo"));
+			physicianPortal.SearchResidentWithApplyFilterButton(testData.get("ResidentNo"));
 			physicianPortal.VerifyButtonInResidentOrders();
 		
 			TestTemplate.testReport.logSuccess("Create Order With Treatment Dropdown Option");
@@ -1284,7 +1254,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			physicianPortal.WhereToTabValidation();
 			physicianPortal.OrderDisplayPageColourVerification();
 			physicianPortal.OrderDisplayPageColoumnsVerification();
-			physicianPortal.BottomPaneOfContainer();
+			
 			
 			}
 			
@@ -1292,7 +1262,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			
 		}
 		
-		@Test(priority =11)
+		//@Test(priority =31)
 		public void QA100_ResidentOrders_CreateAnOrderUsingDetailsTypeTreatmentWithMedication_And_Medication_WithFrequencyPRN(ITestContext testContext)
 		{
 			PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1368,7 +1338,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			HashMap<String ,String> testData = xlsReader.GetValue(SheetName,testCase);
 			
 			TestTemplate.testReport.logSuccess("Click On existing Resident");
-			physicianPortal.ClickOnExistingResident(testData.get("ResidentNo"));
+			physicianPortal.SearchResidentWithApplyFilterButton(testData.get("ResidentNo"));
 			physicianPortal.VerifyButtonInResidentOrders();
 		
 			TestTemplate.testReport.logSuccess("Create Order With Treatment Dropdown Option");
@@ -1401,7 +1371,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			physicianPortal.WhereToTabValidation();
 			physicianPortal.OrderDisplayPageColourVerification();
 			physicianPortal.OrderDisplayPageColoumnsVerification();
-			physicianPortal.BottomPaneOfContainer();
+			
 			
 			}
 			
@@ -1410,7 +1380,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		}
 		
 		
-		@Test(priority =12)
+		//@Test(priority =32)
 		public void QA101_CreateAnOrder_ViaOrderSets (ITestContext testContext)
 		{
 			PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1526,7 +1496,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			clinicalPortal.ClickOnResidentOrdersFromOrders();	
 			
 			TestTemplate.testReport.logSuccess("Click On existing Resident");
-			physicianPortal.ClickOnExistingResident(testData.get("ResidentNo"));
+			physicianPortal.SearchResidentWithApplyFilterButton(testData.get("ResidentNo"));
 			physicianPortal.VerifyButtonInResidentOrders();
 			physicianPortal.CreateFromSet();
 			physicianPortal.SelectOrderFromOrderSets(testData.get("description"));
@@ -1549,16 +1519,16 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			physicianPortal.VerifyTheFieldsinFrequencyInOrdersInSets(newnum,Frequency);
 			}
 			
-			physicianPortal.CreateAnOrderWithOrderDetails(testData.get("type1"),testData.get("description"),testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
+			String TypeName = physicianPortal.CreateAnOrderWithOrderDetails(testData.get("type1"),testData.get("description"),testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
 			physicianPortal.VerifyIgnoreOrderSet();
 			physicianPortal.SaveOrderFrequency();
-			physicianPortal.VerifyOrderAndStatusInOrder(testData.get("libraryText"));
+			physicianPortal.OrdersSelection(TypeName ,testData.get("libraryText"));
 			
 			login.Logout();
 		}
 		
 		
-		@Test(priority =13)		
+		//@Test(priority =33)		
 		public void QA102_ViewAndModifyAnOrder_ViaOrderSets (ITestContext testContext) throws AWTException
 		{
 			 
@@ -1689,14 +1659,14 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			clinicalPortal.ClickOnResidentOrdersFromOrders();
 			
 			TestTemplate.testReport.logSuccess("Click On existing Resident");
-			physicianPortal.ClickOnExistingResident(testData.get("ResidentNo"));
+			physicianPortal.SearchResidentWithApplyFilterButton(testData.get("ResidentNo"));
 			physicianPortal.VerifyButtonInResidentOrders();
 			physicianPortal.CreateFromSet();
 			physicianPortal.SelectOrderFromOrderSets(testData.get("libraryText"));
-			physicianPortal.CreateAnOrderWithOrderDetails(testData.get("type8"),testData.get("libraryText"),testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
+			String TypeName = physicianPortal.CreateAnOrderWithOrderDetails(testData.get("type8"),testData.get("libraryText"),testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
 			physicianPortal.SaveOrderFrequency();	
 			physicianPortal.OrdersPageTextVerification();
-			physicianPortal.VerifyOrderAndStatusInOrder(testData.get("libraryText"));
+			physicianPortal.OrdersSelection(TypeName ,testData.get("libraryText"));
 			physicianPortal.PharmacyValidation();
 			physicianPortal.VerifyButtonInResidentOrders();
 			physicianPortal.OrdersDisplayPageForPerticularResident(testData.get("type8"));
@@ -1719,9 +1689,9 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			physicianPortal.VerifyButtonInResidentOrders();
 			physicianPortal.CreateFromSet();
 			physicianPortal.SelectOrderFromOrderSets(Description);
-			physicianPortal.CreateAnOrderWithOrderDetails(testData.get("type1"),Description,testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
+			String TypeName2 = physicianPortal.CreateAnOrderWithOrderDetails(testData.get("type1"),Description,testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
 			physicianPortal.SaveOrderFrequency();	
-			physicianPortal.VerifyOrderAndStatusInOrder(Description);
+			physicianPortal.OrdersSelection(TypeName2 , Description);
 			physicianPortal.OrdersDisplayPageForPerticularResident(testData.get("type1"));
 			physicianPortal.ClickingOnCreatedOrder(Description);
 			physicianPortal.VerifyButtonsInOrdersAndFrequency();
@@ -1739,7 +1709,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		
 		
 		
-		@Test(priority =14)
+		//@Test(priority =34)
 		public void QA103_VerifyAnOrder_ViaOrderSetsOrCreateAnOrder (ITestContext testContext) throws AWTException
 		{
 			 
@@ -1761,12 +1731,12 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			clinicalPortal.ClickOnResidentOrdersFromOrders();	
 			
 			TestTemplate.testReport.logSuccess("Click On existing Resident");
-			physicianPortal.ClickOnExistingResident(testData.get("ResidentNo"));
+			physicianPortal.SearchResidentWithApplyFilterButton(testData.get("ResidentNo"));
 			physicianPortal.VerifyButtonInResidentOrders();
 			
 			String Description = testData.get("description") + physicianPortal.GenarateRandomNumber();
 		
-			physicianPortal.CreateAnOrderWithOrderDetails(testData.get("type1"),Description,testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
+			String TypeName = physicianPortal.CreateAnOrderWithOrderDetails(testData.get("type1"),Description,testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
 			physicianPortal.CreateOrderFrequency(Integer.parseInt(testData.get("num")),Integer.parseInt(testData.get("No")),testData.get("frequencyType1"),testData.get("endDateType"),testData.get("requiredActions"),testData.get("requiredActionsPostDropdown") ,testData.get("administeredBy") ,testData.get("maxDoesHours") ,
 					testData.get("followUpAfterMinutes"),testData.get("slidingScaleMin"),testData.get("slidingScaleMax") ,testData.get("slidingScaleUnits") ,testData.get("frequency"),testData.get("howOften"),testData.get("everyDay"),testData.get("physicianInstructions"),testData.get("additionalInstruction"),testData.get("type1"));
 			
@@ -1775,7 +1745,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		
 			
 			
-			physicianPortal.VerifyOrderAndStatusInOrder(Description);
+			physicianPortal.OrdersSelection(TypeName,Description);
 			physicianPortal.ClickOnListViewForNavigateToOrdersView();
 			physicianPortal.VerifyTheOrderByClickingVerifyButton();
 			physicianPortal.OrdersPageTextVerification();
@@ -1793,7 +1763,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		
 		
 		
-		@Test(priority =15)
+		//@Test(priority =35)
 		public void QA104_VerifyAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder (ITestContext testContext) throws AWTException
 		{
 			 
@@ -1816,19 +1786,19 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			clinicalPortal.ClickOnResidentOrdersFromOrders();	
 			
 			TestTemplate.testReport.logSuccess("Click On existing Resident");
-			physicianPortal.ClickOnExistingResident(testData.get("ResidentNo"));
+			physicianPortal.SearchResidentWithApplyFilterButton(testData.get("ResidentNo"));
 			physicianPortal.VerifyButtonInResidentOrders();
 			
 			String Description = testData.get("description") + physicianPortal.GenarateRandomNumber();
 		
-			physicianPortal.CreateAnOrderWithOrderDetails(testData.get("type1"),Description,testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
+			String TypeName = physicianPortal.CreateAnOrderWithOrderDetails(testData.get("type1"),Description,testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
 			physicianPortal.CreateOrderFrequency(Integer.parseInt(testData.get("num")),Integer.parseInt(testData.get("No")),testData.get("frequencyType1"),testData.get("endDateType"),testData.get("requiredActions"),testData.get("requiredActionsPostDropdown") ,testData.get("administeredBy") ,testData.get("maxDoesHours") ,
 					testData.get("followUpAfterMinutes"),testData.get("slidingScaleMin"),testData.get("slidingScaleMax") ,testData.get("slidingScaleUnits") ,testData.get("frequency"),testData.get("howOften"),testData.get("everyDay"),testData.get("physicianInstructions"),testData.get("additionalInstruction"),testData.get("type1"));
 			
 				
 			physicianPortal.SaveOrderFrequency();
 			
-			physicianPortal.VerifyOrderAndStatusInOrder(Description);
+			physicianPortal.OrdersSelection(TypeName,Description);
 			physicianPortal.ClickOnListViewForNavigateToOrdersView();
 			physicianPortal.VerifyTheOrderByClickingVerifyButton();
 			physicianPortal.OrdersPageTextVerification();
@@ -1855,13 +1825,13 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			String Description2 = testData.get("description2") + physicianPortal.GenarateRandomNumber();
 			
 			
-			physicianPortal.CreateAnOrderWithOrderDetails(testData.get("type1"),Description2,testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
+			String TypeName1 =physicianPortal.CreateAnOrderWithOrderDetails(testData.get("type1"),Description2,testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
 			physicianPortal.CreateOrderFrequency(Integer.parseInt(testData.get("num")),Integer.parseInt(testData.get("No")),testData.get("frequencyType1"),testData.get("endDateType"),testData.get("requiredActions"),testData.get("requiredActionsPostDropdown") ,testData.get("administeredBy") ,testData.get("maxDoesHours") ,
 					testData.get("followUpAfterMinutes"),testData.get("slidingScaleMin"),testData.get("slidingScaleMax") ,testData.get("slidingScaleUnits") ,testData.get("frequency"),testData.get("howOften"),testData.get("everyDay"),testData.get("physicianInstructions"),testData.get("additionalInstruction"),testData.get("type1"));
 			
 	        physicianPortal.SaveOrderFrequency();
 			
-			physicianPortal.VerifyOrderAndStatusInOrder(Description2);
+			physicianPortal.OrdersSelection(TypeName1,Description2);
 			physicianPortal.ClickOnListViewForNavigateToOrdersView();
 			physicianPortal.VerifyTheOrderByClickingVerifyButton();
 			physicianPortal.VerifyCreatedOrderIntheVerifyList(Description2);	
@@ -1884,7 +1854,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		}
 		
 		
-		@Test(priority =16)
+		//@Test(priority =36)
 		public void QA105_SignAnOrder_ViaOrderSetsOrCreateAnOrder (ITestContext testContext) throws AWTException
 		{
 			 
@@ -1907,22 +1877,21 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			clinicalPortal.ClickOnResidentOrdersFromOrders();
 			
 			TestTemplate.testReport.logSuccess("Click On existing Resident");
-			physicianPortal.ClickOnExistingResident(testData.get("ResidentNo"));
+			physicianPortal.SearchResidentWithApplyFilterButton(testData.get("ResidentNo"));
 			
 			String Description = testData.get("description") + physicianPortal.GenarateRandomNumber();
 			
 			physicianPortal.VerifyButtonInResidentOrders();
 		
-			physicianPortal.CreateAnOrderWithOrderDetails(testData.get("type1"),Description,testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
+			String TypeName = physicianPortal.CreateAnOrderWithOrderDetails(testData.get("type1"),Description,testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
 			physicianPortal.CreateOrderFrequency(Integer.parseInt(testData.get("num")),Integer.parseInt(testData.get("num")),testData.get("frequencyType1"),testData.get("endDate"),testData.get("requiredActions"),testData.get("requiredActionsPostDropdown") ,testData.get("administeredBy") ,testData.get("maxDoesHours") ,
 					testData.get("followUpAfterMinutes"),testData.get("slidingScaleMin"),testData.get("slidingScaleMax") ,testData.get("slidingScaleUnits") ,testData.get("frequency"),testData.get("howOften"),testData.get("everyDay"),testData.get("physicianInstructions"),testData.get("additionalInstruction"),testData.get("type1"));
 			
 			
 			
 			
-			physicianPortal.SaveOrderFrequency();		
-			physicianPortal.VerifyOrderAndStatusInOrder(Description);
-			
+			physicianPortal.SaveOrderFrequency();			
+			physicianPortal.OrdersSelection(TypeName,Description);
 			
 			
 			physicianPortal.ClickOnListViewForNavigateToOrdersView();
@@ -1947,7 +1916,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		}
 		
 		
-		@Test(priority =17)
+		//@Test(priority =37)
 		public void QA106_ViewAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder (ITestContext testContext) throws AWTException
 		{
 			 
@@ -1971,12 +1940,12 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			clinicalPortal.ClickOnResidentOrdersFromOrders();	
 			
 			TestTemplate.testReport.logSuccess("Click On existing Resident");
-			physicianPortal.ClickOnExistingResident(testData.get("ResidentNo"));
+			physicianPortal.SearchResidentWithApplyFilterButton(testData.get("ResidentNo"));
 			physicianPortal.VerifyButtonInResidentOrders();
 			
 			String Description = testData.get("description") + physicianPortal.GenarateRandomNumber();
 		
-			physicianPortal.CreateAnOrderWithOrderDetails(testData.get("type1"),Description,testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
+			String TypeName = physicianPortal.CreateAnOrderWithOrderDetails(testData.get("type1"),Description,testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
 			physicianPortal.CreateOrderFrequency(Integer.parseInt(testData.get("num")),Integer.parseInt(testData.get("No")),testData.get("frequencyType1"),testData.get("endDateType"),testData.get("requiredActions"),testData.get("requiredActionsPostDropdown") ,testData.get("administeredBy") ,testData.get("maxDoesHours") ,
 					testData.get("followUpAfterMinutes"),testData.get("slidingScaleMin"),testData.get("slidingScaleMax") ,testData.get("slidingScaleUnits") ,testData.get("frequency"),testData.get("howOften"),testData.get("everyDay"),testData.get("physicianInstructions"),testData.get("additionalInstruction"),testData.get("type1"));
 			
@@ -1984,7 +1953,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			
 			physicianPortal.SaveOrderFrequency();
 			
-			physicianPortal.VerifyOrderAndStatusInOrder(Description);
+			physicianPortal.OrdersSelection(TypeName,Description);
 			physicianPortal.ClickOnListViewForNavigateToOrdersView();
 			physicianPortal.VerifyTheOrderByClickingVerifyButton();
 			physicianPortal.VerifyCreatedOrderIntheVerifyList(Description);
@@ -2021,20 +1990,19 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			physicianPortal.VerifyAddSignatureButton();
 			physicianPortal.VerifySignOrdersViaAddSignature();
 			
-			physicianPortal.ClickOnPhysicianPortal();		
-			physicianPortal.ClickOnExistingResident(testData.get("ResidentNo"));
+			physicianPortal.ClickOnPhysicianPortal();			
 			physicianPortal.VerifyButtonInResidentOrders();
 			
 			String Description1 = testData.get("description1") + physicianPortal.GenarateRandomNumber();
 			
 			
-			physicianPortal.CreateAnOrderWithOrderDetails(testData.get("type1"),Description1,testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
+			String TypeName1 = physicianPortal.CreateAnOrderWithOrderDetails(testData.get("type1"),Description1,testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
 			physicianPortal.CreateOrderFrequency(Integer.parseInt(testData.get("num")),Integer.parseInt(testData.get("No")),testData.get("frequencyType1"),testData.get("endDateType"),testData.get("requiredActions"),testData.get("requiredActionsPostDropdown") ,testData.get("administeredBy") ,testData.get("maxDoesHours") ,
 					testData.get("followUpAfterMinutes"),testData.get("slidingScaleMin"),testData.get("slidingScaleMax") ,testData.get("slidingScaleUnits") ,testData.get("frequency"),testData.get("howOften"),testData.get("everyDay"),testData.get("physicianInstructions"),testData.get("additionalInstruction"),testData.get("type1"));
 			
 	        physicianPortal.SaveOrderFrequency();
 			
-			physicianPortal.VerifyOrderAndStatusInOrder(Description1);
+	        physicianPortal.OrdersSelection(TypeName1,Description1);
 			physicianPortal.ClickOnListViewForNavigateToOrdersView();
 			physicianPortal.VerifyTheOrderByClickingVerifyButton();
 			physicianPortal.VerifyCreatedOrderIntheVerifyList(Description1);
@@ -2060,7 +2028,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		}
 		
 		
-		@Test(priority =18)
+		//@Test(priority =38)
 		public void QA107_RecapAnOrder_ViaOrderSetsOrCreateAnOrder (ITestContext testContext) throws AWTException
 		{
 			 
@@ -2083,12 +2051,12 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			clinicalPortal.ClickOnResidentOrdersFromOrders();
 			
 			TestTemplate.testReport.logSuccess("Click On existing Resident");
-			physicianPortal.ClickOnExistingResident(testData.get("ResidentNo"));
+			physicianPortal.SearchResidentWithApplyFilterButton(testData.get("ResidentNo"));
 			physicianPortal.VerifyButtonInResidentOrders();
 			
 			String Description = testData.get("description") + physicianPortal.GenarateRandomNumber();
 		
-			physicianPortal.CreateAnOrderWithOrderDetails(testData.get("type1"),Description,testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
+			String TypeName = physicianPortal.CreateAnOrderWithOrderDetails(testData.get("type1"),Description,testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
 			physicianPortal.CreateOrderFrequency(Integer.parseInt(testData.get("num")),Integer.parseInt(testData.get("No")),testData.get("frequencyType1"),testData.get("endDateType"),testData.get("requiredActions"),testData.get("requiredActionsPostDropdown") ,testData.get("administeredBy") ,testData.get("maxDoesHours") ,
 					testData.get("followUpAfterMinutes"),testData.get("slidingScaleMin"),testData.get("slidingScaleMax") ,testData.get("slidingScaleUnits") ,testData.get("frequency"),testData.get("howOften"),testData.get("everyDay"),testData.get("physicianInstructions"),testData.get("additionalInstruction"),testData.get("type1"));
 			
@@ -2097,8 +2065,8 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			
 			
 			physicianPortal.SaveOrderFrequency();
+			physicianPortal.OrdersSelection(TypeName,Description);
 			
-			physicianPortal.VerifyOrderAndStatusInOrder(Description);
 			physicianPortal.ClickOnListViewForNavigateToOrdersView();
 			physicianPortal.VerifyTheOrderByClickingVerifyButton();
 			physicianPortal.VerifyCreatedOrderIntheVerifyList(Description);
@@ -2204,7 +2172,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		}
 		
 		
-		@Test(priority =19)
+		//@Test(priority =39)
 		public void QA108_SignatureOnRecap_Wheather_OrderCreatedFromOrder_Or_FromSets (ITestContext testContext) throws AWTException
 		{
 			 
@@ -2228,12 +2196,12 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			clinicalPortal.ClickOnResidentOrdersFromOrders();	
 			
 			TestTemplate.testReport.logSuccess("Click On existing Resident");
-			physicianPortal.ClickOnExistingResident(testData.get("ResidentNo"));
+			physicianPortal.SearchResidentWithApplyFilterButton(testData.get("ResidentNo"));
 			physicianPortal.VerifyButtonInResidentOrders();
 			
 			String Description = testData.get("description") + physicianPortal.GenarateRandomNumber();
 		
-			physicianPortal.CreateAnOrderWithOrderDetails(testData.get("type1"),Description,testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
+			String TypeName = physicianPortal.CreateAnOrderWithOrderDetails(testData.get("type1"),Description,testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
 			physicianPortal.CreateOrderFrequency(Integer.parseInt(testData.get("num")),Integer.parseInt(testData.get("No")),testData.get("frequencyType1"),testData.get("endDateType"),testData.get("requiredActions"),testData.get("requiredActionsPostDropdown") ,testData.get("administeredBy") ,testData.get("maxDoesHours") ,
 					testData.get("followUpAfterMinutes"),testData.get("slidingScaleMin"),testData.get("slidingScaleMax") ,testData.get("slidingScaleUnits") ,testData.get("frequency"),testData.get("howOften"),testData.get("everyDay"),testData.get("physicianInstructions"),testData.get("additionalInstruction"),testData.get("type1"));
 			
@@ -2243,7 +2211,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			
 			physicianPortal.SaveOrderFrequency();
 			
-			physicianPortal.VerifyOrderAndStatusInOrder(Description);
+			physicianPortal.OrdersSelection(TypeName,Description);
 			physicianPortal.ClickOnListViewForNavigateToOrdersView();
 			physicianPortal.VerifyTheOrderByClickingVerifyButton();
 			physicianPortal.VerifyCreatedOrderIntheVerifyList(Description);
@@ -2286,7 +2254,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		}
 		
 		
-		@Test(priority =20)
+		//@Test(priority =40)
 		public void QA109_ViewAndModify_Recaps(ITestContext testContext) throws AWTException
 		{
 			 
@@ -2309,12 +2277,12 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			clinicalPortal.ClickOnResidentOrdersFromOrders();
 			
 			TestTemplate.testReport.logSuccess("Click On existing Resident");
-			physicianPortal.ClickOnExistingResident(testData.get("ResidentNo"));
+			physicianPortal.SearchResidentWithApplyFilterButton(testData.get("ResidentNo"));
 			physicianPortal.VerifyButtonInResidentOrders();
 			
 			String Description = testData.get("description") + physicianPortal.GenarateRandomNumber();
 		
-			physicianPortal.CreateAnOrderWithOrderDetails(testData.get("type1"),Description,testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
+			String TypeName = physicianPortal.CreateAnOrderWithOrderDetails(testData.get("type1"),Description,testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
 			physicianPortal.CreateOrderFrequency(Integer.parseInt(testData.get("num")),Integer.parseInt(testData.get("No")),testData.get("frequencyType1"),testData.get("endDateType"),testData.get("requiredActions"),testData.get("requiredActionsPostDropdown") ,testData.get("administeredBy") ,testData.get("maxDoesHours") ,
 					testData.get("followUpAfterMinutes"),testData.get("slidingScaleMin"),testData.get("slidingScaleMax") ,testData.get("slidingScaleUnits") ,testData.get("frequency"),testData.get("howOften"),testData.get("everyDay"),testData.get("physicianInstructions"),testData.get("additionalInstruction"),testData.get("type1"));
 			
@@ -2324,7 +2292,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			
 			physicianPortal.SaveOrderFrequency();
 			
-			physicianPortal.VerifyOrderAndStatusInOrder(Description);
+			physicianPortal.OrdersSelection(TypeName,Description);
 			physicianPortal.ClickOnListViewForNavigateToOrdersView();
 			physicianPortal.VerifyTheOrderByClickingVerifyButton();
 			physicianPortal.VerifyCreatedOrderIntheVerifyList(Description);
@@ -2418,6 +2386,89 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			login.Logout();
 			
 			
+		}
+		
+		
+		public void Gen_QA211_MyDashBoardPage(ITestContext testContext)
+				throws Throwable {
+
+			LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
+			HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
+			EmarPage emar = new EmarPage(threadLocalWebDriver.get(), TestTemplate.testReport);
+			String userName = this.getTestParameter(testContext, "userName");
+			String password = this.getTestParameter(testContext, "password");
+
+			final String TesctCase = "GEN_QA211";	
+
+			homepage.NavigateToClinicalPortal();
+			homepage.VerifyAllapps();
+			emar.BlueStrataLogoValidation();
+			emar.EmarPageHeaderValidation();
+			homepage.VerifyFacilityIconAndName();
+			homepage.VerifyResidentIconAndName();
+			login.Logout();
+
+		}
+
+		public void Gen_QA212_UserNamePreferences_TopRightOf_ResidentDahsboard_Or_HomePage(ITestContext testContext)
+				throws Throwable {
+
+			LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
+			HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
+			EmarPage emar = new EmarPage(threadLocalWebDriver.get(), TestTemplate.testReport);
+			String userName = this.getTestParameter(testContext, "userName");
+			String password = this.getTestParameter(testContext, "password");
+
+			final String TesctCase = "GEN_QA212";	
+
+			homepage.NavigateToClinicalPortal();
+			emar.TesterButtonOptionsVerification();
+			emar.ChangePasswordVerifications();
+			emar.NavigateBackToPreviesPage();
+			emar.lockFromApplication(password);		
+			login.Logout();
+
+		}
+		
+		
+		public void Gen_QA213_HelpMenuWith_HelpSiteAbout(ITestContext testContext) throws Throwable {
+			
+			LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
+			HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
+			EmarPage emar = new EmarPage(threadLocalWebDriver.get(), TestTemplate.testReport);
+			String userName = this.getTestParameter(testContext, "userName");
+			String password = this.getTestParameter(testContext, "password");
+
+			final String TesctCase = "GEN_QA213";	
+
+			HashMap<String, String> testData = xlsReader.GetValue(SheetName, TesctCase);
+			
+			homepage.NavigateToClinicalPortal();
+			emar.HelpButtonvalidation();
+			String ParentparentWindow = emar.HelpSiteValidation(testData.get("HelpSiteURL"));
+			emar.ClosingEmarURL();
+			emar.SwitchToHomePage(ParentparentWindow);
+			login.Logout();
+
+		}
+		
+		
+	   public void Gen_QA214_HelpMenuWith_HelpSiteAbout(ITestContext testContext) throws Throwable {
+			
+			LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
+			HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
+			EmarPage emar = new EmarPage(threadLocalWebDriver.get(), TestTemplate.testReport);
+			String userName = this.getTestParameter(testContext, "userName");
+			String password = this.getTestParameter(testContext, "password");
+
+			final String TesctCase = "GEN_QA214";	
+
+			HashMap<String, String> testData = xlsReader.GetValue(SheetName, TesctCase);
+			
+			homepage.NavigateToClinicalPortal();
+			homepage.VerifyAllapps();
+			login.Logout();
+
 		}
 }
 

@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-SuiteRegression">
-              <span class="suite-name border-passed">SuiteRegression</span>
+              <span class="suite-name border-failed">SuiteRegression</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -91,7 +91,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods,   2 passed</span>
+                    <span class="method-stats">12 methods, 1 failed,   11 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-SuiteRegression" class="hide-methods failed suite-SuiteRegression"> (hide)</a> <!-- hide-methods failed suite-SuiteRegression -->
+                      <a href="#" panel-name="suite-SuiteRegression" class="show-methods failed suite-SuiteRegression"> (show)</a> <!-- show-methods failed suite-SuiteRegression -->
+                    </span>
+                    <div class="method-list-content failed suite-SuiteRegression">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SuiteRegression" title="aut.tests.functionaltests.FacilityAppTestCases" hash-for-method="QA043_CreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication">QA043_CreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-SuiteRegression -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -102,12 +116,57 @@
                     <div class="method-list-content passed suite-SuiteRegression">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-SuiteRegression" title="aut.tests.functionaltests.PhysicianPortalTestCases" hash-for-method="QA022_SignAnOrder_ViaOrderSetsOrCreateAnOrder(org.testng.TestRunner@17d35547)">QA022_SignAnOrder_ViaOrderSetsOrCreateAnOrder(org.testng.TestRunner@17d35547)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-SuiteRegression" title="aut.tests.functionaltests.FacilityAppTestCases" hash-for-method="QA037_CreateAnOrderSetsviaFacilityAppfor_DetailsType">QA037_CreateAnOrderSetsviaFacilityAppfor_DetailsType</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-SuiteRegression" title="aut.tests.functionaltests.PhysicianPortalTestCases" hash-for-method="QA023_ViewAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder(org.testng.TestRunner@17d35547)">QA023_ViewAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder(org.testng.TestRunner@17d35547)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-SuiteRegression" title="aut.tests.functionaltests.FacilityAppTestCases" hash-for-method="QA038_AddingFrequencyInNewlyCreatedOrderSetsViaFacilityAppFor_DetailsType_WithFrequencyType_Routine">QA038_AddingFrequencyInNewlyCreatedOrderSetsViaFacilityAppFor_DetailsType_WithFrequencyType_Routine</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SuiteRegression" title="aut.tests.functionaltests.FacilityAppTestCases" hash-for-method="QA039_FrequencyFieldSelection_WithFrequencyType_Routine">QA039_FrequencyFieldSelection_WithFrequencyType_Routine</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SuiteRegression" title="aut.tests.functionaltests.FacilityAppTestCases" hash-for-method="QA040_HowOftenFieldSelection_WithFrequencyType_Routine">QA040_HowOftenFieldSelection_WithFrequencyType_Routine</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SuiteRegression" title="aut.tests.functionaltests.FacilityAppTestCases" hash-for-method="QA041_AddingFrequencyInNewCreatedOrderSetsVia_FacilityAppForDetailsType_WithFrequencyType_PNR">QA041_AddingFrequencyInNewCreatedOrderSetsVia_FacilityAppForDetailsType_WithFrequencyType_PNR</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SuiteRegression" title="aut.tests.functionaltests.FacilityAppTestCases" hash-for-method="QA042_AddingFrequencyInNewCreatedOrderSetsVia_FacilityAppForDetailsType_WithFrequencyType_PNREveryHour">QA042_AddingFrequencyInNewCreatedOrderSetsVia_FacilityAppForDetailsType_WithFrequencyType_PNREveryHour</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SuiteRegression" title="aut.tests.functionaltests.FacilityAppTestCases" hash-for-method="QA044_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_Routine">QA044_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_Routine</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SuiteRegression" title="aut.tests.functionaltests.FacilityAppTestCases" hash-for-method="QA045_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_PNR">QA045_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_PNR</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SuiteRegression" title="aut.tests.functionaltests.FacilityAppTestCases" hash-for-method="QA046_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_PNREveryHour">QA046_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_PNREveryHour</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SuiteRegression" title="aut.tests.functionaltests.FacilityAppTestCases" hash-for-method="QA047_AddMultipleOrdersetsWithinOneOrdersetTemplate">QA047_AddMultipleOrdersetsWithinOneOrdersetTemplate</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SuiteRegression" title="aut.tests.functionaltests.FacilityAppTestCases" hash-for-method="QA048_UpdatingOrRemovingOrder_LibrariesViaFacilityAppForDetailsType">QA048_UpdatingOrRemovingOrder_LibrariesViaFacilityAppForDetailsType</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-SuiteRegression -->
@@ -122,26 +181,128 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-SuiteRegression" class="panel SuiteRegression">
-          <div class="suite-SuiteRegression-class-passed">
+          <div class="suite-SuiteRegression-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">aut.tests.functionaltests.PhysicianPortalTestCases</span>
+              <img src="failed.png"/>
+              <span class="class-name">aut.tests.functionaltests.FacilityAppTestCases</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="QA022_SignAnOrder_ViaOrderSetsOrCreateAnOrder(org.testng.TestRunner@17d35547)">
-                  </a> <!-- QA022_SignAnOrder_ViaOrderSetsOrCreateAnOrder(org.testng.TestRunner@17d35547) -->
-                  <span class="method-name">QA022_SignAnOrder_ViaOrderSetsOrCreateAnOrder</span>
-                  <span class="parameters">(org.testng.TestRunner@17d35547)</span>
+                  <a name="QA043_CreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication">
+                  </a> <!-- QA043_CreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication -->
+                  <span class="method-name">QA043_CreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: Unable to find element with xpath == //datatable-scroller[@class=&apos;datatable-scroll ng-star-inserted&apos;]//span[text()=&apos;Amoxicillin 250 MG Capsule&apos;]
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.6.0&apos;, revision: &apos;6fbf3ec767&apos;, time: &apos;2017-09-27T15:28:36.4Z&apos;
+System info: host: &apos;HW1562&apos;, ip: &apos;10.11.4.37&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_141&apos;
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{proxy=Proxy(), acceptInsecureCerts=false, browserVersion=11, se:ieOptions={nativeEvents=true, browserAttachTimeout=0, ie.ensureCleanSession=true, elementScrollBehavior=0, enablePersistentHover=true, ie.browserCommandLineSwitches=, ie.forceCreateProcessApi=false, requireWindowFocus=false, initialBrowserUrl=http://localhost:4080/, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, ignoreProtectedModeSettings=false}, timeouts={implicit=0, pageLoad=300000, script=30000}, browserName=internet explorer, pageLoadStrategy=normal, javascriptEnabled=true, platformName=WINDOWS, setWindowRect=true, platform=WINDOWS}]
+Session ID: 15bd152f-b973-46e4-b090-4893713483c7
+*** Element info: {Using=xpath, value=//datatable-scroller[@class=&apos;datatable-scroll ng-star-inserted&apos;]//span[text()=&apos;Amoxicillin 250 MG Capsule&apos;]}
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:160)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:371)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:473)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at aut.bluestrata.pages.FacilityPage.CreateOrderSetDescription(FacilityPage.java:297)
+	at aut.tests.functionaltests.FacilityAppTestCases.QA043_CreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication(FacilityAppTestCases.java:494)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+... Removed 20 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-SuiteRegression-class-failed -->
+          <div class="suite-SuiteRegression-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">aut.tests.functionaltests.FacilityAppTestCases</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="QA037_CreateAnOrderSetsviaFacilityAppfor_DetailsType">
+                  </a> <!-- QA037_CreateAnOrderSetsviaFacilityAppfor_DetailsType -->
+                  <span class="method-name">QA037_CreateAnOrderSetsviaFacilityAppfor_DetailsType</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="QA023_ViewAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder(org.testng.TestRunner@17d35547)">
-                  </a> <!-- QA023_ViewAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder(org.testng.TestRunner@17d35547) -->
-                  <span class="method-name">QA023_ViewAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder</span>
-                  <span class="parameters">(org.testng.TestRunner@17d35547)</span>
+                  <a name="QA038_AddingFrequencyInNewlyCreatedOrderSetsViaFacilityAppFor_DetailsType_WithFrequencyType_Routine">
+                  </a> <!-- QA038_AddingFrequencyInNewlyCreatedOrderSetsViaFacilityAppFor_DetailsType_WithFrequencyType_Routine -->
+                  <span class="method-name">QA038_AddingFrequencyInNewlyCreatedOrderSetsViaFacilityAppFor_DetailsType_WithFrequencyType_Routine</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="QA039_FrequencyFieldSelection_WithFrequencyType_Routine">
+                  </a> <!-- QA039_FrequencyFieldSelection_WithFrequencyType_Routine -->
+                  <span class="method-name">QA039_FrequencyFieldSelection_WithFrequencyType_Routine</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="QA040_HowOftenFieldSelection_WithFrequencyType_Routine">
+                  </a> <!-- QA040_HowOftenFieldSelection_WithFrequencyType_Routine -->
+                  <span class="method-name">QA040_HowOftenFieldSelection_WithFrequencyType_Routine</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="QA041_AddingFrequencyInNewCreatedOrderSetsVia_FacilityAppForDetailsType_WithFrequencyType_PNR">
+                  </a> <!-- QA041_AddingFrequencyInNewCreatedOrderSetsVia_FacilityAppForDetailsType_WithFrequencyType_PNR -->
+                  <span class="method-name">QA041_AddingFrequencyInNewCreatedOrderSetsVia_FacilityAppForDetailsType_WithFrequencyType_PNR</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="QA042_AddingFrequencyInNewCreatedOrderSetsVia_FacilityAppForDetailsType_WithFrequencyType_PNREveryHour">
+                  </a> <!-- QA042_AddingFrequencyInNewCreatedOrderSetsVia_FacilityAppForDetailsType_WithFrequencyType_PNREveryHour -->
+                  <span class="method-name">QA042_AddingFrequencyInNewCreatedOrderSetsVia_FacilityAppForDetailsType_WithFrequencyType_PNREveryHour</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="QA044_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_Routine">
+                  </a> <!-- QA044_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_Routine -->
+                  <span class="method-name">QA044_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_Routine</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="QA045_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_PNR">
+                  </a> <!-- QA045_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_PNR -->
+                  <span class="method-name">QA045_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_PNR</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="QA046_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_PNREveryHour">
+                  </a> <!-- QA046_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_PNREveryHour -->
+                  <span class="method-name">QA046_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_PNREveryHour</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="QA047_AddMultipleOrdersetsWithinOneOrdersetTemplate">
+                  </a> <!-- QA047_AddMultipleOrdersetsWithinOneOrdersetTemplate -->
+                  <span class="method-name">QA047_AddMultipleOrdersetsWithinOneOrdersetTemplate</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="QA048_UpdatingOrRemovingOrder_LibrariesViaFacilityAppForDetailsType">
+                  </a> <!-- QA048_UpdatingOrRemovingOrder_LibrariesViaFacilityAppForDetailsType -->
+                  <span class="method-name">QA048_UpdatingOrRemovingOrder_LibrariesViaFacilityAppForDetailsType</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -157,15 +318,15 @@
 &lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;SuiteRegression&quot; parallel=&quot;tests&quot;&gt;
   &lt;parameter name=&quot;browserName&quot; value=&quot;ie&quot;/&gt;
-  &lt;parameter name=&quot;appURL&quot; value=&quot;https://devapp.bluestrataemr.com&quot;/&gt;
+  &lt;parameter name=&quot;appURL&quot; value=&quot;https://devclient.bluestrataemr.com/qa2&quot;/&gt;
   &lt;parameter name=&quot;automationKit&quot; value=&quot;selenium&quot;/&gt;
-  &lt;test name=&quot;Test&quot;&gt;
+  &lt;test name=&quot;test&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;aut.tests.functionaltests.PhysicianPortalTestCases&quot;/&gt;
+      &lt;class name=&quot;aut.tests.functionaltests.FacilityAppTestCases&quot;/&gt;
     &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- Test --&gt;
-  &lt;test name=&quot;Test&quot; parallel=&quot;tests&quot;&gt;
-  &lt;/test&gt; &lt;!-- Test --&gt;
+  &lt;/test&gt; &lt;!-- test --&gt;
+  &lt;test name=&quot;test&quot; parallel=&quot;tests&quot;&gt;
+  &lt;/test&gt; &lt;!-- test --&gt;
 &lt;/suite&gt; &lt;!-- SuiteRegression --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -177,10 +338,10 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Test (1 class)</span>
+                <span class="test-name">test (1 class)</span>
               </li>
               <li>
-                <span class="test-name">Test (0 classes)</span>
+                <span class="test-name">test (0 classes)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -206,20 +367,60 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(12);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'QA023_ViewAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder')
-data.setCell(0, 2, 'aut.tests.functionaltests.PhysicianPortalTestCases')
-data.setCell(0, 3, 2451077);
+data.setCell(0, 1, 'QA039_FrequencyFieldSelection_WithFrequencyType_Routine')
+data.setCell(0, 2, 'aut.tests.functionaltests.FacilityAppTestCases')
+data.setCell(0, 3, 9572549);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'QA022_SignAnOrder_ViaOrderSetsOrCreateAnOrder')
-data.setCell(1, 2, 'aut.tests.functionaltests.PhysicianPortalTestCases')
-data.setCell(1, 3, 655494);
+data.setCell(1, 1, 'QA040_HowOftenFieldSelection_WithFrequencyType_Routine')
+data.setCell(1, 2, 'aut.tests.functionaltests.FacilityAppTestCases')
+data.setCell(1, 3, 2564572);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'QA048_UpdatingOrRemovingOrder_LibrariesViaFacilityAppForDetailsType')
+data.setCell(2, 2, 'aut.tests.functionaltests.FacilityAppTestCases')
+data.setCell(2, 3, 1129619);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'QA044_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_Routine')
+data.setCell(3, 2, 'aut.tests.functionaltests.FacilityAppTestCases')
+data.setCell(3, 3, 956304);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'QA042_AddingFrequencyInNewCreatedOrderSetsVia_FacilityAppForDetailsType_WithFrequencyType_PNREveryHour')
+data.setCell(4, 2, 'aut.tests.functionaltests.FacilityAppTestCases')
+data.setCell(4, 3, 769498);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'QA041_AddingFrequencyInNewCreatedOrderSetsVia_FacilityAppForDetailsType_WithFrequencyType_PNR')
+data.setCell(5, 2, 'aut.tests.functionaltests.FacilityAppTestCases')
+data.setCell(5, 3, 757508);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'QA038_AddingFrequencyInNewlyCreatedOrderSetsViaFacilityAppFor_DetailsType_WithFrequencyType_Routine')
+data.setCell(6, 2, 'aut.tests.functionaltests.FacilityAppTestCases')
+data.setCell(6, 3, 624795);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'QA046_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_PNREveryHour')
+data.setCell(7, 2, 'aut.tests.functionaltests.FacilityAppTestCases')
+data.setCell(7, 3, 357432);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'QA045_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_PNR')
+data.setCell(8, 2, 'aut.tests.functionaltests.FacilityAppTestCases')
+data.setCell(8, 3, 354221);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'QA047_AddMultipleOrdersetsWithinOneOrdersetTemplate')
+data.setCell(9, 2, 'aut.tests.functionaltests.FacilityAppTestCases')
+data.setCell(9, 3, 263282);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'QA043_CreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication')
+data.setCell(10, 2, 'aut.tests.functionaltests.FacilityAppTestCases')
+data.setCell(10, 3, 133769);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'QA037_CreateAnOrderSetsviaFacilityAppfor_DetailsType')
+data.setCell(11, 2, 'aut.tests.functionaltests.FacilityAppTestCases')
+data.setCell(11, 3, 92290);
 window.suiteTableData['SuiteRegression']= { tableData: data, tableDiv: 'times-div-SuiteRegression'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 51 minutes</span>
+              <span class="suite-total-time">Total running time: 4 hours</span>
               <div id="times-div-SuiteRegression">
               </div> <!-- times-div-SuiteRegression -->
             </div> <!-- times-div -->
@@ -245,46 +446,168 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">aut.tests.functionaltests.PhysicianPortalTestCases</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">aut.tests.functionaltests.FacilityAppTestCases</div> <!-- chronological-class-name -->
               <div class="configuration-suite before">
-                <span class="method-name">beforeSuite(org.testng.TestRunner@17d35547, [Test: "Test" verbose:1[parameters:][metagroups:] [included: ][exclu...)</span>
+                <span class="method-name">beforeSuite(org.testng.TestRunner@5dafbe45, [Test: "test" verbose:1[parameters:][metagroups:] [included: ][exclu...)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
               <div class="configuration-test before">
-                <span class="method-name">beforeTest(org.testng.TestRunner@17d35547)</span>
-                <span class="method-start">154 ms</span>
+                <span class="method-name">beforeTest(org.testng.TestRunner@5dafbe45)</span>
+                <span class="method-start">377 ms</span>
               </div> <!-- configuration-test before -->
               <div class="configuration-method before">
-                <span class="method-name">beforeMethod(org.testng.TestRunner@17d35547, public void aut.tests.functionaltests.PhysicianPortalTestCases.QA022...)</span>
-                <span class="method-start">164 ms</span>
+                <span class="method-name">beforeMethod(org.testng.TestRunner@5dafbe45, public void aut.tests.functionaltests.FacilityAppTestCases.QA037_Cre...)</span>
+                <span class="method-start">391 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">QA022_SignAnOrder_ViaOrderSetsOrCreateAnOrder(org.testng.TestRunner@17d35547)</span>
-                <span class="method-start">76481 ms</span>
+                <span class="method-name">QA037_CreateAnOrderSetsviaFacilityAppfor_DetailsType</span>
+                <span class="method-start">42026 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">afterMethod(org.testng.TestRunner@17d35547, [TestResult name=QA022_SignAnOrder_ViaOrderSetsOrCreateAnOrder statu...)</span>
-                <span class="method-start">731977 ms</span>
+                <span class="method-name">afterMethod(org.testng.TestRunner@5dafbe45, [TestResult name=QA037_CreateAnOrderSetsviaFacilityAppfor_DetailsTyp...)</span>
+                <span class="method-start">134319 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
-                <span class="method-name">beforeMethod(org.testng.TestRunner@17d35547, public void aut.tests.functionaltests.PhysicianPortalTestCases.QA023...)</span>
-                <span class="method-start">732741 ms</span>
+                <span class="method-name">beforeMethod(org.testng.TestRunner@5dafbe45, public void aut.tests.functionaltests.FacilityAppTestCases.QA038_Add...)</span>
+                <span class="method-start">135077 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">QA023_ViewAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder(org.testng.TestRunner@17d35547)</span>
-                <span class="method-start">808079 ms</span>
+                <span class="method-name">QA038_AddingFrequencyInNewlyCreatedOrderSetsViaFacilityAppFor_DetailsType_WithFrequencyType_Routine</span>
+                <span class="method-start">171470 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">afterMethod(org.testng.TestRunner@17d35547, [TestResult name=QA023_ViewAndModifyAnOrder_ViaOrderSetsOrCreateAnOr...)</span>
-                <span class="method-start">3259157 ms</span>
+                <span class="method-name">afterMethod(org.testng.TestRunner@5dafbe45, [TestResult name=QA038_AddingFrequencyInNewlyCreatedOrderSetsViaFaci...)</span>
+                <span class="method-start">796267 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod(org.testng.TestRunner@5dafbe45, public void aut.tests.functionaltests.FacilityAppTestCases.QA039_Fre...)</span>
+                <span class="method-start">796905 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">QA039_FrequencyFieldSelection_WithFrequencyType_Routine</span>
+                <span class="method-start">835031 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod(org.testng.TestRunner@5dafbe45, [TestResult name=QA039_FrequencyFieldSelection_WithFrequencyType_Rou...)</span>
+                <span class="method-start">10407584 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod(org.testng.TestRunner@5dafbe45, public void aut.tests.functionaltests.FacilityAppTestCases.QA040_How...)</span>
+                <span class="method-start">10408718 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">QA040_HowOftenFieldSelection_WithFrequencyType_Routine</span>
+                <span class="method-start">10459702 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod(org.testng.TestRunner@5dafbe45, [TestResult name=QA040_HowOftenFieldSelection_WithFrequencyType_Rout...)</span>
+                <span class="method-start">13024276 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod(org.testng.TestRunner@5dafbe45, public void aut.tests.functionaltests.FacilityAppTestCases.QA041_Add...)</span>
+                <span class="method-start">13025085 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">QA041_AddingFrequencyInNewCreatedOrderSetsVia_FacilityAppForDetailsType_WithFrequencyType_PNR</span>
+                <span class="method-start">13070517 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod(org.testng.TestRunner@5dafbe45, [TestResult name=QA041_AddingFrequencyInNewCreatedOrderSetsVia_Facil...)</span>
+                <span class="method-start">13828027 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod(org.testng.TestRunner@5dafbe45, public void aut.tests.functionaltests.FacilityAppTestCases.QA042_Add...)</span>
+                <span class="method-start">13828792 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">QA042_AddingFrequencyInNewCreatedOrderSetsVia_FacilityAppForDetailsType_WithFrequencyType_PNREveryHour</span>
+                <span class="method-start">13867263 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod(org.testng.TestRunner@5dafbe45, [TestResult name=QA042_AddingFrequencyInNewCreatedOrderSetsVia_Facil...)</span>
+                <span class="method-start">14636762 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod(org.testng.TestRunner@5dafbe45, public void aut.tests.functionaltests.FacilityAppTestCases.QA043_Cre...)</span>
+                <span class="method-start">14637546 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">QA043_CreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication</span>
+                <span class="method-start">14676786 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod(org.testng.TestRunner@5dafbe45, [TestResult name=QA043_CreateAnOrderSetsVia_FacilityApp_ForDetailsTy...)</span>
+                <span class="method-start">14810578 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod(org.testng.TestRunner@5dafbe45, public void aut.tests.functionaltests.FacilityAppTestCases.QA044_Add...)</span>
+                <span class="method-start">14811392 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">QA044_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_Routine</span>
+                <span class="method-start">14849813 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod(org.testng.TestRunner@5dafbe45, [TestResult name=QA044_AddingFrequencyIn_NewCreateAnOrderSetsVia_Fac...)</span>
+                <span class="method-start">15806118 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod(org.testng.TestRunner@5dafbe45, public void aut.tests.functionaltests.FacilityAppTestCases.QA045_Add...)</span>
+                <span class="method-start">15806967 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">QA045_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_PNR</span>
+                <span class="method-start">15849701 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod(org.testng.TestRunner@5dafbe45, [TestResult name=QA045_AddingFrequencyIn_NewCreateAnOrderSetsVia_Fac...)</span>
+                <span class="method-start">16203927 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod(org.testng.TestRunner@5dafbe45, public void aut.tests.functionaltests.FacilityAppTestCases.QA046_Add...)</span>
+                <span class="method-start">16205024 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">QA046_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_PNREveryHour</span>
+                <span class="method-start">16244177 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod(org.testng.TestRunner@5dafbe45, [TestResult name=QA046_AddingFrequencyIn_NewCreateAnOrderSetsVia_Fac...)</span>
+                <span class="method-start">16601610 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod(org.testng.TestRunner@5dafbe45, public void aut.tests.functionaltests.FacilityAppTestCases.QA047_Add...)</span>
+                <span class="method-start">16602445 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">QA047_AddMultipleOrdersetsWithinOneOrdersetTemplate</span>
+                <span class="method-start">16641732 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod(org.testng.TestRunner@5dafbe45, [TestResult name=QA047_AddMultipleOrdersetsWithinOneOrdersetTemplate...)</span>
+                <span class="method-start">16905015 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">beforeMethod(org.testng.TestRunner@5dafbe45, public void aut.tests.functionaltests.FacilityAppTestCases.QA048_Upd...)</span>
+                <span class="method-start">16905815 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">QA048_UpdatingOrRemovingOrder_LibrariesViaFacilityAppForDetailsType</span>
+                <span class="method-start">16947383 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod(org.testng.TestRunner@5dafbe45, [TestResult name=QA048_UpdatingOrRemovingOrder_LibrariesViaFacilityA...)</span>
+                <span class="method-start">18077004 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-test after">
-                <span class="method-name">afterTest(org.testng.TestRunner@17d35547)</span>
-                <span class="method-start">3259787 ms</span>
+                <span class="method-name">afterTest(org.testng.TestRunner@5dafbe45)</span>
+                <span class="method-start">18079796 ms</span>
               </div> <!-- configuration-test after -->
               <div class="configuration-suite after">
-                <span class="method-name">afterSuite(org.testng.TestRunner@17d35547)</span>
-                <span class="method-start">3259874 ms</span>
+                <span class="method-name">afterSuite(org.testng.TestRunner@5dafbe45)</span>
+                <span class="method-start">18082494 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

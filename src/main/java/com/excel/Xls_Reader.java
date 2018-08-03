@@ -514,6 +514,47 @@ public class Xls_Reader {
 				}
 	}
 	
+	
+	public static String fn_GetCellData(String WbookPath, String SheetName, int RowNum, String ColumnName)
+			throws IOException {
+
+		FileInputStream FISObj = new FileInputStream(WbookPath);
+		@SuppressWarnings("resource")
+		XSSFWorkbook WbookObj = new XSSFWorkbook(FISObj);
+		XSSFSheet WSheetObj = WbookObj.getSheet(SheetName);
+		XSSFRow RowObj = WSheetObj.getRow(RowNum);
+		int columnNumber = fn_GetCellNumberByColumName(WSheetObj, ColumnName);
+		XSSFCell CellObj = RowObj.getCell(columnNumber, XSSFRow.CREATE_NULL_AS_BLANK);
+		int celltypenumber = CellObj.getCellType();
+		String CellVal = null;
+		if (celltypenumber == XSSFCell.CELL_TYPE_NUMERIC) {
+			Double DblCellVal = CellObj.getNumericCellValue();
+			Integer intcellval = DblCellVal.intValue();
+			CellVal = intcellval.toString();
+		} else if (celltypenumber == XSSFCell.CELL_TYPE_STRING) {
+			CellVal = CellObj.getStringCellValue();
+		}
+		return CellVal;
+	}
+	
+	public static int fn_GetCellNumberByColumName(XSSFSheet WSheetObj, String ColumnName) throws IOException {
+
+		XSSFRow FstRowObj = WSheetObj.getRow(0);
+		int columnCount = FstRowObj.getLastCellNum();
+		int columnNumber = 0;
+		for (int i = 0; i <= columnCount - 1; i++) {
+			XSSFCell cellObj = FstRowObj.getCell(i, XSSFRow.CREATE_NULL_AS_BLANK);
+			String xl_ColumnName = cellObj.getStringCellValue();
+			xl_ColumnName = xl_ColumnName.trim();
+			ColumnName = ColumnName.trim();
+			if (ColumnName.equalsIgnoreCase(xl_ColumnName) == true) {
+				columnNumber = i;
+				break;
+			}
+		}
+		return columnNumber;
+	}
+	
 	public HashMap<String, String> GetValue(String sheetName, String TestCaseName)		
 	{
 		

@@ -19,8 +19,9 @@ import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.google.common.io.Resources;
+import dweb.test.templates.TestTemplate;;
 
-import dweb.test.templates.TestTemplate;
+
 
 /**
  * 
@@ -33,7 +34,7 @@ public class ExtentReporter implements IReporter {
 	private boolean boolAppendExisting = false;
 	private boolean isCignitiLogoRequired = false;
 	private ExtentReports objExtentReport = null;	
-	private static ThreadLocal<ExtentTest> threadLocalExtentTest = new InheritableThreadLocal<ExtentTest>(); 	
+	public static ThreadLocal<ExtentTest> threadLocalExtentTest = new InheritableThreadLocal<ExtentTest>(); 	
 	private ExtentTestVisibilityMode extentTestVisibilityMode;
     
 	public enum ExtentTestVisibilityMode

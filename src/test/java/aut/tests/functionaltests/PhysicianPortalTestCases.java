@@ -16,6 +16,7 @@ import org.testng.annotations.Test;
 import com.excel.Xls_Reader;
 import com.google.common.io.Resources;
 
+import aut.bluestrata.pages.EmarPage;
 import aut.bluestrata.pages.FacilityPage;
 import aut.bluestrata.pages.HomePage;
 import aut.bluestrata.pages.LoginPage;
@@ -222,7 +223,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 	
 	
 	
-	@Test(priority = 4)
+	//@Test(priority = 4)
 	public void QA010_ResidentOrders_CreateAnOrderWithFrequencyRoutine(ITestContext testContext)
 	{
 		PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1042,7 +1043,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		physicianPortal.ClickOnPhysicianPortal();	
 		
 		TestTemplate.testReport.logSuccess("Click On existing Resident");
-		physicianPortal.ClickOnExistingResident(testData.get("ResidentNo"));
+		physicianPortal.SearchResidentWithApplyFilterButton(testData.get("ResidentNo"));
 		physicianPortal.VerifyButtonInResidentOrders();
 		physicianPortal.CreateFromSet();
 		physicianPortal.SelectOrderFromOrderSets(testData.get("description"));
@@ -1239,12 +1240,12 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		physicianPortal.ClickOnListViewForNavigateToOrdersView();
 		physicianPortal.VerifyTheOrderByClickingVerifyButton();
 		physicianPortal.OrdersPageTextVerification();
-		physicianPortal.VerifyCreatedOrderIntheVerifyList(Description);
+		/*physicianPortal.VerifyCreatedOrderIntheVerifyList(Description);
 		physicianPortal.PharmacyValidation();
 		physicianPortal.OrdersDisplayPageForPerticularResident(testData.get("type1"));
 		physicianPortal.VerifyButtonsInVerifyOrders();
 		physicianPortal.ArrowButtonVerification();
-		physicianPortal.VerifyClickingOnToggledVerifiedButton();
+		physicianPortal.VerifyClickingOnToggledVerifiedButton();*/
 		
 		
 		login.Logout();
@@ -1288,7 +1289,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		physicianPortal.ClickOnListViewForNavigateToOrdersView();
 		physicianPortal.VerifyTheOrderByClickingVerifyButton();
 		physicianPortal.OrdersPageTextVerification();
-		physicianPortal.VerifyCreatedOrderIntheVerifyList(Description);
+		/*physicianPortal.VerifyCreatedOrderIntheVerifyList(Description);
 		physicianPortal.PharmacyValidation();
 		physicianPortal.OrdersDisplayPageForPerticularResident(testData.get("type1"));
 		physicianPortal.VerifyButtonsInVerifyOrders();
@@ -1330,7 +1331,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		physicianPortal.DiscontinueOrderValidation(testData.get("startDate"),testData.get("startDateTime"),testData.get("physicianType1"),testData.get("ReceivedOrderType1"),testData.get("discontinueForCorrection1"),testData.get("copyOrder1"),testData.get("dcMessage1"));
 		physicianPortal.DiscontinueValidation(testData.get("discontinueForCorrection1"),testData.get("copyOrder1"),testData.get("dcMessage1"));
 		physicianPortal.CancelOrder();
-		
+		*/
 		
 		
 		
@@ -1381,9 +1382,9 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		
 		physicianPortal.ClickOnListViewForNavigateToOrdersView();
 		
-		physicianPortal.VerifyTheOrderByClickingVerifyButton();
+		/*physicianPortal.VerifyTheOrderByClickingVerifyButton();
 		physicianPortal.VerifyCreatedOrderIntheVerifyList(Description);
-		physicianPortal.VerifyClickingOnToggledVerifiedButton();
+		physicianPortal.VerifyClickingOnToggledVerifiedButton();*/
 		
 		physicianPortal.VerifyTheOrderByClickingSignButton();
 		physicianPortal.OrdersPageTextVerification();
@@ -1401,7 +1402,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 	}
 	
 	
-	@Test(priority = 17)
+	//@Test(priority = 17)
 	public void QA023_ViewAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder (ITestContext testContext) throws AWTException
 	{
 		 
@@ -1440,9 +1441,9 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		
 		physicianPortal.OrdersSelection(TypeName,Description);
 		physicianPortal.ClickOnListViewForNavigateToOrdersView();
-		physicianPortal.VerifyTheOrderByClickingVerifyButton();
+		/*physicianPortal.VerifyTheOrderByClickingVerifyButton();
 		physicianPortal.VerifyCreatedOrderIntheVerifyList(Description);
-		physicianPortal.VerifyClickingOnToggledVerifiedButton();
+		physicianPortal.VerifyClickingOnToggledVerifiedButton();*/
 		physicianPortal.VerifyTheOrderByClickingSignButton();
 		physicianPortal.OrdersPageTextVerification();
 		physicianPortal.VerifyCreatedOrderIntheVerifyList(Description);
@@ -1465,9 +1466,9 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		String Description2 = testData.get("description2") + physicianPortal.GenarateRandomNumber();
 		physicianPortal.OrderPageCopyOrderValidation(testData.get("type1"),Description2,testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
 
-		physicianPortal.VerifyTheOrderByClickingVerifyButton();
+		/*physicianPortal.VerifyTheOrderByClickingVerifyButton();
 		physicianPortal.VerifyCreatedOrderIntheVerifyList(Description2);
-		physicianPortal.VerifyClickingOnToggledVerifiedButton();
+		physicianPortal.VerifyClickingOnToggledVerifiedButton();*/
 		physicianPortal.VerifyTheOrderByClickingSignButton();
 	
 		physicianPortal.VerifyCreatedOrderIntheVerifyList(Description2);
@@ -1489,9 +1490,9 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		
         physicianPortal.OrdersSelection(TypeName1,Description1);
 		physicianPortal.ClickOnListViewForNavigateToOrdersView();
-		physicianPortal.VerifyTheOrderByClickingVerifyButton();
+		/*physicianPortal.VerifyTheOrderByClickingVerifyButton();
 		physicianPortal.VerifyCreatedOrderIntheVerifyList(Description1);
-		physicianPortal.VerifyClickingOnToggledVerifiedButton();
+		physicianPortal.VerifyClickingOnToggledVerifiedButton();*/
 		physicianPortal.VerifyTheOrderByClickingSignButton();
 		physicianPortal.VerifyCreatedOrderIntheVerifyList(Description1);
 		
@@ -1552,9 +1553,9 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		
 		physicianPortal.OrdersSelection(TypeName,Description);
 		physicianPortal.ClickOnListViewForNavigateToOrdersView();
-		physicianPortal.VerifyTheOrderByClickingVerifyButton();
+		/*physicianPortal.VerifyTheOrderByClickingVerifyButton();
 		physicianPortal.VerifyCreatedOrderIntheVerifyList(Description);
-		physicianPortal.VerifyClickingOnToggledVerifiedButton();
+		physicianPortal.VerifyClickingOnToggledVerifiedButton();*/
 		physicianPortal.VerifyTheOrderByClickingSignButton();
 		physicianPortal.VerifyCreatedOrderIntheVerifyList(Description);
 		
@@ -1601,9 +1602,9 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 	
 		physicianPortal.VerifyButtonInResidentOrders();
 		
-		physicianPortal.VerifyTheOrderByClickingVerifyButton();
+		/*physicianPortal.VerifyTheOrderByClickingVerifyButton();
 		physicianPortal.VerifyCreatedOrderIntheVerifyList(Description1);
-		physicianPortal.VerifyClickingOnToggledVerifiedButton();
+		physicianPortal.VerifyClickingOnToggledVerifiedButton();*/
 		physicianPortal.VerifyTheOrderByClickingSignButton();
 		physicianPortal.VerifyCreatedOrderIntheVerifyList(Description1);
 		
@@ -1696,9 +1697,9 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		
 		physicianPortal.OrdersSelection(TypeName,Description);
 		physicianPortal.ClickOnListViewForNavigateToOrdersView();
-		physicianPortal.VerifyTheOrderByClickingVerifyButton();
+		/*physicianPortal.VerifyTheOrderByClickingVerifyButton();
 		physicianPortal.VerifyCreatedOrderIntheVerifyList(Description);
-		physicianPortal.VerifyClickingOnToggledVerifiedButton();
+		physicianPortal.VerifyClickingOnToggledVerifiedButton();*/
 		physicianPortal.VerifyTheOrderByClickingSignButton();
 		physicianPortal.VerifyCreatedOrderIntheVerifyList(Description);
 		
@@ -1737,7 +1738,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 	}
 	
 	
-	//@Test(priority = 20)
+	@Test(priority = 20)
 	public void QA026_ViewAndModify_Recaps(ITestContext testContext) throws AWTException
 	{
 		 
@@ -1758,7 +1759,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		TestTemplate.testReport.logSuccess("Navigate to Residents Order From Physician Portal");
 		physicianPortal.ClickOnPhysicianPortal();	
 		
-		TestTemplate.testReport.logSuccess("Click On existing Resident");
+		/*TestTemplate.testReport.logSuccess("Click On existing Resident");
 		physicianPortal.SearchResidentWithApplyFilterButton(testData.get("ResidentNo"));
 		physicianPortal.VerifyButtonInResidentOrders();
 		
@@ -1775,11 +1776,11 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		physicianPortal.SaveOrderFrequency();
 		
 		physicianPortal.OrdersSelection(TypeName,Description);
-		physicianPortal.ClickOnListViewForNavigateToOrdersView();
-		physicianPortal.VerifyTheOrderByClickingVerifyButton();
+		physicianPortal.ClickOnListViewForNavigateToOrdersView();*/
+		/*physicianPortal.VerifyTheOrderByClickingVerifyButton();
 		physicianPortal.VerifyCreatedOrderIntheVerifyList(Description);
-		physicianPortal.VerifyClickingOnToggledVerifiedButton();
-		physicianPortal.VerifyTheOrderByClickingSignButton();
+		physicianPortal.VerifyClickingOnToggledVerifiedButton();*/
+		/*physicianPortal.VerifyTheOrderByClickingSignButton();
 		physicianPortal.VerifyCreatedOrderIntheVerifyList(Description);
 		
 		String Resident = physicianPortal.VerifyClickingOnToggledSignedButton();
@@ -1815,7 +1816,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		physicianPortal.ModifyOrderFrequency(Integer.parseInt(testData.get("modifyButtonNo")),Integer.parseInt(testData.get("num")),Integer.parseInt(testData.get("No")),testData.get("frequencyType1"),testData.get("endDateType"),testData.get("requiredActions"),testData.get("requiredActionsPostDropdown") ,testData.get("administeredBy1") ,testData.get("maxDoesHours") ,
 				testData.get("followUpAfterMinutes"),testData.get("slidingScaleMin"),testData.get("slidingScaleMax") ,testData.get("slidingScaleUnits") ,testData.get("frequency"),testData.get("howOften"),testData.get("everyDay"),testData.get("physicianInstructions"),testData.get("additionalInstruction"),testData.get("type1"));
 		physicianPortal.AddHoldDatesVerification(testData.get("startDate"),testData.get("endDate"),testData.get("startDateTime"),testData.get("startDateTime"),Integer.parseInt(testData.get("slidingScaleMin")) );
-		
+		*/
 		
 		physicianPortal.DiscontinueOrderValidation(testData.get("startDate"),testData.get("startDateTime"),testData.get("physicianType1"),testData.get("ReceivedOrderType1"),testData.get("discontinueForCorrection"),testData.get("copyOrder"),testData.get("dcMessage"));
 		physicianPortal.DiscontinueValidation(testData.get("discontinueForCorrection"),testData.get("copyOrder"),testData.get("dcMessage"));
@@ -1828,9 +1829,9 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 	
 		physicianPortal.VerifyButtonInResidentOrders();
 		
-		physicianPortal.VerifyTheOrderByClickingVerifyButton();
+		/*physicianPortal.VerifyTheOrderByClickingVerifyButton();
 		physicianPortal.VerifyCreatedOrderIntheVerifyList(Description1);
-		physicianPortal.VerifyClickingOnToggledVerifiedButton();
+		physicianPortal.VerifyClickingOnToggledVerifiedButton();*/
 		physicianPortal.VerifyTheOrderByClickingSignButton();
 		physicianPortal.VerifyCreatedOrderIntheVerifyList(Description1);
 		
@@ -1844,7 +1845,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		physicianPortal.VerifyResidentStatus(testData.get("Option"),testData.get("ResidentStatus"));
 		physicianPortal.VerifyResidentStations(testData.get("Option"),testData.get("Stations"));
 		
-		physicianPortal.VerifyRecapResidents(Resident,testData.get("Residents"));
+		//physicianPortal.VerifyRecapResidents(Resident,testData.get("Residents"));
 		physicianPortal.VerifyRecapOthers(testData.get("Option"),testData.get("OrderStatus"));
 		physicianPortal.VerifyRecapPhysicians(testData.get("physicianType"),testData.get("Physicians"));
 		physicianPortal.VerifyRecapeDate();
@@ -1869,6 +1870,89 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		
 		
 	}
+	
+	public void Gen_QA211_MyDashBoardPage(ITestContext testContext)
+			throws Throwable {
+
+		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
+		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
+		EmarPage emar = new EmarPage(threadLocalWebDriver.get(), TestTemplate.testReport);
+		String userName = this.getTestParameter(testContext, "userName");
+		String password = this.getTestParameter(testContext, "password");
+
+		final String TesctCase = "GEN_QA211";	
+
+		homepage.NavigateToPhysicianPortal();
+		homepage.VerifyAllapps();
+		emar.BlueStrataLogoValidation();
+		emar.EmarPageHeaderValidation();
+		homepage.VerifyFacilityIconAndName();
+		homepage.VerifyResidentIconAndName();
+		login.Logout();
+
+	}
+
+	public void Gen_QA212_UserNamePreferences_TopRightOf_ResidentDahsboard_Or_HomePage(ITestContext testContext)
+			throws Throwable {
+
+		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
+		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
+		EmarPage emar = new EmarPage(threadLocalWebDriver.get(), TestTemplate.testReport);
+		String userName = this.getTestParameter(testContext, "userName");
+		String password = this.getTestParameter(testContext, "password");
+
+		final String TesctCase = "GEN_QA212";	
+
+		homepage.NavigateToPhysicianPortal();
+		emar.TesterButtonOptionsVerification();
+		emar.ChangePasswordVerifications();
+		emar.NavigateBackToPreviesPage();
+		emar.lockFromApplication(password);		
+		login.Logout();
+
+	}
+	
+	
+	public void Gen_QA213_HelpMenuWith_HelpSiteAbout(ITestContext testContext) throws Throwable {
+		
+		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
+		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
+		EmarPage emar = new EmarPage(threadLocalWebDriver.get(), TestTemplate.testReport);
+		String userName = this.getTestParameter(testContext, "userName");
+		String password = this.getTestParameter(testContext, "password");
+
+		final String TesctCase = "GEN_QA213";	
+
+		HashMap<String, String> testData = xlsReader.GetValue(SheetName, TesctCase);
+		
+		homepage.NavigateToPhysicianPortal();
+		emar.HelpButtonvalidation();
+		String ParentparentWindow = emar.HelpSiteValidation(testData.get("HelpSiteURL"));
+		emar.ClosingEmarURL();
+		emar.SwitchToHomePage(ParentparentWindow);
+		login.Logout();
+
+	}
+	
+	
+   public void Gen_QA214_HelpMenuWith_HelpSiteAbout(ITestContext testContext) throws Throwable {
+		
+		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
+		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
+		EmarPage emar = new EmarPage(threadLocalWebDriver.get(), TestTemplate.testReport);
+		String userName = this.getTestParameter(testContext, "userName");
+		String password = this.getTestParameter(testContext, "password");
+
+		final String TesctCase = "GEN_QA214";	
+
+		HashMap<String, String> testData = xlsReader.GetValue(SheetName, TesctCase);
+		
+		homepage.NavigateToPhysicianPortal();
+		homepage.VerifyAllapps();
+		login.Logout();
+
+	}
+	
 	
 }
 

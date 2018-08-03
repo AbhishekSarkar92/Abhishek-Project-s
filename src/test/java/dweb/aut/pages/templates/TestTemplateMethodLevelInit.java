@@ -47,9 +47,9 @@ import io.appium.java_client.service.local.AppiumDriverLocalService;
 public abstract class TestTemplateMethodLevelInit extends TestTemplate {
 
 	private static final Logger LOG = Logger.getLogger(TestTemplateMethodLevelInit.class);
-    private AppiumDriverLocalService appiumDriverLocalService = null;
-    protected Xls_Reader xlsReader = null;
-    
+	private AppiumDriverLocalService appiumDriverLocalService = null;
+	protected Xls_Reader xlsReader = null;
+
 	/**
 	 * Configuration/Initialization before starting suite
 	 * 
@@ -67,7 +67,7 @@ public abstract class TestTemplateMethodLevelInit extends TestTemplate {
 
 		TestTemplate.testReport = ReportFactory.getInstance(ReportType.ExtentHtml,
 				ExtentTestVisibilityMode.valueOf(extentTestVisibilityMode));
-		
+
 		//initialize excel reader
 		xlsReader = new Xls_Reader(Paths.get(Resources.getResource("testdata" + File.separator + "BluestrataTestData.xlsx").toURI()).toFile().getAbsolutePath());
 	}
@@ -90,10 +90,10 @@ public abstract class TestTemplateMethodLevelInit extends TestTemplate {
 		if (((ExtentReporter) TestTemplate.testReport)
 				.getExtentTestVisibilityMode() == ExtentTestVisibilityMode.TestNGTestTagAsTestsAtLeft) {
 			TestTemplate.testReport
-					.createTestNgXMLTestTag(String.format("%s", testContext.getCurrentXmlTest().getName()));
+			.createTestNgXMLTestTag(String.format("%s", testContext.getCurrentXmlTest().getName()));
 
 		}
-		
+
 		//start appium server if automation is on mobile
 		if(this.getTestParameter(testContext, ITestParamsConstants.AUTOMATION_KIT).equalsIgnoreCase("appium"))
 		{
@@ -122,7 +122,7 @@ public abstract class TestTemplateMethodLevelInit extends TestTemplate {
 		if (threadLocalWebDriver.get() != null) {
 			threadLocalWebDriver.get().quit();
 		}
-		
+
 		//stop appium server, if running
 		if (this.appiumDriverLocalService !=null)
 		{
@@ -160,35 +160,40 @@ public abstract class TestTemplateMethodLevelInit extends TestTemplate {
 
 			// Use APPURL if provided in Test Suite XML
 			String url = this.getTestParameter(testContext, ITestParamsConstants.APPURL);
-			
+
 			String automationKit = this.getTestParameter(testContext, ITestParamsConstants.AUTOMATION_KIT);
-						
+
 			if(automationKit.equalsIgnoreCase("selenium"))
 			{
+				
 				webDriver = WebDriverFactory.getWebDriver(this.getAllTestParameters(testContext));		
 			}
 			else if(automationKit.equalsIgnoreCase("appium"))
 			{
 				webDriver = new AppiumDriver<MobileElement>(this.appiumDriverLocalService, this.convertTestParamsToCapabilities(testContext));
 			}
-			
+
 			try {
 				webDriver.get(url);
+				System.out.println("Application URL :- " + url);
+				this.testReport.logSuccess("Application URL ", String.format("Application URL :- <mark>%s</mark>", url));
 			} catch (TimeoutException ex) {
 				LOG.error(String.format("Browser Takes More Time To Load, Time Out Defined - %s",
 						TestTemplate.pageLoadTimeOutInSecs));
 			}
 			threadLocalWebDriver.set(webDriver);
-			
+
+
 			/**Login**/
+			LOG.info("<mark>Test Case Starts </mark>");
 			String userName = this.getTestParameter(testContext, "userName");
-			String password = this.getTestParameter(testContext, "password");
-			String key = this.getTestParameter(testContext, "key");
+			String password = this.getTestParameter(testContext, "password");					
 			LoginPage loginPage = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
-			loginPage.login(userName, password);
-			
+			loginPage.login(userName, password);			
 			/*****/
-			
+
+
+
 		} catch (Exception ex) {
 			LOG.error(String.format("Exception Encountered - %s", ex.getMessage()));
 			TestTemplate.testReport.logException(ex);
@@ -215,8 +220,8 @@ public abstract class TestTemplateMethodLevelInit extends TestTemplate {
 		LOG.info(String.format("Thread - %d , Completes Executing Test Method - %s", Thread.currentThread().getId(),
 				m.getName()));
 		TestTemplate.testReport
-				.logInfo(String.format("Thread - %d , Completes Executing Test Method - %s On Browser - %s",
-						Thread.currentThread().getId(), m.getName(), this.getTestParameter(testContext, ITestParamsConstants.BROWSER)));
+		.logInfo(String.format("Thread - %d , Completes Executing Test Method - %s On Browser - %s",
+				Thread.currentThread().getId(), m.getName(), this.getTestParameter(testContext, ITestParamsConstants.BROWSER)));
 
 		try {
 			threadLocalWebDriver.get().close();
@@ -239,5 +244,5 @@ public abstract class TestTemplateMethodLevelInit extends TestTemplate {
 			TestTemplate.testReport.updateTestCaseStatus();
 		}
 	}
-	
+
 }
