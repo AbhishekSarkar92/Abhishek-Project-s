@@ -1,9 +1,13 @@
 package dweb.aut.pages.templates;
 
 import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Method;
 import java.net.URISyntaxException;
 import java.nio.file.Paths;
+
+import javax.mail.MessagingException;
+import javax.mail.internet.AddressException;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.TimeoutException;
@@ -27,6 +31,7 @@ import com.testreport.ExtentReporter;
 import com.testreport.ExtentReporter.ExtentTestVisibilityMode;
 import com.testreport.ReportFactory;
 import com.testreport.ReportFactory.ReportType;
+import com.testreport.SendEmail;
 import com.utilities.ReusableLibs;
 
 import aut.bluestrata.pages.LoginPage;
@@ -76,6 +81,7 @@ public abstract class TestTemplateMethodLevelInit extends TestTemplate {
 	protected void afterSuite(ITestContext testContext) {
 		LOG.info(String.format("Suite - %s , Completed", testContext.getSuite().getName()));
 		TestTemplate.testReport.updateTestCaseStatus();
+		
 	}
 
 	/**
@@ -114,21 +120,32 @@ public abstract class TestTemplateMethodLevelInit extends TestTemplate {
 	 * Configuration/Initialization after running each test
 	 * 
 	 * @param testContext
+	 * @throws MessagingException 
+	 * @throws IOException 
+	 * @throws AddressException 
+	 * @throws InterruptedException 
 	 */
 	@AfterTest
-	protected void afterTest(ITestContext testContext) {
+	protected void afterTest(ITestContext testContext) throws AddressException, IOException, MessagingException, InterruptedException {
 		LOG.info(String.format("Test - %s , Completed", testContext.getCurrentXmlTest().getName()));
 		TestTemplate.testReport.updateTestCaseStatus();
 		if (threadLocalWebDriver.get() != null) {
 			threadLocalWebDriver.get().quit();
-		}
+		}	
 
 		//stop appium server, if running
 		if (this.appiumDriverLocalService !=null)
 		{
 			this.appiumDriverLocalService.stop();
 		}
+		
+	
 	}
+	
+	
+	
+	
+	
 
 	/**
 	 * Configuration/Initialization before running each test case Driver is
@@ -243,6 +260,14 @@ public abstract class TestTemplateMethodLevelInit extends TestTemplate {
 		finally {
 			TestTemplate.testReport.updateTestCaseStatus();
 		}
+		
+		Thread.sleep(5000);
+		
+		/*SendEmail sm = new SendEmail();
+		sm.sendmail();
+		System.out.println("Mail Send Successfully");	*/
 	}
+	
+	
 
 }

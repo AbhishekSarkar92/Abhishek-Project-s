@@ -22,6 +22,7 @@ import com.factories.WebDriverFactory;
 import com.testreport.ExtentReporter;
 import com.testreport.ExtentReporter.ExtentTestVisibilityMode;
 import com.testreport.ReportFactory;
+import com.testreport.SendEmail;
 import com.testreport.ReportFactory.ReportType;
 import com.utilities.ReusableLibs;
 
@@ -232,6 +233,11 @@ public abstract class TestTemplateMethodLevelInit extends TestTemplate {
 		finally {
 			TestTemplate.testReport.updateTestCaseStatus();
 		}
+		Thread.sleep(5000);
+		
+		/*SendEmail sm = new SendEmail();
+		sm.sendmail();
+		System.out.println("Mail Send Successfully");*/
 	}
 	
 }

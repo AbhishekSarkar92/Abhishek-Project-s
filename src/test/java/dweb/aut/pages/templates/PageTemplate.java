@@ -558,6 +558,26 @@ public abstract class PageTemplate {
 
      }
 	 
+	 public void WaitForElementPresent( By locator, int sec ,String controlName)
+	 {
+		 try
+		 {
+			 for(int i=0;i<=sec ; i++)
+			 {
+				 if(this.isElementPresent(locator))
+				 {
+					 testReport.logSuccess("Element Present", String.format("Element is present - <mark>%s</mark>", controlName));
+					 break;
+				 }
+			 }
+		 }
+		 catch(Exception ex)
+		 {
+			 testReport.logFailure("Element Not Present", String.format("Element not present - <mark>%s</mark>", controlName));
+		 } 
+	 }
+	 
+	 
 	/* public void ElementIsDisable(By locator, String controlName)
 	 {
 		 try

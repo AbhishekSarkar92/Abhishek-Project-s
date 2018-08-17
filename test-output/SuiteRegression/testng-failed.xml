@@ -6,17 +6,24 @@
   <parameter name="automationKit" value="selenium"/>
   <test name="test(failed)" parallel="tests">
     <classes>
-      <class name="aut.tests.functionaltests.FacilityAppTestCases">
+      <class name="aut.tests.functionaltests.PhysicianPortalTestCases">
         <methods>
+          <include name="QA019_ViewAndModifyAnOrder_ViaOrderSets" invocation-numbers="0"/>
+          <include name="QA023_ViewAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder" invocation-numbers="0"/>
           <include name="beforeMethod"/>
-          <include name="QA043_CreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication"/>
           <include name="beforeTest"/>
-          <include name="afterMethod"/>
+          <include name="QA026_ViewAndModify_Recaps" invocation-numbers="0"/>
           <include name="afterSuite"/>
+          <include name="QA018_CreateAnOrder_ViaOrderSets" invocation-numbers="0"/>
+          <include name="QA011_HowOften_RoutineFrequencyType"/>
+          <include name="QA021_VerifyAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder" invocation-numbers="0"/>
+          <include name="QA025_SignatureOnRecap_Wheather_OrderCreatedFromOrder_Or_FromSets" invocation-numbers="0"/>
           <include name="beforeSuite"/>
           <include name="afterTest"/>
+          <include name="afterMethod"/>
+          <include name="QA024_RecapAnOrder_ViaOrderSetsOrCreateAnOrder" invocation-numbers="0"/>
         </methods>
-      </class> <!-- aut.tests.functionaltests.FacilityAppTestCases -->
+      </class> <!-- aut.tests.functionaltests.PhysicianPortalTestCases -->
     </classes>
   </test> <!-- test(failed) -->
 </suite> <!-- Failed suite [SuiteRegression] -->

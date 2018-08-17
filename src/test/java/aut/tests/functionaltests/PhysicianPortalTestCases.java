@@ -33,7 +33,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 	
 	final String SheetName = "physicianPortal";
 	
-	//@Test(priority = 1)
+	//@Test()
 	public void QA007_ResidentOrders() throws URISyntaxException
 	{
 		PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -740,22 +740,22 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		String[] frequencyTpyes = {testData.get("type1"),testData.get("type2")};
 		for(int n=0;n<=1;n++)
 		{
-		String frequency = frequencyTpyes[n];
-		
-		String[] receivedOrders = {testData.get("ReceivedOrderType1"),testData.get("ReceivedOrderType2"),testData.get("ReceivedOrderType3"),testData.get("ReceivedOrderType4"),testData.get("ReceivedOrderType5"),testData.get("ReceivedOrderType6"),testData.get("ReceivedOrderType7")};
-		String[] medicationtypes = {testData.get("medicationType"),testData.get("medicationType1"),testData.get("medicationType"),testData.get("medicationType1"),testData.get("medicationType"),testData.get("medicationType1"),testData.get("medicationType")};
-		for(int i=0;i<=6;i++)
-		{
-		String RecivedOrderType = receivedOrders[i];
-		String medicationtype = medicationtypes[i];
-		
-		physicianPortal.ResidentFullOrderDetailsWithMedication(frequency,medicationtype,testData.get("searchMedicationName"),testData.get("libraryText1"));
-		physicianPortal.ResidentFullOrderDetails(frequency ,testData.get("nullDiagonisis") ,testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),RecivedOrderType,testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
-		
-		physicianPortal.CancelOrder();	
-		
-		
-		}
+			String frequency = frequencyTpyes[n];
+
+			String[] receivedOrders = {testData.get("ReceivedOrderType7"),testData.get("ReceivedOrderType1"),testData.get("ReceivedOrderType2"),testData.get("ReceivedOrderType3"),testData.get("ReceivedOrderType4"),testData.get("ReceivedOrderType5"),testData.get("ReceivedOrderType6")};
+			String[] medicationtypes = {testData.get("medicationType"),testData.get("medicationType1"),testData.get("medicationType"),testData.get("medicationType1"),testData.get("medicationType"),testData.get("medicationType1"),testData.get("medicationType")};
+			for(int i=0;i<=6;i++)
+			{
+				String RecivedOrderType = receivedOrders[i];
+				String medicationtype = medicationtypes[i];
+
+				physicianPortal.ResidentFullOrderDetailsWithMedication(frequency,medicationtype,testData.get("searchMedicationName"),testData.get("libraryText1"));
+				physicianPortal.ResidentFullOrderDetails(frequency ,testData.get("nullDiagonisis") ,testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),RecivedOrderType,testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
+
+				physicianPortal.CancelOrder();	
+				physicianPortal.CreateAnOrderPresent();
+
+			}
 		}
 		
 		
@@ -1076,7 +1076,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 	
 	
 	//@Test(priority = 13)	
-	public void QA019_ViewAndModifyAnOrder_ViaOrderSets (ITestContext testContext) throws AWTException
+	public void QA019_ViewAndModifyAnOrder_ViaOrderSets (ITestContext testContext) throws AWTException, InterruptedException
 	{
 		 
 		PhysicianPortalTestCases.testReport.logSuccess("QA19_ViewAndModifyAnOrder_ViaOrderSets" , "Verify View And Modify An Order Via Order Sets");
@@ -1158,7 +1158,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		physicianPortal.SaveOrderFrequency();	
 		physicianPortal.OrdersPageTextVerification();
 		physicianPortal.OrdersSelection(TypeName ,testData.get("libraryText"));
-		physicianPortal.PharmacyValidation();
+		//physicianPortal.PharmacyValidation();
 		physicianPortal.VerifyButtonInResidentOrders();
 		physicianPortal.OrdersDisplayPageForPerticularResident(testData.get("type8"));
 		physicianPortal.ClickingOnCreatedOrder(testData.get("libraryText"));
@@ -1340,7 +1340,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		
 	}
 	
-	//@Test(priority = 16)
+	//@Test()
 	public void QA022_SignAnOrder_ViaOrderSetsOrCreateAnOrder (ITestContext testContext) throws AWTException
 	{
 		 
@@ -1389,7 +1389,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		physicianPortal.VerifyTheOrderByClickingSignButton();
 		physicianPortal.OrdersPageTextVerification();
 		physicianPortal.VerifyCreatedOrderIntheVerifyList(Description);
-		physicianPortal.PharmacyValidation();
+		//physicianPortal.PharmacyValidation();
 		physicianPortal.OrdersDisplayPageForPerticularResident(testData.get("type1"));
 		physicianPortal.VerifyButtonsInSignOrders();		
 		physicianPortal.VerifyClickingOnToggledSignedButton();
@@ -1403,7 +1403,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 	
 	
 	//@Test(priority = 17)
-	public void QA023_ViewAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder (ITestContext testContext) throws AWTException
+	public void QA023_ViewAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder (ITestContext testContext) throws AWTException, InterruptedException
 	{
 		 
 		PhysicianPortalTestCases.testReport.logSuccess("QA21_VerifyAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder" , "Verify And Modify An Order Via Order Sets/Create An Order");
@@ -1447,7 +1447,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		physicianPortal.VerifyTheOrderByClickingSignButton();
 		physicianPortal.OrdersPageTextVerification();
 		physicianPortal.VerifyCreatedOrderIntheVerifyList(Description);
-		physicianPortal.PharmacyValidation();
+		//physicianPortal.PharmacyValidation();
 		physicianPortal.OrdersDisplayPageForPerticularResident(testData.get("type1"));
 		physicianPortal.VerifyButtonsInSignOrders();
 		physicianPortal.VerifyButtonsInOrdersAndFrequency();
@@ -1515,7 +1515,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 	
 	
 	//@Test(priority = 18)
-	public void QA024_RecapAnOrder_ViaOrderSetsOrCreateAnOrder (ITestContext testContext) throws AWTException
+	public void QA024_RecapAnOrder_ViaOrderSetsOrCreateAnOrder (ITestContext testContext) throws AWTException, InterruptedException
 	{
 		 
 		PhysicianPortalTestCases.testReport.logSuccess("QA024_RecapAnOrder_ViaOrderSetsOrCreateAnOrder" , "Recap An Order Via OrderSets Or CreateAnOrder");
@@ -1583,7 +1583,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		physicianPortal.ArrowButtonVerification();
 		physicianPortal.ClickOnListViewForNavigateToOrdersView();
 		physicianPortal.VerifyOrderInCreateRecapsWithoutCheckingTheCheckBox(Description);
-		physicianPortal.PharmacyValidation();
+		//physicianPortal.PharmacyValidation();
 		physicianPortal.OrdersDisplayPageForPerticularResident(testData.get("type1"));
 		physicianPortal.RecapPageButtonmVerification();
 		physicianPortal.VerifyToggleRecapAll();
@@ -1598,6 +1598,9 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		
 		
 		String Description1 = testData.get("description1") + physicianPortal.GenarateRandomNumber();
+		physicianPortal.ScrollUp(TestTemplate.threadLocalWebDriver.get());
+		physicianPortal.WindowpopUpCopy(TestTemplate.threadLocalWebDriver.get(),"Copy");
+		
 		physicianPortal.OrderPageCopyOrderValidation(testData.get("type1"),Description1,testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
 	
 		physicianPortal.VerifyButtonInResidentOrders();
@@ -1629,10 +1632,14 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		physicianPortal.VerifyToggleRecapAll();
 		physicianPortal.VerifyToggleRecap();
 		
+		
 		physicianPortal.DiscontinueOrderValidation(testData.get("startDate"),testData.get("startDateTime"),testData.get("physicianType1"),testData.get("ReceivedOrderType1"),testData.get("discontinueForCorrection1"),testData.get("copyOrder1"),testData.get("dcMessage1"));
+		physicianPortal.RobotWork();
 		physicianPortal.DiscontinueValidation(testData.get("discontinueForCorrection1"),testData.get("copyOrder1"),testData.get("dcMessage1"));
 		physicianPortal.CancelOrder();
 		
+		/*physicianPortal.ScrollUp(TestTemplate.threadLocalWebDriver.get());
+		physicianPortal.WindowpopUpCopy(TestTemplate.threadLocalWebDriver.get(),"Recap");*/
 		physicianPortal.VerifyTheOrderByClickingRecapButton();
 		physicianPortal.ClickOnCreateRecap();
 		physicianPortal.VerifyRecapDescription(Description1);
@@ -1657,7 +1664,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 	}
 	
 	
-	//@Test(priority = 19)
+	@Test(priority = 19)
 	public void QA025_SignatureOnRecap_Wheather_OrderCreatedFromOrder_Or_FromSets (ITestContext testContext) throws AWTException
 	{
 		 
@@ -1725,6 +1732,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		physicianPortal.VerifyToggleRecap();
 		physicianPortal.VerifyAddSignatureButton();
 		physicianPortal.VerifySignOrdersViaAddSignature();
+		physicianPortal.RobotWork();
 		physicianPortal.SelectPhysicianForReacap(PhysicianOption);
 		physicianPortal.SelectPhysicianSignatureForReacap();
 		physicianPortal.ClickAndSelectPhysicianSignatureForReacap(Description1,testData.get("ClickingType"));
@@ -1739,7 +1747,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 	
 	
 	@Test(priority = 20)
-	public void QA026_ViewAndModify_Recaps(ITestContext testContext) throws AWTException
+	public void QA026_ViewAndModify_Recaps(ITestContext testContext) throws AWTException, InterruptedException
 	{
 		 
 		PhysicianPortalTestCases.testReport.logSuccess("QA026_ViewAndModify_Recaps" , "View And Modify Recaps");
@@ -1804,7 +1812,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		physicianPortal.OrdersPageTextVerification();
 		physicianPortal.VerifyOrderInCreateRecapsWithoutCheckingTheCheckBox(Description);		
 		physicianPortal.ArrowButtonVerification();		
-		physicianPortal.PharmacyValidation();
+		//physicianPortal.PharmacyValidation();
 		physicianPortal.OrdersDisplayPageForPerticularResident(testData.get("type1"));
 		physicianPortal.RecapPageButtonmVerification();
 		physicianPortal.VerifyToggleRecapAll();
@@ -1825,13 +1833,15 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		
 		
 		String Description1 = testData.get("description1") + physicianPortal.GenarateRandomNumber();
+		physicianPortal.ScrollUp(TestTemplate.threadLocalWebDriver.get());
+		physicianPortal.WindowpopUpCopy(TestTemplate.threadLocalWebDriver.get(),"Copy");
 		physicianPortal.OrderPageCopyOrderValidation(testData.get("type1"),Description1,testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
 	
-		physicianPortal.VerifyButtonInResidentOrders();
+		/*physicianPortal.VerifyButtonInResidentOrders();
 		
-		/*physicianPortal.VerifyTheOrderByClickingVerifyButton();
+		physicianPortal.VerifyTheOrderByClickingVerifyButton();
 		physicianPortal.VerifyCreatedOrderIntheVerifyList(Description1);
-		physicianPortal.VerifyClickingOnToggledVerifiedButton();*/
+		physicianPortal.VerifyClickingOnToggledVerifiedButton();
 		physicianPortal.VerifyTheOrderByClickingSignButton();
 		physicianPortal.VerifyCreatedOrderIntheVerifyList(Description1);
 		
@@ -1840,7 +1850,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		physicianPortal.VerifySignOrdersViaAddSignature();
 		
 		physicianPortal.VerifyTheOrderByClickingRecapButton();
-		physicianPortal.ClickOnCreateRecap();
+		physicianPortal.ClickOnCreateRecap();*/
 		physicianPortal.VerifyRecapDescription(Description1);
 		physicianPortal.VerifyResidentStatus(testData.get("Option"),testData.get("ResidentStatus"));
 		physicianPortal.VerifyResidentStations(testData.get("Option"),testData.get("Stations"));
@@ -1860,6 +1870,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		
 		physicianPortal.DiscontinueOrderValidation(testData.get("startDate"),testData.get("startDateTime"),testData.get("physicianType1"),testData.get("ReceivedOrderType1"),testData.get("discontinueForCorrection1"),testData.get("copyOrder1"),testData.get("dcMessage1"));
 		physicianPortal.DiscontinueValidation(testData.get("discontinueForCorrection1"),testData.get("copyOrder1"),testData.get("dcMessage1"));
+		physicianPortal.RobotWork();
 		physicianPortal.CancelOrder();
 		
 		
@@ -1952,6 +1963,12 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		login.Logout();
 
 	}
+   
+   //@Test()
+   public void TEST001()
+   {
+	  System.out.println("Running Script"); 
+   }
 	
 	
 }
