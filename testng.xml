@@ -5,12 +5,9 @@
 		value="https://devclient.bluestrataemr.com/qa2" />
 	<parameter name="browserName" value="ie" />
 	<parameter name="automationKit" value="selenium" />
-	<test name="test">	
-		<classes>		
-			<class name="aut.tests.functionaltests.PhysicianPortalTestCases"/>							
+	<test name="test">
+		<classes>
+			<class name="aut.tests.functionaltests.EmarTestCases" />
 		</classes>
-	</test> <!-- Test -->	
+	</test> <!-- Test -->
 </suite> <!-- SuiteRegression -->
-
-
-

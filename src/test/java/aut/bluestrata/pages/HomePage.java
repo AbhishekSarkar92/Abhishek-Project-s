@@ -25,19 +25,22 @@ public class HomePage extends PageTemplate {
 	public By optionFacilityPortal = By.xpath("//div[@class='modal-content']//img[@src='https://cdn.bluestrataemr.com/Images/Menu/sigma_educationicons_school_128.png']");
 	public By optionClinicalPortal = By.xpath("//div[@class='modal-content']//img[@src='https://cdn.bluestrataemr.com/Images/Menu/sigma_medical_nurse_128.png']");
 	public By optionEmarPortal = By.xpath("//div[@class='modal-content']//img[@src='https://cdn.bluestrataemr.com/Images/Menu/sigma_medical_tablet_128.png']");
+	//public By optionEmarPortal = By.xpath("//div[@class='modal-content']//a[@href='emar/dashboard']");
 	
 	public By btnFacilyIcon = By.xpath("//button/i[contains(@class,'refresh')]");
 	public By btnResidentIcon = By.xpath("//a/i[contains(@class,'refresh')]");
 	
-	
+	public By btnMenuEmar = By.xpath("//app-selector//button");
 	public void NavigateToPhysicianPortal()
 	{
+		this.WaitForElementPresent(btnMenu, 20, "Menu Button");
 		this.click(btnMenu ,"Menu Button");
 		this.click(optionPhysicianPortal ,"Physician Portal Option");
 	}
 	
 	public void NavigateToClinicalPortal()
 	{
+		this.WaitForElementPresent(btnMenu, 20, "Menu Button");
 		this.click(btnMenu ,"Menu Button");
 		this.click(optionClinicalPortal ,"Clinical Option");
 	}
@@ -46,6 +49,7 @@ public class HomePage extends PageTemplate {
 	{
 		/*String Element = wd.findElement(By.xpath("//div[contains(@class,'col-md-auto')]//button")).getCssValue("background-color");
 		System.out.println(Element);*/
+		this.WaitForElementPresent(btnMenu, 20, "Menu Button");
 		this.click(btnMenu ,"Menu Button");
 		
 		this.click(optionFacilityPortal ,"Facility Portal Option");
@@ -58,6 +62,7 @@ public class HomePage extends PageTemplate {
 	
 	public void NavigateToEmar()
 	{
+		this.WaitForElementPresent(btnMenu, 20, "Menu Button");
 		this.click(btnMenu ,"Menu Button");
 		
 		
@@ -114,7 +119,7 @@ public class HomePage extends PageTemplate {
 	
 	public void VerifyAllapps()
 	{
-		this.click(btnMenu ,"Menu Button");
+		this.click(btnMenuEmar ,"Menu Button");
 		List<WebElement> apps = wd.findElements(By.xpath("//div[@class='modal-content']//img/..//small"));
 		int No = apps.size();
 		ArrayList<String> Apps = new ArrayList<String>();
@@ -124,7 +129,7 @@ public class HomePage extends PageTemplate {
 		}
 		this.testReport.logSuccess("Present Apps ", String.format("Present Apps On application Menu <mark>%s<mark/> ", Apps.toString()) );
 		
-		this.click(btnMenu ,"Menu Button");
+		this.click(btnMenuEmar ,"Menu Button");
 	}
 	
 	public void VerifyFacilityIconAndName()

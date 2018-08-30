@@ -21,7 +21,7 @@ public class EmarTestCases extends TestTemplateMethodLevelInit {
 
 	final String SheetName = "emarPortal";
 
-	@Test(enabled = false)
+	@Test()
 	public void QA116_LoginTo_EmarApplication(ITestContext testContext) throws Throwable {
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
 		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -42,7 +42,7 @@ public class EmarTestCases extends TestTemplateMethodLevelInit {
 
 	}
 
-	// @Test()
+	@Test()
 	public void QA117_UserNamePreferences_TopRightOf_ResidentDahsboard_Or_HomePage(ITestContext testContext)
 			throws Throwable {
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -64,7 +64,7 @@ public class EmarTestCases extends TestTemplateMethodLevelInit {
 
 	}
 
-	// @Test()
+	@Test()
 	public void QA118_HelpMenuWith_HelpSiteAbout(ITestContext testContext) throws Throwable {
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
 		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -90,7 +90,7 @@ public class EmarTestCases extends TestTemplateMethodLevelInit {
 
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void QA119_ChangeAppWindowThrough_ApplicationMenuButton(ITestContext testContext) throws Throwable {
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
 		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -113,7 +113,7 @@ public class EmarTestCases extends TestTemplateMethodLevelInit {
 
 	}
 
-	// @Test(enabled = false)
+	@Test(enabled = true)
 	public void QA120_ExploreEmar_DashboardPageUsing_eMARapp(ITestContext testContext) throws Throwable {
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
 		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -140,7 +140,7 @@ public class EmarTestCases extends TestTemplateMethodLevelInit {
 
 	}
 
-	// @Test()
+	@Test()
 	public void QA121_LaunchPage_ViewOrderStatus_OneMARDashboard(ITestContext testContext) throws Throwable {
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
 		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -173,7 +173,7 @@ public class EmarTestCases extends TestTemplateMethodLevelInit {
 
 	}
 
-	// @Test()
+	@Test()
 	public void QA122_EmarDashboard_OrdersWidget(ITestContext testContext) throws Throwable {
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
 		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -197,7 +197,7 @@ public class EmarTestCases extends TestTemplateMethodLevelInit {
 
 	}
 
-	// @Test()
+	@Test()
 	public void QA123_EmarDashboard_ADTChanges(ITestContext testContext) throws Throwable {
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
 		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -221,7 +221,7 @@ public class EmarTestCases extends TestTemplateMethodLevelInit {
 
 	}
 
-	// @Test()
+	@Test()
 	public void QA124_EmarDashboard_LateMedicationsLast24Hours(ITestContext testContext) throws Throwable {
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
 		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -247,7 +247,7 @@ public class EmarTestCases extends TestTemplateMethodLevelInit {
 
 	}
 
-	// @Test()
+	@Test()
 	public void QA125_EmarDashboard_Followups(ITestContext testContext) throws Throwable {
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
 		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -273,7 +273,7 @@ public class EmarTestCases extends TestTemplateMethodLevelInit {
 
 	}
 
-	// @Test()
+	@Test()
 	public void QA126_EmarDashboard_ResidentDashboard(ITestContext testContext) throws Throwable {
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
 		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -303,7 +303,7 @@ public class EmarTestCases extends TestTemplateMethodLevelInit {
 
 	}
 
-	// @Test()
+	@Test()
 	public void QA127_EmarDashboard_ResidentDetails_OnDashboard(ITestContext testContext) throws Throwable {
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
 		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -329,7 +329,7 @@ public class EmarTestCases extends TestTemplateMethodLevelInit {
 
 	}
 
-	// @Test()
+	@Test()
 	public void QA128_AdministrationButtonsAvailable_OnResidentDashboard(ITestContext testContext) throws Throwable {
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
 		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -353,7 +353,7 @@ public class EmarTestCases extends TestTemplateMethodLevelInit {
 
 	}
 
-	// @Test()
+	@Test()
 	public void QA129_VerifyCurrentAdministrationRoutine_OrdersAdministration(ITestContext testContext)
 			throws Throwable {
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -376,7 +376,7 @@ public class EmarTestCases extends TestTemplateMethodLevelInit {
 		emar.AdministrationsMedicationNameValidation(Description[0]);
 		emar.AdministrationsValidation(testData.get("Notes"), testData.get("Amount"), testData.get("Value"));
 		emar.PostAdministrationRequirmentsVerification(testData.get("Comment"));
-		emar.VerifyAdministrationHistoryOverLast24Hours(Description[0], Description[1], testData.get("RoutineTabType"),testData.get("Task"));
+		emar.VerifyAdministrationHistoryOverLast24Hours("Description[0]", "Description[1]", testData.get("RoutineTabType"),testData.get("Task"));
 		emar.LogoutFromEmar();
 		emar.ClosingEmarURL();
 		emar.SwitchToHomePage(parentWindow);
@@ -384,7 +384,7 @@ public class EmarTestCases extends TestTemplateMethodLevelInit {
 
 	}
 
-	// @Test()
+	@Test()
 	public void QA130_VerifyCurrentAdministrationPRN_OrdersAdministration(ITestContext testContext) throws Throwable {
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
 		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -414,7 +414,7 @@ public class EmarTestCases extends TestTemplateMethodLevelInit {
 
 	}
 
-	// @Test()
+	@Test()
 	public void QA131_VerifyCurrentAdministrationFollowUps_OrdersAdministration(ITestContext testContext)
 			throws Throwable {
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -443,7 +443,7 @@ public class EmarTestCases extends TestTemplateMethodLevelInit {
 
 	}
 
-	// @Test()
+	@Test()
 	public void QA132_AdministeringShowFutureRecord_EMAR(ITestContext testContext) throws Throwable {
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
 		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -469,8 +469,36 @@ public class EmarTestCases extends TestTemplateMethodLevelInit {
 		login.Logout();
 
 	}
+		
+	@Test()
+	public void QA133_Edit_And_Undo_on_Today_administered_Orders_on_eMAR(ITestContext testContext) throws Throwable {
+		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
+		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
+		EmarPage emar = new EmarPage(threadLocalWebDriver.get(), TestTemplate.testReport);
+		String userName = this.getTestParameter(testContext, "userName");
+		String password = this.getTestParameter(testContext, "password");
 
-	// @Test()
+		String TestCaseName = "QA133";
+
+		HashMap<String, String> testData = xlsReader.GetValue(SheetName, TestCaseName);
+
+		String parentWindow = homepage.NavigateToEmarWindow(testData.get("EmarURL"));
+		login.login(userName, password);
+		emar.SelectAllAccessType(testData.get("Value"));
+		emar.SelectStation(testData.get("Station"));
+		String[] Description = emar.SelectPerticulerResident(testData.get("Resident"),testData.get("RoutineTabType"),
+				testData.get("Tab"), testData.get("Task"));
+		emar.PreAdministrationRequirementsValidation(testData.get("Comment"));
+		emar.AdministrationsValidation(testData.get("Notes"), testData.get("Amount"), testData.get("Value"));
+		emar.PostAdministrationRequirmentsVerification(testData.get("Comment"));
+		emar.VerifyAdministrationHistoryOverTheLast24Hours(testData.get("Notes"));
+		emar.LogoutFromEmar();
+		emar.ClosingEmarURL();
+		emar.SwitchToHomePage(parentWindow);
+		login.Logout();
+	}
+	
+	@Test()
 	public void QA134_InteractionsButton_ResidentDashoard_EMAR(ITestContext testContext) throws Throwable {
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
 		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -497,7 +525,7 @@ public class EmarTestCases extends TestTemplateMethodLevelInit {
 
 	}
 
-	// @Test()
+	@Test()
 	public void QA135_LostOrDisposedMedication_ResidentDashoard_EMAR(ITestContext testContext) throws Throwable {
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
 		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -530,7 +558,7 @@ public class EmarTestCases extends TestTemplateMethodLevelInit {
 
 	}
 
-	//@Test()
+	@Test()
 	public void QA136_PastAdministrationRoutine_ResidentDashoard_EMAR(ITestContext testContext) throws Throwable {
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
 		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -561,8 +589,7 @@ public class EmarTestCases extends TestTemplateMethodLevelInit {
 
 	}
 
-
-	//@Test()
+	@Test()
 	public void QA137_PastAdministrationPRN_ResidentDashoard_EMAR(ITestContext testContext) throws Throwable {
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
 		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -593,8 +620,7 @@ public class EmarTestCases extends TestTemplateMethodLevelInit {
 
 	}
 
-
-	//@Test()
+	@Test()
 	public void QA138_PastAdministrationFollowUps_ResidentDashoard_EMAR(ITestContext testContext) throws Throwable {
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
 		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -623,7 +649,7 @@ public class EmarTestCases extends TestTemplateMethodLevelInit {
 
 	}
 
-	//@Test()
+	@Test()
 	public void QA139_MissedAdministrationOn_ResidentDashboard_EMAR(ITestContext testContext) throws Throwable {
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
 		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -653,7 +679,7 @@ public class EmarTestCases extends TestTemplateMethodLevelInit {
 
 	}
 
-	//@Test()
+	@Test()
 	public void QA140_MissedAdministration_RoutionOrders_ResidentDashboard_EMAR(ITestContext testContext) throws Throwable {
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
 		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -681,7 +707,7 @@ public class EmarTestCases extends TestTemplateMethodLevelInit {
 
 	}
 
-	//@Test()
+	@Test()
 	public void QA141_MissedAdministration_RoutionOrders_PreAdministrationAction_EMAR(ITestContext testContext) throws Throwable {
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
 		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -709,8 +735,7 @@ public class EmarTestCases extends TestTemplateMethodLevelInit {
 
 	}
 
-
-	//@Test()
+	@Test()
 	public void QA142_MissedAdministration_RoutionOrders_PostAdministrationAction_EMAR(ITestContext testContext) throws Throwable {
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
 		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -739,7 +764,7 @@ public class EmarTestCases extends TestTemplateMethodLevelInit {
 
 	}
 
-	//@Test()
+	@Test()
 	public void QA143_MissedAdministration_PRNOrders_PreAdministrationAction_EMAR(ITestContext testContext) throws Throwable {
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
 		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -767,7 +792,7 @@ public class EmarTestCases extends TestTemplateMethodLevelInit {
 
 	}
 
-	//@Test()
+   @Test()
 	public void QA144_MissedAdministration_PRNOrders_PostAdministrationAction_EMAR(ITestContext testContext) throws Throwable {
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
 		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -796,7 +821,7 @@ public class EmarTestCases extends TestTemplateMethodLevelInit {
 
 	}
 
-	//@Test()
+	@Test()
 	public void QA145_MissedAdministration_AdministeringFollowupsOrders_EMAR(ITestContext testContext) throws Throwable {
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
 		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -855,6 +880,61 @@ public class EmarTestCases extends TestTemplateMethodLevelInit {
 		emar.UpdateNewVitalSign(testData.get("Amount"),testData.get("Task"));
 		emar.CreatedVitalSign(testData.get("VitalSign"), testData.get("VitalSigntext"));
 			
+		emar.LogoutFromEmar();
+		emar.ClosingEmarURL();
+		emar.SwitchToHomePage(parentWindow);
+		login.Logout();
+
+		
+	}
+	
+	@Test()
+	public void QA151_Behavior_Monitoring_on_eMAR(ITestContext testContext) throws Throwable
+	{		
+		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
+		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
+		EmarPage emar = new EmarPage(threadLocalWebDriver.get(), TestTemplate.testReport);
+		String userName = this.getTestParameter(testContext, "userName");
+		String password = this.getTestParameter(testContext, "password");
+
+		String TestCaseName = "QA151";
+
+		HashMap<String, String> testData = xlsReader.GetValue(SheetName, TestCaseName);
+
+		String parentWindow = homepage.NavigateToEmarWindow(testData.get("EmarURL"));
+		login.login(userName, password);
+		emar.SelectAllAccessType(testData.get("Value"));
+		emar.SelectStation(testData.get("Station"));
+		 emar.SelectPerticulerResident(testData.get("Resident"),testData.get("TabType"),
+				testData.get("Tab"), testData.get("Task"));	
+		emar.VerifyBoxesUnderBehaviorMonitoring(testData.get("Notes"));			
+		emar.LogoutFromEmar();
+		emar.ClosingEmarURL();
+		emar.SwitchToHomePage(parentWindow);
+		login.Logout();
+
+		
+	}
+	
+	@Test()
+	public void QA173_Creation_Of_Med_Inventory(ITestContext testContext) throws Throwable
+	{		
+		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
+		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
+		EmarPage emar = new EmarPage(threadLocalWebDriver.get(), TestTemplate.testReport);
+		String userName = this.getTestParameter(testContext, "userName");
+		String password = this.getTestParameter(testContext, "password");
+		String userName1 = this.getTestParameter(testContext, "newuserName");
+		String password2 = this.getTestParameter(testContext, "newpassword");
+
+		String TestCaseName = "QA173";
+
+		HashMap<String, String> testData = xlsReader.GetValue(SheetName, TestCaseName);
+		String parentWindow = homepage.NavigateToEmarWindow(testData.get("EmarURL"));
+		login.login(userName, password);
+		emar.SelectAllAccessType(testData.get("Value"));
+		emar.SelectStation(testData.get("Station"));
+		emar.ClickOnManageInventoryButtonWithValidation(testData.get("Amount"), userName, password, userName1, password2);			
 		emar.LogoutFromEmar();
 		emar.ClosingEmarURL();
 		emar.SwitchToHomePage(parentWindow);

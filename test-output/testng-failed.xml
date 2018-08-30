@@ -6,24 +6,21 @@
   <parameter name="automationKit" value="selenium"/>
   <test name="test(failed)" parallel="tests">
     <classes>
-      <class name="aut.tests.functionaltests.PhysicianPortalTestCases">
+      <class name="aut.tests.functionaltests.EmarTestCases">
         <methods>
-          <include name="QA019_ViewAndModifyAnOrder_ViaOrderSets" invocation-numbers="0"/>
-          <include name="QA023_ViewAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder" invocation-numbers="0"/>
           <include name="beforeMethod"/>
+          <include name="QA147_VitalSigns_ResidentDashboard_eMAR" invocation-numbers="0"/>
+          <include name="QA139_MissedAdministrationOn_ResidentDashboard_EMAR" invocation-numbers="0"/>
           <include name="beforeTest"/>
-          <include name="QA026_ViewAndModify_Recaps" invocation-numbers="0"/>
+          <include name="afterMethod"/>
           <include name="afterSuite"/>
-          <include name="QA018_CreateAnOrder_ViaOrderSets" invocation-numbers="0"/>
-          <include name="QA011_HowOften_RoutineFrequencyType"/>
-          <include name="QA021_VerifyAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder" invocation-numbers="0"/>
-          <include name="QA025_SignatureOnRecap_Wheather_OrderCreatedFromOrder_Or_FromSets" invocation-numbers="0"/>
+          <include name="QA138_PastAdministrationFollowUps_ResidentDashoard_EMAR" invocation-numbers="0"/>
           <include name="beforeSuite"/>
           <include name="afterTest"/>
-          <include name="afterMethod"/>
-          <include name="QA024_RecapAnOrder_ViaOrderSetsOrCreateAnOrder" invocation-numbers="0"/>
+          <include name="QA131_VerifyCurrentAdministrationFollowUps_OrdersAdministration" invocation-numbers="0"/>
+          <include name="QA145_MissedAdministration_AdministeringFollowupsOrders_EMAR" invocation-numbers="0"/>
         </methods>
-      </class> <!-- aut.tests.functionaltests.PhysicianPortalTestCases -->
+      </class> <!-- aut.tests.functionaltests.EmarTestCases -->
     </classes>
   </test> <!-- test(failed) -->
 </suite> <!-- Failed suite [SuiteRegression] -->

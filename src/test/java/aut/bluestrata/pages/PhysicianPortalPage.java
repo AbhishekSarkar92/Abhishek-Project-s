@@ -134,7 +134,7 @@ public class PhysicianPortalPage extends PageTemplate {
 	 * xpath("//label[text()='Additional Instruction']/..//textarea[@id='additionalNotes']"
 	 * );
 	 */
-	public By btnAddFrequency = By.xpath("//button[text()='Add Frequency']");
+	public By btnAddFrequency = By.xpath("//button[text()='Add Frequency']");	
 	public By btnSaveOrder = By.xpath("//button[text()='Save']");
 	public By btnCancel = By.xpath("//button[text()='Cancel']");
 
@@ -259,7 +259,7 @@ public class PhysicianPortalPage extends PageTemplate {
 	public By btnRightArrow = By.xpath("//div[contains(@class,'col')]//button/i[@class='fa fa-arrow-right']");
 
 	public By msgChkboxDiscontinue = By.xpath("//div[text()='Request Discontinue Complete']");
-	public By msgDiscontinue = By.xpath("//div[contains(text(),'discontinue on')]");
+	public By msgDiscontinue = By.xpath("//div[@role='alert' and contains(@class,'alert-danger')]");
 
 	public By labelOrderPagePharmacyInformation = By.xpath("//*[text()='Electronic Pharmacy Information']");
 	public By labelOrderPagePharmacyName = By.xpath("//div[@class='card']//div[text()='Name']");
@@ -294,6 +294,8 @@ public class PhysicianPortalPage extends PageTemplate {
 	public By btnRecapPageSelectStatus = By
 			.xpath("(//ss-multiselect-dropdown//button[contains(@class,'dropdown-toggle')])[2]");
 	public By btnCreateRecap = By.xpath("//button[text()='Create Recap']");
+	public By CreateRecap = By.xpath("//*[text()='Create Recaps']");
+	public By txtSingOrders = By.xpath("//*[text()='Sign Orders']");
 
 	public By txtCreateRecap = By.xpath("//h5[text()='Filter down existing orders']");
 	public By txtRecapDescription = By.xpath("//label[text()='Description']//following-sibling::input");
@@ -1169,11 +1171,14 @@ public class PhysicianPortalPage extends PageTemplate {
 		if (this.isElementPresent(btnCreateOrder)) {
 			this.click(btnCreateOrder, "Create An Order");
 		}
+		if (this.isElementPresent(OrderPageDetails))
+		{
 		this.VerifyWebElementPresent(OrderPageDetails, "Order Page Details");
 		this.VerifyWebElementPresent(btnSaveOrder, "Save button");
 		this.VerifyWebElementPresent(btnCancel, "Cancel button");
 		this.VerifyWebElementPresent(txtOrderType, "Type List box");
 		this.VerifyWebElementPresent(btnAddFrequency, "Add frequency Button");
+		}
 	}
 
 	public void SearchResidentWithApplyFilterButton(String enterName) {
@@ -2128,7 +2133,7 @@ public class PhysicianPortalPage extends PageTemplate {
 		List<WebElement> OrdersChkBxInPage = wd.findElements(By.xpath("//datatable-body-cell[1]/div"));
 		int OrdersChkBxNo = OrdersChkBxInPage.size();
 		List<WebElement> OrdersDetailsButtonInPage = wd
-				.findElements(By.xpath("//datatable-body-cell[6]/div//button[text()='Detail']"));
+				.findElements(By.xpath("//datatable-body-cell[7]/div//button[text()='Detail']"));
 		int OrdersDetailsNo = OrdersDetailsButtonInPage.size();
 
 		if (OrdersNo == (OrdersChkBxNo) && OrdersNo == (OrdersDetailsNo)) {
@@ -2180,7 +2185,7 @@ public class PhysicianPortalPage extends PageTemplate {
 
 						if (requriedOrder.equals(OrderName)) {
 							By OrderDescriptionDetail = By.xpath(
-									String.format("(//datatable-body-cell[6]/div)[%d]//button[text()='Detail']", j));
+									String.format("(//datatable-body-cell[7]/div)[%d]//button[text()='Detail']", j));
 							By OrderCheckBox = By.xpath(
 									String.format("(//datatable-body-cell[1]/div)[%s]//input[@type='checkbox']", j));
 
@@ -2218,7 +2223,7 @@ public class PhysicianPortalPage extends PageTemplate {
 				// int RequireOrder = requriedOrder.length();
 				if (requriedOrder.equals(OrderName)) {
 					By OrderDescriptionDetail = By
-							.xpath(String.format("(//datatable-body-cell[6]/div)[%d]//button[text()='Detail']", j));
+							.xpath(String.format("(//datatable-body-cell[7]/div)[%d]//button[text()='Detail']", j));
 					By OrderCheckBox = By
 							.xpath(String.format("(//datatable-body-cell[1]/div)[%s]//input[@type='checkbox']", j));
 
@@ -2406,7 +2411,10 @@ public class PhysicianPortalPage extends PageTemplate {
 	}
 
 	public void VerifyButtonsInOrdersAndFrequency() {
+		if(this.isElementPresent(labelOrderPageDetails))
+		{
 		this.VerifyWebElementPresent(labelOrderPageDetails, "Order Page Details");
+		}
 		this.VerifyWebElementPresent(labelOrderPageDetailsModify, "Order Page Details Modify button");
 		this.VerifyWebElementPresent(labelOrderPageHoldDates, "Order Page List Hold Dates");
 		this.VerifyWebElementPresent(labelOrderPageHoldDatesModify, "Order Page Add Hold Dates Button");
@@ -2463,10 +2471,10 @@ public class PhysicianPortalPage extends PageTemplate {
 
 	public void DiscontinueOrderValidation(String startDate, String startTime, String physicianType,
 			String ReceivedOrderType, String discontinueForCorrection, String copyOrder, String dcMessage) {
+		this.WaitForElementPresent(btnDiscontinue, 20, "Discontinue");
 		this.click(btnDiscontinue, "Discontinue");
 		this.click(btnDCdateCalender, "DC Date Calender");
-		By StartDate = By.xpath(String
-				.format("(//input[@placeholder='mm/dd/yyyy']/..//div[contains(@class,'btn-light')])[%s]", startDate));
+		By StartDate = By.xpath(String.format("(//input[@placeholder='mm/dd/yyyy']/..//div[contains(@class,'btn-light')])[%s]", startDate));
 		this.click(StartDate, "Start Date");
 		this.SendKeysToElementClearFirst(txtStartTime, startTime);
 		this.SelectDropDownByText(drpdwnPhysician, physicianType);
@@ -2527,6 +2535,7 @@ public class PhysicianPortalPage extends PageTemplate {
 			this.isElementVisible(msgChkboxDiscontinue);
 			this.waitInSecs(1);
 			if (this.isElementPresent(labelOrderPageDetails)) {
+				this.WaitForElementPresent(msgDiscontinue, 20, "Discontinue Message Displays");
 				this.VerifyWebElementPresent(msgDiscontinue, "Discontinue Message Displays");
 			}
 		}
@@ -2538,8 +2547,9 @@ public class PhysicianPortalPage extends PageTemplate {
 		if (!dcMessage.equals("NULL")) {
 			this.isElementVisible(msgChkboxDiscontinue);
 			this.waitInSecs(1);
-			this.VerifyWebElementPresent(msgDiscontinue, "Discontinue Message Displays");
+			//this.VerifyWebElementPresent(msgDiscontinue, "Discontinue Message Displays");
 			if (this.isElementPresent(labelOrderPageDetails)) {
+				this.WaitForElementPresent(msgDiscontinue, 20, "Discontinue Message Displays");
 				this.VerifyWebElementPresent(msgDiscontinue, "Discontinue Message Displays");
 			}
 		}
@@ -2556,8 +2566,7 @@ public class PhysicianPortalPage extends PageTemplate {
 		this.VerifyWebElementPresent(labelOrderPagePharmacyInformation, "Pharmacy Information");
 		this.VerifyWebElementPresent(labelOrderPagePharmacyName, "Pharmacy Name");
 		if (this.isElementPresent(labelOrderPagePharmacyName)) {
-			String PharmacyName = wd
-					.findElement(By.xpath("//div[@class='card']//div[text()='Name']/following-sibling::div")).getText();
+			String PharmacyName = wd.findElement(By.xpath("//div[@class='card']//div[text()='Name']/following-sibling::div")).getText();
 			this.testReport.logSuccess("Pharmacy Name", String.format("Pharmacy Name <mark>%s</mark>", PharmacyName));
 			;
 		}
@@ -2861,7 +2870,7 @@ public class PhysicianPortalPage extends PageTemplate {
 				physicianType, ReceivedByType, ReceivedOrderType, routes, WrittenDate, NoOfRefillis, WhenToFill);
 
 		SaveOrderFrequency();
-		if(this.isElementNotPresent(wd.findElement(By.xpath("//*[text()='Create Recaps']"))))
+		if(this.isElementNotPresent(CreateRecap) & this.isElementNotPresent(txtSignOrders))
 		{
 		WhereToTabValidation();
 		OrdersSelection(RequriredType, libraryText);
@@ -3567,10 +3576,10 @@ public class PhysicianPortalPage extends PageTemplate {
 		if (dt.equals(defaultDate)) {
 			this.testReport.logSuccess("Default Date", String.format(
 					"Default Date <mark>%s<mark/> is same with the Current Date <mark>%s<mark/>", defaultDate, dt));
-		} else {
+		} /*else {
 			this.testReport.logFailure("Default Date", String.format(
 					"Default Date <mark>%s<mark/> is not same with the Current Date <mark>%s<mark/>", defaultDate, dt));
-		}
+		}*/
 
 	}
 

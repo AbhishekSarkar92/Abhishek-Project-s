@@ -271,12 +271,12 @@ public class FacilityPage extends PhysicianPortalPage {
 		
 		this.waitUntilElementIsVisible(txtOrderType);
 		
-		List<WebElement> types = wd.findElements(By.xpath("//select[@id='settingOrderTypeId']/option[contains(@class,'ng-star')]"));
+		List<WebElement> types = wd.findElements(By.xpath("//select[@id='settingOrderTypeId']/option[contains(@value,':')]"));
 		int typeCount = types.size();
 		this.testReport.logSuccess("Total Number of Order Type  ",String.format("Number of Order Type Present in the List - <mark>%s</mark> ", typeCount));
 		for(int i=1;i<=typeCount;i++)
 		{
-			String TypeName = wd.findElement(By.xpath(String.format("(//select[@id='settingOrderTypeId']/option[contains(@class,'ng-star')])[%s]",i))).getAttribute("innerHTML");
+			String TypeName = wd.findElement(By.xpath(String.format("(//select[@id='settingOrderTypeId']/option[contains(@value,':')])[%s]",i))).getAttribute("innerHTML");
 			this.testReport.logSuccess("Order Type ",String.format(" Order Type Present in the List - <mark>%s</mark> ", TypeName));
 			
 		}
@@ -291,10 +291,10 @@ public class FacilityPage extends PhysicianPortalPage {
 			this.waitInSecs(2);
 			this.sendKeys(txtSearchMedicineName,"Amox");
 			this.waitInSecs(2);
-			this.click(btnSearchDiogonosis,"Search Medication");
-			this.waitInSecs(20);            //constant
-			By medicineName = By.xpath(String.format("//datatable-scroller[@class='datatable-scroll ng-star-inserted']//span[text()='%s']", libraryText));
-			String MedicineName = wd.findElement(By.xpath(String.format("//datatable-scroller[@class='datatable-scroll ng-star-inserted']//span[text()='%s']", libraryText))).getText();
+			this.click(btnSearchDiogonosis,"Search Medication");         
+			By medicineName = By.xpath(String.format("//datatable-body-cell//span[text()='%s']", libraryText));
+			//String MedicineName = wd.findElement(By.xpath(String.format("//datatable-scroller[@class='datatable-scroll ng-star-inserted']//span[text()='%s']", libraryText))).getText();
+			this.WaitForElementPresent(medicineName, 60, "Medicine Name");
 			this.click(medicineName, "Medicine");
 			this.click(linkFreeForm, "Free Form");
 			this.VerifyWebElementPresent(warningMessage,"Drug interactions will not be available on orders with free form drug names.");

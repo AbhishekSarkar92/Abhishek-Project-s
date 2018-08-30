@@ -97,6 +97,7 @@ public abstract class TestTemplateMethodLevelInit extends TestTemplate {
 			catch(Exception ex)
 			{
 				LOG.error(ex);
+				
 			}
 		}
 	}

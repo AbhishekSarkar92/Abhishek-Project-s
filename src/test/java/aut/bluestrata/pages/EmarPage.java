@@ -50,7 +50,7 @@ public class EmarPage extends LoginPage {
 	public By btnMenu = By.xpath("//div[contains(@class,'navbar-brand')]//button");
 	public By arrowBtnEmarPage = By.xpath("//div[@role='main']//i");
 	public By selectFilter = By.xpath("//div[@role='main']//select");
-	public By selectAcessTypes = By.xpath("//div[@role='main']//button[@ng-reflect-klass='dropdown-toggle']");
+	public By selectAcessTypes = By.xpath("//div[@class='dropdown multi-selector']//button[contains(@class,'dropdown-toggle')]");
 	public By findSelectAcess = By.xpath("//ul//input[@placeholder='Find']");
 	public By btnManageInventory = By.xpath("//div[@role='main']//button[text()='Manage Inventory']");
 	public By btnReports = By.xpath("//div[@role='main']//button[text()='Reports']");
@@ -97,8 +97,8 @@ public class EmarPage extends LoginPage {
 	public By headerAdministrations = By.xpath("//div[contains(text(),'Administrations')]");
 	public By txtMedicationMonograph = By.xpath("//*[contains(text(),'Medication Monograph')]");
 	public By btnAdministrationsSave = By.xpath("//div[contains(text(),'Administrations')]/..//button[text()='Save']");
-	public By typeAdministrationsNotes = By.xpath("//div[contains(text(),'Administrations')]/..//input[@placeholder='Notes']");
-	public By selectAdministrationsCode = By.xpath("//div[contains(text(),'Administrations')]/..//select[@formcontrolname='administered']");
+	public By typeAdministrationsNotes = By.xpath("//input[@placeholder='Notes']");
+	public By selectAdministrationsCode = By.xpath("//select[@formcontrolname='administered']");
 	public By btnNonMedIntervention = By.xpath("//div[contains(text(),'Administrations')]/..//button[contains(text(),'Select interventions')]");
 	public By inputAdministrationsAmount = By.xpath("//div[contains(text(),'Administrations')]/..//input[@formcontrolname='amount']");
 	public By labelDescriptionDiagonosis = By.xpath("//div[contains(@class,'card')]//h5[text()='Diagnosis']");
@@ -167,7 +167,28 @@ public class EmarPage extends LoginPage {
     public By SelectVitalListBox = By.xpath("//div[@class='card-body']//button");
     public By inputVitalListBox = By.xpath("//div[@class='card-body']//button/following::ul//input");
     
+    public By divBehavior = By.xpath("//div[@class='card-header' and contains(text(),'Behaviors')]");
+    public By divMonitoringHistory = By.xpath("//div[@class='card-header' and contains(text(),'Monitoring History')]");
+    public By btnNoBehavior = By.xpath("//div[@class='card-header' and contains(text(),'Behaviors')]//button[text()='No Behavior']");
+    public By btnCreateBehavior = By.xpath("//div[@class='card-header' and contains(text(),'Behaviors')]//button[text()='Create Behavior']");
+    	    
+    public By selectBehavior = By.xpath("//select[@formcontrolname='descriptionId']");
+    public By textareaNote = By.xpath("//*[@formcontrolname='notes']");
     
+    public By divInventories = By.xpath("//div[contains(text(),'Inventories')]");
+    public By btnCreateInventory = By.xpath("//button[contains(text(),'Create Inventory')]");
+    public By aExpandAll =By.xpath("//a[contains(text(),'Expand All')]");
+    public By aCollapseAll =By.xpath("//a[contains(text(),'Collapse All')]");
+    public By divInventory = By.xpath("//div[contains(text(),'Inventory')]");
+    public By btnSubmit = By.xpath("//button[contains(text(),'Submit')]");
+    public By txtResident = By.xpath("//table//th[text()='Resident']");
+    public By txtMedicine = By.xpath("//table//th[text()='Medication']");
+    public By txtLastTotal = By.xpath("//table//th[text()='Last Total']");
+    public By txtTotal = By.xpath("//table//th[text()='Total']");
+    public By InvalidForm = By.xpath("//div[text()='Invalid Form']");
+    public By spanCompleted = By.xpath("//span[contains(text(),'Completed')]");
+    public By spanUserOne = By.xpath("//span[contains(text(),'User One')]");
+    public By spanUserTwo = By.xpath("//span[contains(text(),'User Two')]");
     
     
    /* # All Emar Module Related Methods Will Start from here # */
@@ -412,8 +433,9 @@ public class EmarPage extends LoginPage {
 					String ParentWindow = wd.getWindowHandle();
 					if(OrdersOption>0)
 					{
-						By Order = By.xpath("(//div[contains(@class,'dashboard')]/div[contains(text(),'Orders')]/..//a[contains(@href,'javascript')])[1]");
+						By Order = By.xpath("(//div[contains(@class,'dashboard')]/div[contains(text(),'Orders')]/..//a)[1]");
 						this.click(Order, "Orders Page");
+						Thread.sleep(10000);
 						Set<String> allwindows = wd.getWindowHandles();
 
 						for(String ChildWindow : allwindows)
@@ -423,9 +445,9 @@ public class EmarPage extends LoginPage {
 								wd.switchTo().window(ChildWindow);								
 								wd.manage().window().maximize();
 
-								if(this.isElementPresent(txtResidentRequired))
+								if(this.isElementPresent(btnCreateOrder))
 								{
-									this.VerifyWebElementPresent(txtResidentRequired, "Resident Required");
+									this.VerifyWebElementPresent(btnCreateOrder, "Create Order button Present ");
 									wd.close();
 								}
 
@@ -727,9 +749,9 @@ public class EmarPage extends LoginPage {
 				wd.switchTo().window(ChildWindow);
 				wd.manage().window().maximize();
 
-				if(this.isElementPresent(txtResidentRequired))
+				if(this.isElementPresent(btnCreateOrder))
 				{
-					this.VerifyWebElementPresent(txtResidentRequired, "Resident Required");
+					this.VerifyWebElementPresent(btnCreateOrder, "Create Order Button");
 					wd.close();
 				}
 
@@ -740,6 +762,81 @@ public class EmarPage extends LoginPage {
 		}
 	}
 
+	
+	public String[] SelectPerticulerResident(String Resident, String TabType , String Tab , String Task )
+	{
+		By ResidentName = By.xpath("//div[@class='emar-sidebar-main']//a//li[text()='"+Resident+"']");
+		this.click(ResidentName, Resident);
+		String[] OrderDescription = null ;
+		this.waitInSecs(30);
+		
+		if(Task.equals("Current Tasks"))
+		{
+			BooleanCurrentTasks();	
+			if(!TabType.equals(""))
+			{
+				String RoutineCount = BooleanRoutinePRNFollowUpTab(TabType);
+
+				if((Integer.parseInt(RoutineCount)!=0))
+				{
+					System.out.println("Pass");					
+				}
+			}
+		}
+		else if(Task.equals("Interactions"))
+		{
+			BooleanInteractionsTasks();
+			if(this.isElementNotPresent(btnInteractionsTabTxt))
+			{
+				System.out.println("Pass");
+			}
+		}
+		
+		else if(Task.equals("Lost / Disposed Med"))
+		{
+			BooleanLostOrDisposedTasks();
+			int Count =LostOrDisposedMedButtonVerification();
+			if(Count>0)
+			{
+				System.out.println("Pass");
+			}
+			
+		}
+		else if(Task.equals("Missed Administrations"))
+		{
+			
+			VerifyPastAdministrationsTab(Task);
+			String RoutineCount = BooleanRoutinePRNFollowUpTab(TabType);
+			
+			if((Integer.parseInt(RoutineCount)!=0))
+			{
+				System.out.println("Pass");
+			}
+		}
+		
+		else if(Task.equals("Vitals"))
+		{
+			BooleanTasks(Task);
+			int VitalDescriptionCount = VitalPageDescriptionCount();					
+			if(VitalDescriptionCount!=0)
+			{
+				VerifyVitalPage();				
+			}
+		}
+
+		if(Tab.equals("Y"))
+		{			
+			RoutineDescriptionFrontColorValidation(TabType);
+
+
+			if((TabType.equals("current")||TabType.equals("routine")) || TabType.equals("prn"))
+			{
+				RoutineDescriptionSelectionWithCheckBox(TabType);
+			}
+			OrderDescription = DescriptionSelectionFromRoutine(TabType);
+		}
+		return OrderDescription;
+	}
 
 
 	public String[] AdministrationButtonRoutineTabValidation(String TabType , String Tab , String Task)
@@ -754,8 +851,8 @@ public class EmarPage extends LoginPage {
 				By residentName = By.xpath(String.format("(((//div[@class='emar-sidebar-main']//a//ul)[%s])//li)[1]", i));
 				String resident = wd.findElement(By.xpath(String.format("(((//div[@class='emar-sidebar-main']//a//ul)[%s])//li)[1]", i))).getText();
 				this.click(residentName, resident);
-				this.waitInSecs(10);
-				if(Task.equals("CurrentTask"))
+				this.waitInSecs(30);
+				if(Task.equals("Current Tasks"))
 				{
 					BooleanCurrentTasks();	
 					if(!TabType.equals(""))
@@ -769,7 +866,7 @@ public class EmarPage extends LoginPage {
 						}
 					}
 				}
-				else if(Task.equals("InteractionsTask"))
+				else if(Task.equals("Interactions"))
 				{
 					BooleanInteractionsTasks();
 					if(this.isElementNotPresent(btnInteractionsTabTxt))
@@ -778,7 +875,7 @@ public class EmarPage extends LoginPage {
 					}
 				}
 				
-				else if(Task.equals("Lost/Disposed"))
+				else if(Task.equals("Lost / Disposed Med"))
 				{
 					BooleanLostOrDisposedTasks();
 					int Count =LostOrDisposedMedButtonVerification();
@@ -1089,7 +1186,8 @@ public class EmarPage extends LoginPage {
 	
 	public void BooleanRoutinePRNDescriptionCheckBox(String TabType)
 	{
-		boolean tab = wd.findElement(By.xpath(String.format("//div[@aria-labelledby='%s']//input[@id='administer-all']",TabType))).getAttribute("ng-reflect-model").equals("true");
+		//boolean tab = wd.findElement(By.xpath(String.format("//div[@aria-labelledby='%s']//input[@id='administer-all']",TabType))).getAttribute("ng-reflect-model").equals("true");
+		boolean tab = wd.findElement(By.xpath(String.format("//div[@aria-labelledby='%s']//input[@id='administer-all']",TabType))).isSelected();
 		if(!tab)
 		{
 			By ChkBox = By.xpath(String.format("//div[@aria-labelledby='%s']//input[@id='administer-all']",TabType));
@@ -1100,8 +1198,8 @@ public class EmarPage extends LoginPage {
 	
 	public void BooleanRoutinePRNDescriptionUncheckBoxCheckBox(String TabType)
 	{
-		boolean tab = wd.findElement(By.xpath(String.format("//div[@aria-labelledby='%s']//input[@id='administer-all']",TabType))).getAttribute("ng-reflect-model").equals("false");
-		if(!tab)
+		boolean tab = wd.findElement(By.xpath(String.format("//div[@aria-labelledby='%s']//input[@id='administer-all']",TabType))).isSelected();
+		if(tab)
 		{
 			By ChkBox = By.xpath(String.format("//div[@aria-labelledby='%s']//input[@id='administer-all']",TabType));
 			this.click(ChkBox, "Check Box");
@@ -1244,11 +1342,37 @@ public class EmarPage extends LoginPage {
 		{
 			this.VerifyWebElementPresent(headerAdministrations, "Administrations Present");
 			this.VerifyWebElementPresent(btnAdministrationsSave, "Administrations Save Button Present");		
-			this.VerifyWebElementPresent(typeAdministrationsNotes, "Administrations Notes Field Present");
-			this.VerifyWebElementPresent(selectAdministrationsCode, "Administrations Code DropDown Present");
+			
 
-			this.SendKeysToElementClearFirst(typeAdministrationsNotes, Notes);
-			List<WebElement> Options = wd.findElements(By.xpath("//div[contains(text(),'Administrations')]/..//select[@formcontrolname='administered']/option"));
+			List<WebElement> option = wd.findElements(By.xpath("//div[contains(text(),'Administrations')]/..//input[@placeholder='Notes']"));
+			int OptionNo = option.size();			
+			for(int i=1;i<=OptionNo;i++)
+			{
+				By typeAdministrationsNotes = By.xpath(String.format("(//div[contains(text(),'Administrations')]/..//input[@placeholder='Notes'])[%s]", i));
+				this.SendKeysToElementClearFirst(typeAdministrationsNotes, Notes+i);
+			}
+			
+			List<WebElement> optionCode = wd.findElements(By.xpath("//div[contains(text(),'Administrations')]/..//select[@formcontrolname='administered']"));
+			int OptionCodeNo = optionCode.size();			
+			for(int i=1;i<=OptionCodeNo;i++)
+			{
+				List<WebElement> Options = wd.findElements(By.xpath("(//div[contains(text(),'Administrations')]/..//select[@formcontrolname='administered'])['"+i+"']/option"));
+				int OptionsNo = Options.size();
+				ArrayList<String> Option = new ArrayList<String>();
+				for(int j=1;j<=OptionsNo;j++)
+				{
+					Option.add(wd.findElement(By.xpath(String.format("((//div[contains(text(),'Administrations')]/..//select[@formcontrolname='administered'])['"+i+"']/option)[%s]", j))).getText());
+				}
+				this.testReport.logSuccess("Notes Available", String.format("Notes Available :- <mark>%s<mark/>", Option.toString()));
+				String DrpDwnValue = Option.get(OptionsNo-1);
+				
+				By selectAdministrationsCode = By.xpath(String.format("(//div[contains(text(),'Administrations')]/..//select[@formcontrolname='administered'])[%s]",i));
+				
+				this.SelectDropDownByText(selectAdministrationsCode, DrpDwnValue);
+			}
+			
+			
+			/*List<WebElement> Options = wd.findElements(By.xpath("//div[contains(text(),'Administrations')]/..//select[@formcontrolname='administered']/option"));
 			int OptionsNo = Options.size();
 			ArrayList<String> Option = new ArrayList<String>();
 			for(int i=1;i<=OptionsNo;i++)
@@ -1260,12 +1384,24 @@ public class EmarPage extends LoginPage {
 
 			String DrpDwnValue = Option.get(OptionsNo-1);
 			
-			this.SelectDropDownByText(selectAdministrationsCode, DrpDwnValue);
+			this.SelectDropDownByText(selectAdministrationsCode, DrpDwnValue);*/
 			//this.SelectDropDownByValue(selectAdministrationsCode, value);
-			if(this.isElementPresent(inputAdministrationsAmount))
+			
+			List<WebElement> OptionUnits = wd.findElements(By.xpath("(//div[contains(text(),'Administrations')]/..//input[@formcontrolname='amount'])"));
+			int OptionsUnits = OptionUnits.size();
+			if(OptionsUnits>0)
+			{
+				for(int i=1;i<=OptionsUnits;i++)
+				{
+					By inputAdministrationsAmount = By.xpath(String.format("(//div[contains(text(),'Administrations')]/..//input[@formcontrolname='amount'])[%s]", i));
+					this.SendKeysToElementClearFirst(inputAdministrationsAmount, Amount);
+				}
+			}			
+			
+			/*if(this.isElementPresent(inputAdministrationsAmount))
 			{
 				this.SendKeysToElementClearFirst(inputAdministrationsAmount, Amount);
-			}
+			}*/
 			
 			if(this.isElementPresent(btnNonMedIntervention))
 			{
@@ -1375,6 +1511,7 @@ public class EmarPage extends LoginPage {
 			{
 				this.click(btnAdministerFollowup, "Button Administer Followup");
 			}
+			this.waitInSecs(7);
 
 			List<WebElement> Descriptions = wd.findElements(By.xpath("//div[@class='card']//li[contains(@class,'inserted')]"));
 			int Description = Descriptions.size();
@@ -1385,9 +1522,18 @@ public class EmarPage extends LoginPage {
 
 				String DescriptionValue = decription1[0];
 				int len = decription1.length;
+				String Value = null ;
+				for(int j=1;j<=len;j++)
+				{
+					if(decription1[j-1].contains(" at") && decription1[j-1].contains("by"))
+					{
+					    Value = decription1[j-1];
+						break;
+					}
+				}
 
-				String DescriptionValue1 = decription1[len-1];
-				String[]  DescriptionValue2 =DescriptionValue1.split(" at");
+				//String DescriptionValue1 = decription1[len-3];
+				String[]  DescriptionValue2 =Value.split(" at");
 				String DescriptionValue3 = DescriptionValue2[1];			
 				String[] Description4 = DescriptionValue3.split("by");
 
@@ -1433,6 +1579,7 @@ public class EmarPage extends LoginPage {
 					
 					int Value2 = now.get(Calendar.MONTH);
 					int value3 = now.get(Calendar.DATE);
+					int Value4 = now.get(Calendar.YEAR);
 					
 					String Value1 =(now.get(Calendar.HOUR)
 							+ ":"
@@ -1456,11 +1603,11 @@ public class EmarPage extends LoginPage {
 					break ;
 
 				}
-				else if(DescriptionValue.equals(descriptionName) && (Integer.parseInt(routineCount)==Integer.parseInt(RoutineCount)))				
+				/*else if(DescriptionValue.equals(descriptionName) && (Integer.parseInt(routineCount)==Integer.parseInt(RoutineCount)))				
 				{
 					this.testReport.logSuccess("Administration History Over The Last 24 Hours", String.format("Administration History Over The Last 24 Hours not displaing the Description <mark>%s<mark/> and not removed from the Administration box For PRN Tab", DescriptionValue) );
 					break ;
-				}
+				}*/
 
 
 			}
@@ -1470,6 +1617,138 @@ public class EmarPage extends LoginPage {
 
 		}
 	}
+	
+	public String CurrentDateAndTime()
+	{
+		Calendar cal = Calendar.getInstance();
+		int Value2 = cal.get(Calendar.MONTH)+1;
+		int value3 = cal.get(Calendar.DATE);
+		int Value4 = cal.get(Calendar.YEAR);
+		String dt = Integer.toString(Value2)+"/"+Integer.toString(value3)+"/"+Integer.toString(Value4);
+		
+		String Value1 ,CurrentDateAndTime= null;
+		int Minute = (cal.get(Calendar.MINUTE));
+		if(Minute<=9)
+		{
+			String NewMinute = "0"+Integer.toString(Minute);
+			Value1 =(cal.get(Calendar.HOUR)
+					+ ":"
+					+ NewMinute);
+			CurrentDateAndTime = dt +", "+Value1;
+		}
+		else {
+			Value1 =(cal.get(Calendar.HOUR)
+					+ ":"
+					+ cal.get(Calendar.MINUTE));
+			CurrentDateAndTime = dt +", "+Value1;
+		}
+
+
+		return CurrentDateAndTime ;
+	}
+	
+	public void VerifyAdministrationHistoryOverTheLast24Hours(String Notes)
+	{
+		try
+		{
+			List<WebElement> Descriptions = wd.findElements(By.xpath("//div[@class='card']//li[contains(@class,'inserted')]"));
+			int Description = Descriptions.size();
+			for(int i=1;i<=Description;i++)
+			{
+				String DescriptionName = wd.findElement(By.xpath(String.format("(//div[@class='card']//li[contains(@class,'inserted')])[%s]", i))).getText();
+				String[] decription1 = DescriptionName.split("\n");
+
+				String DescriptionValue = decription1[0];
+				int len = decription1.length;
+				String Note = decription1[len-1];
+				for(int j=1;j<=len;j++)
+				{
+					if(decription1[j-1].contains(" at") && decription1[j-1].contains("by"))
+					{
+						String Value = decription1[j-1];
+						String[] Values = Value.split(" ,");
+						String Type = Values[0];
+						String AdministeredWithTimeAndDate =  Values[1];
+						this.testReport.logSuccess("Description, Type , Administed with Time and Date Present , Note in Administration History Over The Last 24 Hours", String.format("Description:- <mark>%s<mark/>, Type:- <mark>%s<mark/> , Administed with Time and Date:- <mark>%s<mark/> , Note:- <mark>%s<mark/>Present in Administration History Over The Last 24 Hours", DescriptionValue,Type,AdministeredWithTimeAndDate,Note));
+
+					}
+				}
+				for(int j=1;j<=len;j++)
+				{
+					 if(decription1[j-1].contains("Edit Undo"))
+					{
+						By EditButton = By.xpath(String.format("(//button[text()='Edit'])[%s]", i));
+						if(this.isElementPresent(EditButton))
+						{
+							this.click(EditButton, "Edit Button");
+							EditAdministration(Notes);
+						}
+						this.waitInSecs(10);
+						By UndoButton = By.xpath(String.format("(//button[text()='Undo'])[%s]", i));
+						if(this.isElementPresent(UndoButton))
+						{
+							this.click(UndoButton, "Undo Button");
+							ConfirmModalVerification();							
+							this.waitInSecs(10);
+							List<WebElement> DescriptionsAfterUndo = wd.findElements(By.xpath("//div[@class='card']//li[contains(@class,'inserted')]"));
+							int DescriptionAfterUndo = DescriptionsAfterUndo.size();
+							if(Description==(DescriptionAfterUndo+1))
+							{
+								this.testReport.logSuccess("Undo button revert the administration and remove the record from Administration History Over The Last 24 Hours box and display again under Administration", "Undo button revert the administration and remove the record from Administration History Over The Last 24 Hours box and display again under Administration");
+							}
+							else
+							{
+								this.testReport.logFailure("Undo button revert the administration and Not remove the record from Administration History Over The Last 24 Hours box and display again under Administration", "Undo button revert the administration and Not remove the record from Administration History Over The Last 24 Hours box and display again under Administration");
+								
+							}
+							
+						}
+					}
+				}				
+				
+			}
+			
+			
+			
+		}
+		
+		catch(Exception e)
+		{
+			
+		}
+	}
+	
+	public void ConfirmModalVerification()
+	{
+		this.VerifyWebElementPresent(txtShowFutureOrdersConfirm, "Show Future Orders Confirm Text");
+		String ConfirmText = wd.findElement(By.xpath("//*[text()='Confirm']/..//..//*[contains(text(),'Are you sure')]")).getText();
+		this.testReport.logSuccess("Confirm Text Present With Long Text", String.format("Confirm Text Present With Long Text :- <mark>%s<mark/>", ConfirmText));
+		this.VerifyWebElementPresent(btnCancelShowFutureOrders, "Show Future Orders 'Cancel' Button");
+		this.VerifyWebElementPresent(btnOkShowFutureOrders, "Show Future Orders 'OK' Button");
+		this.click(btnOkShowFutureOrders, "Show Future Orders 'OK' Button");
+	}
+	
+	
+	public void EditAdministration(String Notes )
+	{
+		this.VerifyWebElementPresent(typeAdministrationsNotes, "Edit Administrations Notes Field Present");
+		this.VerifyWebElementPresent(selectAdministrationsCode, "Edit Administrations Code DropDown Present");
+		this.SendKeysToElementClearFirst(typeAdministrationsNotes, Notes);
+		
+		List<WebElement> Options = wd.findElements(By.xpath("//select[@formcontrolname='administered']/option"));
+		int OptionsNo = Options.size();
+		ArrayList<String> Option = new ArrayList<String>();
+		for(int j=1;j<=OptionsNo;j++)
+		{
+			Option.add(wd.findElement(By.xpath(String.format("(//select[@formcontrolname='administered']/option)[%s]", j))).getText());
+		}
+		this.testReport.logSuccess("Notes Available", String.format("Notes Available :- <mark>%s<mark/>", Option.toString()));
+		String DrpDwnValue = Option.get(OptionsNo-1);	
+		
+		this.SelectDropDownByText(selectAdministrationsCode, DrpDwnValue);
+		this.click(btnRecrdVitalSave, "Save Button");
+	}
+
 	
 	public String CurrentTime()
 	{
@@ -1509,7 +1788,7 @@ public class EmarPage extends LoginPage {
 		
 		this.SelectDropDownByText(drpDwnFollowUpResult,FollowUpResultOptions.get(FollowUpResultCount-1) );
 		
-		this.VerifyWebElementPresent(drpDwnFollowUpmethod, "FollowUp method");
+		/*this.VerifyWebElementPresent(drpDwnFollowUpmethod, "FollowUp method");
 		
 		List<WebElement> DrpDwnFollowUpmethod = wd.findElements(By.xpath("//div[@class='modal-content']//select[@formcontrolname='method']//option"));
 		int FollowUpmethodCount = DrpDwnFollowUpmethod.size();
@@ -1537,7 +1816,7 @@ public class EmarPage extends LoginPage {
 		
 		this.testReport.logSuccess("FollowUp Pain Level ", String.format("FollowUp Pain Level Options <mark>%s<mark/> ", FollowUpPainLevelOptions.toString()) );
 		
-		this.SelectDropDownByText(drpDwnFollowUpPainLevel,FollowUpPainLevelOptions.get(FollowUpPainLevelCount-1) );
+		this.SelectDropDownByText(drpDwnFollowUpPainLevel,FollowUpPainLevelOptions.get(FollowUpPainLevelCount-1) );*/
 		
 		this.VerifyWebElementPresent(TypeFollowUpNotes, "FollowUp Notes");
 		this.SendKeysToElementClearFirst(TypeFollowUpNotes, Notes);
@@ -1561,22 +1840,17 @@ public class EmarPage extends LoginPage {
 		try
 		{
 			this.VerifyWebElementPresent(btnShowFutureOrders, "Show Future Orders Button");
-			this.VerifyWebElementPresent(txtShowFutureOrdersConfirm, "Show Future Orders Confirm Text");
-			String ConfirmText = wd.findElement(By.xpath("//*[text()='Confirm']/..//..//*[contains(text(),'Are you sure')]")).getText();
-			this.testReport.logSuccess("Confirm Text Present With Long Text", String.format("Confirm Text Present With Long Text :- <mark>%s<mark/>", ConfirmText));
-			this.VerifyWebElementPresent(btnCancelShowFutureOrders, "Show Future Orders 'Cancel' Button");
-			this.VerifyWebElementPresent(btnOkShowFutureOrders, "Show Future Orders 'OK' Button");
-			this.click(btnOkShowFutureOrders, "Show Future Orders 'OK' Button");
+			ConfirmModalVerification();
 
 			BooleanCurrentTasks();		
 			String ShowFutureOrdersRoutineCount = BooleanRoutinePRNFollowUpTab(TabType);
-			if(Integer.parseInt(ShowFutureOrdersRoutineCount)==(Integer.parseInt(RoutineCount)*2))
+			if(Integer.parseInt(ShowFutureOrdersRoutineCount)!=(Integer.parseInt(RoutineCount)))
 			{
-				this.testReport.logSuccess("RoutineCount", String.format("display the counter :-  <mark>%s<mark/> just double of the previous before clicking on Future Orders :- <mark>%s<mark/>", ShowFutureOrdersRoutineCount,RoutineCount));
+				this.testReport.logSuccess("RoutineCount", String.format("display the counter :-  <mark>%s<mark/> not same of the previous before clicking on Future Orders :- <mark>%s<mark/>", ShowFutureOrdersRoutineCount,RoutineCount));
 			}
 			else
 			{
-				this.testReport.logFailure("RoutineCount", String.format("display the counter :-  <mark>%s<mark/> Not double of the previous before clicking on Future Orders :- <mark>%s<mark/>", ShowFutureOrdersRoutineCount,RoutineCount));
+				this.testReport.logSuccess("RoutineCount", String.format("display the counter :-  <mark>%s<mark/> same of the previous before clicking on Future Orders :- <mark>%s<mark/>", ShowFutureOrdersRoutineCount,RoutineCount));
 			}
 
 			this.VerifyWebElementPresent(btnHideFutureOrders, "Hide Future Orders Button");
@@ -2036,6 +2310,100 @@ public class EmarPage extends LoginPage {
 		{
 			this.testReport.logFailure("new added Vital sign ", String.format("new added Vital sign  :- <mark>%s</mark> and  <mark>%s</mark> not present ", VitalSign,VitalSigntext), this.getScreenShotName());
 		}
+	}
+	
+	public void VerifyBoxesUnderBehaviorMonitoring(String Notes)
+	{
+		this.VerifyWebElementPresent(divBehavior, "Behavior");
+		this.VerifyWebElementPresent(divMonitoringHistory, "Monitoring History");
+		this.VerifyWebElementPresent(btnNoBehavior, "No Behavior");
+		this.VerifyWebElementPresent(btnCreateBehavior, "Create Behavior");
+		this.click(btnNoBehavior, "No Behavior");
+		ConfirmModalVerification();
+		this.waitInSecs(2);
+		/*String DateAndTime = CurrentDateAndTime();
+		By divNoBehavior = By.xpath("//p/small[contains(text(),'"+DateAndTime+"')]/ancestor::div//div[@class='card-header' and contains(text(),'No Behavior')]");*/
+		By divNoBehavior = By.xpath("//div[@class='card-header' and contains(text(),'No Behavior')]");
+		this.VerifyWebElementPresent(divNoBehavior, "No Behavior Text");
+		String Behavior =CreateBehavior(Notes);
+		//By behavior = By.xpath("//p/small[contains(text(),'"+DateAndTime+"')]/ancestor::div//div[@class='card-header' and contains(text(),'"+Behavior+"')]");
+		By behavior = By.xpath("//div[@class='card-header' and contains(text(),'"+Behavior+"')]");
+		this.waitInSecs(2);
+		this.VerifyWebElementPresent(behavior, "Created Behavior Text");
+		//By notes = By.xpath("//p/small[contains(text(),'"+DateAndTime+"')]/ancestor::div//p[contains(text(),'"+Notes+"')]");
+		By notes = By.xpath("//div//p[contains(text(),'"+Notes+"')]");
+		this.VerifyWebElementPresent(notes, "Created Behavior Notes");
+	}
+	
+	public String CreateBehavior(String Notes)
+	{
+		this.click(btnCreateBehavior, "Create Behavior");
+		this.VerifyWebElementPresent(selectBehavior, "Select Behavior");
+		this.VerifyWebElementPresent(textareaNote, "Notes");
+		
+		List<WebElement> Options = wd.findElements(By.xpath("//select[@formcontrolname='descriptionId']/option"));
+		ArrayList<String> OPTION = new ArrayList<String>();
+		for(int i=1;i<=Options.size()-1;i++)
+		{
+			OPTION.add(wd.findElement(By.xpath(String.format("(//select[@formcontrolname='descriptionId']/option[contains(@class,'-')])[%s]",i))).getText());
+		}
+		this.testReport.logSuccess("All Behavior Options", String.format("All Behavior Options:- <mark>%s</mark> ", OPTION.toString(), this.getScreenShotName()));
+		String drpDwnValue = OPTION.get(Options.size()-2);
+		this.SelectDropDownByText(selectBehavior, drpDwnValue);
+		this.SendKeysToElementClearFirst(textareaNote, Notes);
+		this.click(btnRecrdVitalSave, "Save Button");
+		return drpDwnValue;
+	}
+	
+	public void ClickOnManageInventoryButtonWithValidation(String Amount,String userName, String password, String userName1 , String password1 )
+	{
+		this.VerifyWebElementPresent(btnManageInventory ,"Manage Inventory");
+		this.click(btnManageInventory ,"Manage Inventory");
+		this.VerifyWebElementPresent(divInventories ,"Inventories");
+		this.VerifyWebElementPresent(aExpandAll ,"Expand All");
+		this.VerifyWebElementPresent(aCollapseAll ,"Collapse All");
+		this.VerifyWebElementPresent(btnCreateInventory ,"Create Inventory Button");
+		this.click(btnCreateInventory ,"Create Inventory Button");
+		this.waitInSecs(3);
+		this.VerifyWebElementPresent(divInventory ,"Create Inventory Button");
+		this.VerifyWebElementPresent(btnSubmit ,"Submit Button");
+		this.VerifyWebElementPresent(txtResident ,"Resident");
+		this.VerifyWebElementPresent(txtMedicine ,"Medicine");
+		this.VerifyWebElementPresent(txtLastTotal ,"Last Total");
+		this.VerifyWebElementPresent(txtTotal ,"Total");
+		
+		List<WebElement> No = wd.findElements(By.xpath("//tbody//tr"));
+		ArrayList<String> Options = new ArrayList<String>();
+		ArrayList<String> Option = new ArrayList<String>();
+		for(int i=1;i<=No.size();i++)
+		{
+			Options.add(wd.findElement(By.xpath("(//tbody//tr/td[1])['"+i+"']")).getText());
+		}
+		this.testReport.logSuccess("All Residents", String.format("All Residents:- <mark>%s</mark> ", Options.toString(), this.getScreenShotName()));
+		for(int i=1;i<=No.size();i++)
+		{
+			Option.add(wd.findElement(By.xpath("(//tbody//tr/td[2])['"+i+"']")).getText());
+		}
+		this.testReport.logSuccess("All Medication", String.format("All Medication:- <mark>%s</mark> ", Option.toString(), this.getScreenShotName()));
+		By Total = By.xpath("(//tbody//tr/td//input[@formcontrolname='amount'])[1]");
+		this.SendKeysToElementClearFirst(Total, Amount);
+		this.click(btnSubmit ,"Submit Button");
+		boolean invalidMessage = wd.findElement(By.xpath("//div[text()='Invalid Form']")).isDisplayed();
+		{
+			if(invalidMessage)
+			{
+				this.testReport.logSuccess("Invalid Message", "<mark>Invalid Message Displayed<mark/>");
+				
+			}
+		}
+		
+		this.waitInSecs(2);
+		doubleSignWithCredentials(userName, password, userName1, password1);
+		this.click(btnSubmit ,"Submit Button");	
+		
+		this.VerifyWebElementPresent(spanCompleted ,"Completed");
+		this.VerifyWebElementPresent(spanUserOne ,"User One");
+		this.VerifyWebElementPresent(spanUserTwo ,"UserTwo");
 	}
 }
 

@@ -240,6 +240,10 @@ public abstract class TestTemplateMethodLevelInit extends TestTemplate {
 		.logInfo(String.format("Thread - %d , Completes Executing Test Method - %s On Browser - %s",
 				Thread.currentThread().getId(), m.getName(), this.getTestParameter(testContext, ITestParamsConstants.BROWSER)));
 
+		
+		
+		
+		
 		try {
 			threadLocalWebDriver.get().close();
 			if (threadLocalWebDriver.get() instanceof AppiumDriver) {
