@@ -6,21 +6,17 @@
   <parameter name="automationKit" value="selenium"/>
   <test name="test(failed)" parallel="tests">
     <classes>
-      <class name="aut.tests.functionaltests.EmarTestCases">
+      <class name="aut.tests.functionaltests.PhysicianPortalTestCases">
         <methods>
           <include name="beforeMethod"/>
-          <include name="QA147_VitalSigns_ResidentDashboard_eMAR" invocation-numbers="0"/>
-          <include name="QA139_MissedAdministrationOn_ResidentDashboard_EMAR" invocation-numbers="0"/>
-          <include name="beforeTest"/>
-          <include name="afterMethod"/>
-          <include name="afterSuite"/>
-          <include name="QA138_PastAdministrationFollowUps_ResidentDashoard_EMAR" invocation-numbers="0"/>
           <include name="beforeSuite"/>
           <include name="afterTest"/>
-          <include name="QA131_VerifyCurrentAdministrationFollowUps_OrdersAdministration" invocation-numbers="0"/>
-          <include name="QA145_MissedAdministration_AdministeringFollowupsOrders_EMAR" invocation-numbers="0"/>
+          <include name="Gen_QA211_MyDashBoardPage" invocation-numbers="0"/>
+          <include name="beforeTest"/>
+          <include name="afterSuite"/>
+          <include name="afterMethod"/>
         </methods>
-      </class> <!-- aut.tests.functionaltests.EmarTestCases -->
+      </class> <!-- aut.tests.functionaltests.PhysicianPortalTestCases -->
     </classes>
   </test> <!-- test(failed) -->
 </suite> <!-- Failed suite [SuiteRegression] -->

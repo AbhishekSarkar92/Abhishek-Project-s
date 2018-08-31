@@ -25,7 +25,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		Xls_Reader xlsReader = new Xls_Reader("C:\\Bluestrata\\Abhishek-Project-s\\src\\test\\resources\\testdata\\BluestrataTestData.xlsx");
 		final String SheetName = "clinicalPortal";
 		
-		@Test(priority =21)
+		//@Test(priority =21)
 		public void QA090_OrderCreationViaClinicalAPP() throws URISyntaxException
 		{
 			PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -59,7 +59,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		}
 		
 		
-		@Test(priority =22)
+		//@Test(priority =22)
 		public void QA091_ResidentOrders_CreateAnOrderUsingDetailsType(ITestContext testContext)
 		{
 			
@@ -148,7 +148,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		}
 		
 		
-		@Test(priority =23)
+		//@Test(priority =23)
 		public void QA092_AddingFrequencyFromResidentOrders_CreateAnOrderWithFrequencyRoutine(ITestContext testContext)
 		{
 			PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -308,7 +308,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		
 		
 		
-		@Test(priority =24)
+		//@Test(priority =24)
 		public void QA093_FrequencyFieldSelectionWhen_FrequencyTypeRoutine(ITestContext testContext)
 		{
 			PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -552,7 +552,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		
 
 		
-		@Test(priority =25)
+		//@Test(priority =25)
 		public void QA094_HowOftenFieldSelectionWhen_FrequencyTypeRoutine() throws URISyntaxException
 		{
 			PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -725,7 +725,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		
 		
 		
-		@Test(priority =26)
+		//@Test(priority =26)
 		public void QA095_AddingFrequencyFromOrders_WithFrequencyPRN(ITestContext testContext)
 		{
 			PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -841,7 +841,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		}
 		
 		
-		@Test(priority =27)
+		//@Test(priority =27)
 		public void QA096_AddingFrequencyFromResidentOrder_WithFrequencyPRNEveryHour(ITestContext testContext)
 		{
 			PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -956,7 +956,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			login.Logout();
 		}
 		
-		@Test(priority =28)
+		//@Test(priority =28)
 		public void QA097_ResidentOrders_CreateAnOrderUsingDetailsTypeTreatmentWithMedication_And_Medication(ITestContext testContext)
 		{
 			
@@ -1012,7 +1012,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		}
 		
 		
-		@Test(priority =29)
+		//@Test(priority =29)
 		public void QA098_ResidentOrders_CreateAnOrderUsingDetailsTypeTreatmentWithMedication_And_Medication_FrequencyTypeRoutine(ITestContext testContext)
 		{
 			PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1145,7 +1145,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			
 		}
 		
-		@Test(priority =30)
+		//@Test(priority =30)
 		public void QA099_ResidentOrders_CreateAnOrderUsingDetailsTypeTreatmentWithMedication_And_Medication_WithFrequencyPRNEveryHour(ITestContext testContext)
 		{
 			PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1262,7 +1262,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			
 		}
 		
-		@Test(priority =31)
+		//@Test(priority =31)
 		public void QA100_ResidentOrders_CreateAnOrderUsingDetailsTypeTreatmentWithMedication_And_Medication_WithFrequencyPRN(ITestContext testContext)
 		{
 			PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1380,7 +1380,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		}
 		
 		
-		@Test(priority =32)
+		//@Test(priority =32)
 		public void QA101_CreateAnOrder_ViaOrderSets (ITestContext testContext)
 		{
 			PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1528,7 +1528,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		}
 		
 		
-		@Test(priority =33)		
+		//@Test(priority =33)		
 		public void QA102_ViewAndModifyAnOrder_ViaOrderSets (ITestContext testContext) throws AWTException, InterruptedException
 		{
 			 
@@ -1709,7 +1709,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		
 		
 		
-		@Test(priority =34)
+		//@Test(priority =34)
 		public void QA103_VerifyAnOrder_ViaOrderSetsOrCreateAnOrder (ITestContext testContext) throws AWTException
 		{
 			 
@@ -1763,7 +1763,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		
 		
 		
-		@Test(priority =35)
+		//@Test(priority =35)
 		public void QA104_VerifyAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder (ITestContext testContext) throws AWTException, InterruptedException
 		{
 			 
@@ -1854,7 +1854,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		}
 		
 		
-		@Test(priority =36)
+		//@Test(priority =36)
 		public void QA105_SignAnOrder_ViaOrderSetsOrCreateAnOrder (ITestContext testContext) throws AWTException
 		{
 			 
@@ -1916,7 +1916,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		}
 		
 		
-		@Test(priority =37)
+		//@Test(priority =1)
 		public void QA106_ViewAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder (ITestContext testContext) throws AWTException, InterruptedException
 		{
 			 
@@ -2029,7 +2029,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		}
 		
 		
-		@Test(priority =38)
+		//@Test(priority =2)
 		public void QA107_RecapAnOrder_ViaOrderSetsOrCreateAnOrder (ITestContext testContext) throws AWTException, InterruptedException
 		{
 			 
@@ -2179,6 +2179,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			physicianPortal.WindowpopUpCopy(TestTemplate.threadLocalWebDriver.get(),"Recap");*/
 			physicianPortal.VerifyTheOrderByClickingRecapButton();
 			physicianPortal.ClickOnCreateRecap();
+			physicianPortal.RobotWork();
 			physicianPortal.VerifyRecapDescription(Description1);
 			physicianPortal.VerifyResidentStatus(testData.get("Option"),testData.get("ResidentStatus"));
 			physicianPortal.VerifyResidentStations(testData.get("Option"),testData.get("Stations"));
@@ -2202,7 +2203,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		}
 		
 		
-		@Test(priority =39)
+		//@Test(priority =3)
 		public void QA108_SignatureOnRecap_Wheather_OrderCreatedFromOrder_Or_FromSets (ITestContext testContext) throws AWTException
 		{
 			 
@@ -2286,7 +2287,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		}
 		
 		
-		@Test(priority =40)
+		//@Test(priority =4)
 		public void QA109_ViewAndModify_Recaps(ITestContext testContext) throws AWTException, InterruptedException
 		{
 			 
@@ -2434,6 +2435,31 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		}
 		
 		
+		@Test(priority = 1)
+		public void Gen_QA209_BS_EHR_LoginPage(ITestContext testContext)
+				throws Throwable {
+
+			LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);		
+			final String TesctCase = "GEN_QA209";			
+			
+			login.Logout();
+
+		}
+		
+		@Test(priority = 2)
+		public void Gen_QA210_Login_Credential_Verification(ITestContext testContext)
+				throws Throwable {
+
+			LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
+			HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
+			final String TesctCase = "GEN_QA210";	
+			
+			homepage.MyDashBoardHomePage();
+			login.Logout();
+
+		}
+		
+		@Test(priority = 3)
 		public void Gen_QA211_MyDashBoardPage(ITestContext testContext)
 				throws Throwable {
 
@@ -2446,15 +2472,18 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			final String TesctCase = "GEN_QA211";	
 
 			homepage.NavigateToClinicalPortal();
-			homepage.VerifyAllapps();
-			emar.BlueStrataLogoValidation();
 			emar.EmarPageHeaderValidation();
+			
+			emar.BlueStrataLogoValidation();
 			homepage.VerifyFacilityIconAndName();
 			homepage.VerifyResidentIconAndName();
+			homepage.VerifyAllapps();
 			login.Logout();
 
 		}
-
+		
+		
+		@Test(priority = 4)
 		public void Gen_QA212_UserNamePreferences_TopRightOf_ResidentDahsboard_Or_HomePage(ITestContext testContext)
 				throws Throwable {
 
@@ -2472,10 +2501,9 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			emar.NavigateBackToPreviesPage();
 			emar.lockFromApplication(password);		
 			login.Logout();
-
 		}
 		
-		
+		@Test(priority = 5)
 		public void Gen_QA213_HelpMenuWith_HelpSiteAbout(ITestContext testContext) throws Throwable {
 			
 			LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -2484,7 +2512,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			String userName = this.getTestParameter(testContext, "userName");
 			String password = this.getTestParameter(testContext, "password");
 
-			final String TesctCase = "GEN_QA213";	
+			final String TesctCase = "Gen_QA213";	
 
 			HashMap<String, String> testData = xlsReader.GetValue(SheetName, TesctCase);
 			
@@ -2495,10 +2523,12 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			emar.SwitchToHomePage(ParentparentWindow);
 			login.Logout();
 
+
 		}
 		
 		
-	   public void Gen_QA214_HelpMenuWith_HelpSiteAbout(ITestContext testContext) throws Throwable {
+		@Test(priority = 6)
+		public void Gen_QA214_HelpMenuWith_HelpSiteAbout(ITestContext testContext) throws Throwable {
 			
 			LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
 			HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);

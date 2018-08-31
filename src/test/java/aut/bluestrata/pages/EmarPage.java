@@ -34,18 +34,21 @@ public class EmarPage extends LoginPage {
 
 
 
-	public By btnTester = By.xpath("//a[@id='userDropDown']");
-	public By btnlogout = By.xpath("//a[@id='userDropDown']/..//div/a[text()='Logout']");
-	public By btnChangePassword = By.xpath("//a[@id='userDropDown']/..//div/a[text()='Change Password']");
-	public By btnLock = By.xpath("//a[@id='userDropDown']/..//div/a[text()='Lock']");	
+	public By btnTester = By.xpath("//button[@id='userDropDown']");
+	public By btnlogout = By.xpath("//button[@id='userDropDown']//following-sibling::div//button[text()='Logout']");
+	public By btnChangePassword = By.xpath("//button[@id='userDropDown']//following-sibling::div//button[text()='Change Password']");
+	public By btnAddSignature = By.xpath("//button[text()='Add Signature']");
+	public By btnSetCurrentAppAsDefault = By.xpath("//button[text()='Set Current App as Default']");
+	public By btnSetMediprocityCredentials = By.xpath("//button[text()='Set Mediprocity Credentials']");
+	public By btnLock = By.xpath("//button[@id='userDropDown']//following-sibling::div//button[text()='Lock']");	
 	public By labelChangePassword = By.xpath("//div[contains(text(),'Change Password')]");
 	public By labelUserName = By.xpath("//label[contains(text(),'User Name')]");
 	public By labelCurrentPassword = By.xpath("//label[contains(text(),'Current Password')]");
 	public By labelNewPassword = By.xpath("//label[contains(text(),'New Password')]");
 	public By labelConfirmPassword = By.xpath("//label[contains(text(),'Confirm Password')]");
-	public By btnHelp = By.xpath("//a[@id='helpDropDown']");
-	public By btnHelpSite = By.xpath("//a[@id='helpDropDown']/..//div/a[text()='Help Site']");
-	public By btnAbout = By.xpath("//a[@id='helpDropDown']/..//div/a[text()='About']");
+	public By btnHelp = By.xpath("//button[@id='helpDropDown']");
+	public By btnHelpSite = By.xpath("//button[@id='helpDropDown']/following::div/a[text()='Help Site']");
+	public By btnAbout = By.xpath("//button[@id='helpDropDown']/following::div/button[text()='About']");
 	public By blueStrataLogo = By.xpath("//img[@alt='BlueStrata EHR logo']");
 	public By btnMenu = By.xpath("//div[contains(@class,'navbar-brand')]//button");
 	public By arrowBtnEmarPage = By.xpath("//div[@role='main']//i");
@@ -190,6 +193,8 @@ public class EmarPage extends LoginPage {
     public By spanUserOne = By.xpath("//span[contains(text(),'User One')]");
     public By spanUserTwo = By.xpath("//span[contains(text(),'User Two')]");
     
+    public By btnMenuEmar = By.xpath("//app-selector//button");
+    
     
    /* # All Emar Module Related Methods Will Start from here # */
    /* ---------------------------------------------*/
@@ -215,12 +220,12 @@ public class EmarPage extends LoginPage {
 	public void TesterButtonOptionsVerification()
 	{
 		this.click(btnTester, "Tester Button in Emar");
-		List<WebElement> Buttons = wd.findElements(By.xpath("//a[@id='userDropDown']/..//div/a"));
+		List<WebElement> Buttons = wd.findElements(By.xpath("//button[@id='userDropDown']//following-sibling::div//button"));
 		int NoOfButtons = Buttons.size();
 		ArrayList<String> Optins = new ArrayList<String>();
 		for(int i=1; i<=NoOfButtons ; i++)
 		{
-			Optins.add((wd.findElement(By.xpath(String.format("(//a[@id='userDropDown']/..//div/a)[%s]",i))).getText()));
+			Optins.add((wd.findElement(By.xpath(String.format("(//button[@id='userDropDown']//following-sibling::div//button)[%s]",i))).getText()));
 		}
 
 		this.testReport.logSuccess("Present Element", String.format("Element Present <mark>%s<mark/>", Optins.toString()));
@@ -259,16 +264,17 @@ public class EmarPage extends LoginPage {
 	public void HelpButtonvalidation()
 	{
 		this.click(btnHelp, "Help");
-		List<WebElement> Buttons = wd.findElements(By.xpath("//a[@id='helpDropDown']/..//div/a"));
+		List<WebElement> Buttons = wd.findElements(By.xpath("//button[@id='helpDropDown']/following::div/a"));
 		int NoOfButtons = Buttons.size();
 		ArrayList<String> Optins = new ArrayList<String>();
 		for(int i=1; i<=NoOfButtons ; i++)
 		{
-			Optins.add((wd.findElement(By.xpath(String.format("(//a[@id='helpDropDown']/..//div/a)[%s]",i))).getText()));
+			Optins.add((wd.findElement(By.xpath(String.format("(//button[@id='helpDropDown']/following::div/a)[%s]",i))).getText()));
 		}
 
 		this.testReport.logSuccess("Present Element", String.format("Element Present <mark>%s<mark/>", Optins.toString()));
-
+		this.VerifyWebElementPresent(btnHelpSite, "Help Site");
+		this.VerifyWebElementPresent(btnAbout, "About");
 	}
 
 	public String HelpSiteValidation(String helpSiteURL) throws Throwable
@@ -323,13 +329,23 @@ public class EmarPage extends LoginPage {
 
 	public void EmarPageHeaderValidation()
 	{
-		this.VerifyWebElementPresent(btnMenu ,"Menu Button");
+		if(this.isElementPresent(btnMenuEmar))
+		{
+			this.VerifyWebElementPresent(btnMenuEmar ,"Menu Button");
+		}
+		else
+		{
+			this.VerifyWebElementPresent(btnMenu ,"Menu Button");
+		}
 		this.VerifyWebElementPresent(btnTester ,"Tester Button");
-		String  btnTester = wd.findElement(By.xpath("//a[@id='userDropDown']")).getText();
+		String  btnTester = wd.findElement(By.xpath("//button[@id='userDropDown']")).getText();
 		this.testReport.logSuccess("User Name Present ", String.format("User Name   <mark>%s<mark/> Present in  page", btnTester) );
 		this.VerifyWebElementPresent(btnHelp ,"Help Button");
-		String  CurrentTime = wd.findElement(By.xpath("//app-current-time/div")).getText();
-		this.testReport.logSuccess("Current Time ", String.format("Current Time <mark>%s<mark/> Present in  page", CurrentTime) );
+		if(this.isElementPresent(By.xpath("//app-current-time/div")))
+		{
+			String  CurrentTime = wd.findElement(By.xpath("//app-current-time/div")).getText();
+			this.testReport.logSuccess("Current Time ", String.format("Current Time <mark>%s<mark/> Present in  page", CurrentTime) );
+		}
 	}
 
 	public void EmarPageButtonsVerification()

@@ -119,7 +119,14 @@ public class HomePage extends PageTemplate {
 	
 	public void VerifyAllapps()
 	{
-		this.click(btnMenuEmar ,"Menu Button");
+		if(this.isElementPresent(btnMenuEmar))
+		{
+			this.click(btnMenuEmar ,"Menu Button");
+		}
+		else
+		{
+			this.click(btnMenu ,"Menu Button");
+		}
 		List<WebElement> apps = wd.findElements(By.xpath("//div[@class='modal-content']//img/..//small"));
 		int No = apps.size();
 		ArrayList<String> Apps = new ArrayList<String>();
@@ -128,14 +135,23 @@ public class HomePage extends PageTemplate {
 			Apps.add(wd.findElement(By.xpath(String.format("(//div[@class='modal-content']//img/..//small)[%s]",i))).getText());
 		}
 		this.testReport.logSuccess("Present Apps ", String.format("Present Apps On application Menu <mark>%s<mark/> ", Apps.toString()) );
+
+		if(this.isElementPresent(btnMenuEmar))
+		{
+			this.click(btnMenuEmar ,"Menu Button");
+		}
+		if(this.isElementPresent(btnMenuEmar))
+		{
+			this.click(btnMenu ,"Menu Button");
+		}
 		
-		this.click(btnMenuEmar ,"Menu Button");
 	}
 	
 	public void VerifyFacilityIconAndName()
 	{
+		
 		this.VerifyWebElementPresent(btnFacilyIcon, "Facility Icon");
-		String FacilityName = wd.findElement(By.xpath("//button/i[contains(@class,'refresh')]/../following-sibling::a"));
+		String FacilityName = wd.findElement(By.xpath("//button/i[contains(@class,'refresh')]/../following-sibling::a")).getText();
 		this.testReport.logSuccess("Facillity Name ", String.format("Facillity Name :- <mark>%s<mark/> ", FacilityName) );
 		
 	}
@@ -143,10 +159,19 @@ public class HomePage extends PageTemplate {
 	public void VerifyResidentIconAndName()
 	{
 		this.VerifyWebElementPresent(btnResidentIcon, "Resident Icon");
-		String ResidentName = wd.findElement(By.xpath("//a/i[contains(@class,'refresh')]/../following-sibling::a"));
+		String ResidentName = wd.findElement(By.xpath("//a/i[contains(@class,'refresh')]/../following-sibling::a")).getText();
 		this.testReport.logSuccess("Resident Name ", String.format("Resident Name :- <mark>%s<mark/> ", ResidentName) );
 		
 	}
+	
+	public void MyDashBoardHomePage()
+	{
+		this.WaitForElementPresent(btnMenu,60 ,"Menu Button");
+		String URL = wd.getCurrentUrl();
+		this.testReport.logSuccess("URL of Dashboard Home Page", String.format("URL of Dashboard Home Page :- <mark>%s<mark/> ", URL) );
+	}
+	
+	
 
 	
 }

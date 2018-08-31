@@ -194,7 +194,7 @@ public class PhysicianPortalPage extends PageTemplate {
 
 	public By LabelFullorder = By.xpath("//h4[text()='Full Order']");
 	public By labelOrdersInSet = By.xpath("//div[@class='card']//h5[contains(text(),'Orders in the set')]");
-	public By labelIgnoreThisOrderSet = By.xpath("//input[@ng-reflect-model='false']");
+	public By labelIgnoreThisOrderSet = By.xpath("//div[contains(@class,'alert-warning')]//input");
 	public By btnIgnore = By.xpath("//button[text()='Ignore']");
 
 	public By labelOrderPageDescription = By.xpath("//span[text()='Description']");
@@ -387,7 +387,7 @@ public class PhysicianPortalPage extends PageTemplate {
 				}
 			}
 		} else {
-			this.VerifyWebElementPresent(linkCreateLibraryItem, "Create Library Item Link");
+			this.WaitForElementPresent(linkCreateLibraryItem,60, "Create Library Item Link");
 			this.click(linkCreateLibraryItem, "Create Library Item Link");
 			this.VerifyWebElementPresent(linkCreate, "Create Link");
 			this.VerifyWebElementPresent(linkCancel, "Cancel");
@@ -1970,9 +1970,9 @@ public class PhysicianPortalPage extends PageTemplate {
 		 */
 		this.VerifyWebElementPresent(labelIgnoreThisOrderSet, "Ignore This Order Set");
 
-		boolean LabelIgnoreThisOrderSet = wd.findElement(By.xpath("//input[@ng-reflect-model='false']"))
-				.getAttribute("ng-reflect-model").equals("true");
-		if (!LabelIgnoreThisOrderSet) {
+		boolean LabelIgnoreThisOrderSet = wd.findElement(By.xpath("//div[contains(@class,'alert-warning')]//input")).isSelected();
+				
+		if (LabelIgnoreThisOrderSet) {
 			this.click(labelIgnoreThisOrderSet, "Ignore This Order Set");
 		}
 	}

@@ -166,6 +166,8 @@ public abstract class TestTemplateMethodLevelInit extends TestTemplate {
 			
 			try {
 				webDriver.get(url);
+				System.out.println("Application URL :- " + url);
+				this.testReport.logSuccess("Application URL ", String.format("Application URL :- <mark>%s</mark>", url));
 			} catch (TimeoutException ex) {
 				LOG.error(String.format("Browser Takes More Time To Load, Time Out Defined - %s",
 						TestTemplate.pageLoadTimeOutInSecs));
@@ -173,6 +175,7 @@ public abstract class TestTemplateMethodLevelInit extends TestTemplate {
 			threadLocalWebDriver.set(webDriver);
 			
 			/**Login**/
+			this.testReport.logInfo("<mark>Test Case Starts </mark>");
 			String userName = this.getTestParameter(testContext, "userName");
 			String password = this.getTestParameter(testContext, "password");
 		//	String key = this.getTestParameter(testContext, "key");

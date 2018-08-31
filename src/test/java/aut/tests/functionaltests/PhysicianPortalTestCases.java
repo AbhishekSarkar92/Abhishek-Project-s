@@ -1402,7 +1402,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 	}
 	
 	
-	@Test(priority = 17)
+	//@Test(priority = 17)
 	public void QA023_ViewAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder (ITestContext testContext) throws AWTException, InterruptedException
 	{
 		 
@@ -1514,7 +1514,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 	}
 	
 	
-	@Test(priority = 18)
+	//@Test(priority = 18)
 	public void QA024_RecapAnOrder_ViaOrderSetsOrCreateAnOrder (ITestContext testContext) throws AWTException, InterruptedException
 	{
 		 
@@ -1663,6 +1663,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		physicianPortal.WindowpopUpCopy(TestTemplate.threadLocalWebDriver.get(),"Recap");*/
 		physicianPortal.VerifyTheOrderByClickingRecapButton();
 		physicianPortal.ClickOnCreateRecap();
+		physicianPortal.RobotWork();
 		physicianPortal.VerifyRecapDescription(Description1);
 		physicianPortal.VerifyResidentStatus(testData.get("Option"),testData.get("ResidentStatus"));
 		physicianPortal.VerifyResidentStations(testData.get("Option"),testData.get("Stations"));
@@ -1685,7 +1686,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 	}
 	
 	
-	@Test(priority = 19)
+	//@Test(priority = 19)
 	public void QA025_SignatureOnRecap_Wheather_OrderCreatedFromOrder_Or_FromSets (ITestContext testContext) throws AWTException
 	{
 		 
@@ -1767,7 +1768,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 	}
 	
 	
-	@Test(priority = 20)
+	//@Test(priority = 20)
 	public void QA026_ViewAndModify_Recaps(ITestContext testContext) throws AWTException, InterruptedException
 	{
 		 
@@ -1914,27 +1915,53 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		
 	}
 	
+	@Test(priority = 21)
+	public void Gen_QA209_BS_EHR_LoginPage(ITestContext testContext)
+			throws Throwable {
+
+		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);		
+		final String TesctCase = "GEN_QA209";			
+		
+		login.Logout();
+
+	}
+	
+	@Test(priority = 22)
+	public void Gen_QA210_Login_Credential_Verification(ITestContext testContext)
+			throws Throwable {
+
+		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
+		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
+		final String TesctCase = "GEN_QA210";	
+		
+		homepage.MyDashBoardHomePage();
+		login.Logout();
+
+	}
+	
+	
+	@Test(priority = 23)
 	public void Gen_QA211_MyDashBoardPage(ITestContext testContext)
 			throws Throwable {
 
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
 		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
-		EmarPage emar = new EmarPage(threadLocalWebDriver.get(), TestTemplate.testReport);
-		String userName = this.getTestParameter(testContext, "userName");
-		String password = this.getTestParameter(testContext, "password");
+		EmarPage emar = new EmarPage(threadLocalWebDriver.get(), TestTemplate.testReport);		
 
 		final String TesctCase = "GEN_QA211";	
 
 		homepage.NavigateToPhysicianPortal();
-		homepage.VerifyAllapps();
-		emar.BlueStrataLogoValidation();
 		emar.EmarPageHeaderValidation();
+		
+		emar.BlueStrataLogoValidation();
 		homepage.VerifyFacilityIconAndName();
 		homepage.VerifyResidentIconAndName();
+		homepage.VerifyAllapps();
 		login.Logout();
 
 	}
-
+	
+	@Test(priority = 24)
 	public void Gen_QA212_UserNamePreferences_TopRightOf_ResidentDahsboard_Or_HomePage(ITestContext testContext)
 			throws Throwable {
 
@@ -1955,16 +1982,14 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 
 	}
 	
-	
+	@Test(priority = 25)
 	public void Gen_QA213_HelpMenuWith_HelpSiteAbout(ITestContext testContext) throws Throwable {
 		
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
 		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
-		EmarPage emar = new EmarPage(threadLocalWebDriver.get(), TestTemplate.testReport);
-		String userName = this.getTestParameter(testContext, "userName");
-		String password = this.getTestParameter(testContext, "password");
+		EmarPage emar = new EmarPage(threadLocalWebDriver.get(), TestTemplate.testReport);		
 
-		final String TesctCase = "GEN_QA213";	
+		final String TesctCase = "Gen_QA213";	
 
 		HashMap<String, String> testData = xlsReader.GetValue(SheetName, TesctCase);
 		
@@ -1977,7 +2002,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 
 	}
 	
-	
+   @Test(priority = 26)
    public void Gen_QA214_HelpMenuWith_HelpSiteAbout(ITestContext testContext) throws Throwable {
 		
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1996,12 +2021,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 
 	}
    
-   //@Test()
-   public void TEST001()
-   {
-	  System.out.println("Running Script"); 
-   }
-	
+   
 	
 }
 

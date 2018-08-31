@@ -59,6 +59,7 @@ public class LoginPage extends PageTemplate {
 	
 	public void Logout()
 	{
+		this.WaitForElementPresent(btnTester, 60, "Tester Button");
 		this.click(btnTester, "Tester Button");
 		this.click(logout, "Logout");
 	}

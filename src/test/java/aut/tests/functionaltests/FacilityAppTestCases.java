@@ -24,7 +24,7 @@ public class FacilityAppTestCases extends TestTemplateMethodLevelInit {
 
 	final String SheetName = "facilityPortal";
 
-	@Test(priority = 1)
+	//@Test(priority = 1)
 	public void QA037_CreateAnOrderSetsviaFacilityAppfor_DetailsType()
 	{
 		PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -51,7 +51,7 @@ public class FacilityAppTestCases extends TestTemplateMethodLevelInit {
 		login.Logout();
 	}
 
-	@Test(priority = 2)
+	//@Test(priority = 2)
 	public void QA038_AddingFrequencyInNewlyCreatedOrderSetsViaFacilityAppFor_DetailsType_WithFrequencyType_Routine()
 	{
 		PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -154,7 +154,7 @@ public class FacilityAppTestCases extends TestTemplateMethodLevelInit {
 	}
 
 
-	@Test(priority = 3)
+	//@Test(priority = 3)
 	public void QA039_FrequencyFieldSelection_WithFrequencyType_Routine()
 	{
 		PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -297,7 +297,7 @@ public class FacilityAppTestCases extends TestTemplateMethodLevelInit {
 
 	}
 
-	@Test(priority = 4)
+	//@Test(priority = 4)
 	public void QA040_HowOftenFieldSelection_WithFrequencyType_Routine()
 	{
 		PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -379,7 +379,7 @@ public class FacilityAppTestCases extends TestTemplateMethodLevelInit {
 	}	
 
 
-	@Test(priority = 5)
+	//@Test(priority = 5)
 	public void QA041_AddingFrequencyInNewCreatedOrderSetsVia_FacilityAppForDetailsType_WithFrequencyType_PNR()
 	{
 		PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -424,7 +424,7 @@ public class FacilityAppTestCases extends TestTemplateMethodLevelInit {
 
 
 
-	@Test(priority = 6)
+	//@Test(priority = 6)
 	public void QA042_AddingFrequencyInNewCreatedOrderSetsVia_FacilityAppForDetailsType_WithFrequencyType_PNREveryHour()
 	{
 		PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -468,7 +468,7 @@ public class FacilityAppTestCases extends TestTemplateMethodLevelInit {
 
 	}
 
-	@Test(priority = 7)
+	//@Test(priority = 7)
 	public void QA043_CreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication()
 	{
 		PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -502,7 +502,7 @@ public class FacilityAppTestCases extends TestTemplateMethodLevelInit {
 	}
 
 
-	@Test(priority = 8)
+	//@Test(priority = 8)
 	public void QA044_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_Routine()
 	{
 		PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -583,7 +583,7 @@ public class FacilityAppTestCases extends TestTemplateMethodLevelInit {
 
 	}	
 
-	@Test(priority = 9)
+	//@Test(priority = 9)
 	public void QA045_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_PNR()
 	{
 		PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -622,7 +622,7 @@ public class FacilityAppTestCases extends TestTemplateMethodLevelInit {
 	}
 
 
-	@Test(priority = 10)
+	//@Test(priority = 10)
 	public void QA046_AddingFrequencyIn_NewCreateAnOrderSetsVia_FacilityApp_ForDetailsType_TreatmentWithMedication_And_Medication_WithFrequencyType_PNREveryHour()
 	{
 		PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -660,7 +660,7 @@ public class FacilityAppTestCases extends TestTemplateMethodLevelInit {
 		login.Logout();
 	}
 
-	@Test(priority = 11)
+	//@Test(priority = 11)
 	public void QA047_AddMultipleOrdersetsWithinOneOrdersetTemplate()
 	{
 		PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -756,6 +756,31 @@ public class FacilityAppTestCases extends TestTemplateMethodLevelInit {
 	}
 	
 	
+	//@Test(priority = 1)
+	public void Gen_QA209_BS_EHR_LoginPage(ITestContext testContext)
+			throws Throwable {
+
+		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);		
+		final String TesctCase = "GEN_QA209";			
+		
+		login.Logout();
+
+	}
+	
+	//@Test(priority = 2)
+	public void Gen_QA210_Login_Credential_Verification(ITestContext testContext)
+			throws Throwable {
+
+		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
+		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
+		final String TesctCase = "GEN_QA210";	
+		
+		homepage.MyDashBoardHomePage();
+		login.Logout();
+
+	}
+	
+	//@Test(priority = 3)
 	public void Gen_QA211_MyDashBoardPage(ITestContext testContext)
 			throws Throwable {
 
@@ -768,15 +793,18 @@ public class FacilityAppTestCases extends TestTemplateMethodLevelInit {
 		final String TesctCase = "GEN_QA211";	
 
 		homepage.NavigateToFacilityPortal();
-		homepage.VerifyAllapps();
-		emar.BlueStrataLogoValidation();
 		emar.EmarPageHeaderValidation();
+		
+		emar.BlueStrataLogoValidation();
 		homepage.VerifyFacilityIconAndName();
 		homepage.VerifyResidentIconAndName();
+		homepage.VerifyAllapps();
 		login.Logout();
 
-	}
 
+	}
+	
+	//@Test(priority = 4)
 	public void Gen_QA212_UserNamePreferences_TopRightOf_ResidentDahsboard_Or_HomePage(ITestContext testContext)
 			throws Throwable {
 
@@ -797,7 +825,7 @@ public class FacilityAppTestCases extends TestTemplateMethodLevelInit {
 
 	}
 	
-	
+	//@Test(priority = 5)
 	public void Gen_QA213_HelpMenuWith_HelpSiteAbout(ITestContext testContext) throws Throwable {
 		
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -806,7 +834,7 @@ public class FacilityAppTestCases extends TestTemplateMethodLevelInit {
 		String userName = this.getTestParameter(testContext, "userName");
 		String password = this.getTestParameter(testContext, "password");
 
-		final String TesctCase = "GEN_QA213";	
+		final String TesctCase = "Gen_QA213";	
 
 		HashMap<String, String> testData = xlsReader.GetValue(SheetName, TesctCase);
 		
@@ -816,10 +844,9 @@ public class FacilityAppTestCases extends TestTemplateMethodLevelInit {
 		emar.ClosingEmarURL();
 		emar.SwitchToHomePage(ParentparentWindow);
 		login.Logout();
-
 	}
 	
-	
+	//@Test(priority = 6)
    public void Gen_QA214_HelpMenuWith_HelpSiteAbout(ITestContext testContext) throws Throwable {
 		
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
