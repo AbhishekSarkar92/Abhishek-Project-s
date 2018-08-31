@@ -25,7 +25,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		Xls_Reader xlsReader = new Xls_Reader("C:\\Bluestrata\\Abhishek-Project-s\\src\\test\\resources\\testdata\\BluestrataTestData.xlsx");
 		final String SheetName = "clinicalPortal";
 		
-		//@Test(priority =21)
+		@Test(priority =21)
 		public void QA090_OrderCreationViaClinicalAPP() throws URISyntaxException
 		{
 			PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -59,7 +59,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		}
 		
 		
-		//@Test(priority =22)
+		@Test(priority =22)
 		public void QA091_ResidentOrders_CreateAnOrderUsingDetailsType(ITestContext testContext)
 		{
 			
@@ -148,7 +148,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		}
 		
 		
-		//@Test(priority =23)
+		@Test(priority =23)
 		public void QA092_AddingFrequencyFromResidentOrders_CreateAnOrderWithFrequencyRoutine(ITestContext testContext)
 		{
 			PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -308,7 +308,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		
 		
 		
-		//@Test(priority =24)
+		@Test(priority =24)
 		public void QA093_FrequencyFieldSelectionWhen_FrequencyTypeRoutine(ITestContext testContext)
 		{
 			PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -552,7 +552,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		
 
 		
-		//@Test(priority =25)
+		@Test(priority =25)
 		public void QA094_HowOftenFieldSelectionWhen_FrequencyTypeRoutine() throws URISyntaxException
 		{
 			PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -725,7 +725,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		
 		
 		
-		//@Test(priority =26)
+		@Test(priority =26)
 		public void QA095_AddingFrequencyFromOrders_WithFrequencyPRN(ITestContext testContext)
 		{
 			PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -841,7 +841,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		}
 		
 		
-		//@Test(priority =27)
+		@Test(priority =27)
 		public void QA096_AddingFrequencyFromResidentOrder_WithFrequencyPRNEveryHour(ITestContext testContext)
 		{
 			PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -956,7 +956,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			login.Logout();
 		}
 		
-		//@Test(priority =28)
+		@Test(priority =28)
 		public void QA097_ResidentOrders_CreateAnOrderUsingDetailsTypeTreatmentWithMedication_And_Medication(ITestContext testContext)
 		{
 			
@@ -1012,7 +1012,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		}
 		
 		
-		//@Test(priority =29)
+		@Test(priority =29)
 		public void QA098_ResidentOrders_CreateAnOrderUsingDetailsTypeTreatmentWithMedication_And_Medication_FrequencyTypeRoutine(ITestContext testContext)
 		{
 			PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1145,7 +1145,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			
 		}
 		
-		//@Test(priority =30)
+		@Test(priority =30)
 		public void QA099_ResidentOrders_CreateAnOrderUsingDetailsTypeTreatmentWithMedication_And_Medication_WithFrequencyPRNEveryHour(ITestContext testContext)
 		{
 			PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1262,7 +1262,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			
 		}
 		
-		//@Test(priority =31)
+		@Test(priority =31)
 		public void QA100_ResidentOrders_CreateAnOrderUsingDetailsTypeTreatmentWithMedication_And_Medication_WithFrequencyPRN(ITestContext testContext)
 		{
 			PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1380,7 +1380,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		}
 		
 		
-		//@Test(priority =32)
+		@Test(priority =32)
 		public void QA101_CreateAnOrder_ViaOrderSets (ITestContext testContext)
 		{
 			PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1528,7 +1528,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		}
 		
 		
-		//@Test(priority =33)		
+		@Test(priority =33)		
 		public void QA102_ViewAndModifyAnOrder_ViaOrderSets (ITestContext testContext) throws AWTException, InterruptedException
 		{
 			 
@@ -1709,7 +1709,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		
 		
 		
-		//@Test(priority =34)
+		@Test(priority =34)
 		public void QA103_VerifyAnOrder_ViaOrderSetsOrCreateAnOrder (ITestContext testContext) throws AWTException
 		{
 			 
@@ -1763,7 +1763,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		
 		
 		
-		//@Test(priority =35)
+		@Test(priority =35)
 		public void QA104_VerifyAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder (ITestContext testContext) throws AWTException, InterruptedException
 		{
 			 
@@ -1854,7 +1854,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		}
 		
 		
-		//@Test(priority =36)
+		@Test(priority =36)
 		public void QA105_SignAnOrder_ViaOrderSetsOrCreateAnOrder (ITestContext testContext) throws AWTException
 		{
 			 
@@ -1916,7 +1916,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		}
 		
 		
-		//@Test(priority =1)
+		@Test(priority =1)
 		public void QA106_ViewAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder (ITestContext testContext) throws AWTException, InterruptedException
 		{
 			 
