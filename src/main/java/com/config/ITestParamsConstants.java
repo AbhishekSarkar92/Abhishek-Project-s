@@ -15,8 +15,8 @@ public interface ITestParamsConstants {
 	//String BROWSER = CapabilityType.BROWSER_NAME;
 	String BROWSER = CapabilityType.BROWSER_NAME;
 	String APPURL = "appURL";
-	String LOCALE_COUNTRY = "localeCountry";
-	String LOCALE_LANGUAGE = "localeLanguage";
+	String POCURL = "pocURL";	
+	String APPLICATIONTYPE = "applicationTYPE";
 	String CHROME_DRIVER_EXE = "chromeDriverExe";
 	String IE_DRIVER_EXE = "IEDriverExe";
 	String FF_DRIVER_EXE = "FFDriverExe";

@@ -7,7 +7,7 @@
 	<parameter name="automationKit" value="selenium" />
 	<test name="test">
 		<classes>
-			<class name="aut.tests.functionaltests.FacilityAppTestCases" />
+			<class name="bluestrata.tests.functionaltests.ClinicalTestCases" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- SuiteRegression -->

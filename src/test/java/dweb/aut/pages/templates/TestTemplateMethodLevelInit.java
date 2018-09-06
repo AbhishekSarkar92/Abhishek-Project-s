@@ -34,7 +34,7 @@ import com.testreport.ReportFactory.ReportType;
 import com.testreport.SendEmail;
 import com.utilities.ReusableLibs;
 
-import aut.bluestrata.pages.LoginPage;
+import bluestrata.pages.LoginPage;
 import dweb.test.templates.TestTemplate;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;

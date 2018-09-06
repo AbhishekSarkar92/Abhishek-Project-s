@@ -26,7 +26,7 @@ import com.testreport.SendEmail;
 import com.testreport.ReportFactory.ReportType;
 import com.utilities.ReusableLibs;
 
-import aut.bluestrata.pages.LoginPage;
+import bluestrata.pages.LoginPage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
@@ -164,25 +164,49 @@ public abstract class TestTemplateMethodLevelInit extends TestTemplate {
 				webDriver = new AppiumDriver<MobileElement>(this.appiumDriverLocalService, this.convertTestParamsToCapabilities(testContext));
 			}
 			
-			try {
-				webDriver.get(url);
-				System.out.println("Application URL :- " + url);
-				this.testReport.logSuccess("Application URL ", String.format("Application URL :- <mark>%s</mark>", url));
-			} catch (TimeoutException ex) {
-				LOG.error(String.format("Browser Takes More Time To Load, Time Out Defined - %s",
-						TestTemplate.pageLoadTimeOutInSecs));
+			String applicationType = this.getTestParameter(testContext, ITestParamsConstants.APPLICATIONTYPE);
+			
+			if(applicationType.equalsIgnoreCase("BlueStarata Orders and Emar"))
+			{
+
+				try {
+					webDriver.get(url);
+					System.out.println("Application URL :- " + url);
+					this.testReport.logSuccess("Application URL ", String.format("Application URL :- <mark>%s</mark>", url));
+				} catch (TimeoutException ex) {
+					LOG.error(String.format("Browser Takes More Time To Load, Time Out Defined - %s",
+							TestTemplate.pageLoadTimeOutInSecs));
+				}
+				threadLocalWebDriver.set(webDriver);
+
+				/**Login**/
+				this.testReport.logInfo("<mark>Test Case Starts </mark>");
+				String userName = this.getTestParameter(testContext, "userName");
+				String password = this.getTestParameter(testContext, "password");
+				//	String key = this.getTestParameter(testContext, "key");
+				LoginPage loginPage = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
+				loginPage.login(userName, password); 
+				/*****/
 			}
-			threadLocalWebDriver.set(webDriver);
 			
-			/**Login**/
-			this.testReport.logInfo("<mark>Test Case Starts </mark>");
-			String userName = this.getTestParameter(testContext, "userName");
-			String password = this.getTestParameter(testContext, "password");
-		//	String key = this.getTestParameter(testContext, "key");
-			LoginPage loginPage = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
-			loginPage.login(userName, password);             
+			else if(applicationType.equalsIgnoreCase("POC"))
+			{
+				String pocURL = this.getTestParameter(testContext, ITestParamsConstants.POCURL);
+				try {
+					webDriver.get(pocURL);
+					System.out.println("Application URL :- " + pocURL);
+					this.testReport.logSuccess("Application URL ", String.format("Application URL :- <mark>%s</mark>", pocURL));
+				} catch (TimeoutException ex) {
+					LOG.error(String.format("Browser Takes More Time To Load, Time Out Defined - %s",
+							TestTemplate.pageLoadTimeOutInSecs));
+				}
+				threadLocalWebDriver.set(webDriver);
+				
+			}
 			
-			/*****/
+			
+			
+			
 			
 		} catch (Exception ex) {
 			LOG.error(String.format("Exception Encountered - %s", ex.getMessage()));
