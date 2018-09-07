@@ -32,7 +32,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 	
 	final String SheetName = "physicianPortal";
 	
-	//@Test()
+	@Test()
 	public void QA007_ResidentOrders() throws URISyntaxException
 	{
 		PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -65,7 +65,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		
 	}
 	
-	//@Test(priority = 2)
+	@Test()
 	public void QA008_ResidentOrders_CreateAnOrder(ITestContext testContext)
 	{
 		
@@ -117,7 +117,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		
 	}
 	
-	//@Test()
+	@Test()
 	public void QA009_ResidentOrders_CreateAnOrderWithFrequencyRoutine(ITestContext testContext)
 	{
 		PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -222,7 +222,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 	
 	
 	
-	//@Test(priority = 4)
+	@Test()
 	public void QA010_ResidentOrders_CreateAnOrderWithFrequencyRoutine(ITestContext testContext)
 	{
 		PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -390,7 +390,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 	}
 	
 	
-	//@Test(priority = 5)
+	@Test()
 	public void QA011_HowOften_RoutineFrequencyType() throws URISyntaxException
 	{
 		PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -504,7 +504,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 	
 	
 	
-	//@Test(priority = 6)
+	@Test()
 	public void QA012_ResidentOrders_CreateAnOrderWithFrequencyPRN(ITestContext testContext)
 	{
 		PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -565,7 +565,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 	}
 	
 	
-	//@Test(priority = 7)
+	@Test()
 	public void QA013_ResidentOrders_CreateAnOrderWithFrequencyPRNEveryHour(ITestContext testContext)
 	{
 		PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -680,7 +680,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		login.Logout();
 	}
 	
-	//@Test(priority = 8)
+	@Test()
 	public void QA014_ResidentOrders_CreateAnOrder(ITestContext testContext)
 	{
 		
@@ -765,7 +765,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 	}
 	
 	
-	//@Test(priority = 9)
+	@Test()
 	public void QA015_ResidentOrders_CreateAnOrderWithFrequencyRoutine(ITestContext testContext)
 	{
 		PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -843,7 +843,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		
 	}
 	
-	//@Test(priority = 10)
+	@Test()
 	public void QA016_ResidentOrders_CreateAnOrderWithFrequencyPRNEveryHour(ITestContext testContext)
 	{
 		PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -904,7 +904,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		
 	}
 	
-	//@Test(priority = 11)
+	@Test()
 	public void QA017_ResidentOrders_CreateAnOrderWithFrequencyPRN(ITestContext testContext)
 	{
 		PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -966,8 +966,8 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 	}
 	
 	
-	//@Test(priority = 12)
-	public void QA018_CreateAnOrder_ViaOrderSets (ITestContext testContext)
+	@Test()
+	public void QA018_CreateAnOrder_ViaOrderSets (ITestContext testContext) throws InterruptedException 
 	{
 		PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
 		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1074,7 +1074,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 	}
 	
 	
-	@Test(priority = 13)	
+	@Test()
 	public void QA019_ViewAndModifyAnOrder_ViaOrderSets (ITestContext testContext) throws AWTException, InterruptedException
 	{
 		 
@@ -1175,7 +1175,10 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 	//	physicianPortal.ArrowButtonVerification();
 		
 		physicianPortal.OrderPageCopyOrderValidation(testData.get("type8"),testData.get("libraryText"),testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
-
+		/*physicianPortal.ClickingCopyButton();
+		physicianPortal.FullOrderPageVerification();
+		physicianPortal.CreateAnOrderWithOrderDetails(testData.get("type8"),testData.get("libraryText"),testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
+		*/
 		physicianPortal.VerifyButtonInResidentOrders();
 		physicianPortal.CreateFromSet();
 		physicianPortal.SelectOrderFromOrderSets(Description);
@@ -1199,7 +1202,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 	
 	
 	
-	//@Test(priority = 14)
+	@Test()
 	public void QA020_VerifyAnOrder_ViaOrderSetsOrCreateAnOrder (ITestContext testContext) throws AWTException
 	{
 		 
@@ -1250,7 +1253,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		login.Logout();
 	}
 	
-	//@Test(priority = 15)
+	@Test()
 	public void QA021_VerifyAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder (ITestContext testContext) throws AWTException
 	{
 		 
@@ -1339,7 +1342,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		
 	}
 	
-	//@Test(priority = 16)
+	@Test()
 	public void QA022_SignAnOrder_ViaOrderSetsOrCreateAnOrder (ITestContext testContext) throws AWTException
 	{
 		 
@@ -1401,7 +1404,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 	}
 	
 	
-	//@Test(priority = 17)
+	@Test()
 	public void QA023_ViewAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder (ITestContext testContext) throws AWTException, InterruptedException
 	{
 		 
@@ -1513,7 +1516,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 	}
 	
 	
-	//@Test(priority = 18)
+	@Test()
 	public void QA024_RecapAnOrder_ViaOrderSetsOrCreateAnOrder (ITestContext testContext) throws AWTException, InterruptedException
 	{
 		 
@@ -1685,7 +1688,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 	}
 	
 	
-	//@Test(priority = 19)
+	@Test()
 	public void QA025_SignatureOnRecap_Wheather_OrderCreatedFromOrder_Or_FromSets (ITestContext testContext) throws AWTException
 	{
 		 
@@ -1767,7 +1770,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 	}
 	
 	
-	//@Test(priority = 20)
+	@Test()
 	public void QA026_ViewAndModify_Recaps(ITestContext testContext) throws AWTException, InterruptedException
 	{
 		 
@@ -1914,7 +1917,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		
 	}
 	
-	//@Test(priority = 21)
+	@Test(priority = 1)
 	public void Gen_QA209_BS_EHR_LoginPage(ITestContext testContext)
 			throws Throwable {
 
@@ -1925,7 +1928,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 
 	}
 	
-	//@Test(priority = 22)
+	@Test(priority = 1)
 	public void Gen_QA210_Login_Credential_Verification(ITestContext testContext)
 			throws Throwable {
 
@@ -1939,7 +1942,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 	}
 	
 	
-	//@Test(priority = 23)
+	@Test(priority = 1)
 	public void Gen_QA211_MyDashBoardPage(ITestContext testContext)
 			throws Throwable {
 
@@ -1960,7 +1963,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 
 	}
 	
-	//@Test(priority = 24)
+	@Test(priority = 1)
 	public void Gen_QA212_UserNamePreferences_TopRightOf_ResidentDahsboard_Or_HomePage(ITestContext testContext)
 			throws Throwable {
 
@@ -1981,7 +1984,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 
 	}
 	
-	//@Test(priority = 25)
+	@Test(priority = 1)
 	public void Gen_QA213_HelpMenuWith_HelpSiteAbout(ITestContext testContext) throws Throwable {
 		
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -2001,7 +2004,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 
 	}
 	
-  // @Test(priority = 26)
+	@Test(priority = 1)
    public void Gen_QA214_HelpMenuWith_HelpSiteAbout(ITestContext testContext) throws Throwable {
 		
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);

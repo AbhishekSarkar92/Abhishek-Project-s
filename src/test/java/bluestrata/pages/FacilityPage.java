@@ -34,7 +34,7 @@ public class FacilityPage extends PhysicianPortalPage {
 	public By txtLibraryItemRemoved = By.xpath("//div[@class='Library Item Removed']") ;
 	
 	
-	public void ManageOrdersSets()
+	public void ManageOrdersSets() throws InterruptedException
 	{
 		if(this.isElementPresent(btnMaintenance))
 		{
@@ -69,6 +69,7 @@ public class FacilityPage extends PhysicianPortalPage {
 		this.testReport.logSuccess("Created Order ",String.format("Created Order Present in the List - <mark>%s</mark> ", description.toString()));
 		
 		this.click(btnCreateAnOrderSet,"Create an Order Set");
+		Thread.sleep(3000);
 		}
 	}
 	

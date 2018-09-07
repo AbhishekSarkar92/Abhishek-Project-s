@@ -90,7 +90,7 @@ public class EmarTestCases extends TestTemplateMethodLevelInit {
 
 	}
 
-	@Test(enabled = true)
+	@Test()
 	public void QA119_ChangeAppWindowThrough_ApplicationMenuButton(ITestContext testContext) throws Throwable {
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
 		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -113,7 +113,7 @@ public class EmarTestCases extends TestTemplateMethodLevelInit {
 
 	}
 
-	@Test(enabled = true)
+	@Test()
 	public void QA120_ExploreEmar_DashboardPageUsing_eMARapp(ITestContext testContext) throws Throwable {
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
 		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);

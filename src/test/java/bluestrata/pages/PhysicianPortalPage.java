@@ -2881,6 +2881,14 @@ public class PhysicianPortalPage extends PageTemplate {
 	}
 	
 	
+	public void ClickingCopyButton() throws InterruptedException
+	{
+		Thread.sleep(5000);
+		if(this.isElementNotPresent(OrderPageDetails))
+		{
+			this.click(btnOrderPageCopy, "Copy Order");
+		}
+	}
 
 	public void RobotWork() throws AWTException {
 		/*Point location = wd.findElement(By.xpath("//button[text()='Copy']")).getLocation();
