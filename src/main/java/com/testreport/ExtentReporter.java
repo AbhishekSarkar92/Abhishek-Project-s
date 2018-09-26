@@ -20,7 +20,7 @@ import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.google.common.io.Resources;
-import dweb.test.templates.TestTemplate;;
+import dweb.test.templates.TestTemplate;
 
 
 
@@ -83,6 +83,42 @@ public class ExtentReporter implements IReporter {
 		
 		
 	}
+    
+    protected ExtentReporter(String FilePath , String extentConfigFile , ExtentTestVisibilityMode extentTestVisibilityMode) throws URISyntaxException
+    {
+    	this.extentTestVisibilityMode = extentTestVisibilityMode ;
+    	boolean boolAppendExisting = false ;
+    	ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(FilePath);
+    	if(extentConfigFile != null)
+    	{
+    		//String extentConfigFilePath = GetPath()+File.separator+"src/test/resources"+File.separator+"extentConfig.xml";
+    		String extentConfigFilePath = Paths.get(Resources.getResource(extentConfigFile).toURI()).toFile().getAbsolutePath();
+    		htmlReporter.loadXMLConfig(extentConfigFilePath);
+    	}
+    	htmlReporter.setAppendExisting(boolAppendExisting);
+    	ExtentReports extentReport = new ExtentReports();
+    	extentReport.attachReporter(htmlReporter);
+    	try
+    	{
+    		extentReport.setSystemInfo("IP", InetAddress.getLocalHost().getHostAddress());
+    		extentReport.setSystemInfo("Host Name", InetAddress.getLocalHost().getHostName());
+    		extentReport.setSystemInfo("User Name", System.getProperty("user.name"));
+    	}
+    	catch(UnknownHostException e)
+    	{
+    		e.printStackTrace();
+    	}
+    }
+    
+    public String GetPath()
+    {
+    	String FilePath = "";
+    	File f = new File("");
+    	String filePath = f.getAbsolutePath();
+    	FilePath = filePath.replaceAll("////+", "\\");
+    	
+		return FilePath;
+    }
 	
     public ExtentTestVisibilityMode getExtentTestVisibilityMode()
     {

@@ -148,10 +148,11 @@ public class HomePage extends PageTemplate {
 		{
 			this.click(btnMenuEmar ,"Menu Button");
 		}
-		if(this.isElementPresent(btnMenuEmar))
+		/*if(this.isElementPresent(btnMenuEmar))
 		{
+			
 			this.click(btnMenu ,"Menu Button");
-		}
+		}*/
 		
 	}
 	

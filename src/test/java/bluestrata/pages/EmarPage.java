@@ -1,11 +1,6 @@
 package bluestrata.pages;
 
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
-import java.lang.reflect.Array;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -14,16 +9,14 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
-import org.apache.tools.ant.types.resources.comparators.Date;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 
 import com.testreport.IReporter;
 
-import dweb.aut.pages.templates.PageTemplate;
+
 
 public class EmarPage extends LoginPage {
 
@@ -47,9 +40,9 @@ public class EmarPage extends LoginPage {
 	public By labelCurrentPassword = By.xpath("//label[contains(text(),'Current Password')]");
 	public By labelNewPassword = By.xpath("//label[contains(text(),'New Password')]");
 	public By labelConfirmPassword = By.xpath("//label[contains(text(),'Confirm Password')]");
-	public By btnHelp = By.xpath("//button[@id='helpDropDown']");
-	public By btnHelpSite = By.xpath("//button[@id='helpDropDown']/following::div/a[text()='Help Site']");
-	public By btnAbout = By.xpath("//button[@id='helpDropDown']/following::div/button[text()='About']");
+	public By btnHelp = By.xpath("//*[@id='helpDropDown']");
+	public By btnHelpSite = By.xpath("//*[@id='helpDropDown']/following::div/*[text()='Help Site']");
+	public By btnAbout = By.xpath("//*[@id='helpDropDown']/following::div/*[text()='About']");
 	public By blueStrataLogo = By.xpath("//img[@alt='BlueStrata EHR logo']");
 	public By btnMenu = By.xpath("//div[contains(@class,'navbar-brand')]//button");
 	public By arrowBtnEmarPage = By.xpath("//div[@role='main']//i");
@@ -265,12 +258,12 @@ public class EmarPage extends LoginPage {
 	public void HelpButtonvalidation()
 	{
 		this.click(btnHelp, "Help");
-		List<WebElement> Buttons = wd.findElements(By.xpath("//button[@id='helpDropDown']/following::div/a"));
+		List<WebElement> Buttons = wd.findElements(By.xpath("//*[@id='helpDropDown']/following::div[@aria-labelledby='helpDropDown']/*"));
 		int NoOfButtons = Buttons.size();
 		ArrayList<String> Optins = new ArrayList<String>();
 		for(int i=1; i<=NoOfButtons ; i++)
 		{
-			Optins.add((wd.findElement(By.xpath(String.format("(//button[@id='helpDropDown']/following::div/a)[%s]",i))).getText()));
+			Optins.add((wd.findElement(By.xpath(String.format("(//*[@id='helpDropDown']/following::div[@aria-labelledby='helpDropDown']/*)[%s]",i))).getText()));
 		}
 
 		this.testReport.logSuccess("Present Element", String.format("Element Present <mark>%s<mark/>", Optins.toString()));
@@ -1440,7 +1433,11 @@ public class EmarPage extends LoginPage {
 		try
 		{
 			By DescriptionName = By.xpath(String.format("//div[contains(@class,'card')]//h4[text()='%s']", descriptionName));
-			this.VerifyWebElementPresent(DescriptionName, "Description In Administrations Page");
+
+			if(this.isElementPresent(DescriptionName))
+			{
+				this.VerifyWebElementPresent(DescriptionName, "Description In Administrations Page");
+			}
 			if(this.isElementPresent(labelDescriptionDiagonosis))
 			{
 				this.VerifyWebElementPresent(labelDescriptionDiagonosis, "Diagonosis In Administrations Page");

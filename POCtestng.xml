@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="SuiteRegression" parallel="tests" thread-count="5">
+	<parameter name="pocURL"
+		value="https://extdevpoc.bluestrataemr.com" />
+	<parameter name="browserName" value="chrome" />
+	<parameter name="automationKit" value="selenium" />
+	<test name="test">
+		<classes>			
+			<class name="POC.tests.functionalTests.ResidentPageTestCases" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- SuiteRegression -->

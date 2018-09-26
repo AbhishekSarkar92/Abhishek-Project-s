@@ -57,7 +57,7 @@ public class ReportFactory {
 					ReusableLibs.makeDir(screenShotLocation);
 					String filePath = String.format("%s", htmlReportName);
 					ReportFactory.testReport = new ExtentReporter(filePath, extentConfigFile, boolAppendExisting, boolIsCignitiLogoRequired, extentTestVisibilityMode);
-										
+					//ReportFactory.testReport = new ExtentReporter(filePath, extentConfigFile, extentTestVisibilityMode);					
 					break;				
 				
 				default:
