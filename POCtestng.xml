@@ -2,12 +2,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="SuiteRegression" parallel="tests" thread-count="5">
 	<parameter name="pocURL"
-		value="https://extdevpoc.bluestrataemr.com" />
+		value="https://devclient.bluestrataemr.com/poc/qa2" />
 	<parameter name="browserName" value="chrome" />
 	<parameter name="automationKit" value="selenium" />
 	<test name="test">
 		<classes>			
-			<class name="POC.tests.functionalTests.ResidentPageTestCases" />
+			<class name="POC.tests.functionalTests.CarePlan_ADLs_TestCases" />
 		</classes>
 	</test> <!-- Test -->
-</suite> <!-- SuiteRegression -->
+</suite> <!-- SuiteRegression --> 

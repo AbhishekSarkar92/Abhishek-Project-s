@@ -1078,7 +1078,7 @@ public class PhysicianPortalPage extends PageTemplate {
 		this.testReport.logSuccess(
 				"Clicking on Physician portal display below sub menus :Sign,Resident Orders,Recap,Verify,History & Physicial,Physician Progress Note Assessment,Physician Progress Note");
 		this.click(btnPhysicianPortal, "Physician Portal Button");
-		this.waitInSecs(2);
+		this.WaitForElementPresent(spandrpdwnSign, 10, "Sign");
 		this.VerifyWebElementPresent(spandrpdwnSign, "Sign");
 		this.VerifyWebElementPresent(spandrpdwnResidentOrder, "Resident Order");
 		this.VerifyWebElementPresent(spandrpdwnRecap, "Recap");

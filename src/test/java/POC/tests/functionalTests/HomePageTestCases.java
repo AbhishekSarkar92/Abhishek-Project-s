@@ -11,7 +11,7 @@ public class HomePageTestCases extends TestTemplateMethodLevelInit {
 
 
 
-	@Test()
+	//@Test()
 	public void POC_QA262_BlueStrata_Point_Of_Care_Header()
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -31,7 +31,7 @@ public class HomePageTestCases extends TestTemplateMethodLevelInit {
 		pocHome.ShutDownTheApplication();
 	}
 
-	//@Test(enable = false)
+	//@Test()
 	public void POC_QA264_Station_Setup_1st_Icon_In_Left_Pane()
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -47,7 +47,8 @@ public class HomePageTestCases extends TestTemplateMethodLevelInit {
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
 
 		pocHome.ClickOnIcon("Setup user's fingerprint");
-		pocHome.SelectUserAndVerifyCalculator("jen.martin");
+		pocHome.SelectUser("KevinH - QA - HBV (Wired)");
+		pocHome.SelectUserAndVerifyCalculator("qaview");
 		pocHome.ClickCancelTheCalculator();
 		pocHome.ShutDownTheApplication();
 	}
@@ -58,7 +59,8 @@ public class HomePageTestCases extends TestTemplateMethodLevelInit {
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
 
 		pocHome.ClickOnIcon("Login to NTouch");
-		pocHome.SelectUserAndVerifyCalculator("jen.martin");
+		pocHome.SelectUser("KevinH - QA - HBV (Wired)");
+		pocHome.SelectUserAndVerifyCalculator("qaview");
 		pocHome.ClickCancelTheCalculator();
 		pocHome.ShutDownTheApplication();
 	}
@@ -94,7 +96,7 @@ public class HomePageTestCases extends TestTemplateMethodLevelInit {
 		pocHome.ShutDownTheApplication();
 	}
 
-	//@Test()
+	@Test()
 	public void POC_QA270_Station_Setup_7th_Icon_In_Left_Pane()
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);

@@ -869,7 +869,7 @@ public class PhysicianPortalTestCases extends TestTemplateMethodLevelInit {
 		
 	}
 	
-	@Test()
+	//@Test()
 	public void QA016_ResidentOrders_CreateAnOrderWithFrequencyPRNEveryHour(ITestContext testContext)
 	{
 		PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);

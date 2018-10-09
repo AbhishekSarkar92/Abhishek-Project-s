@@ -133,21 +133,70 @@ public class POC_HomePage extends PageTemplate {
 	public void ClickOnIcon(String Icon)
 	{
 		this.VerifyWebElementPresent(HomePageContent(Icon), Icon);
-		this.VerifyWebElementPresent(txtIconDefinationPage, "Icon Definitions Page");
+		if(this.isElementPresent(txtIconDefinationPage))
+		{
+			this.VerifyWebElementPresent(txtIconDefinationPage, "Icon Definitions Page");
+		}
 		this.click(HomePageContent(Icon), Icon);
 		if(this.isElementPresent(iconTestStation))
 		{
 			this.VerifyWebElementPresent(iconTestStation, "Test Station");
 			this.click(iconTestStation, "Test Station");
-			
+
 		}
+	}
+	
+	public void SelectUser(String testStation )
+	{
+		By TestStation = By.xpath(String.format("//button//*[text()='%s']", testStation));
+		this.click(TestStation, testStation);
+		this.waitInSecs(3);
+		
+		/*for(int i=1;i<=10;i++)
+		{
+			this.click(By.xpath(String.format("//button[contains(@class,'btn-number') and text()='%s']", i)), Integer.toString(i));
+			if(this.isElementPresent(By.xpath(String.format("///button//p[text()='%s']", UserName))));
+			{
+				By userName = By.xpath(String.format("//button//p[text()='%s']", UserName));
+				this.click(userName, UserName);	
+				break;
+			}
+		}*/
+		/*int i=1;
+		while(this.isElementPresent(By.xpath(String.format("//button[contains(@class,'btn-number') and text()='%s']", i))));
+		{
+			this.click(By.xpath(String.format("//button[contains(@class,'btn-number') and text()='%s']", i)), Integer.toString(i));
+			if(this.isElementPresent(By.xpath(String.format("///button//p[text()='%s']", UserName))));
+			{
+				this.click(By.xpath(String.format("///button//p[text()='%s']", UserName)), UserName);				
+			}
+			if(this.isElementPresent(Calculator))
+			{
+				break;
+			}
+			
+		}*/
 	}
 	
 	
 	public void SelectUserAndVerifyCalculator(String UserName)
 	{
-		By User = By.xpath(String.format("//*[text()='%s']/preceding-sibling::img", UserName));
-		this.click(User, UserName);
+		/*By User = By.xpath(String.format("//*[text()='%s']/preceding-sibling::img", UserName));
+		if(this.isElementPresent(User))
+		{
+			this.click(User, UserName);
+		}*/
+		for(int i=1;i<=10;i++)
+		{
+			this.click(By.xpath(String.format("//button[contains(@class,'btn-number') and text()='%s']", i)), Integer.toString(i));
+			if(this.isElementPresent(By.xpath(String.format("///button//p[text()='%s']", UserName))));
+			{
+				By userName = By.xpath(String.format("//button//p[text()='%s']", UserName));
+				this.click(userName, UserName);	
+				break;
+			}
+		}
+		
 		if(this.isElementPresent(Calculator))
 		{
 			this.VerifyWebElementPresent(Calculator, "Calculator");
@@ -190,27 +239,27 @@ public class POC_HomePage extends PageTemplate {
 	
 	public void VerifyOptionsUnderConfigureApplication()
 	{
-		List<WebElement> Options = wd.findElements(By.xpath("//div[contains(@class,'card-body')]//*[contains(@class,'bold')]"));
+		List<WebElement> Options = wd.findElements(By.xpath("//div[contains(@class,'start-screen')]//button[contains(@class,'block')]"));
 		
 		ArrayList<String> Option = new ArrayList<String>();
 		for(int i=1;i<=Options.size();i++)
 		{
-			Option.add(wd.findElement(By.xpath(String.format("(//div[contains(@class,'card-body')]//*[contains(@class,'bold')])[%s]",i))).getText());
+			Option.add(wd.findElement(By.xpath(String.format("(//div[contains(@class,'start-screen')]//button[contains(@class,'block')]/img)[%s]",i))).getAttribute("alt"));
 		}
 		this.testReport.logSuccess("Configure application Options", String.format("Configure application options :- <mark>%s<mark/>", Option.toString()));
 	}
 	
 	public void ViewStationInformation()
 	{
-		String Header = wd.findElement(By.xpath("//*[@id='main-content']//p[contains(@class,'h3')]")).getText();
+		String Header = wd.findElement(By.xpath("//*[@class='start-screen']//p[contains(@class,'h3')]")).getText();
 		this.testReport.logSuccess("View Station Information Header", String.format("View Station Information Header Name :- <mark>%s<mark/>", Header));
 		
-		List<WebElement> Options = wd.findElements(By.xpath("//*[@id='main-content']//p[contains(@class,'text-bold')]"));
+		List<WebElement> Options = wd.findElements(By.xpath("//*[@class='start-screen']//p[contains(@class,'text-bold')]"));
 		
 		ArrayList<String> Option = new ArrayList<String>();
 		for(int i=1;i<=Options.size();i++)
 		{
-			Option.add(wd.findElement(By.xpath(String.format("(//*[@id='main-content']//p[contains(@class,'text-bold')])[%s]",i))).getText());
+			Option.add(wd.findElement(By.xpath(String.format("(//*[@class='start-screen']//p[contains(@class,'text-bold')])[%s]",i))).getText());
 		}
 		this.testReport.logSuccess("View Station Information Options with value", String.format("View Station Information Options with value :- <mark>%s<mark/>", Option.toString()));
 	}

@@ -2390,7 +2390,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 	}
 
 
-	//@Test(priority = 2)
+	@Test(priority = 2)
 	public void Gen_QA209_BS_EHR_LoginPage(ITestContext testContext)
 			throws Throwable {
 
@@ -2404,7 +2404,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 
 	}
 
-	//@Test(priority = 2)
+	@Test(priority = 2)
 	public void Gen_QA210_Login_Credential_Verification(ITestContext testContext)
 			throws Throwable {
 
@@ -2420,7 +2420,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 
 	}
 
-	//@Test(priority = 2)
+	@Test(priority = 2)
 	public void Gen_QA211_MyDashBoardPage(ITestContext testContext)
 			throws Throwable {
 
@@ -2445,7 +2445,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 	}
 
 
-	//@Test(priority = 2)
+	@Test(priority = 2)
 	public void Gen_QA212_UserNamePreferences_TopRightOf_ResidentDahsboard_Or_HomePage(ITestContext testContext)
 			throws Throwable {
 
@@ -2466,7 +2466,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		login.Logout();
 	}
 
-	//@Test(priority = 2)
+	@Test(priority = 2)
 	public void Gen_QA213_HelpMenuWith_HelpSiteAbout(ITestContext testContext) throws Throwable {
 
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -2491,7 +2491,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 	}
 
 
-	//@Test(priority = 2)
+	@Test(priority = 2)
 	public void Gen_QA214_HelpMenuWith_HelpSiteAbout(ITestContext testContext) throws Throwable {
 
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);

@@ -401,7 +401,7 @@ public abstract class PageTemplate {
 		boolean isSuccess = false;
 		try {
 			// validate element is displayed or not
-			waitInSecs(2);
+			//waitInSecs(2);
 			Assert.assertEquals(wd.findElements(byLocator).size() > 0, true);
 			LOG.info(String.format("Element Present - (By - %s)", byLocator));
 			this.testReport.logSuccess("isElementPresent", String.format("Element Present - (By - %s)", byLocator));
