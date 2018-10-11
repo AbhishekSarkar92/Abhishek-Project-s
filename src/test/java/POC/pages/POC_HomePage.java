@@ -208,6 +208,19 @@ public class POC_HomePage extends PageTemplate {
 		}
 	}
 	
+	public void VerifyCalculator()
+	{
+		if(this.isElementPresent(Calculator))
+		{
+			this.VerifyWebElementPresent(Calculator, "Calculator");
+			this.VerifyWebElementPresent(txtBox, "Text Box");
+			this.VerifyWebElementPresent(KeyPad, "KeyPad");
+			this.VerifyWebElementPresent(btnClear, "Clear Button");
+			this.VerifyWebElementPresent(btnCancel, "Cancel Button");
+			this.VerifyWebElementPresent(btnEnter, "Enter Button");
+		}
+	}
+	
 	public By EnterNumber(String Number)
 	{
 		return By.xpath(String.format("//button[text()='%s' and @is-disabled='false']",Number));

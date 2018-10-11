@@ -31,7 +31,7 @@ public class CarePlan_ADLs_TestCases extends TestTemplateMethodLevelInit {
 		pocHome.ShutDownTheApplication();
 	}
 
-	//@Test()
+	@Test()
 	public void POC_QA272_Activity_Of_Daily_Livings_ADLs_First_Screen(ITestContext testContext) throws AWTException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -43,7 +43,7 @@ public class CarePlan_ADLs_TestCases extends TestTemplateMethodLevelInit {
 		pocHome.SelectUserAndVerifyCalculator("qaview");
 		pocHome.EnterPasscode(PassCode);
 		pocResident.VerifyResidentDashBoard();
-		pocResident.SelectUserByName("Riley Thurman");
+		pocResident.SelectUserByName("Jerold Jersmith");
 		pocResident.SelectActivityOptionFromMatrix("ADLs");
 		pocResident.EditingAndRemovingADLsRecords();
 		pocResident.VerifyADLsSelfPerformentAndSupport();		

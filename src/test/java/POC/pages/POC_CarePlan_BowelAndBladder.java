@@ -60,8 +60,9 @@ public class POC_CarePlan_BowelAndBladder extends POC_CarePlan_ADLs {
 		}
 	}
 	
-	public void SelectBowelOption(String Name)
+	public String[] SelectBowelOption(String Name)
 	{
+		String[] Option =null; 
 		try
 		{
 			List<WebElement> BowelOptions = wd.findElements(By.xpath("//button[contains(@class,'has-hover shadow')]//p[contains(@class,'text-bold')]"));
@@ -71,16 +72,20 @@ public class POC_CarePlan_BowelAndBladder extends POC_CarePlan_ADLs {
 				BowelOption.add(wd.findElement(By.xpath(String.format("(//button[contains(@class,'has-hover shadow')]//p[contains(@class,'text-bold')])[%s]", i))).getText());
 			}
 			this.testReport.logSuccess("All Options", String.format("All Options :-<mark>%s</mark>", BowelOption.toString()));
-		
-			this.waitInSecs(2);
-			By OptionName = By.xpath(String.format("//button[contains(@class,'has-hover shadow')]//img[@alt='%s']", Name));
-			this.click(OptionName, Name);
-			
+			Option = BowelOption.toArray(new String[BowelOption.size()]);
+			if(!(Name.equals("")))
+			{
+				this.waitInSecs(2);
+				By OptionName = By.xpath(String.format("//button[contains(@class,'has-hover shadow')]//img[@alt='%s']", Name));
+				this.click(OptionName, Name);
+			}
+
 		}
 		catch(Exception ex)
 		{
 			ex.printStackTrace();
 		}
+		return Option;
 	}
 	
 	public void CancelOpenWindow()

@@ -11,7 +11,7 @@ public class HomePageTestCases extends TestTemplateMethodLevelInit {
 
 
 
-	//@Test()
+	@Test()
 	public void POC_QA262_BlueStrata_Point_Of_Care_Header()
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -20,7 +20,7 @@ public class HomePageTestCases extends TestTemplateMethodLevelInit {
 		pocHome.ShutDownTheApplication();
 	}
 
-	//@Test()
+	@Test()
 	public void POC_QA263_POC_Application_Landing_Page_contents()
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -31,7 +31,7 @@ public class HomePageTestCases extends TestTemplateMethodLevelInit {
 		pocHome.ShutDownTheApplication();
 	}
 
-	//@Test()
+	@Test()
 	public void POC_QA264_Station_Setup_1st_Icon_In_Left_Pane()
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);

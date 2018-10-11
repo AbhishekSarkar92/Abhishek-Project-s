@@ -16,7 +16,7 @@ import com.testreport.IReporter;
 
 import dweb.aut.pages.templates.PageTemplate;
 
-public class POC_CarePlan_ADLs extends PageTemplate {
+public class POC_CarePlan_ADLs extends POC_HomePage {
 
 	public POC_CarePlan_ADLs(WebDriver webDriver, IReporter testReport) {
 		super(webDriver, testReport);
@@ -258,8 +258,22 @@ public class POC_CarePlan_ADLs extends PageTemplate {
 	public void VerifyADLResidentKioskNotes()
 	{
 		this.VerifyWebElementPresent(txtKioskNotesInformation, "Kiosk Notes Information");
-		String NotesText = wd.findElement(txtKioskNotesInformation).getText();
-		this.testReport.logSuccess("Kiosk Notes Information", String.format("Kiosk Notes Information Text :- <mark>%s<mark/>", NotesText));
+		List<WebElement> noteText = wd.findElements(By.xpath("//div[contains(@class,'border')]/following-sibling::div//div[contains(@class,'border')]//div//div"));
+		if(noteText.size()>0)
+		{
+			ArrayList<String> NoteTexts = new ArrayList<String>();
+			for(int i=1;i<=noteText.size();i++)
+			{
+				NoteTexts.add(wd.findElement(By.xpath(String.format("(//div[contains(@class,'border')]/following-sibling::div//div[contains(@class,'border')]//div//div)[%s]", i))).getText());
+			}
+			this.testReport.logSuccess("Kiosk Notes Information", String.format("Kiosk Notes Information Text :- <mark>%s<mark/>", NoteTexts.toString()));
+		}
+		else
+		{
+			String NotesText = wd.findElement(By.xpath("//div[contains(@class,'border')]/following-sibling::div//div[contains(@class,'border')]//p")).getText();
+			this.testReport.logSuccess("Kiosk Notes Information", String.format("Kiosk Notes Information Text :- <mark>%s<mark/>", NotesText));
+
+		}
 	}
 
 	public void EditADLEntryForShifts()
