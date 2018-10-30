@@ -8,9 +8,7 @@
 	<test name="Orders Test Scripts">
 		<classes>		
 		<class name="bluestrata.tests.functionalTests.PhysicianPortalTestCases" />		
-		<class name="bluestrata.tests.functionalTests.FacilityAppTestCases" />		
-		<class name="bluestrata.tests.functionalTests.ClinicalTestCases" />		
-		<class name="bluestrata.tests.functionalTests.EmarTestCases" />				
+				
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- SuiteRegression -->

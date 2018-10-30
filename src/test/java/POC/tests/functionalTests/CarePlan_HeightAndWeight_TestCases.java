@@ -1,5 +1,7 @@
 package POC.tests.functionalTests;
 
+import java.awt.AWTException;
+
 import org.testng.ITestContext;
 import org.testng.annotations.Test;
 
@@ -13,7 +15,7 @@ import dweb.test.templates.TestTemplateMethodLevelInit;
 public class CarePlan_HeightAndWeight_TestCases extends TestTemplateMethodLevelInit{
 
 	//@Test()
-	public void POC_QA294_Height_Recording_For_Resident(ITestContext testContext)
+	public void POC_QA294_Height_Recording_For_Resident(ITestContext testContext) throws InterruptedException, AWTException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
 		POC_CarePlan_ADLs pocResident = new POC_CarePlan_ADLs(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -48,7 +50,7 @@ public class CarePlan_HeightAndWeight_TestCases extends TestTemplateMethodLevelI
 	}
 	
 	@Test()
-	public void POC_QA295_Weight_Recording_For_Resident(ITestContext testContext)
+	public void POC_QA295_Weight_Recording_For_Resident(ITestContext testContext) throws InterruptedException, AWTException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
 		POC_CarePlan_ADLs pocResident = new POC_CarePlan_ADLs(threadLocalWebDriver.get(), TestTemplate.testReport);

@@ -1426,7 +1426,7 @@ public class PhysicianPortalPage extends PageTemplate {
 		this.sendKeys(txtSearchDiogonosis, SearchDiogonosisTxt);
 		this.waitInSecs(2);
 		this.click(btnSearchDiogonosis, "Search Diogonosis Button");
-		this.waitInSecs(2);
+		this.waitInSecs(10);
 
 		// By diogonosisOption =
 		// By.xpath((String.format("//div[@class='datatable-body-cell-label']/span[text()='%d']",
@@ -2672,7 +2672,7 @@ public class PhysicianPortalPage extends PageTemplate {
 		}
 
 		this.click(FrequencieModifyButton, "Order Page Frequency1 Modify button");
-		this.waitInSecs(5);
+		this.WaitForElementPresent(btnUpdateFrequency,20, "Order Page Frequency1 Update button");
 		this.VerifyWebElementPresent(btnUpdateFrequency, "Order Page Frequency1 Update button");
 		this.VerifyWebElementPresent(btnCancelFrequency, "Order Page Frequency1 Cancel button");
 		// this.VerifyWebElementPresent(btnRemovefrequencyFrequency,"Order Page
@@ -2682,8 +2682,10 @@ public class PhysicianPortalPage extends PageTemplate {
 				howOften, everyDay, physicianInstructions, additionalInstruction, type);
 
 		this.click(btnUpdateFrequency, "Order Page Frequency1 Update button");
+		this.WaitForElementPresent(FrequencieModifyButton,20, "Order Page Frequency1 Modify button");
 		this.VerifyWebElementPresent(FrequencieModifyButton, "Order Page Frequency1 Modify button");
 
+		this.waitInSecs(5);
 		String updateLabelAdministratedBy = wd.findElement(By.xpath(String.format(
 				"((//div[@class='card'])//label[contains(text(),'Administered By')])[%s]/..//div[contains(@class,'form-control')]",
 				modifyButtonNo))).getText();
@@ -3656,8 +3658,11 @@ public class PhysicianPortalPage extends PageTemplate {
 
 		if (this.isElementPresent(labelOrderPageDate)) {
 			this.click(labelOrderPageDate, "Date");
-			this.waitInSecs(1);
+			this.waitInSecs(3);
+			if(this.isElementPresent(labelOrderPageDate))
+			{
 			this.click(labelOrderPageDate, "Date");
+			}
 		}
 		List<WebElement> Orders = wd.findElements(By.xpath("//datatable-body-cell[1]/div"));
 		int ordersNo = Orders.size();

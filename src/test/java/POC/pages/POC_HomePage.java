@@ -201,7 +201,7 @@ public class POC_HomePage extends PageTemplate {
 		{
 			this.VerifyWebElementPresent(Calculator, "Calculator");
 			this.VerifyWebElementPresent(txtBox, "Text Box");
-			this.VerifyWebElementPresent(KeyPad, "KeyPad");
+			//this.VerifyWebElementPresent(KeyPad, "KeyPad");
 			this.VerifyWebElementPresent(btnClear, "Clear Button");
 			this.VerifyWebElementPresent(btnCancel, "Cancel Button");
 			this.VerifyWebElementPresent(btnEnter, "Enter Button");

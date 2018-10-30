@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [SuiteRegression]" parallel="tests">
-  <parameter name="pocURL" value="https://devclient.bluestrataemr.com/poc/qa2"/>
-  <parameter name="browserName" value="chrome"/>
+  <parameter name="browserName" value="ie"/>
+  <parameter name="appURL" value="https://devclient.bluestrataemr.com/qa2"/>
   <parameter name="automationKit" value="selenium"/>
-  <test name="test(failed)" parallel="tests">
+  <test name="Orders Test Scripts(failed)" parallel="tests">
     <classes>
-      <class name="POC.tests.functionalTests.HomePageTestCases">
+      <class name="bluestrata.tests.functionalTests.PhysicianPortalTestCases">
         <methods>
-          <include name="POC_QA268_Station_Setup_5th_Icon_In_Left_Pane"/>
+          <include name="QA023_ViewAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder" invocation-numbers="0"/>
           <include name="beforeMethod"/>
           <include name="beforeSuite"/>
           <include name="afterTest"/>
@@ -16,7 +16,7 @@
           <include name="afterSuite"/>
           <include name="afterMethod"/>
         </methods>
-      </class> <!-- POC.tests.functionalTests.HomePageTestCases -->
+      </class> <!-- bluestrata.tests.functionalTests.PhysicianPortalTestCases -->
     </classes>
-  </test> <!-- test(failed) -->
+  </test> <!-- Orders Test Scripts(failed) -->
 </suite> <!-- Failed suite [SuiteRegression] -->

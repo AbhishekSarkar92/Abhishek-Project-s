@@ -1,5 +1,8 @@
 package POC.pages;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -111,7 +114,7 @@ public class POC_CarePlan_BowelAndBladder extends POC_CarePlan_ADLs {
 	
 	public String getTextBeforeBowelMovement()
 	{
-		String Text = wd.findElement(By.xpath("//div[contains(@class,'main-screen')]//div//*[text()='Has bowel movement: No']/following-sibling::p[2]")).getText();
+		String Text = wd.findElement(By.xpath("//div[contains(@class,'main-screen')]//div//*[contains(text(),'Has bowel movement')]/following-sibling::p[2]")).getText();
 		this.testReport.logSuccess(" Bowel Movement", String.format("Bowel Movement :-<mark>%s</mark> Before Clicking Text", Text));
 		return Text ;
 	}
@@ -141,7 +144,7 @@ public class POC_CarePlan_BowelAndBladder extends POC_CarePlan_ADLs {
 		this.click(btnEnterNotes, "Enter Notes ");
 	}
 	
-	public String WrittingTextInNotes(String text)
+	public String WrittingTextInNotes(String text) 
 	{
 		this.waitInSecs(5);
 		this.click(btnClear, "Clear");
@@ -154,7 +157,9 @@ public class POC_CarePlan_BowelAndBladder extends POC_CarePlan_ADLs {
 			aa[i]=text.charAt(i);
 			char a = aa[i];
 			String Number = Character.toString(a);
-			this.click(By.xpath(String.format("//div[contains(@class,'modal-body')]//button//span[text()='%s']",Number)), Number);
+			//this.click(By.xpath(String.format("//div[contains(@class,'modal-body')]//button//span[text()='%s']",Number)), Number);
+			//this.click(By.xpath(String.format("//button//span[text()='%s']",Number)), Number);
+			this.click(By.xpath("(//*[@data-v-keyboard-language='en']//textarea)[1]"), "Keypad Text");
 			this.waitInSecs(1);
 		}
 		return text;
@@ -259,7 +264,11 @@ public class POC_CarePlan_BowelAndBladder extends POC_CarePlan_ADLs {
 	public void VerifyApplianceAfterSelection(String BowelOption ,String ApplianceTEXT)
 	{
 		String ApplianceText = wd.findElement(By.xpath(String.format("//*[contains(text(),'%s')]//preceding-sibling::div/p[contains(@class,'center')]",BowelOption))).getText();
-		if(ApplianceTEXT.contains(ApplianceText))
+		if(ApplianceText.contains(ApplianceTEXT))
+		{
+			this.testReport.logSuccess("Appliance Text Verification", String.format("Appliance Text :- <mark>%s</mark>  remain same with Selection :- <mark>%s</mark>", ApplianceText,ApplianceTEXT));
+		}
+		else if(ApplianceTEXT.contains(ApplianceText))
 		{
 			this.testReport.logSuccess("Appliance Text Verification", String.format("Appliance Text :- <mark>%s</mark>  remain same with Selection :- <mark>%s</mark>", ApplianceText,ApplianceTEXT));
 		}

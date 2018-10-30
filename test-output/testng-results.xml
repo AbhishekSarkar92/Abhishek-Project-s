@@ -1,226 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="SuiteRegression" duration-ms="300766" started-at="2018-10-10T14:07:45Z" finished-at="2018-10-10T14:12:46Z">
+  <suite name="SuiteRegression" duration-ms="1687982" started-at="2018-10-30T14:32:25Z" finished-at="2018-10-30T15:00:33Z">
     <groups>
     </groups>
-    <test name="test" duration-ms="300766" started-at="2018-10-10T14:07:45Z" finished-at="2018-10-10T14:12:46Z">
-      <class name="POC.tests.functionalTests.HomePageTestCases">
-        <test-method status="PASS" signature="beforeSuite(org.testng.ITestContext, org.testng.xml.XmlTest)[pri:0, instance:POC.tests.functionalTests.HomePageTestCases@1563da5]" name="beforeSuite" is-config="true" duration-ms="260" started-at="2018-10-10T19:37:45Z" finished-at="2018-10-10T19:37:45Z">
+    <test name="Orders Test Scripts" duration-ms="1687982" started-at="2018-10-30T14:32:25Z" finished-at="2018-10-30T15:00:33Z">
+      <class name="bluestrata.tests.functionalTests.PhysicianPortalTestCases">
+        <test-method status="PASS" signature="beforeSuite(org.testng.ITestContext, org.testng.xml.XmlTest)[pri:0, instance:bluestrata.tests.functionalTests.PhysicianPortalTestCases@770d3326]" name="beforeSuite" is-config="true" duration-ms="169" started-at="2018-10-30T20:02:25Z" finished-at="2018-10-30T20:02:25Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@245b4bdc]]>
+                <![CDATA[org.testng.TestRunner@574e7360]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[[Test: "test" verbose:1[parameters:][metagroups:] [included: ][excluded: ]  classes: packages:] ]]>
+                <![CDATA[[Test: "Orders Test Scripts" verbose:1[parameters:][metagroups:] [included: ][excluded: ]  classes: packages:] ]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeSuite -->
-        <test-method status="PASS" signature="beforeTest(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.HomePageTestCases@1563da5]" name="beforeTest" is-config="true" duration-ms="1" started-at="2018-10-10T19:37:45Z" finished-at="2018-10-10T19:37:45Z">
+        <test-method status="PASS" signature="beforeTest(org.testng.ITestContext)[pri:0, instance:bluestrata.tests.functionalTests.PhysicianPortalTestCases@770d3326]" name="beforeTest" is-config="true" duration-ms="1" started-at="2018-10-30T20:02:25Z" finished-at="2018-10-30T20:02:25Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@245b4bdc]]>
+                <![CDATA[org.testng.TestRunner@574e7360]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="beforeMethod(org.testng.ITestContext, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.HomePageTestCases@1563da5]" name="beforeMethod" is-config="true" duration-ms="35931" started-at="2018-10-10T19:37:45Z" finished-at="2018-10-10T19:38:21Z">
+        <test-method status="PASS" signature="beforeMethod(org.testng.ITestContext, java.lang.reflect.Method)[pri:0, instance:bluestrata.tests.functionalTests.PhysicianPortalTestCases@770d3326]" name="beforeMethod" is-config="true" duration-ms="14221" started-at="2018-10-30T20:02:25Z" finished-at="2018-10-30T20:02:39Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@245b4bdc]]>
+                <![CDATA[org.testng.TestRunner@574e7360]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[public void POC.tests.functionalTests.HomePageTestCases.POC_QA262_BlueStrata_Point_Of_Care_Header()]]>
+                <![CDATA[public void bluestrata.tests.functionalTests.PhysicianPortalTestCases.QA026_ViewAndModify_Recaps(org.testng.ITestContext) throws java.awt.AWTException,java.lang.InterruptedException]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="POC_QA262_BlueStrata_Point_Of_Care_Header()[pri:0, instance:POC.tests.functionalTests.HomePageTestCases@1563da5]" name="POC_QA262_BlueStrata_Point_Of_Care_Header" duration-ms="269" started-at="2018-10-10T19:38:21Z" finished-at="2018-10-10T19:38:21Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- POC_QA262_BlueStrata_Point_Of_Care_Header -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestContext, org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.HomePageTestCases@1563da5]" name="afterMethod" is-config="true" duration-ms="6416" started-at="2018-10-10T19:38:21Z" finished-at="2018-10-10T19:38:27Z">
+        <test-method status="PASS" signature="QA026_ViewAndModify_Recaps(org.testng.ITestContext)[pri:0, instance:bluestrata.tests.functionalTests.PhysicianPortalTestCases@770d3326]" name="QA026_ViewAndModify_Recaps" duration-ms="1667641" started-at="2018-10-30T20:02:39Z" finished-at="2018-10-30T20:30:27Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@245b4bdc]]>
+                <![CDATA[org.testng.TestRunner@574e7360]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- QA026_ViewAndModify_Recaps -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestContext, org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:bluestrata.tests.functionalTests.PhysicianPortalTestCases@770d3326]" name="afterMethod" is-config="true" duration-ms="6042" started-at="2018-10-30T20:30:27Z" finished-at="2018-10-30T20:30:33Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@574e7360]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[[TestResult name=POC_QA262_BlueStrata_Point_Of_Care_Header status=SUCCESS method=HomePageTestCases.POC_QA262_BlueStrata_Point_Of_Care_Header()[pri:0, instance:POC.tests.functionalTests.HomePageTestCases@1563da5] output={null}]]]>
+                <![CDATA[[TestResult name=QA026_ViewAndModify_Recaps status=SUCCESS method=PhysicianPortalTestCases.QA026_ViewAndModify_Recaps(org.testng.ITestContext)[pri:0, instance:bluestrata.tests.functionalTests.PhysicianPortalTestCases@770d3326] output={null}]]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[public void POC.tests.functionalTests.HomePageTestCases.POC_QA262_BlueStrata_Point_Of_Care_Header()]]>
+                <![CDATA[public void bluestrata.tests.functionalTests.PhysicianPortalTestCases.QA026_ViewAndModify_Recaps(org.testng.ITestContext) throws java.awt.AWTException,java.lang.InterruptedException]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="beforeMethod(org.testng.ITestContext, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.HomePageTestCases@1563da5]" name="beforeMethod" is-config="true" duration-ms="35579" started-at="2018-10-10T19:38:27Z" finished-at="2018-10-10T19:39:03Z">
+        <test-method status="PASS" signature="afterTest(org.testng.ITestContext)[pri:0, instance:bluestrata.tests.functionalTests.PhysicianPortalTestCases@770d3326]" name="afterTest" is-config="true" duration-ms="63" started-at="2018-10-30T20:30:33Z" finished-at="2018-10-30T20:30:33Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@245b4bdc]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[public void POC.tests.functionalTests.HomePageTestCases.POC_QA263_POC_Application_Landing_Page_contents()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="POC_QA263_POC_Application_Landing_Page_contents()[pri:0, instance:POC.tests.functionalTests.HomePageTestCases@1563da5]" name="POC_QA263_POC_Application_Landing_Page_contents" duration-ms="90049" started-at="2018-10-10T19:39:03Z" finished-at="2018-10-10T19:40:33Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- POC_QA263_POC_Application_Landing_Page_contents -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestContext, org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.HomePageTestCases@1563da5]" name="afterMethod" is-config="true" duration-ms="6024" started-at="2018-10-10T19:40:33Z" finished-at="2018-10-10T19:40:39Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@245b4bdc]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[[TestResult name=POC_QA263_POC_Application_Landing_Page_contents status=SUCCESS method=HomePageTestCases.POC_QA263_POC_Application_Landing_Page_contents()[pri:0, instance:POC.tests.functionalTests.HomePageTestCases@1563da5] output={null}]]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[public void POC.tests.functionalTests.HomePageTestCases.POC_QA263_POC_Application_Landing_Page_contents()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="beforeMethod(org.testng.ITestContext, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.HomePageTestCases@1563da5]" name="beforeMethod" is-config="true" duration-ms="35448" started-at="2018-10-10T19:40:39Z" finished-at="2018-10-10T19:41:15Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@245b4bdc]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[public void POC.tests.functionalTests.HomePageTestCases.POC_QA264_Station_Setup_1st_Icon_In_Left_Pane()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="POC_QA264_Station_Setup_1st_Icon_In_Left_Pane()[pri:0, instance:POC.tests.functionalTests.HomePageTestCases@1563da5]" name="POC_QA264_Station_Setup_1st_Icon_In_Left_Pane" duration-ms="20428" started-at="2018-10-10T19:41:15Z" finished-at="2018-10-10T19:41:35Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- POC_QA264_Station_Setup_1st_Icon_In_Left_Pane -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestContext, org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.HomePageTestCases@1563da5]" name="afterMethod" is-config="true" duration-ms="5875" started-at="2018-10-10T19:41:35Z" finished-at="2018-10-10T19:41:41Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@245b4bdc]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[[TestResult name=POC_QA264_Station_Setup_1st_Icon_In_Left_Pane status=SUCCESS method=HomePageTestCases.POC_QA264_Station_Setup_1st_Icon_In_Left_Pane()[pri:0, instance:POC.tests.functionalTests.HomePageTestCases@1563da5] output={null}]]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[public void POC.tests.functionalTests.HomePageTestCases.POC_QA264_Station_Setup_1st_Icon_In_Left_Pane()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="beforeMethod(org.testng.ITestContext, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.HomePageTestCases@1563da5]" name="beforeMethod" is-config="true" duration-ms="38362" started-at="2018-10-10T19:41:41Z" finished-at="2018-10-10T19:42:19Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@245b4bdc]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[public void POC.tests.functionalTests.HomePageTestCases.POC_QA270_Station_Setup_7th_Icon_In_Left_Pane()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="POC_QA270_Station_Setup_7th_Icon_In_Left_Pane()[pri:0, instance:POC.tests.functionalTests.HomePageTestCases@1563da5]" name="POC_QA270_Station_Setup_7th_Icon_In_Left_Pane" duration-ms="20368" started-at="2018-10-10T19:42:19Z" finished-at="2018-10-10T19:42:40Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- POC_QA270_Station_Setup_7th_Icon_In_Left_Pane -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestContext, org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.HomePageTestCases@1563da5]" name="afterMethod" is-config="true" duration-ms="5966" started-at="2018-10-10T19:42:40Z" finished-at="2018-10-10T19:42:46Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@245b4bdc]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[[TestResult name=POC_QA270_Station_Setup_7th_Icon_In_Left_Pane status=SUCCESS method=HomePageTestCases.POC_QA270_Station_Setup_7th_Icon_In_Left_Pane()[pri:0, instance:POC.tests.functionalTests.HomePageTestCases@1563da5] output={null}]]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[public void POC.tests.functionalTests.HomePageTestCases.POC_QA270_Station_Setup_7th_Icon_In_Left_Pane()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="afterTest(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.HomePageTestCases@1563da5]" name="afterTest" is-config="true" duration-ms="32" started-at="2018-10-10T19:42:46Z" finished-at="2018-10-10T19:42:46Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@245b4bdc]]>
+                <![CDATA[org.testng.TestRunner@574e7360]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="afterSuite(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.HomePageTestCases@1563da5]" name="afterSuite" is-config="true" duration-ms="59" started-at="2018-10-10T19:42:46Z" finished-at="2018-10-10T19:42:46Z">
+        <test-method status="PASS" signature="afterSuite(org.testng.ITestContext)[pri:0, instance:bluestrata.tests.functionalTests.PhysicianPortalTestCases@770d3326]" name="afterSuite" is-config="true" duration-ms="48" started-at="2018-10-30T20:30:33Z" finished-at="2018-10-30T20:30:33Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@245b4bdc]]>
+                <![CDATA[org.testng.TestRunner@574e7360]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterSuite -->
-      </class> <!-- POC.tests.functionalTests.HomePageTestCases -->
-    </test> <!-- test -->
+      </class> <!-- bluestrata.tests.functionalTests.PhysicianPortalTestCases -->
+    </test> <!-- Orders Test Scripts -->
   </suite> <!-- SuiteRegression -->
 </testng-results>

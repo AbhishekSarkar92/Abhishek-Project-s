@@ -7,7 +7,7 @@
 	<parameter name="automationKit" value="selenium" />
 	<test name="test">
 		<classes>			
-			<class name="POC.tests.functionalTests.CarePlan_ADLs_TestCases" />
+			<class name="POC.tests.functionalTests.CarePlan_BowelAndBladder_TestCases" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- SuiteRegression --> 

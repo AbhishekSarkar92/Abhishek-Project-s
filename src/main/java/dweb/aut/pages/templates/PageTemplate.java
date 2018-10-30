@@ -623,19 +623,26 @@ public abstract class PageTemplate {
      }
 	 
 	 public void VerifyWebElementNotPresent( By locator, String controlName)
-     {
-		 if (this.isElementPresent(locator))
-         {
-             testReport.logFailure("Element Present", String.format("Element is present - <mark>%s</mark>", controlName));
+	 {
+		 try
+		 {
+			 if (this.isElementPresent(locator))
+			 {
+				 testReport.logFailure("Element Present", String.format("Element is present - <mark>%s</mark>", controlName));
 
-         }
-         else
-         {
-             testReport.logSuccess("Element Not Present", String.format("Element is not present - <mark>%s</mark>", controlName));
-             
-         }
+			 }
+			 else
+			 {
+				 testReport.logSuccess("Element Not Present", String.format("Element is not present - <mark>%s</mark>", controlName));
 
-     }
+			 }
+		 }
+		 catch(Exception ex)
+		 {
+
+		 }
+
+	 }
 	 
 	 public  void AssertTextNotEqual( By locator, String text)
      {
