@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-SuiteRegression">
-              <span class="suite-name border-passed">SuiteRegression</span>
+              <span class="suite-name border-failed">SuiteRegression</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -91,21 +91,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">1 method, 1 failed,   </span>
                   </li>
                   <li>
-                    <span class="method-list-title passed">Passed methods</span>
-                    <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-SuiteRegression" class="hide-methods passed suite-SuiteRegression"> (hide)</a> <!-- hide-methods passed suite-SuiteRegression -->
-                      <a href="#" panel-name="suite-SuiteRegression" class="show-methods passed suite-SuiteRegression"> (show)</a> <!-- show-methods passed suite-SuiteRegression -->
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-SuiteRegression" class="hide-methods failed suite-SuiteRegression"> (hide)</a> <!-- hide-methods failed suite-SuiteRegression -->
+                      <a href="#" panel-name="suite-SuiteRegression" class="show-methods failed suite-SuiteRegression"> (show)</a> <!-- show-methods failed suite-SuiteRegression -->
                     </span>
-                    <div class="method-list-content passed suite-SuiteRegression">
+                    <div class="method-list-content failed suite-SuiteRegression">
                       <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-SuiteRegression" title="bluestrata.tests.functionalTests.PhysicianPortalTestCases" hash-for-method="QA026_ViewAndModify_Recaps(org.testng.TestRunner@574e7360)">QA026_ViewAndModify_Recaps(org.testng.TestRunner@574e7360)</a> <!-- method navigator-link -->
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SuiteRegression" title="bluestrata.tests.functionalTests.ClinicalTestCases" hash-for-method="QA102_ViewAndModifyAnOrder_ViaOrderSets(org.testng.TestRunner@7f1a4262)">QA102_ViewAndModifyAnOrder_ViaOrderSets(org.testng.TestRunner@7f1a4262)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content passed suite-SuiteRegression -->
+                    </div> <!-- method-list-content failed suite-SuiteRegression -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -117,22 +117,49 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-SuiteRegression" class="panel SuiteRegression">
-          <div class="suite-SuiteRegression-class-passed">
+          <div class="suite-SuiteRegression-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">bluestrata.tests.functionalTests.PhysicianPortalTestCases</span>
+              <img src="failed.png"/>
+              <span class="class-name">bluestrata.tests.functionalTests.ClinicalTestCases</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="QA026_ViewAndModify_Recaps(org.testng.TestRunner@574e7360)">
-                  </a> <!-- QA026_ViewAndModify_Recaps(org.testng.TestRunner@574e7360) -->
-                  <span class="method-name">QA026_ViewAndModify_Recaps</span>
-                  <span class="parameters">(org.testng.TestRunner@574e7360)</span>
+                  <a name="QA102_ViewAndModifyAnOrder_ViaOrderSets(org.testng.TestRunner@7f1a4262)">
+                  </a> <!-- QA102_ViewAndModifyAnOrder_ViaOrderSets(org.testng.TestRunner@7f1a4262) -->
+                  <span class="method-name">QA102_ViewAndModifyAnOrder_ViaOrderSets</span>
+                  <span class="parameters">(org.testng.TestRunner@7f1a4262)</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: Unable to find element with xpath == //label[text()=&apos;Start Date&apos;]/..//div[contains(@class,&apos;form-control-plaintext&apos;)]
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.6.0&apos;, revision: &apos;6fbf3ec767&apos;, time: &apos;2017-09-27T15:28:36.4Z&apos;
+System info: host: &apos;HW1562&apos;, ip: &apos;10.11.1.37&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_111&apos;
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities [{proxy=Proxy(), acceptInsecureCerts=false, browserVersion=11, se:ieOptions={nativeEvents=true, browserAttachTimeout=0, ie.ensureCleanSession=true, elementScrollBehavior=0, enablePersistentHover=true, ie.browserCommandLineSwitches=, ie.forceCreateProcessApi=false, requireWindowFocus=false, initialBrowserUrl=http://localhost:8803/, ignoreZoomSetting=false, ie.fileUploadDialogTimeout=3000, ignoreProtectedModeSettings=false}, timeouts={implicit=0, pageLoad=300000, script=30000}, browserName=internet explorer, pageLoadStrategy=normal, javascriptEnabled=true, platformName=WINDOWS, setWindowRect=true, platform=WINDOWS}]
+Session ID: 15efbf73-68f4-434f-bd2a-2058b93087d7
+*** Element info: {Using=xpath, value=//label[text()=&apos;Start Date&apos;]/..//div[contains(@class,&apos;form-control-plaintext&apos;)]}
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:160)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:371)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:473)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
+	at bluestrata.pages.PhysicianPortalPage.ArrowButtonVerification(PhysicianPortalPage.java:2498)
+	at bluestrata.pages.PhysicianPortalPage.OrderPageCopyOrderValidation(PhysicianPortalPage.java:2881)
+	at bluestrata.tests.functionalTests.ClinicalTestCases.QA102_ViewAndModifyAnOrder_ViaOrderSets(ClinicalTestCases.java:1627)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+... Removed 20 stack frames
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-SuiteRegression-class-passed -->
+          </div> <!-- suite-SuiteRegression-class-failed -->
         </div> <!-- panel SuiteRegression -->
         <div panel-name="test-xml-SuiteRegression" class="panel">
           <div class="main-panel-header rounded-window-top">
@@ -148,7 +175,7 @@
   &lt;parameter name=&quot;automationKit&quot; value=&quot;selenium&quot;/&gt;
   &lt;test name=&quot;Orders Test Scripts&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;bluestrata.tests.functionalTests.PhysicianPortalTestCases&quot;/&gt;
+      &lt;class name=&quot;bluestrata.tests.functionalTests.ClinicalTestCases&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Orders Test Scripts --&gt;
   &lt;test name=&quot;Orders Test Scripts&quot; parallel=&quot;tests&quot;&gt;
@@ -195,14 +222,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'QA026_ViewAndModify_Recaps')
-data.setCell(0, 2, 'bluestrata.tests.functionalTests.PhysicianPortalTestCases')
-data.setCell(0, 3, 1667641);
+data.setCell(0, 1, 'QA102_ViewAndModifyAnOrder_ViaOrderSets')
+data.setCell(0, 2, 'bluestrata.tests.functionalTests.ClinicalTestCases')
+data.setCell(0, 3, 1398893);
 window.suiteTableData['SuiteRegression']= { tableData: data, tableDiv: 'times-div-SuiteRegression'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 27 minutes</span>
+              <span class="suite-total-time">Total running time: 23 minutes</span>
               <div id="times-div-SuiteRegression">
               </div> <!-- times-div-SuiteRegression -->
             </div> <!-- times-div -->
@@ -217,9 +244,50 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-SuiteRegression" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">18 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">bluestrata.tests.functionalTests.ClinicalTestCases</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">QA104_VerifyAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder</span>
+                <br/>
+                <span class="ignored-method-name">QA091_ResidentOrders_CreateAnOrderUsingDetailsType</span>
+                <br/>
+                <span class="ignored-method-name">QA092_AddingFrequencyFromResidentOrders_CreateAnOrderWithFrequencyRoutine</span>
+                <br/>
+                <span class="ignored-method-name">QA094_HowOftenFieldSelectionWhen_FrequencyTypeRoutine</span>
+                <br/>
+                <span class="ignored-method-name">QA105_SignAnOrder_ViaOrderSetsOrCreateAnOrder</span>
+                <br/>
+                <span class="ignored-method-name">QA103_VerifyAnOrder_ViaOrderSetsOrCreateAnOrder</span>
+                <br/>
+                <span class="ignored-method-name">QA106_ViewAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder</span>
+                <br/>
+                <span class="ignored-method-name">QA093_FrequencyFieldSelectionWhen_FrequencyTypeRoutine</span>
+                <br/>
+                <span class="ignored-method-name">QA108_SignatureOnRecap_Wheather_OrderCreatedFromOrder_Or_FromSets</span>
+                <br/>
+                <span class="ignored-method-name">QA099_ResidentOrders_CreateAnOrderUsingDetailsTypeTreatmentWithMedication_And_Medication_WithFrequencyPRNEveryHour</span>
+                <br/>
+                <span class="ignored-method-name">QA109_ViewAndModify_Recaps</span>
+                <br/>
+                <span class="ignored-method-name">QA090_OrderCreationViaClinicalAPP</span>
+                <br/>
+                <span class="ignored-method-name">QA107_RecapAnOrder_ViaOrderSetsOrCreateAnOrder</span>
+                <br/>
+                <span class="ignored-method-name">QA100_ResidentOrders_CreateAnOrderUsingDetailsTypeTreatmentWithMedication_And_Medication_WithFrequencyPRN</span>
+                <br/>
+                <span class="ignored-method-name">QA095_AddingFrequencyFromOrders_WithFrequencyPRN</span>
+                <br/>
+                <span class="ignored-method-name">QA096_AddingFrequencyFromResidentOrder_WithFrequencyPRNEveryHour</span>
+                <br/>
+                <span class="ignored-method-name">QA101_CreateAnOrder_ViaOrderSets</span>
+                <br/>
+                <span class="ignored-method-name">QA098_ResidentOrders_CreateAnOrderUsingDetailsTypeTreatmentWithMedication_And_Medication_FrequencyTypeRoutine</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-SuiteRegression" class="panel">
@@ -228,34 +296,36 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">bluestrata.tests.functionalTests.PhysicianPortalTestCases</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">bluestrata.tests.functionalTests.ClinicalTestCases</div> <!-- chronological-class-name -->
               <div class="configuration-suite before">
-                <span class="method-name">beforeSuite(org.testng.TestRunner@574e7360, [Test: "Orders Test Scripts" verbose:1[parameters:][metagroups:] [in...)</span>
+                <span class="method-name">beforeSuite(org.testng.TestRunner@7f1a4262, [Test: "Orders Test Scripts" verbose:1[parameters:][metagroups:] [in...)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
               <div class="configuration-test before">
-                <span class="method-name">beforeTest(org.testng.TestRunner@574e7360)</span>
-                <span class="method-start">174 ms</span>
+                <span class="method-name">beforeTest(org.testng.TestRunner@7f1a4262)</span>
+                <span class="method-start">172 ms</span>
               </div> <!-- configuration-test before -->
               <div class="configuration-method before">
-                <span class="method-name">beforeMethod(org.testng.TestRunner@574e7360, public void bluestrata.tests.functionalTests.PhysicianPortalTestCase...)</span>
-                <span class="method-start">184 ms</span>
+                <span class="method-name">beforeMethod(org.testng.TestRunner@7f1a4262, public void bluestrata.tests.functionalTests.ClinicalTestCases.QA102...)</span>
+                <span class="method-start">188 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">QA026_ViewAndModify_Recaps(org.testng.TestRunner@574e7360)</span>
-                <span class="method-start">14405 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">QA102_ViewAndModifyAnOrder_ViaOrderSets(org.testng.TestRunner@7f1a4262)</span>
+                <span class="method-start">16846 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">afterMethod(org.testng.TestRunner@574e7360, [TestResult name=QA026_ViewAndModify_Recaps status=SUCCESS method=Ph...)</span>
-                <span class="method-start">1682049 ms</span>
+                <span class="method-name">afterMethod(org.testng.TestRunner@7f1a4262, [TestResult name=QA102_ViewAndModifyAnOrder_ViaOrderSets status=FAIL...)</span>
+                <span class="method-start">1415739 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-test after">
-                <span class="method-name">afterTest(org.testng.TestRunner@574e7360)</span>
-                <span class="method-start">1688092 ms</span>
+                <span class="method-name">afterTest(org.testng.TestRunner@7f1a4262)</span>
+                <span class="method-start">1421657 ms</span>
               </div> <!-- configuration-test after -->
               <div class="configuration-suite after">
-                <span class="method-name">afterSuite(org.testng.TestRunner@574e7360)</span>
-                <span class="method-start">1688169 ms</span>
+                <span class="method-name">afterSuite(org.testng.TestRunner@7f1a4262)</span>
+                <span class="method-start">1421736 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

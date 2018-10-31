@@ -1862,6 +1862,7 @@ public class PhysicianPortalPage extends PageTemplate {
 
 	public void SelectOrderFromOrderSets(String description) {
 		By Description = By.xpath(String.format("//div[@class='list-group']//a//div/h5[text()='%s']", description));
+		this.WaitForElementPresent(Description,20, "Created order present in Existing Set");
 		this.VerifyWebElementPresent(Description, "Created order present in Existing Set");
 		this.click(Description, "Click on Existing Set");
 
@@ -2879,6 +2880,26 @@ public class PhysicianPortalPage extends PageTemplate {
 		OrdersSelection(RequriredType, libraryText);
 		ArrowButtonVerification();
 		ClickOnListViewForNavigateToOrdersView();
+		}
+	}
+	
+	public void FillOrderPageFrequency(int modifyButtonNo, int num, int no, String frequencyType, String endDate,
+			String requiredActions, String requiredActionsPostDropdown, String administeredBy, String maxDoesHours,
+			String followUpAfterMinutes, String slidingScaleMin, String slidingScaleMax, String slidingScaleUnits,
+			String frequency, String howOften, String everyDay, String physicianInstructions,
+			String additionalInstruction, String type)
+	{
+		this.isElementPresent(By.xpath("//label[text()='Type']/..//select[@id='routineTypeId']/following::div[@class='invalid-feedback']"));
+		{
+			CreateOrderFrequency(1, 1, frequencyType, endDate, requiredActions, requiredActionsPostDropdown, administeredBy,
+					maxDoesHours, followUpAfterMinutes, slidingScaleMin, slidingScaleMax, slidingScaleUnits, frequency,
+					howOften, everyDay, physicianInstructions, additionalInstruction, type);
+		}
+		SaveOrderFrequency();
+		if(this.isElementNotPresent(CreateRecap) & this.isElementNotPresent(txtSignOrders))
+		{
+		WhereToTabValidation();
+		
 		}
 	}
 	

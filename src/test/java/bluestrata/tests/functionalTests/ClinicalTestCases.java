@@ -978,7 +978,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		login.Logout();
 	}
 
-	@Test()
+	//@Test()
 	public void QA097_ResidentOrders_CreateAnOrderUsingDetailsTypeTreatmentWithMedication_And_Medication(ITestContext testContext)
 	{
 
@@ -1520,7 +1520,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 	}
 
 
-	@Test(enabled =false)
+	@Test()
 	public void QA102_ViewAndModifyAnOrder_ViaOrderSets (ITestContext testContext) throws AWTException, InterruptedException
 	{
 
@@ -1625,7 +1625,8 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 			//	physicianPortal.ArrowButtonVerification();
 
 			physicianPortal.OrderPageCopyOrderValidation(testData.get("type8"),testData.get("libraryText"),testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
-
+			physicianPortal.FillOrderPageFrequency(Integer.parseInt(testData.get("modifyButtonNo")),Integer.parseInt(testData.get("num")),Integer.parseInt(testData.get("No")),testData.get("frequencyType1"),testData.get("endDateType"),testData.get("requiredActions"),testData.get("requiredActionsPostDropdown") ,testData.get("administeredBy1") ,testData.get("maxDoesHours") ,
+					testData.get("followUpAfterMinutes"),testData.get("slidingScaleMin"),testData.get("slidingScaleMax") ,testData.get("slidingScaleUnits") ,testData.get("frequency"),testData.get("howOften"),testData.get("everyDay"),testData.get("physicianInstructions"),testData.get("additionalInstruction"),testData.get("type1"));
 			physicianPortal.VerifyButtonInResidentOrders();
 			physicianPortal.CreateFromSet();
 			physicianPortal.SelectOrderFromOrderSets(Description);
@@ -2390,7 +2391,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 	}
 
 
-	@Test(priority = 2)
+	//@Test(priority = 2)
 	public void Gen_QA209_BS_EHR_LoginPage(ITestContext testContext)
 			throws Throwable {
 
@@ -2404,7 +2405,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 
 	}
 
-	@Test(priority = 2)
+	//@Test(priority = 2)
 	public void Gen_QA210_Login_Credential_Verification(ITestContext testContext)
 			throws Throwable {
 
@@ -2420,7 +2421,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 
 	}
 
-	@Test(priority = 2)
+	//@Test(priority = 2)
 	public void Gen_QA211_MyDashBoardPage(ITestContext testContext)
 			throws Throwable {
 
@@ -2445,7 +2446,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 	}
 
 
-	@Test(priority = 2)
+	//@Test(priority = 2)
 	public void Gen_QA212_UserNamePreferences_TopRightOf_ResidentDahsboard_Or_HomePage(ITestContext testContext)
 			throws Throwable {
 
@@ -2466,7 +2467,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		login.Logout();
 	}
 
-	@Test(priority = 2)
+	//@Test(priority = 2)
 	public void Gen_QA213_HelpMenuWith_HelpSiteAbout(ITestContext testContext) throws Throwable {
 
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -2491,7 +2492,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 	}
 
 
-	@Test(priority = 2)
+	//@Test(priority = 2)
 	public void Gen_QA214_HelpMenuWith_HelpSiteAbout(ITestContext testContext) throws Throwable {
 
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);

@@ -6,17 +6,17 @@
   <parameter name="automationKit" value="selenium"/>
   <test name="Orders Test Scripts(failed)" parallel="tests">
     <classes>
-      <class name="bluestrata.tests.functionalTests.PhysicianPortalTestCases">
+      <class name="bluestrata.tests.functionalTests.ClinicalTestCases">
         <methods>
-          <include name="QA023_ViewAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder" invocation-numbers="0"/>
           <include name="beforeMethod"/>
           <include name="beforeSuite"/>
           <include name="afterTest"/>
           <include name="beforeTest"/>
           <include name="afterSuite"/>
           <include name="afterMethod"/>
+          <include name="QA102_ViewAndModifyAnOrder_ViaOrderSets" invocation-numbers="0"/>
         </methods>
-      </class> <!-- bluestrata.tests.functionalTests.PhysicianPortalTestCases -->
+      </class> <!-- bluestrata.tests.functionalTests.ClinicalTestCases -->
     </classes>
   </test> <!-- Orders Test Scripts(failed) -->
 </suite> <!-- Failed suite [SuiteRegression] -->
