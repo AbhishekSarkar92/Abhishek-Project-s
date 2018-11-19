@@ -73,7 +73,7 @@ public class HomePage extends PageTemplate {
 		this.WaitForElementPresent(btnMenu, 20, "Menu Button");
 		this.click(btnMenu ,"Menu Button");
 		
-		
+		this.waitInSecs(2);
 		this.click(optionEmarPortal ,"Emar Portal Option");
 	}
 	

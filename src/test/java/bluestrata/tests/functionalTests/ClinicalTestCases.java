@@ -27,7 +27,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 	
 	
 
-	@Test(enabled =false)
+	@Test()
 	public void QA090_OrderCreationViaClinicalAPP(ITestContext testContext) throws URISyntaxException
 	{
 		
@@ -67,7 +67,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 	}
 
 
-	@Test(enabled =false)
+	@Test()
 	public void QA091_ResidentOrders_CreateAnOrderUsingDetailsType(ITestContext testContext)
 	{
 
@@ -159,7 +159,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 	}
 
 
-	@Test(enabled =false)
+	@Test()
 	public void QA092_AddingFrequencyFromResidentOrders_CreateAnOrderWithFrequencyRoutine(ITestContext testContext)
 	{
 		PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -321,7 +321,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 
 
 
-	@Test(enabled =false)
+	@Test()
 	public void QA093_FrequencyFieldSelectionWhen_FrequencyTypeRoutine(ITestContext testContext)
 	{
 		PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -337,82 +337,6 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		TestTemplate.testReport.logSuccess("Navigate to Residents Order From Clinical Portal");
 		clinicalPortal.ClickOnResidentOrdersFromOrders();	
 
-
-
-
-		/*String ResidentNo = xlsReader.getCellData("clinicalPortal", 0, 16);
-			String type1 = xlsReader.getCellData("clinicalPortal", 1, 16);
-			String type2 = xlsReader.getCellData("clinicalPortal", 2, 16);
-			String type3 = xlsReader.getCellData("clinicalPortal", 3, 16);
-			String type4 = xlsReader.getCellData("clinicalPortal", 4, 16);
-			String type5 = xlsReader.getCellData("clinicalPortal", 5, 16);
-			String type6 = xlsReader.getCellData("clinicalPortal", 6, 16);
-			String type7 = xlsReader.getCellData("clinicalPortal", 7, 16);
-			String libraryText = xlsReader.getCellData("clinicalPortal", 8, 16);			
-			String SearchDiogonosisTxt = xlsReader.getCellData("clinicalPortal", 9, 16);
-			String medicarePriority = xlsReader.getCellData("clinicalPortal", 10, 16);
-			String diogonosisName = xlsReader.getCellData("clinicalPortal", 11, 16);
-			String physicianType = xlsReader.getCellData("clinicalPortal", 12, 16);
-			String ReceivedByType = xlsReader.getCellData("clinicalPortal", 13, 16);
-			String ReceivedOrderType = xlsReader.getCellData("clinicalPortal", 14, 16);		
-			String routes = xlsReader.getCellData("clinicalPortal", 15, 16);
-			String WrittenDate = xlsReader.getCellData("clinicalPortal", 16, 16);
-			String NoOfRefillis = xlsReader.getCellData("clinicalPortal", 17, 16);
-			String WhenToFill = xlsReader.getCellData("clinicalPortal", 18, 16);
-			String num = xlsReader.getCellData("clinicalPortal", 19, 16);
-			String frequencyType = xlsReader.getCellData("clinicalPortal", 20, 16);
-			String startDate = xlsReader.getCellData("clinicalPortal", 21, 16);  
-			String ByDate =startDate;
-			String startDateTime = xlsReader.getCellData("clinicalPortal", 22, 16);
-			String byDateTime =startDateTime ;
-			String byDateno = xlsReader.getCellData("clinicalPortal", 23, 16);
-			String afterNoOfAdminstrationsNo = xlsReader.getCellData("clinicalPortal", 24, 16);		
-			String endDate = xlsReader.getCellData("clinicalPortal", 25, 16);
-			String afterNumberOfAdminstrations = xlsReader.getCellData("clinicalPortal", 26, 16);
-			String requiredActions = xlsReader.getCellData("clinicalPortal", 27, 16);
-			String othersRequiredActions = xlsReader.getCellData("clinicalPortal", 28, 16);
-			String requiredActionsPostDropdown = xlsReader.getCellData("clinicalPortal", 29, 16);
-			String othersRequiredActionsPostDropdown = xlsReader.getCellData("clinicalPortal", 30, 16);
-			String administeredBy = xlsReader.getCellData("clinicalPortal", 31, 16);
-			String maxDoesHours = xlsReader.getCellData("clinicalPortal", 32, 16);
-			String followUpAfterMinutes = xlsReader.getCellData("clinicalPortal", 33, 16);
-			String slidingScaleMin = xlsReader.getCellData("clinicalPortal", 34, 16);
-			String slidingScaleMax = xlsReader.getCellData("clinicalPortal", 35, 16);
-			String slidingScaleUnits = xlsReader.getCellData("clinicalPortal", 36, 16);
-			String frequency = xlsReader.getCellData("clinicalPortal", 37, 16);
-			String howOften = xlsReader.getCellData("clinicalPortal", 38, 16);
-			String everyDay = xlsReader.getCellData("clinicalPortal", 39, 16);
-			String physicianInstructions = xlsReader.getCellData("clinicalPortal", 40, 16);
-			String additionalInstruction = physicianInstructions ;
-			String endDateType = xlsReader.getCellData("clinicalPortal", 42, 16);
-			String frequency2 = xlsReader.getCellData("clinicalPortal", 43, 16);
-			String frequency3 = xlsReader.getCellData("clinicalPortal", 44, 16);
-			String frequency4 = xlsReader.getCellData("clinicalPortal", 45, 16);
-			String frequency5 = xlsReader.getCellData("clinicalPortal", 46, 16);
-			String frequency6 = xlsReader.getCellData("clinicalPortal", 47, 16);
-			String frequency7 = xlsReader.getCellData("clinicalPortal", 48, 16);
-			String frequencyTexttype = xlsReader.getCellData("clinicalPortal", 49, 16);
-			String frequencyTexttype1 = xlsReader.getCellData("clinicalPortal", 50, 16);
-			String timeInADayTime = xlsReader.getCellData("clinicalPortal", 51, 16);
-			String timeInADayShift = xlsReader.getCellData("clinicalPortal", 52, 16);
-			String frequency8 = xlsReader.getCellData("clinicalPortal", 53, 16);
-			String frequency9 = xlsReader.getCellData("clinicalPortal", 54, 16);
-			String frequency10 = xlsReader.getCellData("clinicalPortal", 55, 16);
-			String frequency11 = xlsReader.getCellData("clinicalPortal", 56, 16);
-			String frequency12 = xlsReader.getCellData("clinicalPortal", 57, 16);
-			String frequency13 = xlsReader.getCellData("clinicalPortal", 58, 16);
-			String frequency14 = xlsReader.getCellData("clinicalPortal", 59, 16);
-			String frequency15 = xlsReader.getCellData("clinicalPortal", 60, 16);
-			String timeInADayShiftBedTime = xlsReader.getCellData("clinicalPortal", 61, 16);
-			String frequency16 = xlsReader.getCellData("clinicalPortal", 62, 16);
-			String frequency17 = xlsReader.getCellData("clinicalPortal", 63, 16);
-			String frequency18 = xlsReader.getCellData("clinicalPortal", 64, 16);
-			String frequency19 = xlsReader.getCellData("clinicalPortal", 65, 16);
-			String frequency20 = xlsReader.getCellData("clinicalPortal", 66, 16);
-		    String frequency21 = xlsReader.getCellData("clinicalPortal", 67, 16);
-			//String FrequencyName =  frequency21 ;
-		 */			
-
 		final String TestCase = "QA093";
 
 		HashMap<String , String > testData = xlsReader.GetValue(SheetName, TestCase);
@@ -427,138 +351,138 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		for (int i=0; i<numberOfItems; i++)
 
 		{
-
-			String type = typeArray[i];
-
-			String Description = testData.get("libraryText") + type + physicianPortal.GenarateRandomNumber();
-
-			physicianPortal.CreateAnOrderWithOrderDetails(type,Description,testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
-			physicianPortal.OrderFrequencyType(Integer.parseInt(testData.get("num")),testData.get("frequencyType"));		
-			physicianPortal.StartDate(Integer.parseInt(testData.get("num")),testData.get("startDate"),testData.get("startDateTime"));		
-			physicianPortal.OrderEndType(Integer.parseInt(testData.get("num")),Integer.parseInt(testData.get("byDateno")),Integer.parseInt(testData.get("afterNoOfAdminstrationsNo")) ,testData.get("endDateType"),testData.get("endDate") ,testData.get("startDate") ,testData.get("startDateTime"), testData.get("afterNumberOfAdminstrations"));
-			physicianPortal.RequireActionRelatedLabel(Integer.parseInt(testData.get("num")),testData.get("frequencyType") ,testData.get("requiredActions"),testData.get("othersRequiredActions") ,testData.get("requiredActionsPostDropdown"),testData.get("othersRequiredActionsPostDropdown"),testData.get("administeredBy") ,testData.get("maxDoesHours") ,
-					testData.get("followUpAfterMinutes"),testData.get("slidingScaleMin"),testData.get("slidingScaleMax") ,testData.get("slidingScaleUnits"));
-			physicianPortal.OnceAShiftFrequency(Integer.parseInt(testData.get("num")),testData.get("frequency"));
-			physicianPortal.HowOftenDailyType(Integer.parseInt(testData.get("num")),testData.get("howOften"),testData.get("everyDay"));
-			physicianPortal.CreateOrderFrequencyForRoutine(Integer.parseInt(testData.get("num")),testData.get("physicianInstructions"),testData.get("physicianInstructions"),type);
-
+		
+	    	String type = typeArray[i];
+	    	
+	    	String Description = testData.get("libraryText") + type + physicianPortal.GenarateRandomNumber();
+	    	
+		physicianPortal.CreateAnOrderWithOrderDetails(type,Description,testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
+		physicianPortal.OrderFrequencyType(Integer.parseInt(testData.get("num")),testData.get("frequencyType"));		
+		physicianPortal.StartDate(Integer.parseInt(testData.get("num")),testData.get("startDate"),testData.get("startDateTime"));		
+		physicianPortal.OrderEndType(Integer.parseInt(testData.get("num")),Integer.parseInt(testData.get("byDateno")),Integer.parseInt(testData.get("afterNoOfAdminstrationsNo")) ,testData.get("endDateType"),testData.get("endDate") ,testData.get("startDate") ,testData.get("startDateTime"), testData.get("afterNumberOfAdminstrations"));
+		physicianPortal.RequireActionRelatedLabel(Integer.parseInt(testData.get("num")),testData.get("frequencyType") ,testData.get("requiredActions"),testData.get("othersRequiredActions") ,testData.get("requiredActionsPostDropdown"),testData.get("othersRequiredActionsPostDropdown"),testData.get("administeredBy") ,testData.get("maxDoesHours") ,
+				testData.get("followUpAfterMinutes"),testData.get("slidingScaleMin"),testData.get("slidingScaleMax") ,testData.get("slidingScaleUnits"));
+		physicianPortal.OnceAShiftFrequency(Integer.parseInt(testData.get("num")),testData.get("frequency"));
+		physicianPortal.HowOftenDailyType(Integer.parseInt(testData.get("num")),testData.get("howOften"),testData.get("everyDay"));
+		physicianPortal.CreateOrderFrequencyForRoutine(Integer.parseInt(testData.get("num")),testData.get("physicianInstructions"),testData.get("physicianInstructions"),type);
+		
+		physicianPortal.AddOrderFrequency();
+		
+		
+		
+		for(int newnum=2;newnum<=27;newnum ++)
+		{
+	
+		physicianPortal.OrderFrequencyType(newnum,testData.get("frequencyType"));
+		physicianPortal.StartDate(newnum,testData.get("startDate"),testData.get("startDateTime"));
+		physicianPortal.OrderEndType(newnum,Integer.parseInt(testData.get("byDateno")),Integer.parseInt(testData.get("afterNoOfAdminstrationsNo")) ,testData.get("endDateType"),testData.get("endDate") ,testData.get("startDate") ,testData.get("startDateTime"), testData.get("afterNumberOfAdminstrations"));
+		physicianPortal.RequireActionRelatedLabel(newnum,testData.get("frequencyType") ,testData.get("requiredActions"),testData.get("othersRequiredActions") ,testData.get("requiredActionsPostDropdown"),testData.get("othersRequiredActionsPostDropdown"),testData.get("administeredBy") ,testData.get("maxDoesHours") ,
+				testData.get("followUpAfterMinutes"),testData.get("slidingScaleMin"),testData.get("slidingScaleMax") ,testData.get("slidingScaleUnits"));
+		switch (newnum)
+		{
+		case 2:	
+			physicianPortal.TextTypeNoOfTimesAdayFrequency(testData.get("frequencyTexttype") ,newnum ,testData.get("frequency1") , Integer.parseInt(testData.get("num")) , testData.get("timeInADayTime"));
+			break;
+		case 3:				
+	    	physicianPortal.TextTypeNoOfTimesAdayFrequency(testData.get("frequencyTexttype1") ,newnum ,testData.get("frequency1") , Integer.parseInt(testData.get("num")) , testData.get("timeInADayShift"));
+			break;
+		case 4:				
+		    physicianPortal.TextTypeNoOfTimesAdayFrequency(testData.get("frequencyTexttype") ,newnum ,testData.get("frequency2") , (Integer.parseInt(testData.get("num"))+1) , testData.get("timeInADayTime"));
+			break;
+		case 5:				
+	    	physicianPortal.TextTypeNoOfTimesAdayFrequency(testData.get("frequencyTexttype1") ,newnum ,testData.get("frequency2") , (Integer.parseInt(testData.get("num"))+1) , testData.get("timeInADayShift"));
+			break;
+		case 6:				
+		    physicianPortal.TextTypeNoOfTimesAdayFrequency(testData.get("frequencyTexttype") ,newnum ,testData.get("frequency3") , (Integer.parseInt(testData.get("num"))+2) , testData.get("timeInADayTime"));
+			break;
+		case 7:				
+	    	physicianPortal.TextTypeNoOfTimesAdayFrequency(testData.get("frequencyTexttype1") ,newnum ,testData.get("frequency3") , (Integer.parseInt(testData.get("num"))+2) , testData.get("timeInADayShift"));
+	     	break;
+		case 8:		
+			physicianPortal.TextTypeNoOfTimesAdayFrequency(testData.get("frequencyTexttype") ,newnum ,testData.get("frequency4") , (Integer.parseInt(testData.get("num"))+3) , testData.get("timeInADayTime"));
+			break;
+		case 9:				
+	    	physicianPortal.TextTypeNoOfTimesAdayFrequency(testData.get("frequencyTexttype1") ,newnum ,testData.get("frequency4") , (Integer.parseInt(testData.get("num"))+3) , testData.get("timeInADayShift"));
+			break;
+		case 10:				
+		    physicianPortal.TextTypeNoOfTimesAdayFrequency(testData.get("frequencyTexttype") ,newnum ,testData.get("frequency5") , (Integer.parseInt(testData.get("num"))+4) , testData.get("timeInADayTime"));
+			break;
+		case 11:				
+	    	physicianPortal.TextTypeNoOfTimesAdayFrequency(testData.get("frequencyTexttype1") ,newnum ,testData.get("frequency5") , (Integer.parseInt(testData.get("num"))+4) , testData.get("timeInADayShift"));
+			break;
+		case 12:				
+		    physicianPortal.TextTypeNoOfTimesAdayFrequency(testData.get("frequencyTexttype") ,newnum ,testData.get("frequency6") , (Integer.parseInt(testData.get("num"))+5) , testData.get("timeInADayTime"));
+			break;
+		case 13:				
+	    	physicianPortal.TextTypeNoOfTimesAdayFrequency(testData.get("frequencyTexttype1") ,newnum ,testData.get("frequency6") , (Integer.parseInt(testData.get("num"))+5) , testData.get("timeInADayShift"));
+	     	break;
+		case 14:				
+	    	physicianPortal.BedTimeFrequency(testData.get("frequencyTexttype") ,newnum ,testData.get("frequency8"),testData.get("timeInADayTime"));
+	     	break;	  	
+		case 15:				
+			physicianPortal.HourWiseFrequency(newnum ,testData.get("frequency9") ,testData.get("timeInADayTime") );
+	     	break;
+		case 16:				
+	    	physicianPortal.HourWiseFrequency(newnum ,testData.get("frequency10") ,testData.get("timeInADayTime") );
+	     	break;
+		case 17:				
+			physicianPortal.HourWiseFrequency(newnum ,testData.get("frequency11") ,testData.get("timeInADayTime") );
+	     	break;
+		case 18:				
+			physicianPortal.HourWiseFrequency(newnum ,testData.get("frequency12") ,testData.get("timeInADayTime") );
+	     	break;
+		case 19:				
+			physicianPortal.HourWiseFrequency(newnum ,testData.get("frequency13") ,testData.get("timeInADayTime") );
+	     	break;
+		case 20:				
+			physicianPortal.HourWiseFrequency(newnum ,testData.get("frequency14") ,testData.get("timeInADayTime") );
+	     	break;
+		case 21:				
+			physicianPortal.HourWiseFrequency(newnum ,testData.get("frequency15") ,testData.get("timeInADayTime") );
+	     	break;
+	    case 22:				
+			physicianPortal.MealWiseFrequency(newnum ,testData.get("frequency16"),testData.get("timeInADayShiftBedTime") );
+	     	break;
+	   	case 23:				
+	   		physicianPortal.MealWiseFrequency(newnum ,testData.get("frequency17"),testData.get("timeInADayShiftBedTime") );
+	     	break; 	
+	    case 24:				
+	    	physicianPortal.MealWiseFrequency(newnum ,testData.get("frequency18"),testData.get("timeInADayShiftBedTime") );
+	     	break;
+	    case 25:				
+	    	physicianPortal.MealWiseFrequency(newnum ,testData.get("frequency19"),testData.get("timeInADayShiftBedTime") );
+	     	break;
+	   	case 26:				
+	   		physicianPortal.MealWiseFrequency(newnum ,testData.get("frequency20"),testData.get("timeInADayShiftBedTime") );
+	     	break; 	
+		case 27:				
+			physicianPortal.OnceAShiftFrequency(newnum,testData.get("frequency21"));
+	     	break; 
+						
+			
+		
+		}
+		String[] FrequencyNames = {testData.get("frequency1"),testData.get("frequency1"),testData.get("frequency2"),testData.get("frequency2"),testData.get("frequency3"),testData.get("frequency3"),testData.get("frequency4"),testData.get("frequency4"),testData.get("frequency5"),testData.get("frequency5"),testData.get("frequency6"),testData.get("frequency6"),testData.get("frequency8"),testData.get("frequency9"),testData.get("frequency10"),
+				testData.get("frequency11"),testData.get("frequency12"),testData.get("frequency13"),testData.get("frequency14"),testData.get("frequency15"),testData.get("frequency16"),testData.get("frequency17"),testData.get("frequency18"),testData.get("frequency19"),testData.get("frequency20"),testData.get("frequency21")};
+		 
+		String FrequencyName = FrequencyNames[newnum-2];
+		
+		if(FrequencyName!=testData.get("frequency21"))
+		{
+		physicianPortal.HowOftenDailyType(newnum,testData.get("howOften"),testData.get("everyDay"));
+		}
+	
+		physicianPortal.CreateOrderFrequencyForRoutine(newnum,testData.get("physicianInstructions"),testData.get("physicianInstructions"),type);		
+		
+		if(FrequencyName!=testData.get("frequency21"))
+		{
 			physicianPortal.AddOrderFrequency();
-
-
-
-			for(int newnum=2;newnum<=27;newnum ++)
-			{
-
-				physicianPortal.OrderFrequencyType(newnum,testData.get("frequencyType"));
-				physicianPortal.StartDate(newnum,testData.get("startDate"),testData.get("startDateTime"));
-				physicianPortal.OrderEndType(newnum,Integer.parseInt(testData.get("byDateno")),Integer.parseInt(testData.get("afterNoOfAdminstrationsNo")) ,testData.get("endDateType"),testData.get("endDate") ,testData.get("startDate") ,testData.get("startDateTime"), testData.get("afterNumberOfAdminstrations"));
-				physicianPortal.RequireActionRelatedLabel(newnum,testData.get("frequencyType") ,testData.get("requiredActions"),testData.get("othersRequiredActions") ,testData.get("requiredActionsPostDropdown"),testData.get("othersRequiredActionsPostDropdown"),testData.get("administeredBy") ,testData.get("maxDoesHours") ,
-						testData.get("followUpAfterMinutes"),testData.get("slidingScaleMin"),testData.get("slidingScaleMax") ,testData.get("slidingScaleUnits"));
-				switch (newnum)
-				{
-				case 2:	
-					physicianPortal.TextTypeNoOfTimesAdayFrequency(testData.get("frequencyTexttype") ,newnum ,testData.get("frequency1") , Integer.parseInt(testData.get("num")) , testData.get("timeInADayTime"));
-					break;
-				case 3:				
-					physicianPortal.TextTypeNoOfTimesAdayFrequency(testData.get("frequencyTexttype1") ,newnum ,testData.get("frequency1") , Integer.parseInt(testData.get("num")) , testData.get("timeInADayShift"));
-					break;
-				case 4:				
-					physicianPortal.TextTypeNoOfTimesAdayFrequency(testData.get("frequencyTexttype") ,newnum ,testData.get("frequency2") , (Integer.parseInt(testData.get("num"))+1) , testData.get("timeInADayTime"));
-					break;
-				case 5:				
-					physicianPortal.TextTypeNoOfTimesAdayFrequency(testData.get("frequencyTexttype1") ,newnum ,testData.get("frequency2") , (Integer.parseInt(testData.get("num"))+1) , testData.get("timeInADayShift"));
-					break;
-				case 6:				
-					physicianPortal.TextTypeNoOfTimesAdayFrequency(testData.get("frequencyTexttype") ,newnum ,testData.get("frequency3") , (Integer.parseInt(testData.get("num"))+2) , testData.get("timeInADayTime"));
-					break;
-				case 7:				
-					physicianPortal.TextTypeNoOfTimesAdayFrequency(testData.get("frequencyTexttype1") ,newnum ,testData.get("frequency3") , (Integer.parseInt(testData.get("num"))+2) , testData.get("timeInADayShift"));
-					break;
-				case 8:		
-					physicianPortal.TextTypeNoOfTimesAdayFrequency(testData.get("frequencyTexttype") ,newnum ,testData.get("frequency4") , (Integer.parseInt(testData.get("num"))+3) , testData.get("timeInADayTime"));
-					break;
-				case 9:				
-					physicianPortal.TextTypeNoOfTimesAdayFrequency(testData.get("frequencyTexttype1") ,newnum ,testData.get("frequency4") , (Integer.parseInt(testData.get("num"))+3) , testData.get("timeInADayShift"));
-					break;
-				case 10:				
-					physicianPortal.TextTypeNoOfTimesAdayFrequency(testData.get("frequencyTexttype") ,newnum ,testData.get("frequency5") , (Integer.parseInt(testData.get("num"))+4) , testData.get("timeInADayTime"));
-					break;
-				case 11:				
-					physicianPortal.TextTypeNoOfTimesAdayFrequency(testData.get("frequencyTexttype1") ,newnum ,testData.get("frequency5") , (Integer.parseInt(testData.get("num"))+4) , testData.get("timeInADayShift"));
-					break;
-				case 12:				
-					physicianPortal.TextTypeNoOfTimesAdayFrequency(testData.get("frequencyTexttype") ,newnum ,testData.get("frequency6") , (Integer.parseInt(testData.get("num"))+5) , testData.get("timeInADayTime"));
-					break;
-				case 13:				
-					physicianPortal.TextTypeNoOfTimesAdayFrequency(testData.get("frequencyTexttype1") ,newnum ,testData.get("frequency6") , (Integer.parseInt(testData.get("num"))+5) , testData.get("timeInADayShift"));
-					break;
-				case 14:				
-					physicianPortal.BedTimeFrequency(testData.get("frequencyTexttype") ,newnum ,testData.get("frequency8"),testData.get("timeInADayTime"));
-					break;	  	
-				case 15:				
-					physicianPortal.HourWiseFrequency(newnum ,testData.get("frequency9") ,testData.get("timeInADayTime") );
-					break;
-				case 16:				
-					physicianPortal.HourWiseFrequency(newnum ,testData.get("frequency10") ,testData.get("timeInADayTime") );
-					break;
-				case 17:				
-					physicianPortal.HourWiseFrequency(newnum ,testData.get("frequency11") ,testData.get("timeInADayTime") );
-					break;
-				case 18:				
-					physicianPortal.HourWiseFrequency(newnum ,testData.get("frequency12") ,testData.get("timeInADayTime") );
-					break;
-				case 19:				
-					physicianPortal.HourWiseFrequency(newnum ,testData.get("frequency13") ,testData.get("timeInADayTime") );
-					break;
-				case 20:				
-					physicianPortal.HourWiseFrequency(newnum ,testData.get("frequency14") ,testData.get("timeInADayTime") );
-					break;
-				case 21:				
-					physicianPortal.HourWiseFrequency(newnum ,testData.get("frequency15") ,testData.get("timeInADayTime") );
-					break;
-				case 22:				
-					physicianPortal.MealWiseFrequency(newnum ,testData.get("frequency16"),testData.get("timeInADayShiftBedTime") );
-					break;
-				case 23:				
-					physicianPortal.MealWiseFrequency(newnum ,testData.get("frequency17"),testData.get("timeInADayShiftBedTime") );
-					break; 	
-				case 24:				
-					physicianPortal.MealWiseFrequency(newnum ,testData.get("frequency18"),testData.get("timeInADayShiftBedTime") );
-					break;
-				case 25:				
-					physicianPortal.MealWiseFrequency(newnum ,testData.get("frequency19"),testData.get("timeInADayShiftBedTime") );
-					break;
-				case 26:				
-					physicianPortal.MealWiseFrequency(newnum ,testData.get("frequency20"),testData.get("timeInADayShiftBedTime") );
-					break; 	
-				case 27:				
-					physicianPortal.OnceAShiftFrequency(newnum,testData.get("frequency21"));
-					break; 
-
-
-
-				}
-				String[] FrequencyNames = {testData.get("frequency1"),testData.get("frequency1"),testData.get("frequency2"),testData.get("frequency2"),testData.get("frequency3"),testData.get("frequency3"),testData.get("frequency4"),testData.get("frequency4"),testData.get("frequency5"),testData.get("frequency5"),testData.get("frequency6"),testData.get("frequency6"),testData.get("frequency8"),testData.get("frequency9"),testData.get("frequency10"),
-						testData.get("frequency11"),testData.get("frequency12"),testData.get("frequency13"),testData.get("frequency14"),testData.get("frequency15"),testData.get("frequency16"),testData.get("frequency17"),testData.get("frequency18"),testData.get("frequency19"),testData.get("frequency20"),testData.get("frequency21")};
-
-				String FrequencyName = FrequencyNames[newnum-2];
-
-				if(FrequencyName!=testData.get("frequency21"))
-				{
-					physicianPortal.HowOftenDailyType(newnum,testData.get("howOften"),testData.get("everyDay"));
-				}
-
-				physicianPortal.CreateOrderFrequencyForRoutine(newnum,testData.get("physicianInstructions"),testData.get("physicianInstructions"),type);		
-
-				if(FrequencyName!=testData.get("frequency21"))
-				{
-					physicianPortal.AddOrderFrequency();
-				}
-
-
-			}
-			physicianPortal.SaveOrderFrequency();		
-
+		}
+		
+		
+		}
+		physicianPortal.SaveOrderFrequency();		
+		
 		}	
 
 
@@ -567,7 +491,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 
 
 
-	@Test(enabled =false)
+	@Test()
 	public void QA094_HowOftenFieldSelectionWhen_FrequencyTypeRoutine(ITestContext testContext) throws URISyntaxException
 	{
 		PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -743,7 +667,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 
 
 
-	@Test(enabled =false)
+	@Test()
 	public void QA095_AddingFrequencyFromOrders_WithFrequencyPRN(ITestContext testContext)
 	{
 		PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -861,7 +785,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 	}
 
 
-	@Test(enabled =false)
+	@Test()
 	public void QA096_AddingFrequencyFromResidentOrder_WithFrequencyPRNEveryHour(ITestContext testContext)
 	{
 		PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -978,7 +902,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		login.Logout();
 	}
 
-	//@Test()
+	@Test()
 	public void QA097_ResidentOrders_CreateAnOrderUsingDetailsTypeTreatmentWithMedication_And_Medication(ITestContext testContext)
 	{
 
@@ -1012,9 +936,13 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		{
 			String frequency = frequencyTpyes[n];
 
-			String[] receivedOrders = {testData.get("ReceivedOrderType7"),testData.get("ReceivedOrderType1"),testData.get("ReceivedOrderType2"),testData.get("ReceivedOrderType3"),testData.get("ReceivedOrderType4"),testData.get("ReceivedOrderType5"),testData.get("ReceivedOrderType6")};
-			String[] medicationtypes = {testData.get("medicationType"),testData.get("medicationType1"),testData.get("medicationType"),testData.get("medicationType1"),testData.get("medicationType"),testData.get("medicationType1"),testData.get("medicationType")};
-			for(int i=0;i<=6;i++)
+			//String[] receivedOrders = {testData.get("ReceivedOrderType7"),testData.get("ReceivedOrderType1"),testData.get("ReceivedOrderType2"),testData.get("ReceivedOrderType3"),testData.get("ReceivedOrderType4"),testData.get("ReceivedOrderType5"),testData.get("ReceivedOrderType6")};
+			//String[] medicationtypes = {testData.get("medicationType"),testData.get("medicationType1"),testData.get("medicationType"),testData.get("medicationType1"),testData.get("medicationType"),testData.get("medicationType1"),testData.get("medicationType")};
+			
+			String[] receivedOrders = {testData.get("ReceivedOrderType7"),testData.get("ReceivedOrderType1"),testData.get("ReceivedOrderType2"),testData.get("ReceivedOrderType3")};
+			String[] medicationtypes = {testData.get("medicationType"),testData.get("medicationType1"),testData.get("medicationType"),testData.get("medicationType1")};
+			
+			for(int i=0;i<receivedOrders.length;i++)
 			{
 				String RecivedOrderType = receivedOrders[i];
 				String medicationtype = medicationtypes[i];
@@ -1036,7 +964,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 	}
 
 
-	@Test(enabled =false)
+	@Test()
 	public void QA098_ResidentOrders_CreateAnOrderUsingDetailsTypeTreatmentWithMedication_And_Medication_FrequencyTypeRoutine(ITestContext testContext)
 	{
 		PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1171,7 +1099,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 
 	}
 
-	@Test(enabled =false)
+	@Test()
 	public void QA099_ResidentOrders_CreateAnOrderUsingDetailsTypeTreatmentWithMedication_And_Medication_WithFrequencyPRNEveryHour(ITestContext testContext)
 	{
 		PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1290,7 +1218,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 
 	}
 
-	@Test(enabled =false)
+	@Test()
 	public void QA100_ResidentOrders_CreateAnOrderUsingDetailsTypeTreatmentWithMedication_And_Medication_WithFrequencyPRN(ITestContext testContext)
 	{
 		PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1410,7 +1338,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 	}
 
 
-	@Test(enabled =false)
+	@Test()
 	public void QA101_CreateAnOrder_ViaOrderSets (ITestContext testContext) throws InterruptedException
 	{
 		PhysicianPortalPage physicianPortal=new PhysicianPortalPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1626,7 +1554,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 
 			physicianPortal.OrderPageCopyOrderValidation(testData.get("type8"),testData.get("libraryText"),testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
 			physicianPortal.FillOrderPageFrequency(Integer.parseInt(testData.get("modifyButtonNo")),Integer.parseInt(testData.get("num")),Integer.parseInt(testData.get("No")),testData.get("frequencyType1"),testData.get("endDateType"),testData.get("requiredActions"),testData.get("requiredActionsPostDropdown") ,testData.get("administeredBy1") ,testData.get("maxDoesHours") ,
-					testData.get("followUpAfterMinutes"),testData.get("slidingScaleMin"),testData.get("slidingScaleMax") ,testData.get("slidingScaleUnits") ,testData.get("frequency"),testData.get("howOften"),testData.get("everyDay"),testData.get("physicianInstructions"),testData.get("additionalInstruction"),testData.get("type1"));
+					testData.get("followUpAfterMinutes"),testData.get("slidingScaleMin"),testData.get("slidingScaleMax") ,testData.get("slidingScaleUnits") ,testData.get("frequency"),testData.get("howOften"),testData.get("everyDay"),testData.get("physicianInstructions"),testData.get("additionalInstruction"),testData.get("type1"),testData.get("type8"),testData.get("libraryText"));
 			physicianPortal.VerifyButtonInResidentOrders();
 			physicianPortal.CreateFromSet();
 			physicianPortal.SelectOrderFromOrderSets(Description);
@@ -1650,7 +1578,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 
 
 
-	@Test(enabled =false)
+	@Test()
 	public void QA103_VerifyAnOrder_ViaOrderSetsOrCreateAnOrder (ITestContext testContext) throws AWTException
 	{
 
@@ -1707,7 +1635,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 
 
 
-	@Test(enabled =false)
+	@Test()
 	public void QA104_VerifyAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder (ITestContext testContext) throws AWTException, InterruptedException
 	{
 
@@ -1800,7 +1728,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 	}
 
 
-	@Test(enabled =false)
+	@Test()
 	public void QA105_SignAnOrder_ViaOrderSetsOrCreateAnOrder (ITestContext testContext) throws AWTException
 	{
 
@@ -1864,7 +1792,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 	}
 
 
-	@Test(enabled =false)
+	@Test()
 	public void QA106_ViewAndModifyAnOrder_ViaOrderSetsOrCreateAnOrder (ITestContext testContext) throws AWTException, InterruptedException
 	{
 
@@ -1930,7 +1858,9 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 
 		String Description2 = testData.get("description2") + physicianPortal.GenarateRandomNumber();
 		physicianPortal.OrderPageCopyOrderValidation(testData.get("type1"),Description2,testData.get("SearchDiogonosisTxt"),testData.get("medicarePriority"),testData.get("diogonosisName"),testData.get("physicianType"),testData.get("ReceivedByType"),testData.get("ReceivedOrderType"),testData.get("routes"),testData.get("WrittenDate"),testData.get("NoOfRefillis"),testData.get("WhenToFill"));
-
+		physicianPortal.FillOrderPageFrequency(Integer.parseInt(testData.get("modifyButtonNo")),Integer.parseInt(testData.get("num")),Integer.parseInt(testData.get("No")),testData.get("frequencyType1"),testData.get("endDateType"),testData.get("requiredActions"),testData.get("requiredActionsPostDropdown") ,testData.get("administeredBy1") ,testData.get("maxDoesHours") ,
+				testData.get("followUpAfterMinutes"),testData.get("slidingScaleMin"),testData.get("slidingScaleMax") ,testData.get("slidingScaleUnits") ,testData.get("frequency"),testData.get("howOften"),testData.get("everyDay"),testData.get("physicianInstructions"),testData.get("additionalInstruction"),testData.get("type1"),testData.get("type1"),Description2);
+		
 		/*physicianPortal.VerifyTheOrderByClickingVerifyButton();
 			physicianPortal.VerifyCreatedOrderIntheVerifyList(Description2);
 			physicianPortal.VerifyClickingOnToggledVerifiedButton();*/
@@ -1979,7 +1909,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 	}
 
 
-	@Test(enabled =false)
+	@Test()
 	public void QA107_RecapAnOrder_ViaOrderSetsOrCreateAnOrder (ITestContext testContext) throws AWTException, InterruptedException
 	{
 
@@ -2155,7 +2085,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 	}
 
 
-	@Test(enabled =false)
+	@Test()
 	public void QA108_SignatureOnRecap_Wheather_OrderCreatedFromOrder_Or_FromSets (ITestContext testContext) throws AWTException
 	{
 
@@ -2241,7 +2171,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 	}
 
 
-	@Test(enabled =false)
+	@Test()
 	public void QA109_ViewAndModify_Recaps(ITestContext testContext) throws AWTException, InterruptedException
 	{
 
@@ -2391,7 +2321,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 	}
 
 
-	//@Test(priority = 2)
+	@Test(priority = 2)
 	public void Gen_QA209_BS_EHR_LoginPage(ITestContext testContext)
 			throws Throwable {
 
@@ -2405,7 +2335,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 
 	}
 
-	//@Test(priority = 2)
+	@Test(priority = 2)
 	public void Gen_QA210_Login_Credential_Verification(ITestContext testContext)
 			throws Throwable {
 
@@ -2421,7 +2351,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 
 	}
 
-	//@Test(priority = 2)
+	@Test(priority = 2)
 	public void Gen_QA211_MyDashBoardPage(ITestContext testContext)
 			throws Throwable {
 
@@ -2446,7 +2376,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 	}
 
 
-	//@Test(priority = 2)
+	@Test(priority = 2)
 	public void Gen_QA212_UserNamePreferences_TopRightOf_ResidentDahsboard_Or_HomePage(ITestContext testContext)
 			throws Throwable {
 
@@ -2467,7 +2397,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 		login.Logout();
 	}
 
-	//@Test(priority = 2)
+	@Test(priority = 2)
 	public void Gen_QA213_HelpMenuWith_HelpSiteAbout(ITestContext testContext) throws Throwable {
 
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -2492,7 +2422,7 @@ public class ClinicalTestCases extends TestTemplateMethodLevelInit {
 	}
 
 
-	//@Test(priority = 2)
+	@Test(priority = 2)
 	public void Gen_QA214_HelpMenuWith_HelpSiteAbout(ITestContext testContext) throws Throwable {
 
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);

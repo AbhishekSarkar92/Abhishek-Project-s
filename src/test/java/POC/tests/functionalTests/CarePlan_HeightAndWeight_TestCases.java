@@ -14,7 +14,7 @@ import dweb.test.templates.TestTemplateMethodLevelInit;
 
 public class CarePlan_HeightAndWeight_TestCases extends TestTemplateMethodLevelInit{
 
-	//@Test()
+	@Test()
 	public void POC_QA294_Height_Recording_For_Resident(ITestContext testContext) throws InterruptedException, AWTException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -23,10 +23,11 @@ public class CarePlan_HeightAndWeight_TestCases extends TestTemplateMethodLevelI
 		POC_CarePlan_BowelAndBladder pocBowelBladder = new POC_CarePlan_BowelAndBladder(threadLocalWebDriver.get(), TestTemplate.testReport);
 		
 		String PassCode = this.getTestParameter(testContext, "passCode");
+		String LoginName = this.getTestParameter(testContext, "LoginName");
 
 		pocHome.ClickOnIcon("Setup user's fingerprint");
 		pocHome.SelectUser("KevinH - QA - HBV (Wired)");
-		pocHome.SelectUserAndVerifyCalculator("qaview");
+		pocHome.SelectUserAndVerifyCalculator(LoginName);
 		pocHome.EnterPasscode(PassCode);
 		pocResident.VerifyResidentDashBoard();
 		pocResident.SelectUserByName("Riley Thurman");
@@ -36,10 +37,8 @@ public class CarePlan_HeightAndWeight_TestCases extends TestTemplateMethodLevelI
 		pocBowelBladder.SelectBowelOption("Height");
 		pocHome.SelectUserAndVerifyCalculator("");
 		pocBowelBladder.ComponentsInBMWindow();
-		String Text = pocBowelBladder.WrittingTextInNotes("test1");
 		pocResident.VefifyEnterNotesValidation();
 		pocResident.SaveEnterNotesWindow();
-		pocBowelBladder.ValidateEnterNoteText(Text,"Height");
 		pocHome.EnterPasscode("50");
 		String NewHeightWeightDate = pocHeightWeight.VerifyHeightAndWeightAfterSelection("Height",HeightWeight[1]);
 		pocBowelBladder.SelectBowelOption("Height");
@@ -58,10 +57,11 @@ public class CarePlan_HeightAndWeight_TestCases extends TestTemplateMethodLevelI
 		POC_CarePlan_BowelAndBladder pocBowelBladder = new POC_CarePlan_BowelAndBladder(threadLocalWebDriver.get(), TestTemplate.testReport);
 		
 		String PassCode = this.getTestParameter(testContext, "passCode");
+		String LoginName = this.getTestParameter(testContext, "LoginName");
 
 		pocHome.ClickOnIcon("Setup user's fingerprint");
 		pocHome.SelectUser("KevinH - QA - HBV (Wired)");
-		pocHome.SelectUserAndVerifyCalculator("qaview");
+		pocHome.SelectUserAndVerifyCalculator(LoginName);
 		pocHome.EnterPasscode(PassCode);
 		pocResident.VerifyResidentDashBoard();
 		pocResident.SelectUserByName("Riley Thurman");
@@ -70,10 +70,10 @@ public class CarePlan_HeightAndWeight_TestCases extends TestTemplateMethodLevelI
 		String[] HeightWeight = pocHeightWeight.VerifyHeightAndWeightWindowDetails("Weight");
 		pocBowelBladder.SelectBowelOption("Weight");
 		pocBowelBladder.ComponentsInBMWindow();
-		String Text = pocBowelBladder.WrittingTextInNotes("test1");
+		//String Text = pocBowelBladder.WrittingTextInNotes("test1");
 		pocResident.VefifyEnterNotesValidation();
 		pocResident.SaveEnterNotesWindow();
-		pocBowelBladder.ValidateEnterNoteText(Text,"Weight");
+		//pocBowelBladder.ValidateEnterNoteText(Text,"Weight");
 		pocHeightWeight.EnterOptionsForWeight("Add Appliance", "Scale");
 		pocHome.SelectUserAndVerifyCalculator("");
 		pocHome.EnterPasscode("500");

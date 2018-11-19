@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [SuiteRegression]" parallel="tests">
-  <parameter name="browserName" value="ie"/>
-  <parameter name="appURL" value="https://devclient.bluestrataemr.com/qa2"/>
+  <parameter name="pocURL" value="https://devclient.bluestrataemr.com/poc/qa2"/>
+  <parameter name="browserName" value="chrome"/>
   <parameter name="automationKit" value="selenium"/>
-  <test name="Orders Test Scripts(failed)" parallel="tests">
+  <test name="test(failed)" parallel="tests">
     <classes>
-      <class name="bluestrata.tests.functionalTests.ClinicalTestCases">
+      <class name="POC.tests.functionalTests.CarePlan_ADLs_TestCases">
         <methods>
+          <include name="POC_QA273_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_BedMobility" invocation-numbers="0"/>
           <include name="beforeMethod"/>
           <include name="beforeSuite"/>
           <include name="afterTest"/>
           <include name="beforeTest"/>
           <include name="afterSuite"/>
           <include name="afterMethod"/>
-          <include name="QA102_ViewAndModifyAnOrder_ViaOrderSets" invocation-numbers="0"/>
         </methods>
-      </class> <!-- bluestrata.tests.functionalTests.ClinicalTestCases -->
+      </class> <!-- POC.tests.functionalTests.CarePlan_ADLs_TestCases -->
     </classes>
-  </test> <!-- Orders Test Scripts(failed) -->
+  </test> <!-- test(failed) -->
 </suite> <!-- Failed suite [SuiteRegression] -->

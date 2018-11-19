@@ -716,7 +716,7 @@ public class EmarTestCases extends dweb.test.templates.TestTemplateMethodLevelIn
 		String TestCaseName = "QA141";
 
 		HashMap<String, String> testData = xlsReader.GetValue(SheetName, TestCaseName);
-
+		login.login(userName, password);
 		String parentWindow = homepage.NavigateToEmarWindow(testData.get("EmarURL"));
 		login.login(userName, password);
 		emar.SelectAllAccessType(testData.get("Value"));
@@ -790,7 +790,7 @@ public class EmarTestCases extends dweb.test.templates.TestTemplateMethodLevelIn
 
 	}
 
-   @Test()
+    @Test()
 	public void QA144_MissedAdministration_PRNOrders_PostAdministrationAction_EMAR(ITestContext testContext) throws Throwable {
 		LoginPage login = new LoginPage(threadLocalWebDriver.get(), TestTemplate.testReport);
 		HomePage homepage = new HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -898,7 +898,7 @@ public class EmarTestCases extends dweb.test.templates.TestTemplateMethodLevelIn
 		String TestCaseName = "QA151";
 
 		HashMap<String, String> testData = xlsReader.GetValue(SheetName, TestCaseName);
-
+		login.login(userName, password);
 		String parentWindow = homepage.NavigateToEmarWindow(testData.get("EmarURL"));
 		login.login(userName, password);
 		emar.SelectAllAccessType(testData.get("Value"));

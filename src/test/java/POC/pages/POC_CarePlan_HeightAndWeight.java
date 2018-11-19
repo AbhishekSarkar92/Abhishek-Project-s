@@ -46,15 +46,18 @@ public class POC_CarePlan_HeightAndWeight extends PageTemplate {
 	
 	public String VerifyHeightAndWeightAfterSelection(String option , String DateValue)
 	{
-		this.waitInSecs(4);
+		this.waitInSecs(20);		
 		String Value =  wd.findElement(By.xpath(String.format("//img[@alt='%s']/../following-sibling::div[1]/p[2]",option))).getText();
-		if(!DateValue.equalsIgnoreCase(Value))
+		if(!option.equalsIgnoreCase("Height"))
 		{
-			this.testReport.logSuccess("Height With Date & Weight with Date", String.format("Changed Height And Weight Reflected From :-<mark>%s</mark> to <mark>%s</mark>", DateValue,Value));
-		}
-		else
-		{
-			this.testReport.logFailure("Height With Date & Weight with Date", String.format("Changed Height And Weight not Reflected From :-<mark>%s</mark> to <mark>%s</mark>", DateValue,Value));
+			if(!DateValue.equalsIgnoreCase(Value))
+			{
+				this.testReport.logSuccess("Height With Date & Weight with Date", String.format("Changed Height And Weight Reflected From :-<mark>%s</mark> to <mark>%s</mark>", DateValue,Value));
+			}
+			else
+			{
+				this.testReport.logFailure("Height With Date & Weight with Date", String.format("Changed Height And Weight not Reflected From :-<mark>%s</mark> to <mark>%s</mark>", DateValue,Value));
+			}
 		}
 		return Value;
 	}

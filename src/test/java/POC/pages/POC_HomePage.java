@@ -186,17 +186,23 @@ public class POC_HomePage extends PageTemplate {
 		{
 			this.click(User, UserName);
 		}*/
-		for(int i=1;i<=10;i++)
+		if(!UserName.equals(""))
 		{
-			this.click(By.xpath(String.format("//button[contains(@class,'btn-number') and text()='%s']", i)), Integer.toString(i));
-			if(this.isElementPresent(By.xpath(String.format("///button//p[text()='%s']", UserName))));
+			for(int i=1;i<=10;i++)
 			{
+				this.click(By.xpath(String.format("//button[contains(@class,'btn-number') and text()='%s']", i)), Integer.toString(i));
+				this.waitInSecs(2);
+				/*List<WebElement> UserNames = wd.findElements(By.xpath("//button//p"));	*/			
 				By userName = By.xpath(String.format("//button//p[text()='%s']", UserName));
-				this.click(userName, UserName);	
-				break;
+				//boolean Username = wd.findElement(By.xpath(String.format("//button//p[text()='%s']", UserName))).isDisplayed();
+				if(this.isElementVisible(userName));
+				{					
+					this.click(userName, UserName);	
+					break;
+				}
 			}
 		}
-		
+
 		if(this.isElementPresent(Calculator))
 		{
 			this.VerifyWebElementPresent(Calculator, "Calculator");
@@ -214,7 +220,7 @@ public class POC_HomePage extends PageTemplate {
 		{
 			this.VerifyWebElementPresent(Calculator, "Calculator");
 			this.VerifyWebElementPresent(txtBox, "Text Box");
-			this.VerifyWebElementPresent(KeyPad, "KeyPad");
+			//this.VerifyWebElementPresent(KeyPad, "KeyPad");
 			this.VerifyWebElementPresent(btnClear, "Clear Button");
 			this.VerifyWebElementPresent(btnCancel, "Cancel Button");
 			this.VerifyWebElementPresent(btnEnter, "Enter Button");
@@ -235,6 +241,7 @@ public class POC_HomePage extends PageTemplate {
 		{
 			aa[i]=PassCode.charAt(i);
 			char a = aa[i];
+			this.waitInSecs(1);
 			String Number = Character.toString(a);
 			this.click(EnterNumber(Number), Number);
 			this.waitInSecs(1);

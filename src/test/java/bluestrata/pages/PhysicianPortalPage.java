@@ -2873,21 +2873,21 @@ public class PhysicianPortalPage extends PageTemplate {
 		CreateAnOrderWithOrderDetails(RequriredType, libraryText, SearchDiogonosisTxt, medicarePriority, diogonosisName,
 				physicianType, ReceivedByType, ReceivedOrderType, routes, WrittenDate, NoOfRefillis, WhenToFill);
 
-		SaveOrderFrequency();
+		/*SaveOrderFrequency();
 		if(this.isElementNotPresent(CreateRecap) & this.isElementNotPresent(txtSignOrders))
 		{
 		WhereToTabValidation();
 		OrdersSelection(RequriredType, libraryText);
 		ArrowButtonVerification();
 		ClickOnListViewForNavigateToOrdersView();
-		}
+		}*/
 	}
 	
 	public void FillOrderPageFrequency(int modifyButtonNo, int num, int no, String frequencyType, String endDate,
 			String requiredActions, String requiredActionsPostDropdown, String administeredBy, String maxDoesHours,
 			String followUpAfterMinutes, String slidingScaleMin, String slidingScaleMax, String slidingScaleUnits,
 			String frequency, String howOften, String everyDay, String physicianInstructions,
-			String additionalInstruction, String type)
+			String additionalInstruction, String type,String RequriredType,String libraryText)
 	{
 		this.isElementPresent(By.xpath("//label[text()='Type']/..//select[@id='routineTypeId']/following::div[@class='invalid-feedback']"));
 		{
@@ -2899,7 +2899,9 @@ public class PhysicianPortalPage extends PageTemplate {
 		if(this.isElementNotPresent(CreateRecap) & this.isElementNotPresent(txtSignOrders))
 		{
 		WhereToTabValidation();
-		
+		OrdersSelection(RequriredType, libraryText);
+		ArrowButtonVerification();
+		ClickOnListViewForNavigateToOrdersView();
 		}
 	}
 	

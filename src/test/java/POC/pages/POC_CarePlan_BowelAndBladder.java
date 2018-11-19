@@ -32,12 +32,13 @@ public class POC_CarePlan_BowelAndBladder extends POC_CarePlan_ADLs {
 	public By btnDidnotParticipate = By.xpath("//button[@data-dismiss='modal']/p[text()=\"Didn't Participate\"]");
 	
 	
-	public void verifyBowelFirstScreen()
+	public ArrayList<String> verifyBowelFirstScreen()
 	{
+		ArrayList<String> BowelOption = new ArrayList<String>();
 		try
 		{
 			List<WebElement> BowelOptions = wd.findElements(By.xpath("//div[@class='main-screen']//button//p"));
-			ArrayList<String> BowelOption = new ArrayList<String>();
+			
 			for(int i=1;i<=BowelOptions.size();i++)
 			{
 				BowelOption.add(wd.findElement(By.xpath(String.format("(//div[@class='main-screen']//button//p)[%s]", i))).getText());
@@ -48,6 +49,7 @@ public class POC_CarePlan_BowelAndBladder extends POC_CarePlan_ADLs {
 		{
 			ex.printStackTrace();
 		}
+		return BowelOption;
 	}
 	
 	public void SelectBetweenBowelAndBladder(String Name)
@@ -119,29 +121,48 @@ public class POC_CarePlan_BowelAndBladder extends POC_CarePlan_ADLs {
 		return Text ;
 	}
 	
+	public void VerifyButtonsInBMWindow()
+	{
+		try
+		{
+			if(this.isElementPresent(txtContinenceStatus) )
+			{
+				this.VerifyWebElementPresent(txtContinenceStatus, "Continence Status");	
+			}
+			if(this.isElementPresent(txtBowelForm) && this.isElementPresent(txtSize))
+			{
+				this.VerifyWebElementPresent(txtBowelForm, "Bowel Form");		
+				this.VerifyWebElementPresent(txtSize, "Size");
+			}
+			if(this.isElementPresent(btnColostomyBag))
+			{
+				this.VerifyWebElementPresent(btnColostomyBag, "Colostomy Bag");
+			}
+			if(this.isElementPresent(btnParticipate) && this.isElementPresent(btnDidnotParticipate))
+			{
+				this.VerifyWebElementPresent(btnParticipate, "Participate");		
+				this.VerifyWebElementPresent(btnDidnotParticipate, "Didn't Participate");				
+			}
+		}
+		catch(Exception ex)
+		{
+			
+		}
+	}
+	
 	public void ComponentsInBMWindow()
 	{
-		if(this.isElementPresent(txtContinenceStatus) )
+		try
 		{
-			this.VerifyWebElementPresent(txtContinenceStatus, "Continence Status");	
-		}
-		if(this.isElementPresent(txtBowelForm) && this.isElementPresent(txtSize))
-		{
-			this.VerifyWebElementPresent(txtBowelForm, "Bowel Form");		
-			this.VerifyWebElementPresent(txtSize, "Size");
-		}
-		if(this.isElementPresent(btnColostomyBag))
-		{
-			this.VerifyWebElementPresent(btnColostomyBag, "Colostomy Bag");
-		}
-		if(this.isElementPresent(btnParticipate) && this.isElementPresent(btnDidnotParticipate))
-		{
-			this.VerifyWebElementPresent(btnParticipate, "Participate");		
-			this.VerifyWebElementPresent(btnDidnotParticipate, "Didn't Participate");				
-		}
+		this.WaitForElementPresent(btnEnterNotes,10, "Enter Notes ");
 		this.VerifyWebElementPresent(btnEnterNotes, "Enter Notes ");
 		this.VerifyWebElementPresent(btnCancel, "Cancel ");
 		this.click(btnEnterNotes, "Enter Notes ");
+		}
+		catch(Exception ex)
+		{
+			
+		}
 	}
 	
 	public String WrittingTextInNotes(String text) 
@@ -230,6 +251,7 @@ public class POC_CarePlan_BowelAndBladder extends POC_CarePlan_ADLs {
 	{
 		try
 		{
+			this.waitInSecs(5);
 			String Text = wd.findElement(By.xpath("//div[contains(@class,'main-screen')]//div//*[contains(text(),'Has bowel movement')]/following-sibling::p[1]")).getText();
 			String MovementText = BowelForm +", "+Size;
 			if(MovementText.equalsIgnoreCase(Text))

@@ -21,10 +21,10 @@ public class CarePlan_BowelAndBladder_TestCases extends TestTemplateMethodLevelI
 		POC_CarePlan_BowelAndBladder pocBowelBladder = new POC_CarePlan_BowelAndBladder(threadLocalWebDriver.get(), TestTemplate.testReport);
 
 		String PassCode = this.getTestParameter(testContext, "passCode");
-		
+		String LoginName = this.getTestParameter(testContext, "LoginName");
 		pocHome.ClickOnIcon("Setup user's fingerprint");
 		pocHome.SelectUser("KevinH - QA - HBV (Wired)");
-		pocHome.SelectUserAndVerifyCalculator("qaview");
+		pocHome.SelectUserAndVerifyCalculator(LoginName);
 		pocHome.EnterPasscode(PassCode);
 		pocResident.VerifyResidentDashBoard();
 		pocResident.SelectUserByName("Riley Thurman");		
@@ -43,10 +43,10 @@ public class CarePlan_BowelAndBladder_TestCases extends TestTemplateMethodLevelI
 		POC_CarePlan_BowelAndBladder pocBowelBladder = new POC_CarePlan_BowelAndBladder(threadLocalWebDriver.get(), TestTemplate.testReport);
 
 		String PassCode = this.getTestParameter(testContext, "passCode");
-		
+		String LoginName = this.getTestParameter(testContext, "LoginName");
 		pocHome.ClickOnIcon("Setup user's fingerprint");
 		pocHome.SelectUser("KevinH - QA - HBV (Wired)");
-		pocHome.SelectUserAndVerifyCalculator("qaview");
+		pocHome.SelectUserAndVerifyCalculator(LoginName);
 		pocHome.EnterPasscode(PassCode);
 		pocResident.VerifyResidentDashBoard();
 		pocResident.SelectUserByName("Riley Thurman");
@@ -67,16 +67,17 @@ public class CarePlan_BowelAndBladder_TestCases extends TestTemplateMethodLevelI
 		POC_CarePlan_BowelAndBladder pocBowelBladder = new POC_CarePlan_BowelAndBladder(threadLocalWebDriver.get(), TestTemplate.testReport);
 
 		String PassCode = this.getTestParameter(testContext, "passCode");
-
+		String LoginName = this.getTestParameter(testContext, "LoginName");
 		pocHome.ClickOnIcon("Setup user's fingerprint");
 		pocHome.SelectUser("KevinH - QA - HBV (Wired)");
-		pocHome.SelectUserAndVerifyCalculator("qaview");
+		pocHome.SelectUserAndVerifyCalculator(LoginName);
 		pocHome.EnterPasscode(PassCode);
 		pocResident.VerifyResidentDashBoard();
 		pocResident.SelectUserByName("Riley Thurman");
 		pocResident.SelectActivityOptionFromMatrix("Bowel & Bladder");
 		pocBowelBladder.SelectBetweenBowelAndBladder("Bowel");
 		pocBowelBladder.SelectBowelOption("BM");
+		pocBowelBladder.VerifyButtonsInBMWindow();
 		pocBowelBladder.ComponentsInBMWindow();
 		//String Text = pocBowelBladder.WrittingTextInNotes("123");
 		pocResident.VefifyEnterNotesValidation();
@@ -98,16 +99,17 @@ public class CarePlan_BowelAndBladder_TestCases extends TestTemplateMethodLevelI
 		POC_CarePlan_BowelAndBladder pocBowelBladder = new POC_CarePlan_BowelAndBladder(threadLocalWebDriver.get(), TestTemplate.testReport);
 
 		String PassCode = this.getTestParameter(testContext, "passCode");
-
+		String LoginName = this.getTestParameter(testContext, "LoginName");
 		pocHome.ClickOnIcon("Setup user's fingerprint");
 		pocHome.SelectUser("KevinH - QA - HBV (Wired)");
-		pocHome.SelectUserAndVerifyCalculator("qaview");
+		pocHome.SelectUserAndVerifyCalculator(LoginName);
 		pocHome.EnterPasscode(PassCode);
 		pocResident.VerifyResidentDashBoard();
 		pocResident.SelectUserByName("Riley Thurman");
 		pocResident.SelectActivityOptionFromMatrix("Bowel & Bladder");
 		pocBowelBladder.SelectBetweenBowelAndBladder("Bowel");
 		pocBowelBladder.SelectBowelOption("Appliance");
+		pocBowelBladder.VerifyButtonsInBMWindow();
 		pocBowelBladder.ComponentsInBMWindow();
 		//String Text = pocBowelBladder.WrittingTextInNotes("test1");
 		pocResident.VefifyEnterNotesValidation();
@@ -129,15 +131,17 @@ public class CarePlan_BowelAndBladder_TestCases extends TestTemplateMethodLevelI
 		POC_CarePlan_BowelAndBladder pocBowelBladder = new POC_CarePlan_BowelAndBladder(threadLocalWebDriver.get(), TestTemplate.testReport);
 
 		String PassCode = this.getTestParameter(testContext, "passCode");
+		String LoginName = this.getTestParameter(testContext, "LoginName");
 		pocHome.ClickOnIcon("Setup user's fingerprint");
 		pocHome.SelectUser("KevinH - QA - HBV (Wired)");
-		pocHome.SelectUserAndVerifyCalculator("qaview");
+		pocHome.SelectUserAndVerifyCalculator(LoginName);
 		pocHome.EnterPasscode(PassCode);
 		pocResident.VerifyResidentDashBoard();
 		pocResident.SelectUserByName("Riley Thurman");
 		pocResident.SelectActivityOptionFromMatrix("Bowel & Bladder");
 		pocBowelBladder.SelectBetweenBowelAndBladder("Bowel");
 		pocBowelBladder.SelectBowelOption("Training");
+		pocBowelBladder.VerifyButtonsInBMWindow();
 		pocBowelBladder.ComponentsInBMWindow();
 		//String Text = pocBowelBladder.WrittingTextInNotes("test1");
 		pocResident.VefifyEnterNotesValidation();
@@ -159,15 +163,17 @@ public class CarePlan_BowelAndBladder_TestCases extends TestTemplateMethodLevelI
 		POC_CarePlan_BowelAndBladder pocBowelBladder = new POC_CarePlan_BowelAndBladder(threadLocalWebDriver.get(), TestTemplate.testReport);
 
 		String PassCode = this.getTestParameter(testContext, "passCode");
+		String LoginName = this.getTestParameter(testContext, "LoginName");
 		pocHome.ClickOnIcon("Setup user's fingerprint");
 		pocHome.SelectUser("KevinH - QA - HBV (Wired)");
-		pocHome.SelectUserAndVerifyCalculator("qaview");
+		pocHome.SelectUserAndVerifyCalculator(LoginName);
 		pocHome.EnterPasscode(PassCode);
 		pocResident.VerifyResidentDashBoard();
 		pocResident.SelectUserByName("Riley Thurman");
 		pocResident.SelectActivityOptionFromMatrix("Bowel & Bladder");
 		pocBowelBladder.SelectBetweenBowelAndBladder("Bladder");
 		pocBowelBladder.SelectBowelOption("No Ouput");
+		pocBowelBladder.VerifyButtonsInBMWindow();
 		pocBowelBladder.ComponentsInBMWindow();
 		//String Text = pocBowelBladder.WrittingTextInNotes("test1");
 		pocResident.VefifyEnterNotesValidation();
@@ -185,15 +191,17 @@ public class CarePlan_BowelAndBladder_TestCases extends TestTemplateMethodLevelI
 		POC_CarePlan_BowelAndBladder pocBowelBladder = new POC_CarePlan_BowelAndBladder(threadLocalWebDriver.get(), TestTemplate.testReport);
 
 		String PassCode = this.getTestParameter(testContext, "passCode");
+		String LoginName = this.getTestParameter(testContext, "LoginName");
 		pocHome.ClickOnIcon("Setup user's fingerprint");
 		pocHome.SelectUser("KevinH - QA - HBV (Wired)");
-		pocHome.SelectUserAndVerifyCalculator("qaview");
+		pocHome.SelectUserAndVerifyCalculator(LoginName);
 		pocHome.EnterPasscode(PassCode);
 		pocResident.VerifyResidentDashBoard();
 		pocResident.SelectUserByName("Riley Thurman");
 		pocResident.SelectActivityOptionFromMatrix("Bowel & Bladder");
 		pocBowelBladder.SelectBetweenBowelAndBladder("Bladder");
 		pocBowelBladder.SelectBowelOption("Output");
+		pocBowelBladder.VerifyButtonsInBMWindow();
 		pocBowelBladder.ComponentsInBMWindow();
 		//String Text = pocBowelBladder.WrittingTextInNotes("test1");
 		pocResident.VefifyEnterNotesValidation();
@@ -216,15 +224,17 @@ public class CarePlan_BowelAndBladder_TestCases extends TestTemplateMethodLevelI
 		POC_CarePlan_BowelAndBladder pocBowelBladder = new POC_CarePlan_BowelAndBladder(threadLocalWebDriver.get(), TestTemplate.testReport);
 
 		String PassCode = this.getTestParameter(testContext, "passCode");
+		String LoginName = this.getTestParameter(testContext, "LoginName");
 		pocHome.ClickOnIcon("Setup user's fingerprint");
 		pocHome.SelectUser("KevinH - QA - HBV (Wired)");
-		pocHome.SelectUserAndVerifyCalculator("qaview");
+		pocHome.SelectUserAndVerifyCalculator(LoginName);
 		pocHome.EnterPasscode(PassCode);
 		pocResident.VerifyResidentDashBoard();
 		pocResident.SelectUserByName("Riley Thurman");
 		pocResident.SelectActivityOptionFromMatrix("Bowel & Bladder");
 		pocBowelBladder.SelectBetweenBowelAndBladder("Bladder");
 		pocBowelBladder.SelectBowelOption("Appliance");
+		pocBowelBladder.VerifyButtonsInBMWindow();
 		pocBowelBladder.ComponentsInBMWindow();
 		//String Text = pocBowelBladder.WrittingTextInNotes("test1");
 		pocResident.VefifyEnterNotesValidation();
@@ -246,15 +256,17 @@ public class CarePlan_BowelAndBladder_TestCases extends TestTemplateMethodLevelI
 		POC_CarePlan_BowelAndBladder pocBowelBladder = new POC_CarePlan_BowelAndBladder(threadLocalWebDriver.get(), TestTemplate.testReport);
 
 		String PassCode = this.getTestParameter(testContext, "passCode");
+		String LoginName = this.getTestParameter(testContext, "LoginName");
 		pocHome.ClickOnIcon("Setup user's fingerprint");
 		pocHome.SelectUser("KevinH - QA - HBV (Wired)");
-		pocHome.SelectUserAndVerifyCalculator("qaview");
+		pocHome.SelectUserAndVerifyCalculator(LoginName);
 		pocHome.EnterPasscode(PassCode);
 		pocResident.VerifyResidentDashBoard();
 		pocResident.SelectUserByName("Riley Thurman");
 		pocResident.SelectActivityOptionFromMatrix("Bowel & Bladder");
 		pocBowelBladder.SelectBetweenBowelAndBladder("Bladder");
 		pocBowelBladder.SelectBowelOption("Training");
+		pocBowelBladder.VerifyButtonsInBMWindow();
 		pocBowelBladder.ComponentsInBMWindow();
 		//String Text = pocBowelBladder.WrittingTextInNotes("test1");
 		pocResident.VefifyEnterNotesValidation();

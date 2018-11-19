@@ -1,5 +1,6 @@
 package POC.tests.functionalTests;
 
+import org.testng.ITestContext;
 import org.testng.annotations.Test;
 
 import POC.pages.POC_HomePage;
@@ -41,31 +42,35 @@ public class HomePageTestCases extends TestTemplateMethodLevelInit {
 		pocHome.ShutDownTheApplication();
 	}
 
-	//@Test()
-	public void POC_QA265_Station_Setup_2nd_Icon_In_Left_Pane()
+	@Test()
+	public void POC_QA265_Station_Setup_2nd_Icon_In_Left_Pane(ITestContext testContext)
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
+		
+		String LoginName = this.getTestParameter(testContext, "LoginName");
 
 		pocHome.ClickOnIcon("Setup user's fingerprint");
 		pocHome.SelectUser("KevinH - QA - HBV (Wired)");
-		pocHome.SelectUserAndVerifyCalculator("qaview");
+		pocHome.SelectUserAndVerifyCalculator(LoginName);
 		pocHome.ClickCancelTheCalculator();
 		pocHome.ShutDownTheApplication();
 	}
 
-	//@Test()
-	public void POC_QA266_Station_Setup_3rd_Icon_In_Left_Pane()
+	@Test()
+	public void POC_QA266_Station_Setup_3rd_Icon_In_Left_Pane(ITestContext testContext)
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
+		
+		String LoginName = this.getTestParameter(testContext, "LoginName");
 
 		pocHome.ClickOnIcon("Login to NTouch");
 		pocHome.SelectUser("KevinH - QA - HBV (Wired)");
-		pocHome.SelectUserAndVerifyCalculator("qaview");
+		pocHome.SelectUserAndVerifyCalculator(LoginName);
 		pocHome.ClickCancelTheCalculator();
 		pocHome.ShutDownTheApplication();
 	}
 
-	//@Test()
+	@Test()
 	public void POC_QA267_Station_Setup_4rd_Icon_In_Left_Pane()
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -75,7 +80,7 @@ public class HomePageTestCases extends TestTemplateMethodLevelInit {
 		pocHome.ShutDownTheApplication();
 	}
 
-	//@Test()
+	@Test()
 	public void POC_QA268_Station_Setup_5th_Icon_In_Left_Pane()
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -85,7 +90,7 @@ public class HomePageTestCases extends TestTemplateMethodLevelInit {
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA269_Station_Setup_6th_Icon_In_Left_Pane()
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);

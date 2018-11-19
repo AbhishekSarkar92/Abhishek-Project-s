@@ -332,7 +332,7 @@ public class EmarPage extends LoginPage {
 			this.VerifyWebElementPresent(btnMenu ,"Menu Button");
 		}
 		this.VerifyWebElementPresent(btnTester ,"Tester Button");
-		String  btnTester = wd.findElement(By.xpath("//button[@id='userDropDown']")).getText();
+		String  btnTester = wd.findElement(By.xpath("//*[@id='userDropDown']")).getText();
 		this.testReport.logSuccess("User Name Present ", String.format("User Name   <mark>%s<mark/> Present in  page", btnTester) );
 		this.VerifyWebElementPresent(btnHelp ,"Help Button");
 		if(this.isElementPresent(By.xpath("//app-current-time/div")))

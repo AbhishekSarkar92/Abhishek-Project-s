@@ -62,10 +62,10 @@ public class POC_CarePlan_MoodAndBehavior extends POC_CarePlan_BowelAndBladder {
 				this.waitInSecs(2);
 				ComponentsInBMWindow();
 				this.waitInSecs(4);
-				String text = WrittingTextInNotes(Text);
+				//String text = WrittingTextInNotes(Text);
 				VefifyEnterNotesValidation();
 				SaveEnterNotesWindow();
-				ValidateEnterNoteText(text,"");
+				//ValidateEnterNoteText(text,"");
 				SelectOptionForAShift(Option);
 			}
 		}
@@ -83,12 +83,35 @@ public class POC_CarePlan_MoodAndBehavior extends POC_CarePlan_BowelAndBladder {
 			ArrayList<String> OPTION = new ArrayList<String>();
 			for(int i=1;i<=Option.size();i++)
 			{
-				OPTION.add(wd.findElement(By.xpath(String.format("(//div[contains(@class,'container')]//button[contains(@class,'green')]/p)[%s]", i))).getText());
+				OPTION.add(wd.findElement(By.xpath(String.format("(//div[contains(@class,'container')]//button[contains(@class,'green')]/img)[%s]", i))).getAttribute("alt"));
 			}
 			this.testReport.logSuccess("All Options", String.format("All Options :-<mark>%s</mark> ", OPTION.toString()));
 			By SelectedOption = By.xpath(String.format("//div[contains(@class,'container')]//button[contains(@class,'green')]/img[@alt='%s']", OptionName));
 			this.click(SelectedOption, OptionName);
 			this.waitInSecs(3);
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+	}
+	
+	public void SelectSplitLocationForTransfer(String OptionName)
+	{
+		try
+		{
+			List<WebElement> Option = wd.findElements(By.xpath("(//div[contains(@class,'modal-body')])[1]//button[contains(@class,'has-hover')]/img[contains(@alt,' ')]"));
+			ArrayList<String> OPTION = new ArrayList<String>();
+			for(int i=1;i<=Option.size();i++)
+			{
+				OPTION.add(wd.findElement(By.xpath(String.format("((//div[contains(@class,'modal-body')])[1]//button[contains(@class,'has-hover')]/img[contains(@alt,' ')])[%s]", i))).getAttribute("alt"));
+			}
+			this.testReport.logSuccess("All Options", String.format("All Options :-<mark>%s</mark> ", OPTION.toString()));
+			By SelectedOption = By.xpath(String.format("(//div[contains(@class,'modal-body')])[1]//button[contains(@class,'has-hover')]/img[@alt='%s']", OptionName));
+			this.click(SelectedOption, OptionName);
+			this.waitInSecs(3);
+			By SaveSelectedOption = By.xpath("//button/img[contains(@alt,'Save Selected Options')]");
+			this.click(SaveSelectedOption, "Save Selected Options");
 		}
 		catch(Exception ex)
 		{

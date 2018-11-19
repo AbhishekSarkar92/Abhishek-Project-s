@@ -13,7 +13,7 @@ import dweb.test.templates.TestTemplateMethodLevelInit;
 public class CarePlan_MoodAndBehavior_TestCases extends TestTemplateMethodLevelInit {
 	
 	
-	//@Test()
+	@Test()
 	public void POC_QA302_Mood_And_Behavior_Mood_Symptom_Recording_For_Training(ITestContext testContext)
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -22,9 +22,10 @@ public class CarePlan_MoodAndBehavior_TestCases extends TestTemplateMethodLevelI
 		POC_CarePlan_MoodAndBehavior pocMoodBehavior = new POC_CarePlan_MoodAndBehavior(threadLocalWebDriver.get(), TestTemplate.testReport);
 
 		String PassCode = this.getTestParameter(testContext, "passCode");
+		String LoginName = this.getTestParameter(testContext, "LoginName");
 		pocHome.ClickOnIcon("Setup user's fingerprint");
 		pocHome.SelectUser("KevinH - QA - HBV (Wired)");
-		pocHome.SelectUserAndVerifyCalculator("qaview");
+		pocHome.SelectUserAndVerifyCalculator(LoginName);
 		pocHome.EnterPasscode(PassCode);
 		pocResident.VerifyResidentDashBoard();
 		pocResident.SelectUserByName("Riley Thurman");
@@ -47,9 +48,10 @@ public class CarePlan_MoodAndBehavior_TestCases extends TestTemplateMethodLevelI
 		POC_CarePlan_MoodAndBehavior pocMoodBehavior = new POC_CarePlan_MoodAndBehavior(threadLocalWebDriver.get(), TestTemplate.testReport);
 
 		String PassCode = this.getTestParameter(testContext, "passCode");
+		String LoginName = this.getTestParameter(testContext, "LoginName");
 		pocHome.ClickOnIcon("Setup user's fingerprint");
 		pocHome.SelectUser("KevinH - QA - HBV (Wired)");
-		pocHome.SelectUserAndVerifyCalculator("qaview");
+		pocHome.SelectUserAndVerifyCalculator(LoginName);
 		pocHome.EnterPasscode(PassCode);
 		pocResident.SelectUserByName("Riley Thurman");
 		pocResident.SelectActivityOptionFromMatrix("Mood & Behavior");
