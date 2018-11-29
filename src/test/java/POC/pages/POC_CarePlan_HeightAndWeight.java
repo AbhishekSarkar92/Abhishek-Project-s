@@ -101,13 +101,7 @@ public class POC_CarePlan_HeightAndWeight extends PageTemplate {
 			Option.add(wd.findElement(By.xpath(String.format("(//button[contains(@class,'text-left shadow')]//span)[%s]",i))).getText());
 		}
 		this.testReport.logSuccess("All Options Presented Under Weight", String.format("All Options Presented Under Weight :-<mark>%s</mark>", Option.toString()));
-		
-		/*By addAppliance = By.xpath(String.format("//button[contains(@class,'text-left shadow')]//span[text()='%s']", AddAppliance));
-		this.click(addAppliance, AddAppliance);
-		this.waitInSecs(2);
-		By enterOption = By.xpath(String.format("//button[contains(@class,'text-left shadow')]//span[text()='%s']", EnterOption));
-		this.click(enterOption, EnterOption);
-		this.waitInSecs(2);*/
+			
 		
 		int Size = option.length;
 		for(int i=0; i<=(Size-1);i++)

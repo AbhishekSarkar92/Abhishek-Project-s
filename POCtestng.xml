@@ -6,8 +6,16 @@
 	<parameter name="browserName" value="chrome" />
 	<parameter name="automationKit" value="selenium" />
 	<test name="test">
-		<classes>			
-			<class name="POC.tests.functionalTests.CarePlan_ADLs_TestCases" />
+		<classes>
+		<!-- <class name="POC.tests.functionalTests.HomePageTestCases" />
+		<class name="POC.tests.functionalTests.CarePlan_ADLs_TestCases" />
+		<class name="POC.tests.functionalTests.CarePlan_BowelAndBladder_TestCases" />
+		<class name="POC.tests.functionalTests.CarePlan_HeightAndWeight_TestCases" />
+		<class name="POC.tests.functionalTests.CarePlan_IntakeAndOutput_TestCases" /> -->
+		<class name="POC.tests.functionalTests.CarePlan_MealAndSnack_TestCases" />
+		<!-- <class name="POC.tests.functionalTests.CarePlan_MoodAndBehavior_TestCases" />
+		<class name="POC.tests.functionalTests.CarePlan_Vitals_TestCases" />
+		<class name="POC.tests.functionalTests.CarePlan_Restorative_TestCases" /> -->
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- SuiteRegression --> 

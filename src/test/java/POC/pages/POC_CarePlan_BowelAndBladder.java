@@ -18,9 +18,9 @@ public class POC_CarePlan_BowelAndBladder extends POC_CarePlan_ADLs {
 
 	public POC_CarePlan_BowelAndBladder(WebDriver webDriver, IReporter testReport) {
 		super(webDriver, testReport);
-		
+
 	}
-	
+
 	public By txtContinenceStatus = By.xpath("//span[contains(text(),'Continence Status')]");
 	public By txtBowelForm = By.xpath("//span[contains(text(),'Bowel Form')]");
 	public By txtSize = By.xpath("//span[contains(text(),'Size')]");
@@ -30,15 +30,15 @@ public class POC_CarePlan_BowelAndBladder extends POC_CarePlan_ADLs {
 	public By btnColostomyBag = By.xpath("//button[@data-dismiss='modal']/img[@alt='Colostomy Bag']");
 	public By btnParticipate = By.xpath("//button[@data-dismiss='modal']/p[text()='Participate']");
 	public By btnDidnotParticipate = By.xpath("//button[@data-dismiss='modal']/p[text()=\"Didn't Participate\"]");
-	
-	
+
+
 	public ArrayList<String> verifyBowelFirstScreen()
 	{
 		ArrayList<String> BowelOption = new ArrayList<String>();
 		try
 		{
 			List<WebElement> BowelOptions = wd.findElements(By.xpath("//div[@class='main-screen']//button//p"));
-			
+
 			for(int i=1;i<=BowelOptions.size();i++)
 			{
 				BowelOption.add(wd.findElement(By.xpath(String.format("(//div[@class='main-screen']//button//p)[%s]", i))).getText());
@@ -51,7 +51,7 @@ public class POC_CarePlan_BowelAndBladder extends POC_CarePlan_ADLs {
 		}
 		return BowelOption;
 	}
-	
+
 	public void SelectBetweenBowelAndBladder(String Name)
 	{
 		try
@@ -64,7 +64,7 @@ public class POC_CarePlan_BowelAndBladder extends POC_CarePlan_ADLs {
 			ex.printStackTrace();
 		}
 	}
-	
+
 	public String[] SelectBowelOption(String Name)
 	{
 		String[] Option =null; 
@@ -92,12 +92,63 @@ public class POC_CarePlan_BowelAndBladder extends POC_CarePlan_ADLs {
 		}
 		return Option;
 	}
-	
+
+	public String[] SelectMealAndSnack(String Name)
+	{
+		String[] Option =null; 
+		try
+		{
+			List<WebElement> BowelOptions = wd.findElements(By.xpath("//button[contains(@class,'has-hover shadow')]//img[contains(@src,'MealSnack')]"));
+			ArrayList<String> BowelOption = new ArrayList<String>();
+			for(int i=1;i<=BowelOptions.size();i++)
+			{
+				BowelOption.add(wd.findElement(By.xpath(String.format("(//button[contains(@class,'has-hover shadow')]//img[contains(@src,'MealSnack')])[%s]", i))).getAttribute("alt"));
+			}
+			this.testReport.logSuccess("All Options", String.format("All Options :-<mark>%s</mark>", BowelOption.toString()));
+			
+			Option = BowelOption.toArray(new String[BowelOption.size()]);
+			By OptionName = By.xpath(String.format("//button[contains(@class,'has-hover shadow')]//img[@alt='%s']", Name));
+			for(int j=1;j<=Option.length;j++)
+			{
+				if(Name.equalsIgnoreCase(Option[j-1]))
+				{
+					this.click(OptionName, Name);
+					break;
+				}
+
+				/*if(Name.equals("Hydration"))
+				{
+					this.waitInSecs(2);
+					//By OptionName = By.xpath(String.format("//button[contains(@class,'has-hover shadow')]//img[@alt='%s']", Name));
+					this.click(OptionName, Name);
+				}
+				else if(Name.equals("Lunch"))
+				{
+					this.waitInSecs(2);
+					//By OptionName = By.xpath(String.format("//button[contains(@class,'has-hover shadow')]//img[@alt='%s']", Name));
+					this.click(OptionName, Name);
+				}
+				else if(Name.equals("Test2"))
+				{
+					this.waitInSecs(2);
+					//By OptionName = By.xpath(String.format("//button[contains(@class,'has-hover shadow')]//img[@alt='%s']", Name));
+					this.click(OptionName, Name);
+				}*/
+			}
+
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		return Option;
+	}
+
 	public void CancelOpenWindow()
 	{
 		this.click(btnCancel, "Cancel ");
 	}
-	
+
 	public void GetTextBowelMovementAfterClicking(String ResidentWithTimeBefore)
 	{
 		String Text = wd.findElement(By.xpath("//div[contains(@class,'main-screen')]//div//*[text()='Has bowel movement: No']/following-sibling::p[1]")).getText();
@@ -113,14 +164,14 @@ public class POC_CarePlan_BowelAndBladder extends POC_CarePlan_ADLs {
 			this.testReport.logFailure(" Bowel Movement", String.format("Bowel Movement Remain same :-<mark>%s</mark> to  :-<mark>%s</mark>", ResidentWithTimeBefore ,ResidentWithTimeText));
 		}
 	}
-	
+
 	public String getTextBeforeBowelMovement()
 	{
 		String Text = wd.findElement(By.xpath("//div[contains(@class,'main-screen')]//div//*[contains(text(),'Has bowel movement')]/following-sibling::p[2]")).getText();
 		this.testReport.logSuccess(" Bowel Movement", String.format("Bowel Movement :-<mark>%s</mark> Before Clicking Text", Text));
 		return Text ;
 	}
-	
+
 	public void VerifyButtonsInBMWindow()
 	{
 		try
@@ -146,30 +197,30 @@ public class POC_CarePlan_BowelAndBladder extends POC_CarePlan_ADLs {
 		}
 		catch(Exception ex)
 		{
-			
+
 		}
 	}
-	
+
 	public void ComponentsInBMWindow()
 	{
 		try
 		{
-		this.WaitForElementPresent(btnEnterNotes,10, "Enter Notes ");
-		this.VerifyWebElementPresent(btnEnterNotes, "Enter Notes ");
-		this.VerifyWebElementPresent(btnCancel, "Cancel ");
-		this.click(btnEnterNotes, "Enter Notes ");
+			this.WaitForElementPresent(btnEnterNotes,10, "Enter Notes ");
+			this.VerifyWebElementPresent(btnEnterNotes, "Enter Notes ");
+			this.VerifyWebElementPresent(btnCancel, "Cancel ");
+			this.click(btnEnterNotes, "Enter Notes ");
 		}
 		catch(Exception ex)
 		{
-			
+
 		}
 	}
-	
+
 	public String WrittingTextInNotes(String text) 
 	{
 		this.waitInSecs(5);
 		this.click(btnClear, "Clear");
-		
+
 		int size = text.length();
 		char aa[]=new char[size];
 		int i=0;
@@ -185,7 +236,7 @@ public class POC_CarePlan_BowelAndBladder extends POC_CarePlan_ADLs {
 		}
 		return text;
 	}
-	
+
 	public void ValidateEnterNoteText(String text,String HeightWeight)
 	{
 		String Text = null;
@@ -208,7 +259,7 @@ public class POC_CarePlan_BowelAndBladder extends POC_CarePlan_ADLs {
 			this.testReport.logFailure("Text Validate", "<mark>Text not Validate properly</mark>");
 		}
 	}
-	
+
 	public String[] SelectOptionsFromBM(String Continence , String BowelForm , String Size)
 	{
 		String[] Options = {BowelForm ,Size};
@@ -246,7 +297,7 @@ public class POC_CarePlan_BowelAndBladder extends POC_CarePlan_ADLs {
 		}
 		return Options;
 	}
-	
+
 	public void VerifyBowelMovementAfterSelectingBM(String BowelForm , String Size)
 	{
 		try
@@ -268,21 +319,21 @@ public class POC_CarePlan_BowelAndBladder extends POC_CarePlan_ADLs {
 			ex.printStackTrace();
 		}
 	}
-	
+
 	public String SelectColostomyBagFromAppliance()
 	{
 		String ColostomyBag = wd.findElement(By.xpath("//button[@data-dismiss='modal']/img[contains(@src,'QuestionMark')]")).getAttribute("alt");
 		this.click(btnColostomyBag, ColostomyBag);
 		return ColostomyBag;		
 	}
-	
+
 	public String SelectionFromTraining()
 	{
 		String SelectedOption = wd.findElement(By.xpath("//button[@data-dismiss='modal']/img[contains(@src,'Independant')]/following-sibling::*")).getText();
 		this.click(btnParticipate, SelectedOption);
 		return SelectedOption;		
 	}
-	
+
 	public void VerifyApplianceAfterSelection(String BowelOption ,String ApplianceTEXT)
 	{
 		String ApplianceText = wd.findElement(By.xpath(String.format("//*[contains(text(),'%s')]//preceding-sibling::div/p[contains(@class,'center')]",BowelOption))).getText();
@@ -299,7 +350,7 @@ public class POC_CarePlan_BowelAndBladder extends POC_CarePlan_ADLs {
 			this.testReport.logFailure("Appliance Text Verification", String.format("Appliance Text :- <mark>%s</mark> not remain same with Selection :- <mark>%s</mark>", ApplianceText,ApplianceTEXT));
 		}
 	}
-	
+
 	public String VerifyBladderAppliance(String SelectAppliance)
 	{
 		try

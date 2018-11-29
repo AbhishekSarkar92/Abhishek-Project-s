@@ -3,11 +3,17 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="UnitTestForDebugging">
+      <class name="POC.tests.functionalTests.CarePlan_MealAndSnack_TestCases">
         <methods>
-          <include name="testExcel"/>
+          <include name="POC_QA_Verify_Meal_And_Snack_For_Resident" invocation-numbers="0"/>
+          <include name="beforeMethod"/>
+          <include name="beforeSuite"/>
+          <include name="afterTest"/>
+          <include name="beforeTest"/>
+          <include name="afterSuite"/>
+          <include name="afterMethod"/>
         </methods>
-      </class> <!-- UnitTestForDebugging -->
+      </class> <!-- POC.tests.functionalTests.CarePlan_MealAndSnack_TestCases -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

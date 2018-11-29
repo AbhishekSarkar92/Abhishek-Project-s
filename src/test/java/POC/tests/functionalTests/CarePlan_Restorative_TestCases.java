@@ -16,7 +16,7 @@ import dweb.test.templates.TestTemplateMethodLevelInit;
 
 public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 
-	//@Test()
+	@Test()
 	public void POC_QA305_Restorative_Recording_For_Resident(ITestContext testContext)
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -42,7 +42,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 
-	//@Test()
+	@Test()
 	public void POC_QA306_Self_And_Support_Under_Ambulation_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -74,7 +74,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 
-	//@Test()
+	@Test()
 	public void POC_QA307_Self_And_Support_Under_Ambulation_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -107,7 +107,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 	}
 
 
-	//@Test()
+	@Test()
 	public void POC_QA308_Tolerance_Under_Ambulation_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -140,7 +140,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 	}
 
 
-	//@Test()
+	@Test()
 	public void POC_QA309_NoParticipation_NoParticipation_With_Notes_Under_Ambulation_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -445,7 +445,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA320_NoParticipation_NoParticipation_With_Notes_Under_Bed_Mobility_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -477,7 +477,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA321_Restorative_Recording_For_Resident(ITestContext testContext)
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -503,7 +503,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA322_Self_And_Support_Under_Communication_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -535,7 +535,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA323_Minutes_Under_Communication_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -568,7 +568,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA324_Tolerance_Under_Communication_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -600,7 +600,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA325_NoParticipation_NoParticipation_With_Notes_Under_Communication_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -632,7 +632,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA326_Restorative_Recording_For_Resident(ITestContext testContext)
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -658,7 +658,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA327_Self_And_Support_Under_Continence_Exercise_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -690,7 +690,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA328_Minutes_Under_Continence_Exercise_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -723,7 +723,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA329_Tolerance_Under_Continence_Exercise_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -755,7 +755,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA330_NoParticipation_NoParticipation_With_Notes_Under_Continence_Exercise_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -787,7 +787,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 
-	//@Test()
+	@Test()
 	public void POC_QA331_Restorative_Recording_For_Resident(ITestContext testContext)
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -813,7 +813,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA332_Self_And_Support_Under_Dining_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -845,7 +845,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA333_Minutes_Under_Dining_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -878,7 +878,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA334_Tolerance_Under_Dining_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -910,7 +910,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA335_NoParticipation_NoParticipation_With_Notes_Under_Dining_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -943,7 +943,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 	}
 	
 	
-	//@Test()
+	@Test()
 	public void POC_QA336_Restorative_Recording_For_Resident(ITestContext testContext)
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -969,7 +969,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA337_Self_And_Support_Under_Dressing_Grooming_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1001,7 +1001,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA338_Minutes_Under_Dressing_Grooming_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1034,7 +1034,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA339_Tolerance_Under_Dressing_Grooming_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1066,7 +1066,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA340_NoParticipation_NoParticipation_With_Notes_Under_Dressing_Grooming_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1098,7 +1098,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA341_Self_And_Support_Under_Prosthetic_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1130,7 +1130,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA342_Minutes_Under_Prosthetic_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1163,7 +1163,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA343_Tolerance_Under_Prosthetic_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1195,7 +1195,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA344_NoParticipation_NoParticipation_With_Notes_Under_Prosthetic_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1227,7 +1227,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA345_Restorative_Recording_For_Resident(ITestContext testContext)
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1254,7 +1254,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 	}
 	
 
-	//@Test()
+	@Test()
 	public void POC_QA346_Self_And_Support_Under_Range_Of_Motion_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1286,7 +1286,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA347_Active_Minutes_Under_Range_Of_Motion_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1320,7 +1320,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 	}
 	
 	
-	//@Test()
+	@Test()
 	public void POC_QA348_Passive_Minutes_Under_Range_Of_Motion_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1353,7 +1353,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA349_Tolerance_Under_Range_Of_Motion_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1385,7 +1385,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA350_NoParticipation_NoParticipation_With_Notes_Under_Range_Of_Motion_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1417,7 +1417,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA351_Restorative_Recording_For_Resident(ITestContext testContext)
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1444,7 +1444,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 	}
 	
 
-	//@Test()
+	@Test()
 	public void POC_QA352_Self_And_Support_Under_Splint_Brace_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1476,7 +1476,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA353_Minutes_Under_Splint_Brace_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1509,7 +1509,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 	}
 	
 	
-	//@Test()
+	@Test()
 	public void POC_QA354_Splint_Location_Under_Splint_Brace_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1541,7 +1541,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA355_Tolerance_Under_Splint_Brace_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1573,7 +1573,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA356_NoParticipation_NoParticipation_With_Notes_Under_Splint_Brace_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1605,7 +1605,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA357_Restorative_Recording_For_Resident(ITestContext testContext)
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1631,7 +1631,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA358_Self_And_Support_Under_Strength_Training_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1663,7 +1663,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA359_NU_Step_Minutes_Under_Strength_Training_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1696,7 +1696,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA360_Tolerance_Under_Strength_Training_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1728,7 +1728,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA361_NoParticipation_NoParticipation_With_Notes_Under_Strength_Training_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1760,7 +1760,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA362_Restorative_Recording_For_Resident(ITestContext testContext)
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1786,7 +1786,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA363_Self_And_Support_Under_Transfer_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1818,7 +1818,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA364_Minutes_Under_Transfer_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1851,7 +1851,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA365_Tolerance_Under_Transfer_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);
@@ -1883,7 +1883,7 @@ public class CarePlan_Restorative_TestCases extends TestTemplateMethodLevelInit{
 		pocHome.ShutDownTheApplication();
 	}
 	
-	//@Test()
+	@Test()
 	public void POC_QA366_NoParticipation_NoParticipation_With_Notes_Under_Transfer_Restorative_Recording_For_Resident(ITestContext testContext) throws InterruptedException
 	{
 		POC_HomePage pocHome = new POC_HomePage(threadLocalWebDriver.get(), TestTemplate.testReport);

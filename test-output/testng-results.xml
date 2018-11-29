@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="14" passed="14">
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="SuiteRegression" duration-ms="3081060" started-at="2018-11-19T09:53:00Z" finished-at="2018-11-19T10:44:21Z">
+  <suite name="SuiteRegression" duration-ms="310863" started-at="2018-11-29T13:59:41Z" finished-at="2018-11-29T14:04:52Z">
     <groups>
     </groups>
-    <test name="test" duration-ms="3081060" started-at="2018-11-19T09:53:00Z" finished-at="2018-11-19T10:44:21Z">
-      <class name="POC.tests.functionalTests.CarePlan_ADLs_TestCases">
-        <test-method status="PASS" signature="beforeSuite(org.testng.ITestContext, org.testng.xml.XmlTest)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="beforeSuite" is-config="true" duration-ms="220" started-at="2018-11-19T15:23:00Z" finished-at="2018-11-19T15:23:00Z">
+    <test name="test" duration-ms="310863" started-at="2018-11-29T13:59:41Z" finished-at="2018-11-29T14:04:52Z">
+      <class name="POC.tests.functionalTests.CarePlan_MealAndSnack_TestCases">
+        <test-method status="PASS" signature="beforeSuite(org.testng.ITestContext, org.testng.xml.XmlTest)[pri:0, instance:POC.tests.functionalTests.CarePlan_MealAndSnack_TestCases@1563da5]" name="beforeSuite" is-config="true" duration-ms="219" started-at="2018-11-29T19:29:41Z" finished-at="2018-11-29T19:29:41Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
+                <![CDATA[org.testng.TestRunner@53a9f10f]]>
               </value>
             </param>
             <param index="1">
@@ -23,712 +23,184 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeSuite -->
-        <test-method status="PASS" signature="beforeTest(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="beforeTest" is-config="true" duration-ms="0" started-at="2018-11-19T15:23:00Z" finished-at="2018-11-19T15:23:00Z">
+        <test-method status="PASS" signature="beforeTest(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.CarePlan_MealAndSnack_TestCases@1563da5]" name="beforeTest" is-config="true" duration-ms="0" started-at="2018-11-29T19:29:41Z" finished-at="2018-11-29T19:29:41Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
+                <![CDATA[org.testng.TestRunner@53a9f10f]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="beforeMethod(org.testng.ITestContext, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="beforeMethod" is-config="true" duration-ms="23724" started-at="2018-11-19T15:23:00Z" finished-at="2018-11-19T15:23:24Z">
+        <test-method status="PASS" signature="beforeMethod(org.testng.ITestContext, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.CarePlan_MealAndSnack_TestCases@1563da5]" name="beforeMethod" is-config="true" duration-ms="19738" started-at="2018-11-29T19:29:41Z" finished-at="2018-11-29T19:30:01Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
+                <![CDATA[org.testng.TestRunner@53a9f10f]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[public void POC.tests.functionalTests.CarePlan_ADLs_TestCases.POC_QA271_New_And_Manage_Data_For_The_Care_Areas(org.testng.ITestContext)]]>
+                <![CDATA[public void POC.tests.functionalTests.CarePlan_MealAndSnack_TestCases.POC_QA298_Verify_Hydration__Meal_And_Snack_For_Resident(org.testng.ITestContext) throws java.lang.InterruptedException,java.awt.AWTException]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="POC_QA271_New_And_Manage_Data_For_The_Care_Areas(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="POC_QA271_New_And_Manage_Data_For_The_Care_Areas" duration-ms="71804" started-at="2018-11-19T15:23:24Z" finished-at="2018-11-19T15:24:35Z">
+        <test-method status="PASS" signature="POC_QA298_Verify_Hydration__Meal_And_Snack_For_Resident(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.CarePlan_MealAndSnack_TestCases@1563da5]" name="POC_QA298_Verify_Hydration__Meal_And_Snack_For_Resident" duration-ms="68386" started-at="2018-11-29T19:30:01Z" finished-at="2018-11-29T19:31:09Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
+                <![CDATA[org.testng.TestRunner@53a9f10f]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- POC_QA271_New_And_Manage_Data_For_The_Care_Areas -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestContext, org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="afterMethod" is-config="true" duration-ms="6093" started-at="2018-11-19T15:24:35Z" finished-at="2018-11-19T15:24:41Z">
+        </test-method> <!-- POC_QA298_Verify_Hydration__Meal_And_Snack_For_Resident -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestContext, org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.CarePlan_MealAndSnack_TestCases@1563da5]" name="afterMethod" is-config="true" duration-ms="6159" started-at="2018-11-29T19:31:09Z" finished-at="2018-11-29T19:31:16Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
+                <![CDATA[org.testng.TestRunner@53a9f10f]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[[TestResult name=POC_QA271_New_And_Manage_Data_For_The_Care_Areas status=SUCCESS method=CarePlan_ADLs_TestCases.POC_QA271_New_And_Manage_Data_For_The_Care_Areas(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b] output={null}]]]>
+                <![CDATA[[TestResult name=POC_QA298_Verify_Hydration__Meal_And_Snack_For_Resident status=SUCCESS method=CarePlan_MealAndSnack_TestCases.POC_QA298_Verify_Hydration__Meal_And_Snack_For_Resident(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.CarePlan_MealAndSnack_TestCases@1563da5] output={null}]]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[public void POC.tests.functionalTests.CarePlan_ADLs_TestCases.POC_QA271_New_And_Manage_Data_For_The_Care_Areas(org.testng.ITestContext)]]>
+                <![CDATA[public void POC.tests.functionalTests.CarePlan_MealAndSnack_TestCases.POC_QA298_Verify_Hydration__Meal_And_Snack_For_Resident(org.testng.ITestContext) throws java.lang.InterruptedException,java.awt.AWTException]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="beforeMethod(org.testng.ITestContext, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="beforeMethod" is-config="true" duration-ms="21678" started-at="2018-11-19T15:24:41Z" finished-at="2018-11-19T15:25:03Z">
+        <test-method status="PASS" signature="beforeMethod(org.testng.ITestContext, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.CarePlan_MealAndSnack_TestCases@1563da5]" name="beforeMethod" is-config="true" duration-ms="20801" started-at="2018-11-29T19:31:16Z" finished-at="2018-11-29T19:31:36Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
+                <![CDATA[org.testng.TestRunner@53a9f10f]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[public void POC.tests.functionalTests.CarePlan_ADLs_TestCases.POC_QA272_Activity_Of_Daily_Livings_ADLs_First_Screen(org.testng.ITestContext) throws java.awt.AWTException]]>
+                <![CDATA[public void POC.tests.functionalTests.CarePlan_MealAndSnack_TestCases.POC_QA299_Verify_Lunch__Meal_And_Snack_For_Resident(org.testng.ITestContext) throws java.lang.InterruptedException,java.awt.AWTException]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="POC_QA272_Activity_Of_Daily_Livings_ADLs_First_Screen(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="POC_QA272_Activity_Of_Daily_Livings_ADLs_First_Screen" duration-ms="808569" started-at="2018-11-19T15:25:03Z" finished-at="2018-11-19T15:38:32Z">
+        <test-method status="PASS" signature="POC_QA299_Verify_Lunch__Meal_And_Snack_For_Resident(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.CarePlan_MealAndSnack_TestCases@1563da5]" name="POC_QA299_Verify_Lunch__Meal_And_Snack_For_Resident" duration-ms="80981" started-at="2018-11-29T19:31:36Z" finished-at="2018-11-29T19:32:57Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
+                <![CDATA[org.testng.TestRunner@53a9f10f]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- POC_QA272_Activity_Of_Daily_Livings_ADLs_First_Screen -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestContext, org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="afterMethod" is-config="true" duration-ms="6409" started-at="2018-11-19T15:38:32Z" finished-at="2018-11-19T15:38:38Z">
+        </test-method> <!-- POC_QA299_Verify_Lunch__Meal_And_Snack_For_Resident -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestContext, org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.CarePlan_MealAndSnack_TestCases@1563da5]" name="afterMethod" is-config="true" duration-ms="5901" started-at="2018-11-29T19:32:57Z" finished-at="2018-11-29T19:33:03Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
+                <![CDATA[org.testng.TestRunner@53a9f10f]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[[TestResult name=POC_QA272_Activity_Of_Daily_Livings_ADLs_First_Screen status=SUCCESS method=CarePlan_ADLs_TestCases.POC_QA272_Activity_Of_Daily_Livings_ADLs_First_Screen(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b] output={null}]]]>
+                <![CDATA[[TestResult name=POC_QA299_Verify_Lunch__Meal_And_Snack_For_Resident status=SUCCESS method=CarePlan_MealAndSnack_TestCases.POC_QA299_Verify_Lunch__Meal_And_Snack_For_Resident(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.CarePlan_MealAndSnack_TestCases@1563da5] output={null}]]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[public void POC.tests.functionalTests.CarePlan_ADLs_TestCases.POC_QA272_Activity_Of_Daily_Livings_ADLs_First_Screen(org.testng.ITestContext) throws java.awt.AWTException]]>
+                <![CDATA[public void POC.tests.functionalTests.CarePlan_MealAndSnack_TestCases.POC_QA299_Verify_Lunch__Meal_And_Snack_For_Resident(org.testng.ITestContext) throws java.lang.InterruptedException,java.awt.AWTException]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="beforeMethod(org.testng.ITestContext, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="beforeMethod" is-config="true" duration-ms="18282" started-at="2018-11-19T15:38:38Z" finished-at="2018-11-19T15:38:56Z">
+        <test-method status="PASS" signature="beforeMethod(org.testng.ITestContext, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.CarePlan_MealAndSnack_TestCases@1563da5]" name="beforeMethod" is-config="true" duration-ms="19051" started-at="2018-11-29T19:33:03Z" finished-at="2018-11-29T19:33:22Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
+                <![CDATA[org.testng.TestRunner@53a9f10f]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[public void POC.tests.functionalTests.CarePlan_ADLs_TestCases.POC_QA273_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_BedMobility(org.testng.ITestContext)]]>
+                <![CDATA[public void POC.tests.functionalTests.CarePlan_MealAndSnack_TestCases.POC_QA300_Verify_Test2__Meal_And_Snack_For_Resident(org.testng.ITestContext) throws java.lang.InterruptedException,java.awt.AWTException]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="POC_QA273_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_BedMobility(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="POC_QA273_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_BedMobility" duration-ms="172618" started-at="2018-11-19T15:38:56Z" finished-at="2018-11-19T15:41:49Z">
+        <test-method status="PASS" signature="POC_QA300_Verify_Test2__Meal_And_Snack_For_Resident(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.CarePlan_MealAndSnack_TestCases@1563da5]" name="POC_QA300_Verify_Test2__Meal_And_Snack_For_Resident" duration-ms="83807" started-at="2018-11-29T19:33:22Z" finished-at="2018-11-29T19:34:46Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
+                <![CDATA[org.testng.TestRunner@53a9f10f]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- POC_QA273_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_BedMobility -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestContext, org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="afterMethod" is-config="true" duration-ms="5999" started-at="2018-11-19T15:41:49Z" finished-at="2018-11-19T15:41:55Z">
+        </test-method> <!-- POC_QA300_Verify_Test2__Meal_And_Snack_For_Resident -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestContext, org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.CarePlan_MealAndSnack_TestCases@1563da5]" name="afterMethod" is-config="true" duration-ms="5968" started-at="2018-11-29T19:34:46Z" finished-at="2018-11-29T19:34:52Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
+                <![CDATA[org.testng.TestRunner@53a9f10f]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[[TestResult name=POC_QA273_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_BedMobility status=SUCCESS method=CarePlan_ADLs_TestCases.POC_QA273_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_BedMobility(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b] output={null}]]]>
+                <![CDATA[[TestResult name=POC_QA300_Verify_Test2__Meal_And_Snack_For_Resident status=SUCCESS method=CarePlan_MealAndSnack_TestCases.POC_QA300_Verify_Test2__Meal_And_Snack_For_Resident(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.CarePlan_MealAndSnack_TestCases@1563da5] output={null}]]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[public void POC.tests.functionalTests.CarePlan_ADLs_TestCases.POC_QA273_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_BedMobility(org.testng.ITestContext)]]>
+                <![CDATA[public void POC.tests.functionalTests.CarePlan_MealAndSnack_TestCases.POC_QA300_Verify_Test2__Meal_And_Snack_For_Resident(org.testng.ITestContext) throws java.lang.InterruptedException,java.awt.AWTException]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="beforeMethod(org.testng.ITestContext, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="beforeMethod" is-config="true" duration-ms="24379" started-at="2018-11-19T15:41:55Z" finished-at="2018-11-19T15:42:19Z">
+        <test-method status="PASS" signature="afterTest(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.CarePlan_MealAndSnack_TestCases@1563da5]" name="afterTest" is-config="true" duration-ms="70" started-at="2018-11-29T19:34:52Z" finished-at="2018-11-29T19:34:52Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[public void POC.tests.functionalTests.CarePlan_ADLs_TestCases.POC_QA274_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_Transfer(org.testng.ITestContext)]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="POC_QA274_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_Transfer(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="POC_QA274_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_Transfer" duration-ms="114388" started-at="2018-11-19T15:42:19Z" finished-at="2018-11-19T15:44:14Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- POC_QA274_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_Transfer -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestContext, org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="afterMethod" is-config="true" duration-ms="6011" started-at="2018-11-19T15:44:14Z" finished-at="2018-11-19T15:44:20Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[[TestResult name=POC_QA274_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_Transfer status=SUCCESS method=CarePlan_ADLs_TestCases.POC_QA274_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_Transfer(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b] output={null}]]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[public void POC.tests.functionalTests.CarePlan_ADLs_TestCases.POC_QA274_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_Transfer(org.testng.ITestContext)]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="beforeMethod(org.testng.ITestContext, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="beforeMethod" is-config="true" duration-ms="26357" started-at="2018-11-19T15:44:20Z" finished-at="2018-11-19T15:44:46Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[public void POC.tests.functionalTests.CarePlan_ADLs_TestCases.POC_QA275_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_WalkInRoom(org.testng.ITestContext)]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="POC_QA275_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_WalkInRoom(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="POC_QA275_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_WalkInRoom" duration-ms="113434" started-at="2018-11-19T15:44:46Z" finished-at="2018-11-19T15:46:40Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- POC_QA275_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_WalkInRoom -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestContext, org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="afterMethod" is-config="true" duration-ms="5992" started-at="2018-11-19T15:46:40Z" finished-at="2018-11-19T15:46:46Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[[TestResult name=POC_QA275_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_WalkInRoom status=SUCCESS method=CarePlan_ADLs_TestCases.POC_QA275_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_WalkInRoom(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b] output={null}]]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[public void POC.tests.functionalTests.CarePlan_ADLs_TestCases.POC_QA275_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_WalkInRoom(org.testng.ITestContext)]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="beforeMethod(org.testng.ITestContext, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="beforeMethod" is-config="true" duration-ms="23111" started-at="2018-11-19T15:46:46Z" finished-at="2018-11-19T15:47:09Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[public void POC.tests.functionalTests.CarePlan_ADLs_TestCases.POC_QA276_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_WalkInCorridor(org.testng.ITestContext)]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="POC_QA276_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_WalkInCorridor(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="POC_QA276_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_WalkInCorridor" duration-ms="113821" started-at="2018-11-19T15:47:09Z" finished-at="2018-11-19T15:49:03Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- POC_QA276_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_WalkInCorridor -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestContext, org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="afterMethod" is-config="true" duration-ms="5970" started-at="2018-11-19T15:49:03Z" finished-at="2018-11-19T15:49:09Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[[TestResult name=POC_QA276_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_WalkInCorridor status=SUCCESS method=CarePlan_ADLs_TestCases.POC_QA276_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_WalkInCorridor(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b] output={null}]]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[public void POC.tests.functionalTests.CarePlan_ADLs_TestCases.POC_QA276_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_WalkInCorridor(org.testng.ITestContext)]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="beforeMethod(org.testng.ITestContext, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="beforeMethod" is-config="true" duration-ms="18748" started-at="2018-11-19T15:49:09Z" finished-at="2018-11-19T15:49:27Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[public void POC.tests.functionalTests.CarePlan_ADLs_TestCases.POC_QA277_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_OnUnit(org.testng.ITestContext)]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="POC_QA277_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_OnUnit(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="POC_QA277_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_OnUnit" duration-ms="113790" started-at="2018-11-19T15:49:27Z" finished-at="2018-11-19T15:51:21Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- POC_QA277_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_OnUnit -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestContext, org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="afterMethod" is-config="true" duration-ms="5947" started-at="2018-11-19T15:51:21Z" finished-at="2018-11-19T15:51:27Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[[TestResult name=POC_QA277_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_OnUnit status=SUCCESS method=CarePlan_ADLs_TestCases.POC_QA277_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_OnUnit(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b] output={null}]]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[public void POC.tests.functionalTests.CarePlan_ADLs_TestCases.POC_QA277_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_OnUnit(org.testng.ITestContext)]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="beforeMethod(org.testng.ITestContext, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="beforeMethod" is-config="true" duration-ms="23267" started-at="2018-11-19T15:51:27Z" finished-at="2018-11-19T15:51:50Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[public void POC.tests.functionalTests.CarePlan_ADLs_TestCases.POC_QA278_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_OffUnit(org.testng.ITestContext)]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="POC_QA278_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_OffUnit(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="POC_QA278_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_OffUnit" duration-ms="114351" started-at="2018-11-19T15:51:50Z" finished-at="2018-11-19T15:53:45Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- POC_QA278_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_OffUnit -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestContext, org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="afterMethod" is-config="true" duration-ms="6036" started-at="2018-11-19T15:53:45Z" finished-at="2018-11-19T15:53:51Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[[TestResult name=POC_QA278_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_OffUnit status=SUCCESS method=CarePlan_ADLs_TestCases.POC_QA278_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_OffUnit(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b] output={null}]]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[public void POC.tests.functionalTests.CarePlan_ADLs_TestCases.POC_QA278_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_OffUnit(org.testng.ITestContext)]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="beforeMethod(org.testng.ITestContext, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="beforeMethod" is-config="true" duration-ms="25518" started-at="2018-11-19T15:53:51Z" finished-at="2018-11-19T15:54:16Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[public void POC.tests.functionalTests.CarePlan_ADLs_TestCases.POC_QA279_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_Dressing(org.testng.ITestContext)]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="POC_QA279_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_Dressing(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="POC_QA279_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_Dressing" duration-ms="115137" started-at="2018-11-19T15:54:16Z" finished-at="2018-11-19T15:56:11Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- POC_QA279_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_Dressing -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestContext, org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="afterMethod" is-config="true" duration-ms="5813" started-at="2018-11-19T15:56:11Z" finished-at="2018-11-19T15:56:17Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[[TestResult name=POC_QA279_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_Dressing status=SUCCESS method=CarePlan_ADLs_TestCases.POC_QA279_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_Dressing(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b] output={null}]]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[public void POC.tests.functionalTests.CarePlan_ADLs_TestCases.POC_QA279_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_Dressing(org.testng.ITestContext)]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="beforeMethod(org.testng.ITestContext, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="beforeMethod" is-config="true" duration-ms="18427" started-at="2018-11-19T15:56:17Z" finished-at="2018-11-19T15:56:36Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[public void POC.tests.functionalTests.CarePlan_ADLs_TestCases.POC_QA280_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_Eating(org.testng.ITestContext)]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="POC_QA280_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_Eating(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="POC_QA280_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_Eating" duration-ms="114335" started-at="2018-11-19T15:56:36Z" finished-at="2018-11-19T15:58:30Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- POC_QA280_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_Eating -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestContext, org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="afterMethod" is-config="true" duration-ms="5970" started-at="2018-11-19T15:58:30Z" finished-at="2018-11-19T15:58:36Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[[TestResult name=POC_QA280_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_Eating status=SUCCESS method=CarePlan_ADLs_TestCases.POC_QA280_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_Eating(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b] output={null}]]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[public void POC.tests.functionalTests.CarePlan_ADLs_TestCases.POC_QA280_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_Eating(org.testng.ITestContext)]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="beforeMethod(org.testng.ITestContext, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="beforeMethod" is-config="true" duration-ms="21769" started-at="2018-11-19T15:58:36Z" finished-at="2018-11-19T15:58:58Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[public void POC.tests.functionalTests.CarePlan_ADLs_TestCases.POC_QA281_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_ToiletUse(org.testng.ITestContext)]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="POC_QA281_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_ToiletUse(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="POC_QA281_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_ToiletUse" duration-ms="113947" started-at="2018-11-19T15:58:58Z" finished-at="2018-11-19T16:00:52Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- POC_QA281_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_ToiletUse -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestContext, org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="afterMethod" is-config="true" duration-ms="5910" started-at="2018-11-19T16:00:52Z" finished-at="2018-11-19T16:00:57Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[[TestResult name=POC_QA281_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_ToiletUse status=SUCCESS method=CarePlan_ADLs_TestCases.POC_QA281_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_ToiletUse(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b] output={null}]]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[public void POC.tests.functionalTests.CarePlan_ADLs_TestCases.POC_QA281_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_ToiletUse(org.testng.ITestContext)]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="beforeMethod(org.testng.ITestContext, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="beforeMethod" is-config="true" duration-ms="20495" started-at="2018-11-19T16:00:57Z" finished-at="2018-11-19T16:01:18Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[public void POC.tests.functionalTests.CarePlan_ADLs_TestCases.POC_QA282_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_PersonalHygiene(org.testng.ITestContext)]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="POC_QA282_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_PersonalHygiene(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="POC_QA282_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_PersonalHygiene" duration-ms="113997" started-at="2018-11-19T16:01:18Z" finished-at="2018-11-19T16:03:12Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- POC_QA282_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_PersonalHygiene -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestContext, org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="afterMethod" is-config="true" duration-ms="5881" started-at="2018-11-19T16:03:12Z" finished-at="2018-11-19T16:03:18Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[[TestResult name=POC_QA282_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_PersonalHygiene status=SUCCESS method=CarePlan_ADLs_TestCases.POC_QA282_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_PersonalHygiene(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b] output={null}]]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[public void POC.tests.functionalTests.CarePlan_ADLs_TestCases.POC_QA282_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_PersonalHygiene(org.testng.ITestContext)]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="beforeMethod(org.testng.ITestContext, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="beforeMethod" is-config="true" duration-ms="25483" started-at="2018-11-19T16:03:18Z" finished-at="2018-11-19T16:03:43Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[public void POC.tests.functionalTests.CarePlan_ADLs_TestCases.POC_QA283_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_Bathing(org.testng.ITestContext)]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="POC_QA283_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_Bathing(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="POC_QA283_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_Bathing" duration-ms="113620" started-at="2018-11-19T16:03:43Z" finished-at="2018-11-19T16:05:37Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- POC_QA283_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_Bathing -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestContext, org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="afterMethod" is-config="true" duration-ms="6006" started-at="2018-11-19T16:05:37Z" finished-at="2018-11-19T16:05:43Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[[TestResult name=POC_QA283_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_Bathing status=SUCCESS method=CarePlan_ADLs_TestCases.POC_QA283_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_Bathing(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b] output={null}]]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[public void POC.tests.functionalTests.CarePlan_ADLs_TestCases.POC_QA283_User_Able_To_Record_An_ADLs_Activity_Of_Daily_Livings_ADLs_for_Bathing(org.testng.ITestContext)]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="beforeMethod(org.testng.ITestContext, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="beforeMethod" is-config="true" duration-ms="18397" started-at="2018-11-19T16:05:43Z" finished-at="2018-11-19T16:06:01Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[public void POC.tests.functionalTests.CarePlan_ADLs_TestCases.POC_QA284_Color_Change_For_ADLs_Icon(org.testng.ITestContext) throws java.awt.AWTException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="POC_QA284_Color_Change_For_ADLs_Icon(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="POC_QA284_Color_Change_For_ADLs_Icon" duration-ms="492994" started-at="2018-11-19T16:06:01Z" finished-at="2018-11-19T16:14:14Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- POC_QA284_Color_Change_For_ADLs_Icon -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestContext, org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="afterMethod" is-config="true" duration-ms="6467" started-at="2018-11-19T16:14:14Z" finished-at="2018-11-19T16:14:21Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[[TestResult name=POC_QA284_Color_Change_For_ADLs_Icon status=SUCCESS method=CarePlan_ADLs_TestCases.POC_QA284_Color_Change_For_ADLs_Icon(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b] output={null}]]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[public void POC.tests.functionalTests.CarePlan_ADLs_TestCases.POC_QA284_Color_Change_For_ADLs_Icon(org.testng.ITestContext) throws java.awt.AWTException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="afterTest(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="afterTest" is-config="true" duration-ms="95" started-at="2018-11-19T16:14:21Z" finished-at="2018-11-19T16:14:21Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
+                <![CDATA[org.testng.TestRunner@53a9f10f]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="afterSuite(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.CarePlan_ADLs_TestCases@2bbf4b8b]" name="afterSuite" is-config="true" duration-ms="78" started-at="2018-11-19T16:14:21Z" finished-at="2018-11-19T16:14:21Z">
+        <test-method status="PASS" signature="afterSuite(org.testng.ITestContext)[pri:0, instance:POC.tests.functionalTests.CarePlan_MealAndSnack_TestCases@1563da5]" name="afterSuite" is-config="true" duration-ms="32" started-at="2018-11-29T19:34:52Z" finished-at="2018-11-29T19:34:52Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@296e98df]]>
+                <![CDATA[org.testng.TestRunner@53a9f10f]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterSuite -->
-      </class> <!-- POC.tests.functionalTests.CarePlan_ADLs_TestCases -->
+      </class> <!-- POC.tests.functionalTests.CarePlan_MealAndSnack_TestCases -->
     </test> <!-- test -->
   </suite> <!-- SuiteRegression -->
 </testng-results>
